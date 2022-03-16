@@ -2,6 +2,8 @@
 .deploy_git
 .DS_Store
 
+public/
+
 # Logs
 logs
 *.log
