@@ -6,7 +6,7 @@ title: J. Tech.
 
 sidebar:
   menu:
-    post: '[btn.blog](/)'
-    wiki: '[btn.wiki](/wiki/)'
-    notes: '[笔记](/notes/)'
+    post: '[博客](/)'
+    wiki: '[项目](/wiki/)'
+    notes: '[便笺](/notes/)'
     more: '[更多](/more/)'

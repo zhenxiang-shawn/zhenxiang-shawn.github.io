@@ -10,10 +10,11 @@ keywords:
 author: Zhenxiang Jin
 language: zh-CN
 timezone: ''
+email: zhenxiang.shawn@outlook.com
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://zhenxiang-shawn.github.io/zhenxiang-shawn.github.io
+url: https://zhenxiang-shawn.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
