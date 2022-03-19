@@ -1,4 +1,7 @@
 welcome:
   layout: markdown
   title: Hello there!
-  content: 这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。
+  content: 
+    这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。
+
+    # Either outstanding or out. 

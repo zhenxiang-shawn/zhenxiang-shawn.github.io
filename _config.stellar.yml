@@ -7,13 +7,15 @@ title: J. Tech.
 sidebar:
   menu:
     post: '[博客](/)'
-    wiki: '[Wiki](/wiki/)'
+    wiki: '[项目](/wiki/)'
     notes: '[便笺](/notes/)'
+    about: '[关于](/about/)'
     more: '[更多](/more/)'
+    friends: '[友链](/friends/)'
 
 article:
   # 根据 tags 作为关键词为每一篇文章在线搜索封面：
-  auto_cover: false
+  auto_cover: true
   # 自动从文章内容截取一定字数的文字作为摘要
   auto_excerpt: 200
 
@@ -27,6 +29,9 @@ footer:
     github:
       icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/>'
       url: https://github.com/zhenxiang-shawn
+    email:
+      icon: '<img src="https://img.cubik65536.top/mail-bulk-solid.svg"/>'
+      url: mailto:zhenxiang-shawn@outlook.com
     comments:
       icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/>'
       url: /about/#comments
