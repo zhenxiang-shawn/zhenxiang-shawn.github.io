@@ -7,6 +7,46 @@ title: J. Tech.
 sidebar:
   menu:
     post: '[博客](/)'
-    wiki: '[项目](/wiki/)'
+    wiki: '[Wiki](/wiki/)'
     notes: '[便笺](/notes/)'
     more: '[更多](/more/)'
+
+article:
+  # 根据 tags 作为关键词为每一篇文章在线搜索封面：
+  auto_cover: false
+  # 自动从文章内容截取一定字数的文字作为摘要
+  auto_excerpt: 200
+
+comments:
+  service: beaudar
+  beaudar:
+    repo: zhenxiang-shawn/beaudar_comments
+
+footer:
+  social:
+    github:
+      icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/>'
+      url: https://github.com/zhenxiang-shawn
+    comments:
+      icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/>'
+      url: /about/#comments
+
+  sitemap:
+    '博客':
+      - '[近期](/)'
+      - '[分类](/blog/categories/)'
+      - '[标签](/blog/tags/)'
+      - '[归档](/blog/archives/)'
+    '项目':
+      - '[开源库](/wiki/tags/开源库/)'
+      - '[实用脚本](/wiki/tags/实用脚本/)'
+      - '[博客主题](/wiki/tags/博客主题/)'
+      - '[应用程序](/wiki/tags/应用程序/)'
+    '社交':
+      - '[友链](/friends/)'
+      - '[留言板](/about/#comments)'
+    '更多':
+      - '[关于本站](/about/)'
+      - '[GitHub](https://github.com/zhenxiang-shawn)'
+      # - '[GitLab](http://42.192.89.158:8099/explore)'
+  source: '[GitHub](https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/)'
