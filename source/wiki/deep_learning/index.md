@@ -1,6 +1,6 @@
 ---
 layout: wiki
-wiki: 深度学习
+wiki: DeepLearning
 title: 认识深度学习
 ---
 

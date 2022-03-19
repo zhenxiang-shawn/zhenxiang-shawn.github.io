@@ -5,7 +5,7 @@
 # Site
 title: J. Tech.
 avatar: "https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/jin_logo.png?raw=true"
-subtitle: '求知若饥，虚心若愚'
+subtitle: '求知若饥 | 虚心若愚'
 description: 'aaa'
 keywords:
 author: Zhenxiang Jin
@@ -26,6 +26,7 @@ pretty_urls:
 source_dir: source
 public_dir: public
 tag_dir: tags
+wiki_dir: wiki
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code

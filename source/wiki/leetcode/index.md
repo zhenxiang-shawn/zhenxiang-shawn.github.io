@@ -1,7 +1,6 @@
 ---
 layout: wiki
 wiki: LeetCode
-seo_title: LeetCode题目分享与解题总结
 title: 认识LeetCode
 tags: 
     - LeetCode
