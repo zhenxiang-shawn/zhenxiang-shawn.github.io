@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Python：学习Python - J. Tech.</title>
+
+  
+    <meta name="description" content="Python 基础本系列只针对有一定Python编程基础的人. 如果你对Python一无所知,请先移步到 Runoob 或者 廖雪峰的官方网站-Python来学习关于Python的基础知识. Python小彩蛋1import this   说明：输入上面的代码，在Python的交互式环境中可以看到Tim Peter撰写的“Python之禅”，里面讲述的道理不仅仅适用于Python，也适用于其他">
+<meta property="og:type" content="website">
+<meta property="og:title" content="学习Python">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/learn_python/index.html">
+<meta property="og:site_name" content="J. Tech.">
+<meta property="og:description" content="Python 基础本系列只针对有一定Python编程基础的人. 如果你对Python一无所知,请先移步到 Runoob 或者 廖雪峰的官方网站-Python来学习关于Python的基础知识. Python小彩蛋1import this   说明：输入上面的代码，在Python的交互式环境中可以看到Tim Peter撰写的“Python之禅”，里面讲述的道理不仅仅适用于Python，也适用于其他">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-20T08:27:27.828Z">
+<meta property="article:modified_time" content="2022-03-20T08:27:27.815Z">
+<meta property="article:author" content="Zhenxiang Jin">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+<div class="l_cover"><article class="cover-wrap md"><div class="preview"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true" height="128px"></div><div class="cover-title"><span>Python 实用教程</span></div><div class="description">目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。</div><div class="start-wrap"><a class="button theme start" href="#start">开始阅读</a></div></article></div><hr>
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='wiki'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap wiki"><a style="filter: grayscale(100%)" class="wiki-home cap" href="/wiki"><svg aria-hidden="true" viewBox="0 0 16 16" width="1rem" height="1rem" fill="currentColor"><path fill-rule="evenodd" d="M7.78 12.53a.75.75 0 01-1.06 0L2.47 8.28a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 1.06L4.81 7h7.44a.75.75 0 010 1.5H4.81l2.97 2.97a.75.75 0 010 1.06z"></path></svg>所有项目</a><a class="title" href="/wiki/learn_python/index.html"><div class="main">Python 实用教程</div></a></div>
+</header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-%E5%9F%BA%E7%A1%80"><span class="toc-text">Python 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Python"><span class="toc-text">Why Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%87%BAPython%E4%BB%A3%E7%A0%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF"><span class="toc-text">写出Python代码的正确姿势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E5%8F%98%E9%87%8F"><span class="toc-text">交换变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%BA%8F%E5%88%97%E7%BB%84%E8%A3%85%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">用序列组装字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="toc-text">创建列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8"><span class="toc-text">遍历列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E4%BF%9D%E4%BB%A3%E7%A0%81%E5%81%A5%E5%A3%AE%E6%80%A7"><span class="toc-text">确保代码健壮性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-text">Python 代码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Lint%E5%B7%A5%E5%85%B7%E6%A3%80%E6%9F%A5%E4%BD%A0%E7%9A%84%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-text">使用Lint工具检查你的代码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PyLint%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">PyLint的安装和使用</span></a></li></ol></li></ol></div></div></div>
+
+
+
+<div class="widget-wrap" id="related"><div class="widget-header cap dis-select"><span class="name">更多笔记</span></div><div class="widget-body fs14"><a class="more-item wiki" href="/wiki/leetcode/index.html">LeetCode 题记<div class="excerpt">LeetCode 是目前世界上最大的算法刷题网站.</div></a><a class="more-item wiki" href="/wiki/deep_learning/index.html">深度学习笔记<div class="excerpt">深度学习是机器学习的一种，而机器学习是实现人工智能的必经路径。</div></a></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+  
+  
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/learn_python/index.html">Python 实用教程</a></div><div id="post-meta">更新于&nbsp;<time datetime="2022-03-20T08:27:27.815Z">2022-03-20</time></div></div>
+
+  <article class='content md wiki'>
+  <h1 class="article-title"><span>学习Python</span></h1>
+  <span id="more"></span>
+
+<h2 id="Python-基础"><a href="#Python-基础" class="headerlink" title="Python 基础"></a>Python 基础</h2><p>本系列只针对有一定Python编程基础的人. 如果你对Python一无所知,请先移步到 <a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-tutorial.html">Runoob</a> 或者 <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">廖雪峰的官方网站-Python</a>来学习关于Python的基础知识.</p>
+<details class="tag-plugin folding" color="yellow" child="codeblock"><summary><span>Python小彩蛋</span></summary><div class="body"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure></div></details>
+
+<blockquote>
+<p><strong>说明</strong>：输入上面的代码，在Python的交互式环境中可以看到Tim Peter撰写的<a href="../Python%E4%B9%8B%E7%A6%85.md">“Python之禅”</a>，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。</p>
+</blockquote>
+<h2 id="Why-Python"><a href="#Why-Python" class="headerlink" title="Why Python"></a>Why Python</h2><p><strong>很多互联网和移动互联网企业对开发效率的要求高于对执行效率的要求</strong>。</p>
+<p>很多时候，你的问题只需一行Python代码就能解决。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一行代码实现求阶乘函数</span></span><br><span class="line">fac = <span class="keyword">lambda</span> x: <span class="built_in">__import__</span>(<span class="string">&#x27;functools&#x27;</span>).reduce(<span class="built_in">int</span>.__mul__, <span class="built_in">range</span>(<span class="number">1</span>, x + <span class="number">1</span>), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一行代码实现求最大公约数函数</span></span><br><span class="line">gcd = <span class="keyword">lambda</span> x, y: y % x <span class="keyword">and</span> gcd(y % x, x) <span class="keyword">or</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一行代码实现判断素数的函数</span></span><br><span class="line">is_prime = <span class="keyword">lambda</span> x: x &gt; <span class="number">1</span> <span class="keyword">and</span> <span class="keyword">not</span> [f <span class="keyword">for</span> f <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(x ** <span class="number">0.5</span>) + <span class="number">1</span>) <span class="keyword">if</span> x % f == <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一行代码实现快速排序</span></span><br><span class="line">quick_sort = <span class="keyword">lambda</span> items: <span class="built_in">len</span>(items) <span class="keyword">and</span> quick_sort([x <span class="keyword">for</span> x <span class="keyword">in</span> items[<span class="number">1</span>:] <span class="keyword">if</span> x &lt; items[<span class="number">0</span>]]) + [items[<span class="number">0</span>]] + quick_sort([x <span class="keyword">for</span> x <span class="keyword">in</span> items[<span class="number">1</span>:] <span class="keyword">if</span> x &gt; items[<span class="number">0</span>]]) <span class="keyword">or</span> items</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成FizzBuzz列表</span></span><br><span class="line">[<span class="string">&#x27;Fizz&#x27;</span>[x % <span class="number">3</span> * <span class="number">4</span>:] + <span class="string">&#x27;Buzz&#x27;</span>[x % <span class="number">5</span> * <span class="number">4</span>:] <span class="keyword">or</span> x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">101</span>)]</span><br></pre></td></tr></table></figure>
+
+<p><strong>设计模式从未如此简单</strong></p>
+<p>Python是动态类型语言，大量的设计模式在Python中被简化或弱化.</p>
+<blockquote>
+<p><strong>思考</strong>：如何优化下面的代码。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fib</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">if</span> num <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> fib(num - <span class="number">1</span>) + fib(num - <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>代理模式在Python中可以通过内置的或自定义的装饰器来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache()</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fib</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="keyword">if</span> num <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> fib(num - <span class="number">1</span>) + fib(num - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">121</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;n&#125;</span>: <span class="subst">&#123;fib(n)&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：通过Python标准库<code>functools</code>模块的<code>lru_cache</code>装饰器为<code>fib</code>函数加上缓存代理，缓存函数执行的中间结果，优化代码的性能。</p>
+</blockquote>
+<h2 id="写出Python代码的正确姿势"><a href="#写出Python代码的正确姿势" class="headerlink" title="写出Python代码的正确姿势"></a>写出Python代码的正确姿势</h2><blockquote>
+<p> 用Python就要写出Pythonic的代码.</p>
+</blockquote>
+<h3 id="交换变量"><a href="#交换变量" class="headerlink" title="交换变量"></a>交换变量</h3><p>跨界开发者的代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">temp = a</span><br><span class="line">a = b</span><br><span class="line">b = temp</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = a ^ b</span><br><span class="line">b = a ^ b</span><br><span class="line">a = a ^ b</span><br></pre></td></tr></table></figure>
+
+<p>Pythonic的代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b = b, a</span><br></pre></td></tr></table></figure>
+
+<h3 id="用序列组装字符串"><a href="#用序列组装字符串" class="headerlink" title="用序列组装字符串"></a>用序列组装字符串</h3><p>跨界开发者的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chars = [<span class="string">&#x27;j&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;k&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;d&#x27;</span>]</span><br><span class="line">name = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> chars:</span><br><span class="line">    name += char</span><br></pre></td></tr></table></figure>
+
+<p>Pythonic的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chars = [<span class="string">&#x27;j&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;k&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;d&#x27;</span>]</span><br><span class="line">name = <span class="string">&#x27;&#x27;</span>.join(chars)</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建列表"><a href="#创建列表" class="headerlink" title="创建列表"></a>创建列表</h3><p>跨界开发者的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data = [<span class="number">7</span>, <span class="number">20</span>, <span class="number">3</span>, <span class="number">15</span>, <span class="number">11</span>]</span><br><span class="line">result = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">10</span>:</span><br><span class="line">        result.append(i * <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Pythonic的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = [<span class="number">7</span>, <span class="number">20</span>, <span class="number">3</span>, <span class="number">15</span>, <span class="number">11</span>]</span><br><span class="line">result = [num * <span class="number">3</span> <span class="keyword">for</span> num <span class="keyword">in</span> data <span class="keyword">if</span> num &gt; <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="遍历列表"><a href="#遍历列表" class="headerlink" title="遍历列表"></a>遍历列表</h3><p>跨界开发者的代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;grape&#x27;</span>, <span class="string">&#x27;pitaya&#x27;</span>, <span class="string">&#x27;blueberry&#x27;</span>]</span><br><span class="line">index = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(index, <span class="string">&#x27;:&#x27;</span>, fruit)</span><br><span class="line">    index += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>Pythonic的代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;grape&#x27;</span>, <span class="string">&#x27;pitaya&#x27;</span>, <span class="string">&#x27;blueberry&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> index, fruit <span class="keyword">in</span> <span class="built_in">enumerate</span>(fruits):</span><br><span class="line">    <span class="built_in">print</span>(index, <span class="string">&#x27;:&#x27;</span>, fruit)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="确保代码健壮性"><a href="#确保代码健壮性" class="headerlink" title="确保代码健壮性"></a>确保代码健壮性</h3><p>跨界开发者的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&#x27;x&#x27;</span>: <span class="string">&#x27;5&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;x&#x27;</span> <span class="keyword">in</span> data <span class="keyword">and</span> <span class="built_in">isinstance</span>(data[<span class="string">&#x27;x&#x27;</span>], (<span class="built_in">str</span>, <span class="built_in">int</span>, <span class="built_in">float</span>)) \</span><br><span class="line">        <span class="keyword">and</span> data[<span class="string">&#x27;x&#x27;</span>].isdigit():</span><br><span class="line">    value = <span class="built_in">int</span>(data[<span class="string">&#x27;x&#x27;</span>])</span><br><span class="line">    <span class="built_in">print</span>(value)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    value = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p>Pythonic的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">&#x27;x&#x27;</span>: <span class="string">&#x27;5&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    value = <span class="built_in">int</span>(data[<span class="string">&#x27;x&#x27;</span>])</span><br><span class="line">    <span class="built_in">print</span>(value)</span><br><span class="line"><span class="keyword">except</span> (KeyError, TypeError, ValueError):</span><br><span class="line">    value = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Python-代码规范"><a href="#Python-代码规范" class="headerlink" title="Python 代码规范"></a>Python 代码规范</h2><h3 id="使用Lint工具检查你的代码规范"><a href="#使用Lint工具检查你的代码规范" class="headerlink" title="使用Lint工具检查你的代码规范"></a>使用Lint工具检查你的代码规范</h3><p>阅读下面的代码，看看你能看出哪些地方是有毛病的或者说不符合Python的编程规范的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="meta">@unique</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Suite</span> (<span class="title class_ inherited__">Enum</span>):</span><br><span class="line">    SPADE, HEART, CLUB, DIAMOND = <span class="built_in">range</span>(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Card</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,suite,face </span>):</span><br><span class="line">        self.suite = suite</span><br><span class="line">        self.face = face</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        suites=<span class="string">&#x27;♠♥♣♦&#x27;</span></span><br><span class="line">        faces=[<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;6&#x27;</span>,<span class="string">&#x27;7&#x27;</span>,<span class="string">&#x27;8&#x27;</span>,<span class="string">&#x27;9&#x27;</span>,<span class="string">&#x27;10&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;Q&#x27;</span>,<span class="string">&#x27;K&#x27;</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;suites[self.suite.value]&#125;</span><span class="subst">&#123;faces[self.face]&#125;</span>&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Poker</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.cards =[Card(suite, face) <span class="keyword">for</span> suite <span class="keyword">in</span> Suite</span><br><span class="line">            <span class="keyword">for</span> face <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">14</span>)]</span><br><span class="line">        self.current=<span class="number">0</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">shuffle</span> (self):</span><br><span class="line">        self.current=<span class="number">0</span></span><br><span class="line">        random.shuffle(self.cards)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">deal</span> (self):</span><br><span class="line">        card = self.cards[self.current]</span><br><span class="line">        self.current+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> card</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">has_next</span> (self):</span><br><span class="line">        <span class="keyword">if</span> self.current&lt;<span class="built_in">len</span>(self.cards): <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">p = Poker()</span><br><span class="line">p.shuffle()</span><br><span class="line"><span class="built_in">print</span>(p.cards)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="PyLint的安装和使用"><a href="#PyLint的安装和使用" class="headerlink" title="PyLint的安装和使用"></a>PyLint的安装和使用</h3><p>Pylint是Python代码分析工具，它分析Python代码中的错误，查找不符合代码风格标准（默认使用的代码风格是 PEP 8）和有潜在问题的代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pylint</span><br><span class="line">pylint [options] module_or_package</span><br></pre></td></tr></table></figure>
+
+<p>Pylint输出格式如下所示。</p>
+<blockquote>
+<p>模块名:行号:列号:    消息类型    消息</p>
+</blockquote>
+<p>消息类型有以下几种：</p>
+<ol>
+<li>C - 惯例：违反了Python编程惯例（PEP 8）的代码。</li>
+<li>R - 重构：写得比较糟糕需要重构的代码。</li>
+<li>W - 警告：代码中存在的不影响代码运行的问题。</li>
+<li>E - 错误：代码中存在的影响代码运行的错误。</li>
+<li>F - 致命错误：导致Pylint无法继续运行的错误。</li>
+</ol>
+<p>Pylint命令的常用参数：</p>
+<ol>
+<li><code>--disable=&lt;msg ids&gt;</code>或<code>-d &lt;msg ids&gt;</code>：禁用指定类型的消息。</li>
+<li><code>--errors-only</code>或<code>-E</code>：只显示错误。</li>
+<li><code>--rcfile=&lt;file&gt;</code>：指定配置文件。</li>
+<li><code>--list-msgs</code>：列出Pylint的消息清单。</li>
+<li><code>--generate-rcfile</code>：生成配置文件的样例。</li>
+<li><code>--reports=&lt;y_or_n&gt;</code>或<code>-r &lt;y_or_n&gt;</code>：是否生成检查报告。</li>
+</ol>
+
+  
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://github.com/jackfrued/Python-100-Days" target="_blank" rel="external nofollow noopener noreferrer">Python 100 Days</a></li></ul></div></section></div>
+
+  </article>
+  
+<br>
+
+  
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="zhenxiang-shawn/beaudar_comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库</a><a href="/wiki/tags/%E5%AE%9E%E7%94%A8%E8%84%9A%E6%9C%AC/">实用脚本</a><a href="/wiki/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/">博客主题</a><a href="/wiki/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">应用程序</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/about/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1" title="v1.6.1">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
