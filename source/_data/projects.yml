@@ -32,3 +32,14 @@ DeepLearning:
   start: 开始阅读
   cover: true
   # 深度学习的概念源于人工神经网络的研究，含多个隐藏层的多层感知器就是一种深度学习结构。深度学习通过组合低层特征形成更加抽象的高层表示属性类别或特征，以发现数据的分布式特征表示。研究深度学习的动机在于建立模拟人脑进行分析学习的神经网络，它模仿人脑的机制来解释数据，例如图像，声音和文本等。
+
+Python: 
+  title: Python 实用教程
+  tags: 笔记
+  logo:
+    src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true
+    small: 96px
+    large: 128px
+  description: 目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。
+  start: 开始阅读
+  cover: true
