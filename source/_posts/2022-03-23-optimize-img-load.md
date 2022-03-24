@@ -1,20 +1,20 @@
 ---
-Title:如何在Server上优化博客上图片的加载速度
-Date: 2022-03-23
-Categories:[解决方案]
-Tags:[Optimization]
-References:
+title: 如何在Server上优化博客上图片的加载速度
+date: 2022-03-23
+categories: [解决方案]
+tags: [Optimization]
+references:
   - title: '百科:CDN'
     url: https://baike.baidu.com/item/CDN/420951
 ---
 
 在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.
 
+<!-- more -->
+
 ## Github Raw 文件读取
 
 在url后边加上`?raw=true`.
-
-
 
 ## 内容分发网络(Content Delivery Network (CDN))
 
