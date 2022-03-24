@@ -7,6 +7,8 @@ tags:
 references:
     -   title: Python 100 Days
         url: https://github.com/jackfrued/Python-100-Days
+    -   title: 流畅的Python
+        url: https://book.douban.com/subject/27028517/
 ---
 
 <!-- more -->
