@@ -20,12 +20,12 @@
   <title>如何在Server上优化博客上图片的加载速度 - J. Tech.</title>
 
   
-    <meta name="description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.">
+    <meta name="description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢,而且有一些地区也对GitHub加了一道防火墙,这使GitHub Pages加载速度更慢了.目前有两种方式可以缓解图片加载速度.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在Server上优化博客上图片的加载速度">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/23/2022-03-23-optimize-img-load/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.">
+<meta property="og:description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢,而且有一些地区也对GitHub加了一道防火墙,这使GitHub Pages加载速度更慢了.目前有两种方式可以缓解图片加载速度.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png">
@@ -33,6 +33,7 @@
 <meta property="article:modified_time" content="2022-03-23T16:00:00.000Z">
 <meta property="article:author" content="Zhenxiang Jin">
 <meta property="article:tag" content="Optimization">
+<meta property="article:tag" content="CDN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true">
   
@@ -85,10 +86,13 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>如何在Server上优化博客上图片的加载速度</span></h1>
-<p>在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.</p>
+<p>在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢,而且有一些地区也对GitHub加了一道防火墙,这使GitHub Pages加载速度更慢了.目前有两种方式可以缓解图片加载速度.</p>
 <span id="more"></span>
 
-<h2 id="Github-Raw-文件读取"><a href="#Github-Raw-文件读取" class="headerlink" title="Github Raw 文件读取"></a>Github Raw 文件读取</h2><p>在url后边加上<code>?raw=true</code>.</p>
+<h2 id="Github-Raw-文件读取"><a href="#Github-Raw-文件读取" class="headerlink" title="Github Raw 文件读取"></a>Github Raw 文件读取</h2><p>使用Github Raw来加载文件通常比相对路径配置的更快些, 可通过以下几种URL来加载raw文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://raw.githubusercontent.com/user/repo/branch/README.md</span><br><span class="line">https://github.com/user/repo/raw/branch/README.md</span><br><span class="line">https://github.com/user/repo/blob/branch/README.md?raw=true</span><br></pre></td></tr></table></figure>
+
+<p>对于不支持 Raw 查看的文件，在浏览器中输入或点击上述查看 raw 文件的 URL 时，会对文件进行下载。因此可以通过这个特性，在 GitHub 上直接提供文件的下载功能。支持 Raw 查看的文件，可在浏览器打开 raw 页面，直接 <code>另存为…</code> 保存即可</p>
 <h2 id="内容分发网络-Content-Delivery-Network-CDN"><a href="#内容分发网络-Content-Delivery-Network-CDN" class="headerlink" title="内容分发网络(Content Delivery Network (CDN))"></a>内容分发网络(Content Delivery Network (CDN))</h2><p>关于CDN, 百度百科给出的解释是:</p>
 <blockquote>
 <p>CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
