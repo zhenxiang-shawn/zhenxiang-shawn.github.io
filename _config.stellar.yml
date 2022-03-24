@@ -14,6 +14,17 @@ sidebar:
     friends: '[友链](/friends/)'
 
 article:
+  # 分类颜色
+  category_color:
+    '新闻稿': '#DA0F47'
+    '设计开发': '#03a9f4'
+    # '奇思妙想': '#009688'
+    '解决方案': '#ff9800'
+    '技术加油站': '#4caf50'
+    '开源库': '#4caf50'
+    # '博客主题': '#ffa000'
+    # '应用程序': '#e91e63'
+    # '实用脚本': '#009688'
   # 根据 tags 作为关键词为每一篇文章在线搜索封面：
   auto_cover: true
   # 自动从文章内容截取一定字数的文字作为摘要
@@ -43,13 +54,13 @@ footer:
       - '[标签](/blog/tags/)'
       - '[归档](/blog/archives/)'
     '项目':
-      - '[开源库](/wiki/tags/开源库/)'
-      - '[实用脚本](/wiki/tags/实用脚本/)'
-      - '[博客主题](/wiki/tags/博客主题/)'
-      - '[应用程序](/wiki/tags/应用程序/)'
+      - '[LeetCode](/wiki/tags/LeetCode/)'
+      - '[DeepLearning](/wiki/tags/DeepLearning/)'
+      - '[Python](/wiki/tags/Python/)'
+      # - '[应用程序](/wiki/tags/应用程序/)'
     '社交':
       - '[友链](/friends/)'
-      - '[留言板](/about/#comments)'
+      - '[留言板](/more/#comments)'
     '更多':
       - '[关于本站](/about/)'
       - '[GitHub](https://github.com/zhenxiang-shawn)'
