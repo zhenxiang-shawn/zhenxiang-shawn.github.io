@@ -8,12 +8,13 @@ header: false
 
 {% about %}
 
-<img height="96px" alt="hello" src="https://img.cubik65536.top/hello-cubik.png">
+<img height="96px" alt="hello" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/hello1.png">
 
 ## 嗨！我是Zhenxiang 👋
 
 **一个SWE和DS。**
 
+我的技能列表都有这些:
 <hr/>
 <br/>
 
