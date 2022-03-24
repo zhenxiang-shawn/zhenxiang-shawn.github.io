@@ -17,19 +17,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>Hello World - J. Tech.</title>
+  <title>如何在Server上优化博客上图片的加载速度 - J. Tech.</title>
 
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/14/hello-world/index.html">
+<meta property="og:title" content="如何在Server上优化博客上图片的加载速度">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/23/2022-03-23-optimize-img-load/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-14T08:30:10.012Z">
-<meta property="article:modified_time" content="2022-03-14T08:30:10.012Z">
+<meta property="article:published_time" content="2022-03-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-24T03:17:59.955Z">
 <meta property="article:author" content="Zhenxiang Jin">
+<meta property="article:tag" content="Optimization">
 <meta name="twitter:card" content="summary">
   
   
@@ -64,7 +65,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Raw-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">Github Raw 文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C-Content-Delivery-Network-CDN"><span class="toc-text">内容分发网络(Content Delivery Network (CDN))</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BACDN%E6%9C%8D%E5%8A%A1"><span class="toc-text">如何搭建CDN服务</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -77,31 +78,28 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-14T08:30:10.012Z">2022-03-14</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">解决方案</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-22T16:00:00.000Z">2022-03-23</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>Hello World</span></h1>
-<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 class="article-title"><span>如何在Server上优化博客上图片的加载速度</span></h1>
+<p>在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="Github-Raw-文件读取"><a href="#Github-Raw-文件读取" class="headerlink" title="Github Raw 文件读取"></a>Github Raw 文件读取</h2><p>在url后边加上<code>?raw=true</code>.</p>
+<h2 id="内容分发网络-Content-Delivery-Network-CDN"><a href="#内容分发网络-Content-Delivery-Network-CDN" class="headerlink" title="内容分发网络(Content Delivery Network (CDN))"></a>内容分发网络(Content Delivery Network (CDN))</h2><p>关于CDN, 百度百科给出的解释是:</p>
+<blockquote>
+<p>CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
+</blockquote>
+<p>CDN的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求.</p>
+<p>CDN的基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%8A%82%E7%82%B9%E6%9C%8D%E5%8A%A1%E5%99%A8/4576219">节点服务器</a>所构成的在现有的互联网基础之上的一层智能<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C/855117">虚拟网络</a>，CDN系统能够实时地根据<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/7489548">网络流量</a>和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。根据我的理解,简单的说就是<strong>用更近的互联网数据中心(Internet Data Center,IDC)缓存内容,让客户端有更快的速度来访问此项资源</strong>.</p>
+<h2 id="如何搭建CDN服务"><a href="#如何搭建CDN服务" class="headerlink" title="如何搭建CDN服务"></a>如何搭建CDN服务</h2>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://baike.baidu.com/item/CDN/420951" target="_blank" rel="external nofollow noopener noreferrer">百科:CDN</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><div class="line"></div><a id="prev" href="/2022/03/23/2022-03-23-optimize-img-load/">如何在Server上优化博客上图片的加载速度<span class="note">较新</span></a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/03/14/hello-world/">Hello World<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/03/23/2022-03-22-blur-detection/">检测模糊图片的几种方法<span class="note">较新</span></a></section></div>
 
 
 
