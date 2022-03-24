@@ -30,7 +30,7 @@ LeetCode:
   title: LeetCode 题记
   tags: 笔记
   logo:
-    src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/leetcode.svg?raw=true
+    src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/leetcode.svg
     small: 96px
     large: 128px
   description: LeetCode 是目前世界上最大的算法刷题网站. 它是一个很好的学习算法的途径. 本系列会通过LeetCode中的实例问题来展示算法在各类问题中的应用.
@@ -48,7 +48,7 @@ DeepLearning:
   title: 深度学习
   tags: 笔记
   logo:
-    src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/deep-learning.png?raw=true
+    src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/deep-learning.png?raw=true
     small: 96px
     large: 128px
   description: 深度学习是机器学习的一种，而机器学习是实现人工智能的必经路径。
@@ -67,7 +67,7 @@ Python:
   title: Python 实用教程
   tags: 笔记
   logo:
-    src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true
+    src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png?raw=true
     small: 96px
     large: 128px
   description: 目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。

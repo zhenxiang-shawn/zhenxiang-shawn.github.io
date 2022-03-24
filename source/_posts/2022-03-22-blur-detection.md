@@ -1,5 +1,6 @@
 ---
-Date: 2022-03-22
+date: 2022-03-22
+updated: 2022-03-22
 title: 检测模糊图片的几种方法
 categories: [技术加油站]
 tags: [Computer Vision, Python, Data Clean]
