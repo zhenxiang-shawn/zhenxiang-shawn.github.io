@@ -8,7 +8,23 @@
 #   description: Git 是目前世界上最先进的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
 #   start: 开始阅读
 #   cover: true
-
+# Algorithm:
+#   title: 算法笔记
+#   tags: 笔记
+#   logo:
+#     src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/algorithm_logo.png?raw=true
+#     small: 96px
+#     large: 128px
+#   description: 在数学（算学）和计算机科学之中，指一个被定义好的、计算机可施行其指示的有限步骤或次序，常用于计算、数据处理和自动推理。算法是每个程序员必须掌握的知识.
+#   start: 开始阅读
+#   cover: true
+#   index: true
+#   sections:
+#     '数据结构': [0, 99]
+#     '排序算法': [100, 199]
+#     '搜索算法': [200, 299]
+#     '其他算法': [300, 399]
+#   #   '卷积网络': [400, 499]
 
 LeetCode:
   title: LeetCode 题记
@@ -17,7 +33,7 @@ LeetCode:
     src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/leetcode.svg?raw=true
     small: 96px
     large: 128px
-  description: LeetCode 是目前世界上最大的算法刷题网站.
+  description: LeetCode 是目前世界上最大的算法刷题网站. 它是一个很好的学习算法的途径. 本系列会通过LeetCode中的实例问题来展示算法在各类问题中的应用.
   start: 开始阅读
   cover: true
   index: true
@@ -29,7 +45,7 @@ LeetCode:
   #   '卷积网络': [400, 499]
 
 DeepLearning:
-  title: 深度学习笔记
+  title: 深度学习
   tags: 笔记
   logo:
     src: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/deep-learning.png?raw=true
