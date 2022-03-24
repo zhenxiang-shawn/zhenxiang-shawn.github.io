@@ -27,11 +27,14 @@
 <meta property="og:site_name" content="J. Tech.">
 <meta property="og:description" content="在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢.目前有两种方式可以缓解图片加载速度.">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png">
 <meta property="article:published_time" content="2022-03-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-24T03:17:59.955Z">
+<meta property="article:modified_time" content="2022-03-23T16:00:00.000Z">
 <meta property="article:author" content="Zhenxiang Jin">
 <meta property="article:tag" content="Optimization">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true">
   
   
 
@@ -65,7 +68,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Raw-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">Github Raw 文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C-Content-Delivery-Network-CDN"><span class="toc-text">内容分发网络(Content Delivery Network (CDN))</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BACDN%E6%9C%8D%E5%8A%A1"><span class="toc-text">如何搭建CDN服务</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-Raw-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">Github Raw 文件读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C-Content-Delivery-Network-CDN"><span class="toc-text">内容分发网络(Content Delivery Network (CDN))</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BACDN%E6%9C%8D%E5%8A%A1"><span class="toc-text">如何搭建CDN服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN%E6%9C%8D%E5%8A%A1-jsDelivr"><span class="toc-text">CDN服务: jsDelivr</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%85%8D%E8%B4%B9%E5%B9%B6%E4%B8%94%E4%B8%8D%E9%99%90%E9%80%9F%E7%9A%84CDN%E6%8E%A8%E8%8D%90"><span class="toc-text">其他免费并且不限速的CDN推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#staticaly"><span class="toc-text">staticaly</span></a></li></ol></li></ol></div></div></div>
 
 
 </div>
@@ -90,16 +93,26 @@
 <blockquote>
 <p>CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
 </blockquote>
-<p>CDN的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求.</p>
+<p>CDN的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求.    </p>
 <p>CDN的基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%8A%82%E7%82%B9%E6%9C%8D%E5%8A%A1%E5%99%A8/4576219">节点服务器</a>所构成的在现有的互联网基础之上的一层智能<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C/855117">虚拟网络</a>，CDN系统能够实时地根据<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F/7489548">网络流量</a>和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。根据我的理解,简单的说就是<strong>用更近的互联网数据中心(Internet Data Center,IDC)缓存内容,让客户端有更快的速度来访问此项资源</strong>.</p>
-<h2 id="如何搭建CDN服务"><a href="#如何搭建CDN服务" class="headerlink" title="如何搭建CDN服务"></a>如何搭建CDN服务</h2>
+<h2 id="如何搭建CDN服务"><a href="#如何搭建CDN服务" class="headerlink" title="如何搭建CDN服务"></a>如何搭建CDN服务</h2><h3 id="CDN服务-jsDelivr"><a href="#CDN服务-jsDelivr" class="headerlink" title="CDN服务: jsDelivr"></a>CDN服务: <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr</a></h3><p>jsDelivr 是一个免费的开源CDN. 这是在中国大陆唯一有 license 的公有 CDN，而且实际使用中的访问速度也是极快的. 它可以引用的资源包括NPM、github、wordpress的所有资源，github可以是任意体积小于50M的仓库。</p>
+<p>以github为例，只需要通过符合 JSDelivr 规则的 URL 引用，即可直接使用 Github 中的资源:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// load any GitHub release, commit, or branch</span><br><span class="line">// note: we recommend using npm for projects that support it</span><br><span class="line">https://cdn.jsdelivr.net/gh/user/repo@version/file</span><br><span class="line"></span><br><span class="line">// load jQuery v3.2.1</span><br><span class="line">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">// use a version range instead of a specific version</span><br><span class="line">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2/dist/jquery.min.js</span><br><span class="line">https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">// omit the version completely to get the latest one</span><br><span class="line">// you should NOT use this in production</span><br><span class="line">https://cdn.jsdelivr.net/gh/jquery/jquery/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">// add &quot;.min&quot; to any JS/CSS file to get a minified version</span><br><span class="line">// if one doesn&#x27;t exist, we&#x27;ll generate it for you</span><br><span class="line">https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js</span><br><span class="line"></span><br><span class="line">// add / at the end to get a directory listing</span><br><span class="line">https://cdn.jsdelivr.net/gh/jquery/jquery/</span><br></pre></td></tr></table></figure>
 
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://baike.baidu.com/item/CDN/420951" target="_blank" rel="external nofollow noopener noreferrer">百科:CDN</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<p>详细配置,请参考<a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr</a></p>
+<p>这是使用github raw加载和使用CDN来加载图片的对比:</p>
+<div class="tag-plugin tabs" align="center"id="tab_1""><ul class="nav-tabs"><li class="tab"><a href="#tab_1-1">GitHub Raw</a></li><li class="tab active"><a href="#tab_1-2">jsDelivr(CDN)</a></li></ul><div class="tab-content"><div class="tab-pane" id="tab_1-1"><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true"/></div></div></div><div class="tab-pane active" id="tab_1-2"><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png"/></div></div></div></div></div>
+
+<h2 id="其他免费并且不限速的CDN推荐"><a href="#其他免费并且不限速的CDN推荐" class="headerlink" title="其他免费并且不限速的CDN推荐"></a>其他免费并且不限速的CDN推荐</h2><h3 id="staticaly"><a href="#staticaly" class="headerlink" title="staticaly"></a><a target="_blank" rel="noopener" href="https://statically.io/">staticaly</a></h3><p>它可以轻松地从GitHub &#x2F; GitLab &#x2F; Bitbucket等加载您的项目 没有流量限制或限制。</p>
+<p>文件通过超快速全球CDN提供。 在URL（不是分支）中使用特定标记或提交哈希。<br>根据URL永久缓存文件。 除master分支外，文件在浏览器中缓存1年</p>
+
+
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://baike.baidu.com/item/CDN/420951" target="_blank" rel="external nofollow noopener noreferrer">百科:CDN</a></li><li class="post-title"><a href="https://www.cnblogs.com/lfri/p/12212878.html" target="_blank" rel="external nofollow noopener noreferrer">快速免费的公用CDN</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/03/14/hello-world/">Hello World<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/03/23/2022-03-22-blur-detection/">检测模糊图片的几种方法<span class="note">较新</span></a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/03/22/2022-03-22-blur-detection/">检测模糊图片的几种方法<span class="note">较早</span></a><div class="line"></div></section></div>
 
 
 
