@@ -26,7 +26,7 @@ article:
     # '应用程序': '#e91e63'
     # '实用脚本': '#009688'
   # 根据 tags 作为关键词为每一篇文章在线搜索封面：
-  auto_cover: true
+  auto_cover: false
   # 自动从文章内容截取一定字数的文字作为摘要
   auto_excerpt: 200
 
