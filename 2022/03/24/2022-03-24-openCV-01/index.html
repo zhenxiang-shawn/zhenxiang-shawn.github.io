@@ -17,20 +17,24 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>Hello World - J. Tech.</title>
+  <title>OpenCV 入门 - J. Tech.</title>
 
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="OpenCV 使用 C&#x2F;C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C&#x2F;C++，请阅读《C语言教程》和《C++教程》。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/14/hello-world/index.html">
+<meta property="og:title" content="OpenCV 入门">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/24/2022-03-24-openCV-01/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="OpenCV 使用 C&#x2F;C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C&#x2F;C++，请阅读《C语言教程》和《C++教程》。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-14T08:30:10.012Z">
-<meta property="article:modified_time" content="2022-03-14T08:30:10.012Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg">
+<meta property="article:published_time" content="2022-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-24T16:00:00.000Z">
 <meta property="article:author" content="Zhenxiang Jin">
+<meta property="article:tag" content="Computer Vision">
+<meta property="article:tag" content="OpenCV">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg">
   
   
 
@@ -64,7 +68,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IPPICV-%E5%8A%A0%E9%80%9F"><span class="toc-text">IPPICV 加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">OpenCV的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV-%E7%9A%84%E7%BB%84%E7%BB%87%E5%85%B3%E7%B3%BB"><span class="toc-text">OpenCV 的组织关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="toc-text">OpenCV的模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text">OpenCV的下载和安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">OpenCV的使用</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -77,31 +81,112 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-14T08:30:10.012Z">2022-03-14</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-23T16:00:00.000Z">2022-03-24</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>Hello World</span></h1>
-<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 class="article-title"><span>OpenCV 入门</span></h1>
+<p>OpenCV 使用 C&#x2F;C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C&#x2F;C++，请阅读《<a target="_blank" rel="noopener" href="http://c.biancheng.net/c/">C语言教程</a>》和《<a target="_blank" rel="noopener" href="http://c.biancheng.net/cplus/">C++教程</a>》。</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>OpenCV 是跨平台的，可以在 Windows、Linux、Mac OS、Android、iOS 等操作系统上运行。</p>
+<p>OpenCV 的应用领域非常广泛，包括图像拼接、图像降噪、产品质检、人机交互、人脸识别、动作识别、动作跟踪、无人驾驶等。</p>
+<h2 id="IPPICV-加速"><a href="#IPPICV-加速" class="headerlink" title="IPPICV 加速"></a>IPPICV 加速</h2><p>如果希望得到更多在英特尔架构上的自动优化，可以购买英特尔的集成性能基元（IPP）库，该库包含了许多算法领域的底层优化程序。在库安装完毕的情况下 OpenCV 在运行的时候会自动调用合适的 IPP 库。</p>
+<p>从 OpenCV 3.0 开始，英特尔许可 OpenCV 研发团队和 OpenCV 社区拥有一个免费的 IPP 库的子库（称 IPPICV），该子库默认集成在 OpenCV 中并在运算时发挥效用。如果你使用的是英特尔的处理器，那么 OpenCV 会自动调用 IPPICV。</p>
+<h2 id="OpenCV的应用"><a href="#OpenCV的应用" class="headerlink" title="OpenCV的应用"></a>OpenCV的应用</h2><p>自从测试版本在 1999 年 1 月发布以来，<a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 已经广泛用于许多应用、产品以及科研工作中。这些应用包括在卫星和网络地图上拼接图像，图像扫描校准，医学图像的降噪，目标分析，安保以及工业检测系统，自动驾驶和安全系统，制造感知系统，相机校正，军事应用，无人空中、地面、水下航行器。</p>
+<p>它也被运用于声音和音乐的识别，在这些场景中，视觉识别方法被运用于声音的频谱图像。因为计算机的视觉只是一串串数字, OpenCV就是根据统计学,数学和计算机科学在这串数字上的分析建立起来的.</p>
+<h2 id="OpenCV-的组织关系"><a href="#OpenCV-的组织关系" class="headerlink" title="OpenCV 的组织关系"></a>OpenCV 的组织关系</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 是由很多模块组成的，这些模块可以分成很多层：</p>
+<ul>
+<li>最底层是基于硬件加速层（HAL）的各种硬件优化。</li>
+<li>再上一层是 opencv_contrib 模块所包含的 OpenCV 由其他开发人员所贡献的代码，其包含大多数高层级的函数功能。这就是OpenCV的核心。</li>
+<li>接下来是语言绑定和示例应用程序。</li>
+<li>处于最上层的是 OpenCV 和操作系统的交互。</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg" alt="opencv structure"></p>
+<h3 id="OpenCV的模块"><a href="#OpenCV的模块" class="headerlink" title="OpenCV的模块"></a>OpenCV的模块</h3><p>下表给出了 OpenCV 包含的具体模块，虽然这些模块会随着时间推移而不断的发展，但模块始终是组成这个库的基本单位，每个函数都是一个模块的一部分。</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Core</td>
+<td>该模块包含 OpenCV 库的基础结构以及基本操作。</td>
+</tr>
+<tr>
+<td>Improc</td>
+<td>图像处理模块包含基本的图像转换，包括滤波以及类似的卷积操作。</td>
+</tr>
+<tr>
+<td>Highgui</td>
+<td>在 OpenCV 3.0中，分割为 imcodecs、videoio 以及 highgui 三部分。这个模块包含可以用来显示图像或者简单的输入的用户交互函数。这可以看作是一个非常轻量级的 Windows UI 工具包。</td>
+</tr>
+<tr>
+<td>Video</td>
+<td>该模块包含读取和写视频流的函数。</td>
+</tr>
+<tr>
+<td>Calib3d</td>
+<td>这个模块包括校准单个、双目以及多个相机的算法实现。</td>
+</tr>
+<tr>
+<td>Feature2d</td>
+<td>这个模块包含用于检测、描述以及匹配特征点的算法。</td>
+</tr>
+<tr>
+<td>Objectect</td>
+<td>这个模块包含检测特定目标，比如人脸或者行人的算法。也可以训练检测器并用来检测其他物体。</td>
+</tr>
+<tr>
+<td>MI</td>
+<td>机器学习模块本身是一个非常完备的模块，包含大量的机器学习算法实现并且这些算法都能和 OpenCV 的数据类型自然交互。</td>
+</tr>
+<tr>
+<td>Flann</td>
+<td>Flann 的意思是“快速最邻近库”。这个库包含一些你也许不会直接使用的方法，但是其他模块中的函数会调用它在数据集中进行最邻近搜索。</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>在 OpenCV 中被分割为多个 cuda* 模块。GPU 模块主要是函数在 CUDA GPU 上的优化实现，此外，还有一些仅用于 GPU 的功 能。其中一些函数能够返回很好的结果，但是需要足够好的计算资源，如果硬件没有GPU，则不会有什么提升。</td>
+</tr>
+<tr>
+<td>Photo</td>
+<td>这是一个相当新的模块，包含计算摄影学的一些函数工具。</td>
+</tr>
+<tr>
+<td>Stitching</td>
+<td>本模块是一个精巧的图像拼接流程实现。这是库中的新功能，但是，就像 Photo 模块一样，这个领域未来预计有很大的增长。</td>
+</tr>
+<tr>
+<td>Nonfree</td>
+<td>在 OpenCV 3.0 中，被移到 opencv_contrib&#x2F;xfeatures2d。OpenCV 包含一些受到专利保护的或者受到使用限制的（比如 SIFT 算法）算法。这些算法被隔离到它们自己的模块中，以表明你需要做一些特殊的工作，才可以在商业产品中使用它们。</td>
+</tr>
+<tr>
+<td>Contrib</td>
+<td>在 OpenCV 3.0 中，融合进了 opencv_contrib。这个模块包含一些新的、还没有被集成进 OpenCV 库的东西。</td>
+</tr>
+<tr>
+<td>Legacy</td>
+<td>在 OpenCV 3.0 中，被取消。</td>
+</tr>
+<tr>
+<td>ocl</td>
+<td>在OpenCV 3.0 中，被取消，取而代之的是 T-API。这是一个较新的模块，可以认为它和 GPU 模块相似，它实现了开放并行编程的 Khronos OpenCL 标准。虽然现在模块的特性比 GPU 模块少很多，但 ocl 模块的目标是提供可以运行在任何 GPU 或者是其他可以搭载 Khronos 的并行设备。这与 GPU 模 块形成了鲜明的对比，后者使用 Nividia CUDA 工具包进行开发，因此只能在 Nividia GPU 设备上工作。</td>
+</tr>
+</tbody></table>
+<h2 id="OpenCV的下载和安装"><a href="#OpenCV的下载和安装" class="headerlink" title="OpenCV的下载和安装"></a>OpenCV的下载和安装</h2><p>OpenCV的下载和安装请参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/1104.html">OpenCV下载和安装（包含所有平台）</a></p>
+<h2 id="OpenCV的使用"><a href="#OpenCV的使用" class="headerlink" title="OpenCV的使用"></a>OpenCV的使用</h2><ul>
+<li><a href=""></a></li>
+</ul>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://docs.opencv.org/4.x/d9/df8/tutorial_root.html" target="_blank" rel="external nofollow noopener noreferrer">OpenCV Tutorial</a></li><li class="post-title"><a href="http://c.biancheng.net/opencv" target="_blank" rel="external nofollow noopener noreferrer">C语言中文网-OpenCV</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><div class="line"></div><a id="prev" href="/2022/03/22/2022-03-22-blur-detection/">检测模糊图片的几种方法<span class="note">较新</span></a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/03/23/2022-03-23-optimize-img-load/">如何在Server上优化博客上图片的加载速度<span class="note">较早</span></a><div class="line"></div></section></div>
 
 
 
