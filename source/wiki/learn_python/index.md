@@ -9,6 +9,8 @@ references:
         url: https://github.com/jackfrued/Python-100-Days
     -   title: 流畅的Python
         url: https://book.douban.com/subject/27028517/
+    -   title: Python Data Model
+        url: https://docs.python.org/3/reference/datamodel.html
 ---
 
 <!-- more -->
