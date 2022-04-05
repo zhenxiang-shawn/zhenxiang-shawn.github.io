@@ -1,13 +1,14 @@
-# Git:
-#   title: Git 实用教程
+# CppOpenCV:
+#   title: C++ OpenCV学习笔记
 #   tags: 笔记
-#   logo:
-#     src: https://cdn.jsdelivr.net/gh/cdn-x/wiki@1.0.2/git/icon.svg
+#   logo: 
+#     src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/cpp_logo.png
 #     small: 96px
 #     large: 128px
-#   description: Git 是目前世界上最先进的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+#   description: C++是C语言的继承，它是一种使用非常广泛的计算机编程语言，C++作为一种静态数据类型检查的、支持多范型的通用程序设计语言，能够支持过程化程序设计、数据抽象化、面向对象程序设计、泛型程序设计、基于原则设计等多种程序设计风格。
 #   start: 开始阅读
 #   cover: true
+#   index: true
 # Algorithm:
 #   title: 算法笔记
 #   tags: 笔记
