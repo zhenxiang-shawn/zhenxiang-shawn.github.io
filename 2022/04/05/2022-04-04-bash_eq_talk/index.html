@@ -17,24 +17,21 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>OpenCV 入门 - J. Tech.</title>
+  <title>Bash中的比较语法详解 - J. Tech.</title>
 
   
-    <meta name="description" content="OpenCV 使用 C&#x2F;C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C&#x2F;C++，请阅读《C语言教程》和《C++教程》。">
+    <meta name="description" content="在Bash脚本中,一般比较语法都会放在方括号中.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenCV 入门">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/24/2022-03-24-openCV-01/index.html">
+<meta property="og:title" content="Bash中的比较语法详解">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/04/05/2022-04-04-bash_eq_talk/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="OpenCV 使用 C&#x2F;C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C&#x2F;C++，请阅读《C语言教程》和《C++教程》。">
+<meta property="og:description" content="在Bash脚本中,一般比较语法都会放在方括号中.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg">
-<meta property="article:published_time" content="2022-03-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-24T16:00:00.000Z">
+<meta property="article:published_time" content="2022-04-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-06T14:06:31.138Z">
 <meta property="article:author" content="Zhenxiang Jin">
-<meta property="article:tag" content="Computer Vision">
-<meta property="article:tag" content="OpenCV">
+<meta property="article:tag" content="Bash">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg">
   
   
 
@@ -68,7 +65,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IPPICV-%E5%8A%A0%E9%80%9F"><span class="toc-text">IPPICV 加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">OpenCV的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV-%E7%9A%84%E7%BB%84%E7%BB%87%E5%85%B3%E7%B3%BB"><span class="toc-text">OpenCV 的组织关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="toc-text">OpenCV的模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text">OpenCV的下载和安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">OpenCV的使用</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E6%8B%AC%E5%8F%B7%E4%B8%8E%E5%8F%8C%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-text">单括号与双括号的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x3D-x3D-%E4%B8%8E-eq%E7%9A%84%E5%AF%B9%E6%AF%94%E4%BB%A5%E5%8F%8A%E5%BB%B6%E4%BC%B8"><span class="toc-text">&#x3D;&#x3D;与-eq的对比以及延伸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-x3D-x3D-%E6%9D%A5%E5%AF%B9%E6%AF%94%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">使用&#x3D;&#x3D;来对比字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-eq-%E7%AD%89%E5%91%BD%E4%BB%A4%E6%9D%A5%E5%AF%B9%E6%AF%94%E6%95%B0%E5%80%BC"><span class="toc-text">使用 -eq 等命令来对比数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5"><span class="toc-text">文件状态检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8B%AC%E5%8F%B7-%E5%AF%B9%E6%AF%94%E5%8D%95%E6%8B%AC%E5%8F%B7-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">双括号 [[ ]] 对比单括号 [ ] 的优势</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -81,112 +78,253 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-23T16:00:00.000Z">2022-03-24</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-04-04T16:00:00.000Z">2022-04-05</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>OpenCV 入门</span></h1>
-<p>OpenCV 使用 C&#x2F;C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C&#x2F;C++，请阅读《<a target="_blank" rel="noopener" href="http://c.biancheng.net/c/">C语言教程</a>》和《<a target="_blank" rel="noopener" href="http://c.biancheng.net/cplus/">C++教程</a>》。</p>
+<h1 class="article-title"><span>Bash中的比较语法详解</span></h1>
+<p>在Bash脚本中,一般比较语法都会放在方括号中.</p>
 <span id="more"></span>
 
-<p>OpenCV 是跨平台的，可以在 Windows、Linux、Mac OS、Android、iOS 等操作系统上运行。</p>
-<p>OpenCV 的应用领域非常广泛，包括图像拼接、图像降噪、产品质检、人机交互、人脸识别、动作识别、动作跟踪、无人驾驶等。</p>
-<h2 id="IPPICV-加速"><a href="#IPPICV-加速" class="headerlink" title="IPPICV 加速"></a>IPPICV 加速</h2><p>如果希望得到更多在英特尔架构上的自动优化，可以购买英特尔的集成性能基元（IPP）库，该库包含了许多算法领域的底层优化程序。在库安装完毕的情况下 OpenCV 在运行的时候会自动调用合适的 IPP 库。</p>
-<p>从 OpenCV 3.0 开始，英特尔许可 OpenCV 研发团队和 OpenCV 社区拥有一个免费的 IPP 库的子库（称 IPPICV），该子库默认集成在 OpenCV 中并在运算时发挥效用。如果你使用的是英特尔的处理器，那么 OpenCV 会自动调用 IPPICV。</p>
-<h2 id="OpenCV的应用"><a href="#OpenCV的应用" class="headerlink" title="OpenCV的应用"></a>OpenCV的应用</h2><p>自从测试版本在 1999 年 1 月发布以来，<a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 已经广泛用于许多应用、产品以及科研工作中。这些应用包括在卫星和网络地图上拼接图像，图像扫描校准，医学图像的降噪，目标分析，安保以及工业检测系统，自动驾驶和安全系统，制造感知系统，相机校正，军事应用，无人空中、地面、水下航行器。</p>
-<p>它也被运用于声音和音乐的识别，在这些场景中，视觉识别方法被运用于声音的频谱图像。因为计算机的视觉只是一串串数字, OpenCV就是根据统计学,数学和计算机科学在这串数字上的分析建立起来的.</p>
-<h2 id="OpenCV-的组织关系"><a href="#OpenCV-的组织关系" class="headerlink" title="OpenCV 的组织关系"></a>OpenCV 的组织关系</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 是由很多模块组成的，这些模块可以分成很多层：</p>
-<ul>
-<li>最底层是基于硬件加速层（HAL）的各种硬件优化。</li>
-<li>再上一层是 opencv_contrib 模块所包含的 OpenCV 由其他开发人员所贡献的代码，其包含大多数高层级的函数功能。这就是OpenCV的核心。</li>
-<li>接下来是语言绑定和示例应用程序。</li>
-<li>处于最上层的是 OpenCV 和操作系统的交互。</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg" alt="opencv structure"></p>
-<h3 id="OpenCV的模块"><a href="#OpenCV的模块" class="headerlink" title="OpenCV的模块"></a>OpenCV的模块</h3><p>下表给出了 OpenCV 包含的具体模块，虽然这些模块会随着时间推移而不断的发展，但模块始终是组成这个库的基本单位，每个函数都是一个模块的一部分。</p>
-<table>
+<h2 id="单括号与双括号的对比"><a href="#单括号与双括号的对比" class="headerlink" title="单括号与双括号的对比"></a>单括号与双括号的对比</h2><table>
 <thead>
 <tr>
-<th>模块</th>
-<th>说明</th>
+<th>属性</th>
+<th>单括号 [ ]</th>
+<th>双括号 [[ ]]</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Core</td>
-<td>该模块包含 OpenCV 库的基础结构以及基本操作。</td>
+<td>括号两边都要有空格分隔</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr>
-<td>Improc</td>
-<td>图像处理模块包含基本的图像转换，包括滤波以及类似的卷积操作。</td>
+<td>内部操作符与变量之间要有空格</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr>
-<td>Highgui</td>
-<td>在 OpenCV 3.0中，分割为 imcodecs、videoio 以及 highgui 三部分。这个模块包含可以用来显示图像或者简单的输入的用户交互函数。这可以看作是一个非常轻量级的 Windows UI 工具包。</td>
+<td>字符串比较时需要在<code>&lt; &gt;</code>之前加入<code>\</code>进行转义</td>
+<td>√</td>
+<td></td>
 </tr>
 <tr>
-<td>Video</td>
-<td>该模块包含读取和写视频流的函数。</td>
+<td>括号中字符串或者${}变量尽量使用”” 双引号扩住</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr>
-<td>Calib3d</td>
-<td>这个模块包括校准单个、双目以及多个相机的算法实现。</td>
+<td>括号中如若未使用<code>&quot;&quot;</code>会进行模式和元字符匹配</td>
+<td></td>
+<td>√</td>
 </tr>
 <tr>
-<td>Feature2d</td>
-<td>这个模块包含用于检测、描述以及匹配特征点的算法。</td>
+<td>括号中可以使用<code>-a</code>或者<code>-o</code>等进行逻辑运算</td>
+<td>√</td>
+<td></td>
 </tr>
 <tr>
-<td>Objectect</td>
-<td>这个模块包含检测特定目标，比如人脸或者行人的算法。也可以训练检测器并用来检测其他物体。</td>
+<td>括号中可以使用<code>&amp;&amp;</code>或者<code>||</code>进行逻辑运算</td>
+<td></td>
+<td>√</td>
 </tr>
 <tr>
-<td>MI</td>
-<td>机器学习模块本身是一个非常完备的模块，包含大量的机器学习算法实现并且这些算法都能和 OpenCV 的数据类型自然交互。</td>
-</tr>
-<tr>
-<td>Flann</td>
-<td>Flann 的意思是“快速最邻近库”。这个库包含一些你也许不会直接使用的方法，但是其他模块中的函数会调用它在数据集中进行最邻近搜索。</td>
-</tr>
-<tr>
-<td>GPU</td>
-<td>在 OpenCV 中被分割为多个 cuda* 模块。GPU 模块主要是函数在 CUDA GPU 上的优化实现，此外，还有一些仅用于 GPU 的功 能。其中一些函数能够返回很好的结果，但是需要足够好的计算资源，如果硬件没有GPU，则不会有什么提升。</td>
-</tr>
-<tr>
-<td>Photo</td>
-<td>这是一个相当新的模块，包含计算摄影学的一些函数工具。</td>
-</tr>
-<tr>
-<td>Stitching</td>
-<td>本模块是一个精巧的图像拼接流程实现。这是库中的新功能，但是，就像 Photo 模块一样，这个领域未来预计有很大的增长。</td>
-</tr>
-<tr>
-<td>Nonfree</td>
-<td>在 OpenCV 3.0 中，被移到 opencv_contrib&#x2F;xfeatures2d。OpenCV 包含一些受到专利保护的或者受到使用限制的（比如 SIFT 算法）算法。这些算法被隔离到它们自己的模块中，以表明你需要做一些特殊的工作，才可以在商业产品中使用它们。</td>
-</tr>
-<tr>
-<td>Contrib</td>
-<td>在 OpenCV 3.0 中，融合进了 opencv_contrib。这个模块包含一些新的、还没有被集成进 OpenCV 库的东西。</td>
-</tr>
-<tr>
-<td>Legacy</td>
-<td>在 OpenCV 3.0 中，被取消。</td>
-</tr>
-<tr>
-<td>ocl</td>
-<td>在OpenCV 3.0 中，被取消，取而代之的是 T-API。这是一个较新的模块，可以认为它和 GPU 模块相似，它实现了开放并行编程的 Khronos OpenCL 标准。虽然现在模块的特性比 GPU 模块少很多，但 ocl 模块的目标是提供可以运行在任何 GPU 或者是其他可以搭载 Khronos 的并行设备。这与 GPU 模 块形成了鲜明的对比，后者使用 Nividia CUDA 工具包进行开发，因此只能在 Nividia GPU 设备上工作。</td>
+<td>括号可以配合<code>!</code>使用</td>
+<td>√</td>
+<td>√</td>
 </tr>
 </tbody></table>
-<h2 id="OpenCV的下载和安装"><a href="#OpenCV的下载和安装" class="headerlink" title="OpenCV的下载和安装"></a>OpenCV的下载和安装</h2><p>OpenCV的下载和安装请参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/1104.html">OpenCV下载和安装（包含所有平台）</a></p>
-<h2 id="OpenCV的使用"><a href="#OpenCV的使用" class="headerlink" title="OpenCV的使用"></a>OpenCV的使用</h2><ul>
-<li><a href=""></a></li>
-</ul>
+<p>此外, <strong>[ ] 是bash 内置命令</strong> 而**[[ ]] 是bash  关键词, 双方括号表达式会返回一个退出码**.</p>
+<h2 id="x3D-x3D-与-eq的对比以及延伸"><a href="#x3D-x3D-与-eq的对比以及延伸" class="headerlink" title="&#x3D;&#x3D;与-eq的对比以及延伸"></a>&#x3D;&#x3D;与-eq的对比以及延伸</h2><p>一般来说, 使用 <code>=</code>或者<code>==</code>来做字符串的对比; 使用<code>-eq</code>来做数值的对比.</p>
+<h3 id="使用-x3D-x3D-来对比字符串"><a href="#使用-x3D-x3D-来对比字符串" class="headerlink" title="使用&#x3D;&#x3D;来对比字符串"></a>使用&#x3D;&#x3D;来对比字符串</h3><table>
+<thead>
+<tr>
+<th>str命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[[ str ]]</code></td>
+<td>判断字符串是否不为空</td>
+</tr>
+<tr>
+<td><code>[[ -z str ]]</code></td>
+<td>判断字符串是否为空,</td>
+</tr>
+<tr>
+<td><code>[[ -n str ]]</code></td>
+<td>判断字符串是否不为空</td>
+</tr>
+<tr>
+<td><code>[[ str1 = str2 ]]</code></td>
+<td>判断字符串是否相同</td>
+</tr>
+<tr>
+<td><code>[[ str1 == str2 ]]</code></td>
+<td>判断字符串是否相同</td>
+</tr>
+<tr>
+<td><code>[[ str1 != str2 ]]</code></td>
+<td>判断字符串是否不相等</td>
+</tr>
+<tr>
+<td><code>[[ str1 \\&lt; str2 ]]</code></td>
+<td>判断按字典序排序str1是否在str2之前</td>
+</tr>
+<tr>
+<td><code>[[ str1 \\&gt; str2 ]]</code></td>
+<td>判断按字典序排序str1是否在str2之后</td>
+</tr>
+</tbody></table>
+<h3 id="使用-eq-等命令来对比数值"><a href="#使用-eq-等命令来对比数值" class="headerlink" title="使用 -eq 等命令来对比数值"></a>使用 -eq 等命令来对比数值</h3><table>
+<thead>
+<tr>
+<th>num命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[[ val1 -eq val2 ]]</code></td>
+<td>判断val1是否与val2相等</td>
+</tr>
+<tr>
+<td><code>[[ val1 -ne val2 ]]</code></td>
+<td>判断val1是否与val2不相等</td>
+</tr>
+<tr>
+<td><code>[[ val1 -lt val2 ]]</code></td>
+<td>判断val1是否小于val2</td>
+</tr>
+<tr>
+<td><code>[[ val1 -le val2 ]]</code></td>
+<td>判断val1是否小于等于val2</td>
+</tr>
+<tr>
+<td><code>[[ val1 -gt val2 ]]</code></td>
+<td>判断val1是否大于val2</td>
+</tr>
+<tr>
+<td><code>[[ val1 -ge val2 ]]</code></td>
+<td>判断val1是否大于等于val2</td>
+</tr>
+</tbody></table>
+<h3 id="文件状态检查"><a href="#文件状态检查" class="headerlink" title="文件状态检查"></a>文件状态检查</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b filename</code></td>
+<td>检查是否文件存在并且是<em>块文件</em>*</td>
+</tr>
+<tr>
+<td><code>-c filename</code></td>
+<td>检查是否文件存在并且是字符文件</td>
+</tr>
+<tr>
+<td><code>-d path</code></td>
+<td>检查是否文件存在并且是目录</td>
+</tr>
+<tr>
+<td><code>-f filename</code></td>
+<td>检查是否文件存在并且为正规文件</td>
+</tr>
+<tr>
+<td><code>-g path</code></td>
+<td>检查是否文件存在并且设置了SGID</td>
+</tr>
+<tr>
+<td><code>-h filename</code></td>
+<td>检查是否文件存在并且是符号链接文件</td>
+</tr>
+<tr>
+<td><code>-p filename</code></td>
+<td>见怕是否文件存在并且是命名管道</td>
+</tr>
+<tr>
+<td><code>-s filename</code></td>
+<td>检查是否文件存在并且文件大小大于0</td>
+</tr>
+<tr>
+<td><code>-S filename</code></td>
+<td>检查是否文件存在并且是socket</td>
+</tr>
+<tr>
+<td><code>file1 -nt file2</code></td>
+<td>检查是否file1比file2新</td>
+</tr>
+<tr>
+<td><code>file1 -ot file2</code></td>
+<td>检查是否file1比file2旧</td>
+</tr>
+<tr>
+<td><code>file1 -ef file2</code></td>
+<td>检查是否file1和file2 链接到了相同的文件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>块存储</strong>的用户是可以读写块设备的软件系统.</p>
+<p><strong>文件存储</strong>的用户是自然人.</p>
+<p><strong>对象储存</strong>的用户是其他计算机软件.</p>
+</blockquote>
+<p>Linux系统中所有文件&#x2F;文件夹都是已文件的格式保存的. 但是为了更容易区分.文件和文件&#x2F;文件夹不同的命令区分开来列出.</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-u path</td>
+<td>检查是否path制定的文件或目录存在并且设置了SUID</td>
+</tr>
+<tr>
+<td>-w path</td>
+<td>检查是否path制定的文件或目录存在并且可写</td>
+</tr>
+<tr>
+<td>-x path</td>
+<td>检查是否path指定的文件或目录存在并且可执行</td>
+</tr>
+<tr>
+<td>-r path</td>
+<td>检查是否文件&#x2F;目录存在并且可读</td>
+</tr>
+<tr>
+<td>-e filename</td>
+<td>检查是否文件&#x2F;目录存在</td>
+</tr>
+<tr>
+<td>-O path</td>
+<td>检查是否path存在并且被当前进程的有效用户id 的用户拥有</td>
+</tr>
+<tr>
+<td>-G path</td>
+<td>检查是否path 存在并且属于当前进程的有效用户id 的用户的用户组</td>
+</tr>
+</tbody></table>
+<h2 id="双括号-对比单括号-的优势"><a href="#双括号-对比单括号-的优势" class="headerlink" title="双括号 [[ ]] 对比单括号 [ ] 的优势"></a>双括号 [[ ]] 对比单括号 [ ] 的优势</h2><ol>
+<li><p>[[是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[ ]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p>
+</li>
+<li><p>支持字符串的模式匹配，使用&#x3D;~操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如[[ hello &#x3D;&#x3D; hell? ]]，结果为真。[[ ]] 中匹配字符串或通配符，不需要引号。</p>
+</li>
+<li><p>使用[[ … ]]条件判断结构，而不是[… ]，能够防止脚本中的许多逻辑错误。比如，&amp;&amp;、||、&lt;和&gt; 操作符能够正常存在于[[ ]]条件判断结构中，但是如果出现在[ ]结构中的话，会报错。</p>
+</li>
+<li><p>bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码。</p>
+</li>
+</ol>
+<p><strong>使用[[ … ]]条件判断结构, 而不是[ … ], 能够防止脚本中的许多逻辑错误. 比如,&amp;&amp;, ||, &lt;, 和&gt; 操作符能够正常存在于[[]]条件判断结构中, 但是如果出现在[ ]结构中的话, 会报错. 因此推荐直接选用双括号.</strong></p>
 
 
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://docs.opencv.org/4.x/d9/df8/tutorial_root.html" target="_blank" rel="external nofollow noopener noreferrer">OpenCV Tutorial</a></li><li class="post-title"><a href="http://c.biancheng.net/opencv" target="_blank" rel="external nofollow noopener noreferrer">C语言中文网-OpenCV</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://blog.csdn.net/hittata/article/details/8049665?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1" target="_blank" rel="external nofollow noopener noreferrer">BASH中的单括号和双括号</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/03/23/2022-03-23-optimize-img-load/">如何在Server上优化博客上图片的加载速度<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/04/04/2022-04-04-stable-marriage/">稳定婚姻算法<span class="note">较新</span></a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/04/04/2022-04-04-stable-marriage/">稳定婚姻算法<span class="note">较早</span></a><div class="line"></div></section></div>
 
 
 
