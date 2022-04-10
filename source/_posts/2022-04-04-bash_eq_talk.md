@@ -1,5 +1,6 @@
 ---
 date: 2022-04-05
+updated: 2022-04-06
 title: Bash中的比较语法详解
 categories: [技术加油站]
 tags: [Bash]
