@@ -9,7 +9,7 @@ references:
       url: https://blog.csdn.net/hittata/article/details/8049665?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1
 ---
 
-在Bash脚本中,一般比较语法都会放在方括号中.
+如果你希望通过脚本运算获得的结果是你想要的，那么你需要应用到算术运算符参与算术运算以获得你所需的结果. 在Bash脚本中,一般比较语法都会放在方括号中.
 
 <!-- more -->
 
