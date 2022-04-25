@@ -2,6 +2,7 @@
 date: 2022-04-04
 updated: 2022-04-10
 title: 稳定婚姻算法
+categories: [技术加油站]
 tags: [Algorithm]
 references: 
     - title: GeeksForGeeks
