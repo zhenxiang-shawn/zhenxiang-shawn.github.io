@@ -21,7 +21,7 @@ Sorted String Table(SSTable)--是存储，处理和交换数据集的最流行�
 
 Google 发布的Bigtable论文中解释道：SSTable提供一个可持久化[persistent]，有序的、不可变的从键到值的映射关系，其中键和值都是任意字节长度的字符串。SSTable提供了以下操作：按照某个键来查询关联值，可以指定键的范围，来遍历其中所有的键值对。每个SSTable内部由一系列块(block)组成(通常每块大小为64KB，是可配置的)。使用存储在SSTable结尾的块索引(block index)来定位块；当SSTable打开时，索引会被加载到内存里。一次磁盘寻道(disk seek)就可以完成查询(lookup)操作：首先通过二分查找在存储在内存的索引中找到对应的块，然后从磁盘上读取这块内容。SSTable也可以完整地映射到内存里，这样在执行查询和扫描(scan)的时候就不用操作磁盘了.
 
-{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/sstable-diagram.png SSTable 结构 %}
+{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/sstable_diagram.png SSTable 结构 %}
 
 Scylladb在其官网([What is a SSTable? Definition & FAQs | ScyllaDB](https://www.scylladb.com/glossary/sstable/))中做出了以下解释：
 
