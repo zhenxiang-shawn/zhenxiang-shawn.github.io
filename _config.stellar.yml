@@ -3,6 +3,9 @@ title: J. Tech.
 # sidebar:
 #   logo:
 #     title: '[<img no-lazy height="32px" src="xxx"/>](/)'
+mathjax:    
+  enable: true
+
 
 sidebar:
   menu:

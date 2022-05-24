@@ -110,3 +110,22 @@ deploy:
   repo: git@github.com:zhenxiang-shawn/zhenxiang-shawn.github.io.git
   branch: gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+
+# plug-in 
+# mathjax 
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
+    # config: {
+    #   tex2jax: {
+    #     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    #     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    #     processEscapes: true
+    #   },
+    #   TeX: {
+    #     equationNumbers: {
+    #       autoNumber: "AMS"
+    #     }
+    #   }
+    # }
