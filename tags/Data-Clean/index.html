@@ -9,6 +9,7 @@
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
@@ -18,6 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   <title>标签：Data Clean - J. Tech.</title>
+
+  
 
   
     <meta name="description" content="aaa">
@@ -44,7 +47,9 @@
   
 
   
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
 
 <body>
   
@@ -64,7 +69,7 @@
 <div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Hello there!</span></div><div class="widget-body fs14"><p>这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。</p>
 </div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="line"></div><a class="more-item" href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/"><div class="cap"><time>2022-05-18</time><span>技术加油站</span></div><span class="title">高级数据结构 SSTable</span></a><div class="line"></div><a class="more-item" href="/2022/04/24/2022-04-24-cv-conceptions/"><div class="cap"><time>2022-04-24</time><span>技术加油站</span></div><span class="title">计算机视觉的基本概念和知识点</span></a><div class="line"></div><a class="more-item" href="/2022/04/24/2022-04-24-img-segmentation/"><div class="cap"><time>2022-04-24</time><span>技术加油站</span></div><span class="title">图像分割概览</span></a><div class="line"></div><a class="more-item" href="/2022/04/04/2022-04-04-stable-marriage/"><div class="cap"><time>2022-04-10</time><span>技术加油站</span></div><span class="title">稳定婚姻算法</span></a><div class="line"></div><a class="more-item" href="/2022/04/05/2022-04-04-bash_eq_talk/"><div class="cap"><time>2022-04-06</time><span>技术加油站</span></div><span class="title">Bash中的比较语法详解</span></a></div></div>
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/">高级数据结构 SSTable</a></div><div class="more-item"><a class="title" href="/2022/04/24/2022-04-24-cv-conceptions/">计算机视觉的基本概念和知识点</a></div><div class="more-item"><a class="title" href="/2022/04/24/2022-04-24-img-segmentation/">图像分割概览</a></div><div class="more-item"><a class="title" href="/2022/04/04/2022-04-04-stable-marriage/">稳定婚姻算法</a></div><div class="more-item"><a class="title" href="/2022/04/05/2022-04-04-bash_eq_talk/">Bash中的比较语法详解</a></div></div></div>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhenxiang-shawn" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:zhenxiang-shawn@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.cubik65536.top/mail-bulk-solid.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
 
@@ -108,9 +113,9 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/2022/03/22/2022-03-22-blur-detection/"><article class="md">
-<h2 class="post-title">检测模糊图片的几种方法</h2><div class="excerpt"><p>为什么要做模糊检测 ?在机器学习准备数据的时候,有些数据并不尽如人意. 比如在计算机视觉训练时,图片数据集中有一些收集的图片清晰度不够,这会影响到后续的训练和模型的准确度. 准备图片数据的时候一般会根据图片质量选择是否先给图片降噪,然后把较为模糊的图片给去掉. 除此以外还可以用来做自动图像分级, 在视频流做OCR的时候可以过滤掉一些质量不好的图片来节省算力. 本文主要为讨论了模糊图片的检测的两种方法.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-21T16:00:00.000Z">2022-03-22</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span><div>
-</article></a></div>
+  <div class="post-list post"><a class="post-card post " href="/2022/03/22/2022-03-22-blur-detection/">
+<article class="md"><h2 class="post-title">检测模糊图片的几种方法</h2><div class="excerpt"><p>为什么要做模糊检测 ?在机器学习准备数据的时候,有些数据并不尽如人意. 比如在计算机视觉训练时,图片数据集中有一些收集的图片清晰度不够,这会影响到后续的训练和模型的准确度. 准备图片数据的时候一般会根据图片质量选择是否先给图片降噪,然后把较为模糊的图片给去掉. 除此以外还可以用来做自动图像分级, 在视频流做OCR的时候可以过滤掉一些质量不好的图片来节省算力. 本文主要为讨论了模糊图片的检测的两种方法.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-21T16:00:00.000Z">2022-03-22</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+</a></div>
   
 
 
@@ -119,7 +124,7 @@
 
       
 <footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1" title="v1.6.1">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
+<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -223,7 +228,7 @@
       }
     }
   };
-  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
   stellar.config = {
     date_suffix: {
       just: '刚刚',
@@ -253,6 +258,12 @@
   }
   if ('true' == 'true') {
     stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
   }
 </script>
 

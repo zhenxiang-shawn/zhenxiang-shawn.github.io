@@ -9,6 +9,7 @@
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
 
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
@@ -18,6 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   <title>Python：数据结构 - J. Tech.</title>
+
+  
 
   
     <meta name="description" content="在创造Python以前，Guido曾为ABC语言贡献过代码。ABC语言是一个致力于为初学者设计编程环境的长达10年的研究项目，其中很多点子在现在看来都很有Python风格：序列的泛型操作、内置的元组和映射类型、用缩进来架构的源码、无需变量声明的强类型，等等。Python对开发者如此友好，根源就在这里。">
@@ -46,10 +49,14 @@
   
 
   
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
 
 <body>
   
+
+
 
 
   <div class='l_body' id='start'>
@@ -86,22 +93,16 @@
   <h1 class="article-title"><span>数据结构</span></h1>
   <p>在创造Python以前，Guido曾为ABC语言贡献过代码。ABC语言是一个致力于为初学者设计编程环境的长达10年的研究项目，其中很多点子在现在看来都很有Python风格：序列的泛型操作、内置的元组和映射类型、用缩进来架构的源码、无需变量声明的强类型，等等。Python对开发者如此友好，根源就在这里。</p>
 <span id="more"></span>
-
 <h2 id="序列构成的数组"><a href="#序列构成的数组" class="headerlink" title="序列构成的数组"></a>序列构成的数组</h2><p>不管是哪种数据结构，字符串、列表、字节序列、数组、XML元素，抑或是数据库查询结果，它们都共用一套丰富的操作：迭代、切片、排序，还有拼接。</p>
 <h3 id="内置序列类型概览"><a href="#内置序列类型概览" class="headerlink" title="内置序列类型概览"></a>内置序列类型概览</h3><p>Python 标准库用 C 实现了丰富的序列类型:</p>
 <div class="tag-plugin tabs" align="center"id="tab_3""><ul class="nav-tabs"><li class="tab active"><a href="#tab_3-1">容器序列</a></li><li class="tab"><a href="#tab_3-2">扁平序列</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab_3-1"><p>list, tuple, collections.deque这些序列能存放不同类型的数据.</p></div><div class="tab-pane" id="tab_3-2"><p>str, bytes, bytearray, memoryview, array.array 这类序列只能容纳一种类型, 这种序列其实是一段连续的内存空间, 但他里边只能存放基础类型.</p></div></div></div>
-
 <p>容器类型还可以根据是否能被修改来分类: </p>
 <div class="tag-plugin tabs" align="center"id="tab_4""><ul class="nav-tabs"><li class="tab active"><a href="#tab_4-1">可变序列</a></li><li class="tab"><a href="#tab_4-2">不可变序列</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab_4-1"><p>list, bytearray, array.array, collections.deque, memoeryview.</p></div><div class="tab-pane" id="tab_4-2"><p>tuple, str和bytes</p></div></div></div>
-
 <h3 id="列表推导和生成器表达式"><a href="#列表推导和生成器表达式" class="headerlink" title="列表推导和生成器表达式"></a>列表推导和生成器表达式</h3><p>通常的原则是，只用列表推导来创建新的列表，并且尽量保持简短。如果列表推导的代码超过了两行，你可能就要考虑是不是得用for循环重写了。列表推导不会再有变量泄漏的问题.</p>
 <div class="tag-plugin tabs" align="center"id="tab_5""><ul class="nav-tabs"><li class="tab active"><a href="#tab_5-1">普通方法</a></li><li class="tab"><a href="#tab_5-2">列表推导</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab_5-1"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">symbols = <span class="string">&quot;)(*(^(&amp;@&quot;</span></span><br><span class="line">code = []</span><br><span class="line"><span class="keyword">for</span> symbol <span class="keyword">in</span> symbols:</span><br><span class="line">    code.append(<span class="built_in">ord</span>(symbol))</span><br><span class="line"><span class="built_in">print</span>(code)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab_5-2"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">symbols = <span class="string">&quot;)(*(^(&amp;@&quot;</span></span><br><span class="line">code = [<span class="built_in">ord</span>(symbol) <span class="keyword">for</span> symbol <span class="keyword">in</span> symbols]</span><br><span class="line"><span class="built_in">print</span>(code)</span><br></pre></td></tr></table></figure></div></div></div>
-
 <p>在Python3中,表达式内部的变量和赋值只在局部起作用，表达式的上下文里的同名变量还可以被正常引用，局部变量并不会影响到它们, 比如下边的代码展示的.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="string">&#x27;ABC&#x27;</span>￼</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dummy = [<span class="built_in">ord</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> x]￼</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x </span><br><span class="line"><span class="string">&#x27;ABC&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dummy</span><br><span class="line">[<span class="number">65</span>, <span class="number">66</span>, <span class="number">67</span>]</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="使用列表推导生成FrenchCard"><a href="#使用列表推导生成FrenchCard" class="headerlink" title="使用列表推导生成FrenchCard"></a>使用列表推导生成FrenchCard</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># generate cards from A to K</span></span><br><span class="line">ranks = [<span class="built_in">str</span>(n) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">11</span>)] + <span class="built_in">list</span>(<span class="string">&#x27;JQKA&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>Source code you can find on <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/Fluent_Python_Code/blob/main/Chapter01_Prologue/FrenchCard.py">GitHub</a></p>
 
   
@@ -132,7 +133,7 @@
 
       
 <footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1" title="v1.6.1">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
+<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -236,7 +237,7 @@
       }
     }
   };
-  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
   stellar.config = {
     date_suffix: {
       just: '刚刚',
@@ -266,6 +267,12 @@
   }
   if ('true' == 'true') {
     stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
   }
 </script>
 
