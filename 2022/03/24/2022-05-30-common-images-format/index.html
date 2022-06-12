@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>常见的图片格式概览 - J. Tech.</title>
+
+  
+
+  
+    <meta name="description" content="数据都是以二进制的格式存在计算机中。图片作为一种数据，当然也是以二进制的格式存在计算机中。此篇不讲图片数据格式的底层，只是概述一下各个图片格式的特点和优缺点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的图片格式概览">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/03/24/2022-05-30-common-images-format/index.html">
+<meta property="og:site_name" content="J. Tech.">
+<meta property="og:description" content="数据都是以二进制的格式存在计算机中。图片作为一种数据，当然也是以二进制的格式存在计算机中。此篇不讲图片数据格式的底层，只是概述一下各个图片格式的特点和优缺点。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-11T16:00:00.000Z">
+<meta property="article:author" content="Zhenxiang Jin">
+<meta property="article:tag" content="Computer Vision">
+<meta property="article:tag" content="Big Data">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0">虚心若愚</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F"><span class="toc-text">常见的图片格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%9B%BE%E7%89%87%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">各种图片的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebP"><span class="toc-text">WebP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIF%EF%BC%88Graphics-Interchange-Format%EF%BC%89"><span class="toc-text">GIF（Graphics Interchange Format）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PNG%EF%BC%88Portable-Network-Graphics%EF%BC%89"><span class="toc-text">PNG（Portable Network Graphics）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JPG%EF%BC%88Joint-Photographic-Experts-Group%EF%BC%89"><span class="toc-text">JPG（Joint Photographic Experts Group）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BMP"><span class="toc-text">BMP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TIF-amp-TIFF"><span class="toc-text">TIF &amp; TIFF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG"><span class="toc-text">SVG</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhenxiang-shawn" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:zhenxiang-shawn@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.cubik65536.top/mail-bulk-solid.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-23T16:00:00.000Z">2022-03-24</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>常见的图片格式概览</span></h1>
+<p>数据都是以二进制的格式存在计算机中。图片作为一种数据，当然也是以二进制的格式存在计算机中。此篇不讲图片数据格式的底层，只是概述一下各个图片格式的特点和优缺点。</p>
+<span id="more"></span>
+<h2 id="常见的图片格式"><a href="#常见的图片格式" class="headerlink" title="常见的图片格式"></a>常见的图片格式</h2><p>一般的，生活中常见、常用的图片格式有png，jpeg，gif，webp。工作中偶尔会用的有BMP，TIF，svg。各个格式有各个格式的优缺点，目前没有一种统一的图片格式可以替代所有。GIF/PNG/JPG/WEBP/APNG等都是属于位图，而SVG是矢量图。</p>
+<div class="tag-plugin note" ><div class="title"><strong>这里提一下PDF格式。很多人错误的以为PDF是图片的格式，但是PDF的全称是Portable</strong></div><div class="body"><p>Document Format，意为”可携带文档格式”。是由Adobe Systems用于与应用程序、操作系统、硬件无关的方式进行文件交换所发展出的文件格式。PDF文件以PostScript语言图象模型为基础，使其在各型号打印机上都可再现原稿的字符、颜色以及图象信息。简单的说，PDF除了有图片信息（图片）以外，还有一些肉眼看不到的信息和metadata。</p></div></div>
+<h2 id="各种图片的优缺点"><a href="#各种图片的优缺点" class="headerlink" title="各种图片的优缺点"></a>各种图片的优缺点</h2><h3 id="WebP"><a href="#WebP" class="headerlink" title="WebP"></a>WebP</h3><p>WebP 的优势体现在它具有更优的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量；此外他还具备了无损和有损的压缩模式、Alpha 透明以及动画的特性，在 JPEG 和 PNG 上的转化效果都相当优秀、稳定和统一。WebP支持的像素最大数量是16383x16383。iSparta做了一个PNG图片和WebP图片压缩和不压缩的质量对比和大小对比。<a target="_blank" rel="noopener" href="https://isparta.github.io/compare-webp/index.html#12345">点此查看</a>. WebP有静态与动态两种模式。动态WebP（Animated WebP）支持有损与无损压缩、ICC色彩配置、XMP诠释资料、Alpha透明通道。相对于GIF，WebP格式有近乎相同的图片质量和相当小的数据大小。通过官方给出的<a target="_blank" rel="noopener" href="https://isparta.github.io/compare-webp/index_a.html#12">例子</a>我们可以明显的看出WebP的优点。缺点是你压缩的时候需要的时间更久了，而且使用WebP的时候CPU的负载更多。</p>
+<h3 id="GIF（Graphics-Interchange-Format）"><a href="#GIF（Graphics-Interchange-Format）" class="headerlink" title="GIF（Graphics Interchange Format）"></a>GIF（Graphics Interchange Format）</h3><p>GIF图形交换格式是一种位图图形文件格式,以8位色（即256种颜色）重现真彩色的图像。它实际上是一种压缩文档,采用LZW压缩算法进行编码,有效地减少了图像文件在网络上传输的时间。它有很多优点，比如：</p>
+<ol>
+<li>优秀的压缩算法使其在一定程度上保证图像质量的同时将体积变得很小。</li>
+<li>可插入多帧,从而实现动画效果。</li>
+<li>可设置透明色以产生对象浮现于背景之上的效果。</li>
+</ol>
+<p>但是由于采用了8位压缩,最多只能处理256种颜色（2的8次方）,故不宜应用于真彩图像。</p>
+<h3 id="PNG（Portable-Network-Graphics）"><a href="#PNG（Portable-Network-Graphics）" class="headerlink" title="PNG（Portable Network Graphics）"></a>PNG（Portable Network Graphics）</h3><p>便携式网络图片（Portable Network Graphics）,简称PNG,是一种无损数据压缩位图图形文件格式。PNG格式是无损数据压缩的,PNG格式有8位、24位、32位三种形式,其中8位PNG支持两种不同 的透明形式（索引透明和alpha透明）,24位PNG不支持透明,32位 PNG 在24位基础上增加了8位透明通道（32-24===8）,因此可展现256级透明程度。</p>
+<p>PNG这种类型的图片就是为了取代GIF图片而生的, 除了GIF不支持动画的优势, 能用PNG的地方就用PNG, 原因是压缩比高,色彩好；</p>
+<p>相比较GIF图片，PNG图片的优点更多：</p>
+<ol>
+<li>支持256色调色板技术以产生小体积文件</li>
+<li>最高支持48位真彩色图像以及16位灰度图像。</li>
+<li>支持Alpha通道的半透明特性。</li>
+<li>支持图像亮度的gamma校正信息。</li>
+<li>支持存储附加文本信息,以保留图像名称、作者、版权、创作时间、注释等信息。</li>
+<li>使用无损压缩。</li>
+<li>渐近显示和流式读写,适合在网络传输中快速显示预览效果后再展示全貌。</li>
+<li>使用CRC循环冗余编码防止文件出错。</li>
+<li>最新的PNG标准允许在一个文件内存储多幅图像。</li>
+</ol>
+<h3 id="JPG（Joint-Photographic-Experts-Group）"><a href="#JPG（Joint-Photographic-Experts-Group）" class="headerlink" title="JPG（Joint Photographic Experts Group）"></a>JPG（Joint Photographic Experts Group）</h3><p>JPEG是一种针对相片影像而广泛使用的一种失真压缩标准方法。JPEG的压缩方式通常是破坏性资料压缩（lossy compression）,意即在压缩过程中图像的品质会遭受到可见的破坏。</p>
+<p>JPEG/JFIF是最普遍在万维网（World Wide Web）上被用来储存和传输照片的格式。JPG压缩算法将不易被人眼察觉的图像颜色删除，从而达到较大的压缩比（可达到2:1甚至40:1），可以说是用最少的磁盘空间得到较好的图像质量。JPEG在色调及颜色平滑变化的相片或是写实绘画（painting）上可以达到它最佳的效果。在这种情况下,它通常比完全无失真方法作得更好,仍然可以产生非常好看的影像（事实上它会比其他一般的方法像是GIF产生更高品质的影像,因为GIF对于线条绘画（drawing）和图示的图形是无失真,但针对全彩影像则需要极困难的量化)。但是，它并不适合于线条绘图（drawing）和其他文字或图示（iconic）的图形,因为它的压缩方法用在这些图形的型态上,会得到不适当的结果；</p>
+<p>更多关于JPEG的详细解释，请参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f5557c0e689e">这篇文章</a></p>
+<h3 id="BMP"><a href="#BMP" class="headerlink" title="BMP"></a>BMP</h3><p>位图（Bitmap）格式的数据没有经过压缩，或最多只采用行程长度编码（RLE，run-length encoding）来进行轻度的无损数据压缩。以至于，LaTeX 并不能像插入 .jpg 甚至于矢量图那样便捷地插入 BMP 图片。</p>
+<p>BMP文件的数据按照从文件头开始的先后顺序分为四个部分：</p>
+<ul>
+<li><p>位图文件头(bmp file header)：  提供文件的格式、大小等信息</p>
+</li>
+<li><p>位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息</p>
+</li>
+<li><p>调色板(color palette)：可选，如使用索引来表示图像，调色板就是索引与其对应的颜色的映射表</p>
+</li>
+<li><p>位图数据(bitmap data)：图像数据区</p>
+</li>
+</ul>
+<p>对于压缩方式，虽然 Bitmap 格式提供简单的压缩功能，但是绝大多数情况下，并没有采用任何压缩手段。</p>
+<p>拿最常见的 24BPP RGB （24 比特每像素，红绿蓝三通道） 位图来说，每种颜色需要 8 比特，或者说 1 字节，来存储。在二进制文件中，通常情况下，RGB 按照蓝、绿、红的顺序依次表示图片中的像素点，而 RGBA 则按照蓝、绿、红、透明的顺序（从左下开始，横向逐行向上扫描）。特殊时候，也会出现顺序与上述情况不同的特例，这时色彩顺序会写在 DIB Header 的 Bit Fields 中，以不同色彩通道的 Mask 的形式进行规定。由于 BI_BITFIELDS 也是一种压缩方式，而通常 BMP 不采用任何压缩方式，所以绝大多数时候，我们都是按照前面说的顺序进行排序。</p>
+<p>数据按照像素行进行包装，便于读取。但是这并不是全部，因为其中还可能会有补零（zero-padding）。这涉及到计算机的数据结构对齐（data structure alignment）的问题。如果要把BMP讲透彻的话，细节太多，这里就不一一讲解了。想要了解更多，请参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25119530">这篇文章</a></p>
+<h3 id="TIF-amp-TIFF"><a href="#TIF-amp-TIFF" class="headerlink" title="TIF &amp; TIFF"></a>TIF &amp; TIFF</h3><p>TIFF（Tag Image File Format）图像文件是图形图像处理中常用的格式之一，其图像格式很复杂，但由于它对图像信息的存放灵活多变，可以支持很多色彩系统，而且独立于操作系统，因此得到了广泛应用。TIFF文件以.tif为扩展名。其数据格式是一种3级体系结构，Ti内部结构可以分成三个部分，分别是：文件头信息区、标识信息区和图像数据区。其中所有的标签都是以升序排列，这些标签信息是用来处理文件中的图像信息的。在每一个TIFF文件中第一个数据结构称为图像文件头或IFH，它是图像文件体系结构的最高层。这个结构在一个TIFF文件中是惟一的，有固定的位置。它位于文件的开始部分，包含了正确解释TIFF文件的其他部分所需的必要信息。IFD是TIFF文件中第2个数据结构，它是一个名为标记(tag)的用于区分一个或多个可变长度数据块的表，标记中包含了有关于图像的所有信息。IFD提供了一系列的指针(索引)，这些指针告诉我们各种有关的数据字段在文件中的开始位置，并给出每个字段的数据类型及长度。这种方法允许数据字段定位在文件的任何地方，且可以是任意长度，因此文件格式十分灵活。根据IFD所指向的地址，相关的图像信息存储在图像数据区域。</p>
+<h3 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h3><p>SVG（Scalable Vector Graphics）图像使用XML来定义图形。这种方式定义的图像，在放大缩小，或者改变尺寸以后图片质量都不会有损失。此外，SVG图像可以被很多编辑器编辑，甚至你可以用普通的文本编辑器来编辑SVG图像文件。因此，SVG图像中的文本都是可选的，易搜索的，所以很适合来做地图。一般前端网页DOM都用SVG来添加图片。不过因为SVG实际上是文本描述文件，在表示动图的时候需要频繁的改动，因此SVG动画一般性能较低。</p>
+
+
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://baike.baidu.com/item/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/381122" target="_blank" rel="external nofollow noopener noreferrer">百度百科</a></li><li class="post-title"><a href="https://zhuanlan.zhihu.com/p/41610691" target="_blank" rel="external nofollow noopener noreferrer">常见图片格式jpg、jpeg、png、gif等有什么区别</a></li><li class="post-title"><a href="https://www.zhihu.com/question/27201061" target="_blank" rel="external nofollow noopener noreferrer">WebP 相对于 PNG、JPG 有什么优势</a></li><li class="post-title"><a href="https://www.runoob.com/svg/svg-intro.html" target="_blank" rel="external nofollow noopener noreferrer">SVG 教程</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/03/23/2022-03-23-optimize-img-load/">如何在Server上优化博客上图片的加载速度<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/03/24/2022-03-24-openCV-01/">OpenCV 入门<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="zhenxiang-shawn/beaudar_comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
