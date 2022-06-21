@@ -60,14 +60,14 @@ todo
 
 - mixing images(图像混合)
 做法是通过平均图像像素值将图像混合在一起:
-![image](62b1686a29ba5102f8239ea0/3E61A5BD-DB27-43A0-AF94-C957E97D590E.png)
+![image](https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/mixing_img.png)
 
 研究发现是当混合来自整个训练集的图像而不是仅来自同一类别的实例的图像时，可以获得更好的结果。其它一些做法：
 
 1. 一种线性方法是将图像组合成新的训练实例:
-![image](62b168b725335102f823a313/A9F66B6F-24A4-4D70-B3B9-A43B0A874EC7.png)
-2.另一方法是随机裁剪图像并将裁剪后的图像连接在一起以形成新图像
-![image](62b168d9e4a51102f823a78c/2D87D0CD-AF98-4632-B173-0E5A0DF5E9F6.png)
+![image](https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/img_data_aug1.png)
+2. 另一方法是随机裁剪图像并将裁剪后的图像连接在一起以形成新图像:
+![image](https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/img_data_aug2.png)
 
 - Random Crop then montage 随机裁剪再拼接
 这类方法从人的视角看毫无意义，但确实提升了精度。可能解释是数据集大小的增加导致了诸如线和边之类的低级特征的更可靠表示。
@@ -77,9 +77,9 @@ todo
 ## KeepAugment (保持增强)
 
 新方法控制数据增强的保真度，从而减少有害的错误信息。研究者的想法是通过显著性映射测量图像中矩形区域的重要性，并确保数据增强后始终呈现得分最高的区域：对于裁剪，通过避免切割重要区域(见下图a5和b5);对于图像级转换，通过将重要区域粘贴到转换图像顶部
-![image](62b16a700ca31102f823c18d/496B808C-E3EC-4842-BD04-74CF84A2CAC6.png)
+![image](https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/keep_aug_exp1.png)
 KeepAugment的伪代码:
-![image](62b16ab10e9d9102f823c5f1/06BB5728-2A47-4F5E-B8BA-5A87F13B2708.png)
+![image](https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/keep_aug_equation.png)
 
 ## 如何选择数据增强
 
