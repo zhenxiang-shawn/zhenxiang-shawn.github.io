@@ -4,7 +4,7 @@
 <head>
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -18,19 +18,23 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>标签：Optimization - J. Tech.</title>
+  <title>常见的图片格式概览 - J. Tech.</title>
 
   
 
   
-    <meta name="description" content="aaa">
-<meta property="og:type" content="website">
-<meta property="og:title" content="J. Tech.">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/tags/Optimization/index.html">
+    <meta name="description" content="物体检测中常用的集成方法(ensemble method) 物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个. &lt;- more -&gt; Non-maximum Suppression (NMS, 非最大化抑制)NMS的思路是对所有类别的检测框">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的图片格式概览">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="aaa">
+<meta property="og:description" content="物体检测中常用的集成方法(ensemble method) 物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个. &lt;- more -&gt; Non-maximum Suppression (NMS, 非最大化抑制)NMS的思路是对所有类别的检测框">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T16:00:00.000Z">
 <meta property="article:author" content="Zhenxiang Jin">
+<meta property="article:tag" content="Computer Vision">
+<meta property="article:tag" content="Big Data">
 <meta name="twitter:card" content="summary">
   
   
@@ -55,8 +59,10 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
 
@@ -66,59 +72,68 @@
 <nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav></header>
 
 <div class="widgets">
-<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Hello there!</span></div><div class="widget-body fs14"><p>这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。</p>
-</div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/2022/06/21/2022-06-21-cv-data-augmentation/">计算机视觉中的数据增强</a></div><div class="more-item"><a class="title" href="/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/">常见的图片格式概览</a></div><div class="more-item"><a class="title" href="/2022/03/24/2022-05-30-common-images-format/">常见的图片格式概览</a></div><div class="more-item"><a class="title" href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/">高级数据结构 SSTable</a></div><div class="more-item"><a class="title" href="/2022/04/24/2022-04-24-cv-conceptions/">计算机视觉的基本概念和知识点</a></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Non-maximum-Suppression-NMS-%E9%9D%9E%E6%9C%80%E5%A4%A7%E5%8C%96%E6%8A%91%E5%88%B6"><span class="toc-text">Non-maximum Suppression (NMS, 非最大化抑制)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Soft-NMS"><span class="toc-text">Soft-NMS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WBF-Weighted-Boxes-Fusion-method"><span class="toc-text">WBF (Weighted Boxes Fusion) method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NMW-Non-maximum-Weighted-method"><span class="toc-text">NMW (Non-maximum Weighted) method</span></a></li></ol></li></ol></div></div></div>
+
+
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhenxiang-shawn" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:zhenxiang-shawn@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.cubik65536.top/mail-bulk-solid.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0">虚心若愚</div></a></div>
-</header>
-
-
 
       
 
-  
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-06-09T16:00:00.000Z">2022-06-10</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>常见的图片格式概览</span></h1>
+<p>物体检测中常用的集成方法(ensemble method)</p>
+<p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个.</p>
+<p>&lt;- more -&gt;</p>
+<h2 id="Non-maximum-Suppression-NMS-非最大化抑制"><a href="#Non-maximum-Suppression-NMS-非最大化抑制" class="headerlink" title="Non-maximum Suppression (NMS, 非最大化抑制)"></a>Non-maximum Suppression (NMS, 非最大化抑制)</h2><p>NMS的思路是对所有类别的检测框进行循环过滤.对于某个类别, NMS 会根据预测结果的confidence score来把预测结果排序,然后选择有最大confidence的预测结果. 在此之后,通过一个IOU(Intersection over Union) 的threshold,就可以过滤其他的预测结果从而减少预测结果的重复性.</p>
+<p>基于这种计算逻辑的NMS有两个缺点。首先，NMS算法需要一个超参即<code>IOU Threshold</code>，这个阈值在不同任务中很难平衡。其次，NMS会将相邻或者重叠的两个物体对应的两个大概率目标框去掉一个，造成漏检。</p>
+<h2 id="Soft-NMS"><a href="#Soft-NMS" class="headerlink" title="Soft-NMS"></a>Soft-NMS</h2><p>Soft NMS方法总流程和NMS算法流程相同. Soft NMS算法会根据IOU成比例的减少confidence score的值. 对于重叠的框,重叠区(IOU)越大,置信度衰减越严重. 一般的, Soft NMS降低置信度权重的计算方法有两个:</p>
+<pre><code>1. 线性法
+2. 高斯法
+</code></pre><p>NMS是一种特殊的线性法的Soft-NMS.(如下)</p>
+<script type="math/tex; mode=display">
+s_i = \left.
+\begin{cases}
+    s_i,  iou < T \\
+    0,  iou \ge T\\
+\end{cases}
+\right.</script><p>计算方法最好选用连续性的函数,因为采用不连续的函数会导致box集合中的confidence score出现断层.</p>
+<h3 id="WBF-Weighted-Boxes-Fusion-method"><a href="#WBF-Weighted-Boxes-Fusion-method" class="headerlink" title="WBF (Weighted Boxes Fusion) method"></a>WBF (Weighted Boxes Fusion) method</h3><p>因为NMS和Soft-NMS会删掉很多的检测结果,所以可以说这些集成方法并没有用到模型预测出来的所有信息. 而WBF使用所有预测结果的置信度来计算出一个平均的检测结果,所以WBF可以在所有结果都不太准确的时候修正结果.</p>
+<h3 id="NMW-Non-maximum-Weighted-method"><a href="#NMW-Non-maximum-Weighted-method" class="headerlink" title="NMW (Non-maximum Weighted) method"></a>NMW (Non-maximum Weighted) method</h3><p>NMW方法与WBF方法使用了相似的思路，只是NMW方法使用了IoU来调整检测结果的权重。</p>
 
 
-  <div class='nav-wrap'>
-  <nav class='sub post cap'>
-    
-      <a href='/'>近期发布</a>
-    
-    
-      
-        <a href='/categories'>分类</a>
-      
-    
-    
-      
-        <a class='active' href='/tags'>标签：Optimization</a>
-      
-    
-    
-      
-        <a href='/archives'>归档</a>
-      
-    
-  </nav>
-</div>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.researchgate.net/figure/Schematic-illustration-of-NMS-soft-NMS-vs-WBF-Representing-the-outcomes-for-both_fig2_358638369" target="_blank" rel="external nofollow noopener noreferrer">Blomvliet, Marc. (2022). Protect the Great Barrier Reef Identifying starfish in real-time by an object detection model. 10.13140/RG.2.2.12867.27689.</a></li><li class="post-title"><a href="https://www.jianshu.com/p/e39c9c53b111" target="_blank" rel="external nofollow noopener noreferrer">NMS和Soft NMS</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
 
-  <div class="post-list post"><a class="post-card post " href="/2022/03/23/2022-03-23-optimize-img-load/">
-<article class="md"><h2 class="post-title">如何在Server上优化博客上图片的加载速度</h2><div class="excerpt"><p>在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢,而且有一些地区也对GitHub加了一道防火墙,这使GitHub Pages加载速度更慢了.目前有两种方式可以缓解图片加载速度.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-22T16:00:00.000Z">2022-03-23</time></span><span class="cap breadcrumb" style="color:#ff9800">解决方案</span></div></article>
-</a></div>
-  
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/">高级数据结构 SSTable<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/06/21/2022-06-21-cv-data-augmentation/">计算机视觉中的数据增强<span class="note">较新</span></a></section></div>
 
 
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="zhenxiang-shawn/beaudar_comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
 
 
 
