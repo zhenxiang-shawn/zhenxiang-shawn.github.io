@@ -18,17 +18,17 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>常见的图片格式概览 - J. Tech.</title>
+  <title>优化物体检测结果时常用的集成方法 - J. Tech.</title>
 
   
 
   
-    <meta name="description" content="物体检测中常用的集成方法(ensemble method) 物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个. &lt;- more -&gt; Non-maximum Suppression (NMS, 非最大化抑制)NMS的思路是对所有类别的检测框">
+    <meta name="description" content="物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见的图片格式概览">
+<meta property="og:title" content="优化物体检测结果时常用的集成方法">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="物体检测中常用的集成方法(ensemble method) 物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个. &lt;- more -&gt; Non-maximum Suppression (NMS, 非最大化抑制)NMS的思路是对所有类别的检测框">
+<meta property="og:description" content="物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-06-15T16:00:00.000Z">
@@ -88,10 +88,9 @@
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-06-09T16:00:00.000Z">2022-06-10</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>常见的图片格式概览</span></h1>
-<p>物体检测中常用的集成方法(ensemble method)</p>
-<p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个.</p>
-<p>&lt;- more -&gt;</p>
+<h1 class="article-title"><span>优化物体检测结果时常用的集成方法</span></h1>
+<p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.</p>
+<span id="more"></span>
 <h2 id="Non-maximum-Suppression-NMS-非最大化抑制"><a href="#Non-maximum-Suppression-NMS-非最大化抑制" class="headerlink" title="Non-maximum Suppression (NMS, 非最大化抑制)"></a>Non-maximum Suppression (NMS, 非最大化抑制)</h2><p>NMS的思路是对所有类别的检测框进行循环过滤.对于某个类别, NMS 会根据预测结果的confidence score来把预测结果排序,然后选择有最大confidence的预测结果. 在此之后,通过一个IOU(Intersection over Union) 的threshold,就可以过滤其他的预测结果从而减少预测结果的重复性.</p>
 <p>基于这种计算逻辑的NMS有两个缺点。首先，NMS算法需要一个超参即<code>IOU Threshold</code>，这个阈值在不同任务中很难平衡。其次，NMS会将相邻或者重叠的两个物体对应的两个大概率目标框去掉一个，造成漏检。</p>
 <h2 id="Soft-NMS"><a href="#Soft-NMS" class="headerlink" title="Soft-NMS"></a>Soft-NMS</h2><p>Soft NMS方法总流程和NMS算法流程相同. Soft NMS算法会根据IOU成比例的减少confidence score的值. 对于重叠的框,重叠区(IOU)越大,置信度衰减越严重. 一般的, Soft NMS降低置信度权重的计算方法有两个:</p>
