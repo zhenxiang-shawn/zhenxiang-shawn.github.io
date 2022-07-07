@@ -1,7 +1,7 @@
 ---
 date: 2022-06-10
 updated: 2022-06-16
-title: 常见的图片格式概览
+title: 优化物体检测结果时常用的集成方法
 categories: [技术加油站]
 tags: [Computer Vision, Big Data]
 references: 
@@ -12,11 +12,9 @@ references:
 ---
 
 
-物体检测中常用的集成方法(ensemble method)
+物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.
 
-物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法来把这些预测结果合并成一个.
-
-<- more ->
+<!-- more -->
 
 ## Non-maximum Suppression (NMS, 非最大化抑制)
 
