@@ -52,7 +52,7 @@ DeepLearning:
     src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/deep-learning.png?raw=true
     small: 96px
     large: 128px
-  description: 深度学习是机器学习的一种，而机器学习是实现人工智能的必经路径。
+  description: 深度学习是机器学习的一种，而机器学习是实现人工智能的必经路径。这一部分主要记录了神经网络在计算机视觉中的应用和技巧.
   start: 开始阅读
   cover: true
   # 深度学习的概念源于人工神经网络的研究，含多个隐藏层的多层感知器就是一种深度学习结构。深度学习通过组合低层特征形成更加抽象的高层表示属性类别或特征，以发现数据的分布式特征表示。研究深度学习的动机在于建立模拟人脑进行分析学习的神经网络，它模仿人脑的机制来解释数据，例如图像，声音和文本等。
@@ -65,7 +65,7 @@ DeepLearning:
     '卷积网络': [400, 499]
 
 Python: 
-  title: Python 实用教程
+  title: Python 进阶
   tags: 笔记
   logo:
     src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png?raw=true
@@ -79,3 +79,4 @@ Python:
     '基本使用': [0, 99]
     '高级功能': [100, 199]
     '源码分析': [200, 299]
+    '使用技巧': [300, 499]

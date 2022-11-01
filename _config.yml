@@ -5,6 +5,9 @@
 # Site
 title: J. Tech.
 avatar: "https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png"
+favion: 
+  small: source/_imgs/favicon-16x16.png
+  medium: source/_imgs/favicon-32x32.png
 subtitle: '求知若饥 | 虚心若愚'
 description: 'aaa'
 keywords:
