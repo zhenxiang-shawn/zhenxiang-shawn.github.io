@@ -2,7 +2,7 @@
 layout: wiki
 wiki: DeepLearning
 order: 2
-title: Pandas中基本的数据结构和用法
+title: (反向传播算法)Back Propagation
 mathjax: true
 
 references: 
@@ -12,14 +12,14 @@ references:
     url: https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/
 ---
 
-Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.
+反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.
 
 <!-- more -->
 
 
 
 ## 矩阵运算
-矩阵运算可以参考[这个网站](https://www.mathsisfun.com/algebra/matrix-multiplying.html)，讲解的很详细。
+在此之前你需要知道矩阵运算. 矩阵运算可以参考[这个网站](https://www.mathsisfun.com/algebra/matrix-multiplying.html)，讲解的很详细。
 
 ## forward propagation
 
