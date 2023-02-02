@@ -3,12 +3,13 @@
 
 <head>
   <meta name="generator" content="Hexo 5.4.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
   <meta charset="utf-8">
   
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
-  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
 
   <meta name="renderer" content="webkit">
@@ -18,9 +19,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>高级数据结构 SSTable - J. Tech.</title>
-
   
+  <title>高级数据结构 SSTable - J. Tech.</title>
 
   
     <meta name="description" content="Sorted String Table(SSTable)—是存储，处理和交换数据集的最流行的输出之一。正如名字本身所包含的意思一样，SSTable是一个简单的抽象，用来高效地存储大量的键-值对数据，同时做了优化来实现顺序读&#x2F;写操作的高吞吐量。">
@@ -52,6 +52,11 @@
   
 
   
+
+  
+
+
+  
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 <!-- hexo injector head_end end --></head>
@@ -66,15 +71,21 @@
     <aside class='l_left' layout='post'>
     
 
+  
 
-<header class="header">
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0"> 虚心若愚</div></a></div>
 
-<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0">虚心若愚</div></a></div>
-<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav></header>
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
+</header>
+
 
 <div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-SSTable%EF%BC%9F"><span class="toc-text">什么是 SSTable？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSTable-%E6%9C%89%E4%BD%95%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">SSTable 有何作用？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#01%EF%BC%9A%E5%82%A8%E5%AD%98%E6%A0%BC%E5%BC%8F"><span class="toc-text">01：储存格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02%EF%BC%9A%E5%8E%8B%E7%BC%A9%EF%BC%88Compaction%EF%BC%89%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">02：压缩（Compaction）过程中的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSTable-%E8%AE%BE%E8%AE%A1%E6%88%90immutable%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">SSTable 设计成immutable的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A"><span class="toc-text">更多</span></a></li></ol></div></div></div>
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">高级数据结构 SSTable</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-SSTable%EF%BC%9F"><span class="toc-text">什么是 SSTable？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSTable-%E6%9C%89%E4%BD%95%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">SSTable 有何作用？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#01%EF%BC%9A%E5%82%A8%E5%AD%98%E6%A0%BC%E5%BC%8F"><span class="toc-text">01：储存格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02%EF%BC%9A%E5%8E%8B%E7%BC%A9%EF%BC%88Compaction%EF%BC%89%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">02：压缩（Compaction）过程中的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSTable-%E8%AE%BE%E8%AE%A1%E6%88%90immutable%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">SSTable 设计成immutable的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A"><span class="toc-text">更多</span></a></li></ol></div></div></widget>
+
+
 
 
 </div>
@@ -86,9 +97,10 @@
 
       
 
+
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-05-17T16:00:00.000Z">2022-05-18</time></div></div>
 
-<article class='content md post'>
+<article class='md-text content post'>
 <h1 class="article-title"><span>高级数据结构 SSTable</span></h1>
 <p>Sorted String Table(SSTable)—是存储，处理和交换数据集的最流行的输出之一。正如名字本身所包含的意思一样，SSTable是一个简单的抽象，用来高效地存储大量的键-值对数据，同时做了优化来实现顺序读/写操作的高吞吐量。</p>
 <span id="more"></span>
@@ -99,7 +111,7 @@
 <p>Sorted Strings Table (SSTable) is a persistent file format used by ScyllaDB, Apache Cassandra, and other NoSQL databases to take the in-memory data stored in memtables, order it for fast access, and store it on disk in a persistent, ordered, immutable set of files. Immutable means SSTables are never modified. They are later merged into new SSTables or deleted as data is updated.</p>
 </blockquote>
 <p>其实除了Scylladb以外，当有很多公司使用SSTable，这些SSTable有些许轻微的不同。这里我们只研究BigTable中的SSTable。</p>
-<div class="tag-plugin note" color="cyan"><div class="title"><strong>什么是memtable？</strong></div><div class="body"><p>MemTable是一种在内存中保存数据的数据结构，然后再在合适的时机，MemTable中的数据会flush到SST file中。MemTable既可以支持读服务也可以支持写服务，写操作会首先将数据写入Memtable，读操作在query SST files之前会首先从MemTable中query数据（因为MemTable中的数据一直是最新的）。一旦MemTable满了，就会转换为只读的不可改变的，然后会创建一个新的MemTable来提供新的写操作。后台线程负责将MemTable中的数据flush到SST file，然后这个MemTable就会被销毁。</p></div></div>
+<div class="tag-plugin note" color="cyan"><div class="title">什么是memtable？</div><div class="body"><p>MemTable是一种在内存中保存数据的数据结构，然后再在合适的时机，MemTable中的数据会flush到SST file中。MemTable既可以支持读服务也可以支持写服务，写操作会首先将数据写入Memtable，读操作在query SST files之前会首先从MemTable中query数据（因为MemTable中的数据一直是最新的）。一旦MemTable满了，就会转换为只读的不可改变的，然后会创建一个新的MemTable来提供新的写操作。后台线程负责将MemTable中的数据flush到SST file，然后这个MemTable就会被销毁。</p></div></div>
 <h2 id="SSTable-有何作用？"><a href="#SSTable-有何作用？" class="headerlink" title="SSTable 有何作用？"></a>SSTable 有何作用？</h2><h3 id="01：储存格式"><a href="#01：储存格式" class="headerlink" title="01：储存格式"></a>01：储存格式</h3><p>在新数据写入时，这个操作首先提交到日志中作为redo纪录，最近的数据存储在内存的排序缓存memtable中；旧的数据存储在一系列的SSTable 中。在recover中，tablet server从METADATA表中读取metadata，metadata包含了组成Tablet的所有SSTable（纪录了这些SSTable的元 数据信息，如SSTable的位置、StartKey、EndKey等）以及一系列日志中的redo点。Tablet Server读取SSTable的索引到内存，并replay这些redo点之后的更新来重构memtable。在读时，完成格式、授权等检查后，读会同时读取SSTable、memtable（HBase中还包含了BlockCache中的数据）并合并他们的结果，由于SSTable和memtable都是字典序排列，因而合并操作可以很高效完成。</p>
 <h3 id="02：压缩（Compaction）过程中的使用"><a href="#02：压缩（Compaction）过程中的使用" class="headerlink" title="02：压缩（Compaction）过程中的使用"></a>02：压缩（Compaction）过程中的使用</h3><p>随着memtable大小增加到一个阀值，这个memtable会被冻住而创建一个新的memtable以供使用，而旧的memtable会转换成一个SSTable而写道GFS中，这个过程叫做minor compaction。这个minor compaction可以减少内存使用量，并可以减少日志大小，因为持久化后的数据可以从日志中删除。在minor compaction过程中，可以继续处理读写请求。<br>每次minor compaction会生成新的SSTable文件，如果SSTable文件数量增加，则会影响读的性能，因而每次读都需要读取所有SSTable文件，然后合并结果，因而对SSTable文件个数需要有上限，并且时不时的需要在后台做merging compaction，这个merging compaction读取一些SSTable文件和memtable的内容，并将他们合并写入一个新的SSTable中。当这个过程完成后，这些源SSTable和memtable就可以被删除了。<br>如果一个merging compaction是合并所有SSTable到一个SSTable，则这个过程称做major compaction。一次major compaction会将mark成删除的信息、数据删除，而其他两次compaction则会保留这些信息、数据（mark的形式）。Bigtable会时不时的扫描所有的Tablet，并对它们做major compaction。这个major compaction可以将需要删除的数据真正的删除从而节省空间，并保持系统一致性。</p>
 <h2 id="SSTable-设计成immutable的优点"><a href="#SSTable-设计成immutable的优点" class="headerlink" title="SSTable 设计成immutable的优点"></a>SSTable 设计成immutable的优点</h2><ol>
@@ -115,32 +127,31 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/04/24/2022-04-24-img-segmentation/">图像分割与图像检测<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/">优化物体检测结果时常用的集成方法<span class="note">较新</span></a></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/">优化物体检测结果时常用的集成方法</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/04/24/2022-04-24-img-segmentation/">图像分割与图像检测</a></div></section></div>
 
 
 
 
 
 
-  <div class='related-wrap md reveal' id="comments">
-    <div class='cmt-title cap theme'>
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
       快来参与讨论吧
-    </div>
-    <div class='cmt-body beaudar'>
+    </section>
+    <section class='body cmt-body beaudar'>
       
 
 <svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
 
 <div id="beaudar" repo="zhenxiang-shawn/beaudar_comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
 
-    </div>
+    </section>
   </div>
 
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="https://zhenxiang-shawn.github.io/">@Zhenxiang Jin</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/">GitHub</a> 找到本站源码。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -153,7 +164,7 @@
   </div>
   <div class='scripts'>
     <script type="text/javascript">
-  stellar = {
+  const stellar = {
     // 懒加载 css https://github.com/filamentgroup/loadCSS
     loadCSS: (href, before, media, attributes) => {
       var doc = window.document;
@@ -244,7 +255,8 @@
       }
     }
   };
-  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.version = '1.18.5';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5';
   stellar.config = {
     date_suffix: {
       just: '刚刚',
@@ -257,29 +269,40 @@
 
   // required plugins (only load if needs)
   stellar.plugins = {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
-    sitesjs: '/js/plugins/sites.js',
-    friendsjs: '/js/plugins/friends.js',
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
   };
 
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
   // optional plugins
   if ('true' == 'true') {
-    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
   }
   if ('true' == 'true') {
-    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
   }
   if ('' == 'true') {
-    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
   }
   if ('true' == 'true') {
-    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
   }
   if ('true' == 'true') {
-    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
   }
   if ('false' == 'true') {
-    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
   }
 </script>
 
