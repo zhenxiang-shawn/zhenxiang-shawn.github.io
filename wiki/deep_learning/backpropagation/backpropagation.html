@@ -18,18 +18,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>项目 - J. Tech.</title>
+  <title>DeepLearning：Pandas中基本的数据结构和用法 - J. Tech.</title>
 
   
 
   
-    <meta name="description" content="aaa">
+    <meta name="description" content="Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="项目">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/index.html">
+<meta property="og:title" content="Pandas中基本的数据结构和用法">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/backpropagation/backpropagation.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="aaa">
+<meta property="og:description" content="Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-01T08:40:54.337Z">
+<meta property="article:modified_time" content="2023-02-01T08:40:54.337Z">
 <meta property="article:author" content="Zhenxiang Jin">
 <meta name="twitter:card" content="summary">
   
@@ -55,52 +57,66 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout='index'>
+    <aside class='l_left' layout='wiki'>
     
 
 
 <header class="header">
 
-<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0">虚心若愚</div></a></div>
-<nav class="menu dis-select"><a class="nav-item" href="/">博客</a><a class="nav-item active" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav></header>
-
-<div class="widgets">
-<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Hello there!</span></div><div class="widget-body fs14"><p>这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。</p>
-</div></div>
-
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/wiki/deep_learning/cv_intro/index.html"><span>深度学习：</span>计算机视觉介绍</a></div><div class="more-item"><a class="title" href="/wiki/leetcode/dynamic_programming/buy_sell_stock/index.html"><span>LeetCode 题记：</span>股票买卖问题</a></div><div class="more-item"><a class="title" href="/wiki/deep_learning/index.html"><span>深度学习：</span>认识深度学习</a></div><div class="more-item"><a class="title" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span>深度学习：</span>Pandas中基本的数据结构和用法</a></div><div class="more-item"><a class="title" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span>深度学习：</span>Pandas中基本的数据结构和用法</a></div></div></div>
-</div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhenxiang-shawn" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:zhenxiang-shawn@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.cubik65536.top/mail-bulk-solid.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
-
-    </aside>
-    <div class='l_main list'>
-      
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0">虚心若愚</div></a></div>
+<div class="logo-wrap wiki"><a style="filter: grayscale(100%)" class="wiki-home cap" href="/wiki"><svg aria-hidden="true" viewBox="0 0 16 16" width="1rem" height="1rem" fill="currentColor"><path fill-rule="evenodd" d="M7.78 12.53a.75.75 0 01-1.06 0L2.47 8.28a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 1.06L4.81 7h7.44a.75.75 0 010 1.5H4.81l2.97 2.97a.75.75 0 010 1.06z"></path></svg>所有项目</a><a class="title" href="/wiki/deep_learning/index.html"><div class="main">深度学习</div></a></div>
 </header>
 
+<div class="widgets">
 
+<div class="widget-wrap multi" id="toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forward-propagation"><span class="toc-text">forward propagation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#back-propagation"><span class="toc-text">back propagation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A1%E7%AE%97matrix"><span class="toc-text">使用代码来计算matrix.</span></a></li></ol></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div></div>
+
+
+
+<div class="widget-wrap" id="related"><div class="widget-header cap dis-select"><span class="name">更多笔记</span></div><div class="widget-body fs14"><a class="more-item wiki" href="/wiki/leetcode/index.html">LeetCode 题记<div class="excerpt">LeetCode 是目前世界上最大的算法刷题网站. 它是一个很好的学习算法的途径. 本系列会通过LeetCode中的实例问题来展示算法在各类问题中的应用.</div></a><a class="more-item wiki" href="/wiki/learn_python/index.html">Python 进阶<div class="excerpt">目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。</div></a></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
 
       
 
   
+  
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">深度学习</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-01T08:40:54.337Z">2023-02-01</time></div></div>
 
+  <article class='content md wiki'>
+  <h1 class="article-title"><span>Pandas中基本的数据结构和用法</span></h1>
+  <p>Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.</p>
+<span id="more"></span>
+<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><p>矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
+<h2 id="forward-propagation"><a href="#forward-propagation" class="headerlink" title="forward propagation"></a>forward propagation</h2><h2 id="back-propagation"><a href="#back-propagation" class="headerlink" title="back propagation"></a>back propagation</h2><h3 id="计算实例"><a href="#计算实例" class="headerlink" title="计算实例"></a>计算实例</h3><h3 id="使用代码来计算matrix"><a href="#使用代码来计算matrix" class="headerlink" title="使用代码来计算matrix."></a>使用代码来计算matrix.</h3>
+  
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank" rel="external nofollow noopener noreferrer">Math is Fun</a></li><li class="post-title"><a href="https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/" target="_blank" rel="external nofollow noopener noreferrer">How to display all rows from dataframe using Pandas</a></li></ul></div></section></div>
+
+  </article>
+  
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html">Pandas中基本的数据结构和用法<span class="note">下一篇</span></a><div class="line"></div><a id="prev" href="/wiki/deep_learning/index.html">认识深度学习<span class="note">上一篇</span></a></section></div>
 
   
 
-<div class="nav-wrap"><nav class="sub wiki cap"><a class="active" href="/wiki">所有项目</a></a><a href="/wiki/tags/%E7%AC%94%E8%AE%B0/index.html">笔记</a></a></nav></div>
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
 
-  <div class="post-list wiki"><a class="post-card wiki " href="/wiki/leetcode/index.html">
-<article class="md"><div class="preview"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/leetcode.svg" alt="logo" height="96px"/></div><div class="excerpt"><div class="cap breadcrumb">笔记</div><h2 class="post-title">LeetCode 题记</h2><p>LeetCode 是目前世界上最大的算法刷题网站. 它是一个很好的学习算法的途径. 本系列会通过LeetCode中的实例问题来展示算法在各类问题中的应用.</p></div></article>
-</a></div><div class="post-list wiki"><a class="post-card wiki " href="/wiki/deep_learning/index.html">
-<article class="md"><div class="preview"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/deep-learning.png?raw=true" alt="logo" height="96px"/></div><div class="excerpt"><div class="cap breadcrumb">笔记</div><h2 class="post-title">深度学习</h2><p>深度学习是机器学习的一种，而机器学习是实现人工智能的必经路径。这一部分主要记录了神经网络在计算机视觉中的应用和技巧.</p></div></article>
-</a></div><div class="post-list wiki"><a class="post-card wiki " href="/wiki/learn_python/index.html">
-<article class="md"><div class="preview"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png?raw=true" alt="logo" height="96px"/></div><div class="excerpt"><div class="cap breadcrumb">笔记</div><h2 class="post-title">Python 进阶</h2><p>目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。</p></div></article>
-</a></div>
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="zhenxiang-shawn/beaudar_comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
 
 
 

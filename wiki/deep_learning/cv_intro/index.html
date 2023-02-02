@@ -18,24 +18,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>DeepLearning：认识深度学习 - J. Tech.</title>
+  <title>DeepLearning：计算机视觉介绍 - J. Tech.</title>
 
   
 
   
-    <meta name="description" content="什么是深度学习 ?深度学习的历史可以追溯到 20 世纪 40 年代。深度学习看似是一个全新的领域，只不过因为在目前流行的前几 年它是相对冷门的，同时也因为它被赋予了许多不同的名称（其中大部分已经不再使用），最近才成为众所周知的 “深度学习’’。这个领域已经更换了很多名称，它反映了不同的研究人员和不同观点的影响。一般来说，目前为止深度学习已经经历了三次发展浪潮：20 世纪 40 年代到 60 年代">
+    <meta name="description" content="计算机视觉的任务计算机视觉的任务主要有4种:  Image Classification: 最简单的任务,根据识别的图片来进行分类. Object Detection: 最常用的任务之一,可以预测物体的位置和种类. Semantic Segmentation: Instance Segmentaion  细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. OpenM">
 <meta property="og:type" content="website">
-<meta property="og:title" content="认识深度学习">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/index.html">
+<meta property="og:title" content="计算机视觉介绍">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/cv_intro/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="什么是深度学习 ?深度学习的历史可以追溯到 20 世纪 40 年代。深度学习看似是一个全新的领域，只不过因为在目前流行的前几 年它是相对冷门的，同时也因为它被赋予了许多不同的名称（其中大部分已经不再使用），最近才成为众所周知的 “深度学习’’。这个领域已经更换了很多名称，它反映了不同的研究人员和不同观点的影响。一般来说，目前为止深度学习已经经历了三次发展浪潮：20 世纪 40 年代到 60 年代">
+<meta property="og:description" content="计算机视觉的任务计算机视觉的任务主要有4种:  Image Classification: 最简单的任务,根据识别的图片来进行分类. Object Detection: 最常用的任务之一,可以预测物体的位置和种类. Semantic Segmentation: Instance Segmentaion  细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. OpenM">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/xor_nn_out.png">
-<meta property="article:published_time" content="2023-02-01T12:41:30.122Z">
-<meta property="article:modified_time" content="2023-02-01T12:41:30.122Z">
+<meta property="article:published_time" content="2023-02-02T07:19:00.024Z">
+<meta property="article:modified_time" content="2023-02-02T07:19:00.024Z">
 <meta property="article:author" content="Zhenxiang Jin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/xor_nn_out.png">
   
   
 
@@ -58,7 +56,7 @@
 <body>
   
 
-<div class="l_cover wiki"><article class="cover-wrap md"><div class="preview"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/deep-learning.png?raw=true" height="128px"></div><div class="cover-title"><span>深度学习</span></div><div class="description">深度学习是机器学习的一种，而机器学习是实现人工智能的必经路径。这一部分主要记录了神经网络在计算机视觉中的应用和技巧.</div><div class="start-wrap"><a class="button theme start" href="#start">开始阅读</a></div></article></div><hr>
+
 
 
   <div class='l_body' id='start'>
@@ -73,7 +71,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap multi" id="toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/index.html"><span class="toc-text">认识深度学习</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-text">什么是深度学习 ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E5%AE%9E%E4%BE%8B%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0-XOR-%E7%AE%97%E6%B3%95"><span class="toc-text">深度学习经典实例：神经网络学习 XOR 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">强化学习</span></a></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div></div>
+<div class="widget-wrap multi" id="toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-text">计算机视觉的任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">计算机视觉的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB"><span class="toc-text">传统机器学习和模式识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI"><span class="toc-text">AI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageNet-2006"><span class="toc-text">ImageNet(2006)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2010-%E5%88%9D%E6%9C%89%E6%88%90%E6%95%88"><span class="toc-text">~2010: 初有成效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2012-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%97%B6%E4%BB%A3"><span class="toc-text">2012~:深度学习时代</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E6%98%AFAI%E9%A2%86%E5%9F%9F%E5%8F%91%E5%B1%95%E7%9A%84%E5%BC%95%E6%93%8E"><span class="toc-text">开源是AI领域发展的引擎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%B8%E7%94%A8%E7%9A%84%E5%85%AC%E5%BC%80%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">计算机机视觉常用的公开的数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PASCAL-VOC"><span class="toc-text">PASCAL VOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageNet"><span class="toc-text">ImageNet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#COCO"><span class="toc-text">COCO</span></a></li></ol></li></ol></div></div></div>
 
 
 
@@ -89,28 +87,37 @@
 
   
   
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">深度学习</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-01T12:41:30.122Z">2023-02-01</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">深度学习</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-02T07:19:00.024Z">2023-02-02</time></div></div>
 
   <article class='content md wiki'>
-  <h1 class="article-title"><span>认识深度学习</span></h1>
+  <h1 class="article-title"><span>计算机视觉介绍</span></h1>
   <span id="more"></span>
-<h2 id="什么是深度学习"><a href="#什么是深度学习" class="headerlink" title="什么是深度学习 ?"></a>什么是深度学习 ?</h2><p>深度学习的历史可以追溯到 20 世纪 40 年代。深度学习看似是一个全新的领域，只不过因为在目前流行的前几 年它是相对冷门的，同时也因为它被赋予了许多不同的名称（其中大部分已经不再使用），最近才成为众所周知的 “深度学习’’。这个领域已经更换了很多名称，它反映了不同的研究人员和不同观点的影响。一般来说，目前为止深度学习已经经历了三次发展浪潮：20 世纪 40 年代到 60 年代深度学习的雏形出现在 <em>控制论</em>（cybernetics）中，20 世纪 80 年代 到 90 年代深度学习表现为 <em>联结主义</em>（connectionism），直到 2006 年，才真正以<strong>深度学习</strong>之名复兴。</p>
-<p>现代术语 “深度学习’’ 超越了目前机器学习模型的神经科学观点。它诉诸于学 习多层次组合这一更普遍的原理，这一原理也可以应用于那些并非受神经科学启发的机器学习框架。<br>深度学习最大的用处是他可以学习非线性函数。最经典的一个机器学习的例子是一个简单的单层神经网络就可以学习到XOR函数。现在，神经科学被视为深度学习研究的一个重要灵感来源，但它已不再是该领域的主要指导。</p>
-<p>如今神经科学在深度学习研究中的作用被削弱，主要原因是我们根本没有足够 的关于大脑的信息来作为指导去使用它。要获得对被大脑实际使用算法的深刻理解，我们需要有能力同时监测（至少是）数千相连神经元的活动。我们不能够做到这一点，所以我们甚至连大脑最简单、最深入研究的部分都还远远没有理解。深度学习的另一个最大的成就是其在 强化学习（reinforcement learning）领域的扩展。在强化学习中，一个自主的智能体必须在没有人类操作者指导的情况下，通过试错来学习执行任务。DeepMind 表明，基于深度学习的强化学习系统能够学会玩 Atari 视频游戏，并在多种任务中可与人类匹敌 (Mnih et al., 2015)。深度学习也显著改善了机器人强化学习的性能 (Finn et al., 2015)。</p>
-<p>总之，深度学习是机器学习的一种方法。在过去几十年的发展中，它大量借鉴了我们关于人脑、统计学和应用数学的知识。近年来，得益于更强大的计算机、更大的数据集和能够训练更深网络的技术，深度学习的普及性和实用性都有了极大的发展。未来几年充满了进一步提高深度学习并将它带到新领域的挑战和机遇。</p>
-<h2 id="深度学习经典实例：神经网络学习-XOR-算法"><a href="#深度学习经典实例：神经网络学习-XOR-算法" class="headerlink" title="深度学习经典实例：神经网络学习 XOR 算法"></a>深度学习经典实例：神经网络学习 XOR 算法</h2><p>XOR 函数（”异或” 逻辑）是两个二进制值 <code>x1</code> 和 <code>x2</code> 的运算。当这些二进制值 中恰好有一个为 1 时，XOR 函数返回值为 1。其余情况下返回值为 0。XOR 函数提供了我们想要学习的目标函数 <code>y = f^* (x)</code>。我们的模型给出了一个函数 <code>y = f(x; θ)</code> 并且我们的学习算法会不断调整参数 <code>θ</code> 来使得 <code>f</code> 尽可能接近 <code>f^∗</code>。</p>
-<p>在这个简单的例子中， 统计泛化并不重要。首先我们可以把这个问题当作是回归问题，并使用均方误差损失函数。我们选择这 个损失函数是为了尽可能简化本例中用到的数学。在应用领域，对于二进制数据建模时，MSE通常并不是一个合适的损失函数。</p>
-<p>假设这是一个线性模型，损失函数我们用MSE，模型的目标函数是<code>f(x; w,b) = xw + b</code>. 我们可以使用正规方程来解w和b来试损失函数最小。求解以后得到w=0， b=1/2. 线性模型仅仅是在任意一点都输出 0.5。显然这不是我们想要的结果。</p>
-<p>如果我们在此基础上加入一个隐藏层，这个隐藏层的激活函数我们用RELU（rectified linear unit）。这个模型就变成了 <code>f(x; w1, w2, b1, b2) = w1 * Max&#123;0, w2 * x + b2&#125; + b1</code>. 最后得到一个函数， 函数图像如下：</p>
-<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/xor_nn_out.png" alt="XOR NN函数"/></div><div class="image-meta"><span class="image-caption center">XOR NN函数</span></div></div>
-<p>神经网络对这XOR函数的每个样本都给出了正确的结果。在这个例子中，我们简单地指定了解决方案，然后说明它得到的误差为零。在实际情况中，可能会有数十亿的模型参数以及数十亿的训练样本，所以不能像我们这里做的那样进行简单地猜解。与之相对的，基于梯度的优化算法可以找到一些参数使得产生的误差非常小。我们这里给出的 XOR 问题的解处在损失函数的全局最小点，所以梯度下降算法可以收敛到这一点。梯度下降算法还可以找到 XOR 问题一些其他的等价解。梯度下降算法的收敛点取决于参数的初始值。在实践中，梯度下降通常不会找到像我们这里给出的那种干净的、容易理解的、整数值的解。</p>
-<h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2>
+<h2 id="计算机视觉的任务"><a href="#计算机视觉的任务" class="headerlink" title="计算机视觉的任务"></a>计算机视觉的任务</h2><p>计算机视觉的任务主要有4种:</p>
+<ol>
+<li>Image Classification: 最简单的任务,根据识别的图片来进行分类.</li>
+<li>Object Detection: 最常用的任务之一,可以预测物体的位置和种类.</li>
+<li>Semantic Segmentation:</li>
+<li>Instance Segmentaion</li>
+</ol>
+<p>细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. <a target="_blank" rel="noopener" href="https://openmmlab.com/">OpenMMLab</a>提供了很多开源的模型可以直接来使用学习.</p>
+<h2 id="计算机视觉的发展"><a href="#计算机视觉的发展" class="headerlink" title="计算机视觉的发展"></a>计算机视觉的发展</h2><h3 id="传统机器学习和模式识别"><a href="#传统机器学习和模式识别" class="headerlink" title="传统机器学习和模式识别"></a>传统机器学习和模式识别</h3><p>1964年, 计算机视觉刚开始起步的时候,人们只能计算图片的边缘检测. 这也展示了计算机视觉的一个分支. 这个分支影响了计算机视觉领域很久,直到现在这种依靠纯算法的分支还是生产环境/科研中不可或缺的. 比如自动驾驶和机器人SLAM都是大量依靠传统模型计算来获取环境信息的.</p>
+<h3 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h3><h4 id="ImageNet-2006"><a href="#ImageNet-2006" class="headerlink" title="ImageNet(2006)"></a>ImageNet(2006)</h4><p>斯坦福大学的李飞飞教授在2006年启动了ImageNet项目. 这是人类当时最大的可以用来训练模型的数据库.ImageNet包含了20,000个类,共计约1500万张图片.</p>
+<h4 id="2010-初有成效"><a href="#2010-初有成效" class="headerlink" title="~2010: 初有成效"></a>~2010: 初有成效</h4><p>特征还是人工提取的. 比如ImageNet结构. 当时已经有很好的识别效果了. </p>
+<h4 id="2012-深度学习时代"><a href="#2012-深度学习时代" class="headerlink" title="2012~:深度学习时代"></a>2012~:深度学习时代</h4><p>AlexNet 突破了传统视觉系统的性能问题,使损失函数的损失大大降低,甚至很多时候的表现高于人类自身. Fast R-CNN使目标检测进入深度学习时代.</p>
+<h3 id="开源是AI领域发展的引擎"><a href="#开源是AI领域发展的引擎" class="headerlink" title="开源是AI领域发展的引擎"></a>开源是AI领域发展的引擎</h3><p>自从2007年Theano开源深度学习框架一来,越来越多的框架被分享出来.比如现在我们熟知的 <code>TensorFlow</code>和<code>Pytorch</code>.</p>
+<p>其中值得一提的是 <a href="[OpenMMLab](https://openmmlab.com/">OpenMMLab</a>).  它是在Pytorch框架基础上做出的开源的AI工具库,近几年在各大AI比赛中屠榜. 其开源项目star数超过了60,000, 开发人员全球近10,000人. 其模型架构支持超过1,200篇论文的发表.有兴趣的可以去研究一下.</p>
+<h2 id="计算机机视觉常用的公开的数据集"><a href="#计算机机视觉常用的公开的数据集" class="headerlink" title="计算机机视觉常用的公开的数据集"></a>计算机机视觉常用的公开的数据集</h2><p>下边是一些常用的综合的数据集的汇总, 如果有其他需求,也可以参考[计算机视觉常用数据集总结：包括MS COCO、ImageNet、VOC、人脸识别、行人检测等 - 知乎 (zhihu.com)](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/129736067#:~:text=本篇博文主要对目前公开的计算机视觉常用数据集进行总结。">https://zhuanlan.zhihu.com/p/129736067#:~:text=本篇博文主要对目前公开的计算机视觉常用数据集进行总结。</a> </p>
+<h3 id="PASCAL-VOC"><a href="#PASCAL-VOC" class="headerlink" title="PASCAL VOC"></a>PASCAL VOC</h3><p><a target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>是一个图像集，由Mark Everingham (University ofLeeds)、Luc van Gool (ETHZ, Zurich)等人创立，有1.7W+张图片，分为20类。PASCALVOC竞赛也是计算机视觉竞赛的鼻祖，从2005年到2012年一共举办了8届，包含了物体分类（Classification）、目标检测（Detection）、图像分割（Segmentation）、Person Layout等任务，后来逐渐被ILSVRC竞赛替代.</p>
+<h3 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h3><p><a target="_blank" rel="noopener" href="https://image-net.org/">ImageNet</a>是一个图像集，由斯坦福大学李飞飞创立，有1400W+张样例图片，分为27大类和2W+小类，只能用于非商业研究和教学使用。与ImageNet图像集相应的是著名的ILSVRC竞赛，各种新机器学习算法脱颖而出（AlexNet、ZFNet、GoogleNet、ResNet、…），图像识别率得以显著提高.</p>
+<h3 id="COCO"><a href="#COCO" class="headerlink" title="COCO"></a>COCO</h3><p><a target="_blank" rel="noopener" href="https://cocodataset.org/">MS COCO</a>的全称是Microsoft Common Objects in Context，起源于微软于2014年出资标注的Microsoft COCO数据集，与ImageNet竞赛一样，被视为是计算机视觉领域最受关注和最权威的比赛之一。</p>
+<p>COCO数据集是一个大型的、丰富的物体检测，分割和字幕数据集。这个数据集以scene understanding为目标，主要从复杂的日常场景中截取，图像中的目标通过精确的segmentation进行位置的标定。图像包括91类目标，328,000影像和2,500,000个label。目前为止有语义分割的最大数据集，提供的类别有80 类，有超过33 万张图片，其中20 万张有标注，整个数据集中个体的数目超过150 万个。</p>
+
   
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://github.com/janishar/mit-deep-learning-book-pdf" target="_blank" rel="external nofollow noopener noreferrer">MIT 深度学习 （github）</a></li></ul></div></section></div>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://zhuanlan.zhihu.com/p/129736067#:~:text=%E6%9C%AC%E7%AF%87%E5%8D%9A%E6%96%87%E4%B8%BB%E8%A6%81%E5%AF%B9%E7%9B%AE%E5%89%8D%E5%85%AC%E5%BC%80%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86%E8%BF%9B%E8%A1%8C%E6%80%BB%E7%BB%93%E3%80%82%201.PASCAL%20VOC%EF%BC%88%E6%9D%83%E5%A8%81%E9%BC%BB%E7%A5%96%EF%BC%89%20PASCAL%20VOC%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E9%9B%86%EF%BC%8C%E7%94%B1Mark%20Everingham,%28University%20ofLeeds%29%E3%80%81Luc%20van%20Gool%20%28ETHZ%2C%20Zurich%29%E7%AD%89%E4%BA%BA%E5%88%9B%E7%AB%8B%EF%BC%8C%E6%9C%891.7W%2B%E5%BC%A0%E5%9B%BE%E7%89%87%EF%BC%8C%E5%88%86%E4%B8%BA20%E7%B1%BB%E3%80%82" target="_blank" rel="external nofollow noopener noreferrer">计算机视觉常用数据集总结：包括MS COCO、ImageNet、VOC、人脸识别、行人检测等</a></li></ul></div></section></div>
 
   </article>
   
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/wiki/deep_learning/backpropagation/backpropagation.html">Pandas中基本的数据结构和用法<span class="note">下一篇</span></a><div class="line"></div></section></div>
+<br>
 
   
 
