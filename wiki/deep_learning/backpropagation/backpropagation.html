@@ -18,20 +18,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>DeepLearning：Pandas中基本的数据结构和用法 - J. Tech.</title>
+  <title>DeepLearning：(反向传播算法)Back Propagation - J. Tech.</title>
 
   
 
   
-    <meta name="description" content="Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.">
+    <meta name="description" content="反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Pandas中基本的数据结构和用法">
+<meta property="og:title" content="(反向传播算法)Back Propagation">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/backpropagation/backpropagation.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.">
+<meta property="og:description" content="反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-01T08:40:54.337Z">
-<meta property="article:modified_time" content="2023-02-01T08:40:54.337Z">
+<meta property="article:published_time" content="2023-02-02T07:36:59.429Z">
+<meta property="article:modified_time" content="2023-02-02T07:36:59.429Z">
 <meta property="article:author" content="Zhenxiang Jin">
 <meta name="twitter:card" content="summary">
   
@@ -71,7 +71,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap multi" id="toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forward-propagation"><span class="toc-text">forward propagation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#back-propagation"><span class="toc-text">back propagation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A1%E7%AE%97matrix"><span class="toc-text">使用代码来计算matrix.</span></a></li></ol></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div></div>
+<div class="widget-wrap multi" id="toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">(反向传播算法)Back Propagation</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forward-propagation"><span class="toc-text">forward propagation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#back-propagation"><span class="toc-text">back propagation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A1%E7%AE%97matrix"><span class="toc-text">使用代码来计算matrix.</span></a></li></ol></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div></div>
 
 
 
@@ -87,13 +87,13 @@
 
   
   
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">深度学习</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-01T08:40:54.337Z">2023-02-01</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">深度学习</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-02T07:36:59.429Z">2023-02-02</time></div></div>
 
   <article class='content md wiki'>
-  <h1 class="article-title"><span>Pandas中基本的数据结构和用法</span></h1>
-  <p>Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.</p>
+  <h1 class="article-title"><span>(反向传播算法)Back Propagation</span></h1>
+  <p>反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.</p>
 <span id="more"></span>
-<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><p>矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
+<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><p>在此之前你需要知道矩阵运算. 矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
 <h2 id="forward-propagation"><a href="#forward-propagation" class="headerlink" title="forward propagation"></a>forward propagation</h2><h2 id="back-propagation"><a href="#back-propagation" class="headerlink" title="back propagation"></a>back propagation</h2><h3 id="计算实例"><a href="#计算实例" class="headerlink" title="计算实例"></a>计算实例</h3><h3 id="使用代码来计算matrix"><a href="#使用代码来计算matrix" class="headerlink" title="使用代码来计算matrix."></a>使用代码来计算matrix.</h3>
   
 <div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank" rel="external nofollow noopener noreferrer">Math is Fun</a></li><li class="post-title"><a href="https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/" target="_blank" rel="external nofollow noopener noreferrer">How to display all rows from dataframe using Pandas</a></li></ul></div></section></div>
