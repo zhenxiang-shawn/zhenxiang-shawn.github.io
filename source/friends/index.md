@@ -8,20 +8,31 @@ comment_id: 留言板
 
 ## 海内存知己 天涯若比邻 
 
-感谢人生旅途中的每一份真挚的友谊.
 
+
+{% about %}
+感谢人生旅途中的每一份真挚的友谊. 如果您想添加友链可以直接邮件联系我.
+
+<p align="center">
+  <a href="mailto:zhenxiang.shawn@outlook.com"><img src="https://img.shields.io/badge/📫%20EMAIL-zhenxiang.shawn@outlook.com-informational?style=for-the-badge" style="display: inline-block" /></a>
+</p>
+
+{% endabout %}
 
 ## 如何自助添加友链？
 
 此功能目前还在完善中...
 
 
-<!-- 
-
+<hr/>
 先友后链，在我们有一定了解了之后才可以交换友链，除此之外，您的网站还应满足以下条件：
 
 - 合法的、非营利性、无商业广告
 - 有实质性原创内容的 `HTTPS` 站点
+
+
+<!-- 
+
 
 {% timeline %}
 

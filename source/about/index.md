@@ -142,10 +142,11 @@ header: false
 | 游戏 | 推荐指数 |游玩时间 |
 |:-----|:--------|:--------|
 | Grand Theft Auto V | ★★★☆ | 2017-2019 |
-| TaiTan Fall 2 | ★★★★☆ | 2021- |
+| TaiTan Fall 2 | ★★★★☆ | 2021-2022|
 | It Takes Two | ★★★★☆ | 2020- |
 | Human Fall Flat | ★★★★☆ | 2020- |
 | Counter-Strike: Global Offensive | ★★★★☆ | 2016- |
 | Tom Clancy's Ghost Recon® Wildlands | ★★★★ | 2017-2018 |
+| 英雄联盟手游 | ★★★★☆ | 2021- |
 
 {% endtabs %}
