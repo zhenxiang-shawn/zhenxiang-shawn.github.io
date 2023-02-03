@@ -23,12 +23,12 @@
   <title>DeepLearning：计算机视觉介绍 - J. Tech.</title>
 
   
-    <meta name="description" content="计算机视觉的任务计算机视觉的任务主要有4种:  Image Classification: 最简单的任务,根据识别的图片来进行分类. Object Detection: 最常用的任务之一,可以预测物体的位置和种类. Semantic Segmentation: Instance Segmentaion  细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. OpenM">
+    <meta name="description" content="计算机视觉的任务 计算机视觉的任务主要有4种:  Image Classification: 最简单的任务,根据识别的图片来进行分类. Object Detection: 最常用的任务之一,可以预测物体的位置和种类. Semantic Segmentation: Instance Segmentaion  细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. Open">
 <meta property="og:type" content="website">
 <meta property="og:title" content="计算机视觉介绍">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/cv_intro/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="计算机视觉的任务计算机视觉的任务主要有4种:  Image Classification: 最简单的任务,根据识别的图片来进行分类. Object Detection: 最常用的任务之一,可以预测物体的位置和种类. Semantic Segmentation: Instance Segmentaion  细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. OpenM">
+<meta property="og:description" content="计算机视觉的任务 计算机视觉的任务主要有4种:  Image Classification: 最简单的任务,根据识别的图片来进行分类. Object Detection: 最常用的任务之一,可以预测物体的位置和种类. Semantic Segmentation: Instance Segmentaion  细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. Open">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-02T07:19:00.024Z">
 <meta property="article:modified_time" content="2023-02-02T07:19:00.024Z">
@@ -56,7 +56,121 @@
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --></head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
   
@@ -79,7 +193,7 @@
 
 
 
-<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html#start"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">(反向传播算法)Back Propagation</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-text">计算机视觉的任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">计算机视觉的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB"><span class="toc-text">传统机器学习和模式识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI"><span class="toc-text">AI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageNet-2006"><span class="toc-text">ImageNet(2006)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2010-%E5%88%9D%E6%9C%89%E6%88%90%E6%95%88"><span class="toc-text">~2010: 初有成效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2012-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%97%B6%E4%BB%A3"><span class="toc-text">2012~:深度学习时代</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E6%98%AFAI%E9%A2%86%E5%9F%9F%E5%8F%91%E5%B1%95%E7%9A%84%E5%BC%95%E6%93%8E"><span class="toc-text">开源是AI领域发展的引擎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%B8%E7%94%A8%E7%9A%84%E5%85%AC%E5%BC%80%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">计算机机视觉常用的公开的数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PASCAL-VOC"><span class="toc-text">PASCAL VOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageNet"><span class="toc-text">ImageNet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#COCO"><span class="toc-text">COCO</span></a></li></ol></li></ol></div></div></widget>
+<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html#start"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">反向传播算法 (Back Propagation)</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-text">计算机视觉的任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">计算机视觉的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB"><span class="toc-text">传统机器学习和模式识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AI"><span class="toc-text">AI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ImageNet-2006"><span class="toc-text">ImageNet(2006)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2010-%E5%88%9D%E6%9C%89%E6%88%90%E6%95%88"><span class="toc-text">~2010: 初有成效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2012-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%97%B6%E4%BB%A3"><span class="toc-text">2012~:深度学习时代</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E6%98%AFAI%E9%A2%86%E5%9F%9F%E5%8F%91%E5%B1%95%E7%9A%84%E5%BC%95%E6%93%8E"><span class="toc-text">开源是AI领域发展的引擎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%B8%E7%94%A8%E7%9A%84%E5%85%AC%E5%BC%80%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-text">计算机机视觉常用的公开的数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PASCAL-VOC"><span class="toc-text">PASCAL VOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageNet"><span class="toc-text">ImageNet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#COCO"><span class="toc-text">COCO</span></a></li></ol></li></ol></div></div></widget>
 
 
 
@@ -100,7 +214,8 @@
   <article class='md-text content wiki'>
   <h1 class="article-title"><span>计算机视觉介绍</span></h1>
   <span id="more"></span>
-<h2 id="计算机视觉的任务"><a href="#计算机视觉的任务" class="headerlink" title="计算机视觉的任务"></a>计算机视觉的任务</h2><p>计算机视觉的任务主要有4种:</p>
+<h2 id="计算机视觉的任务">计算机视觉的任务</h2>
+<p>计算机视觉的任务主要有4种:</p>
 <ol>
 <li>Image Classification: 最简单的任务,根据识别的图片来进行分类.</li>
 <li>Object Detection: 最常用的任务之一,可以预测物体的位置和种类.</li>
@@ -108,16 +223,27 @@
 <li>Instance Segmentaion</li>
 </ol>
 <p>细分下去的话,还有人体关键点检测,光学字符识别,目标跟踪,行为识别,全景感知等. <a target="_blank" rel="noopener" href="https://openmmlab.com/">OpenMMLab</a>提供了很多开源的模型可以直接来使用学习.</p>
-<h2 id="计算机视觉的发展"><a href="#计算机视觉的发展" class="headerlink" title="计算机视觉的发展"></a>计算机视觉的发展</h2><h3 id="传统机器学习和模式识别"><a href="#传统机器学习和模式识别" class="headerlink" title="传统机器学习和模式识别"></a>传统机器学习和模式识别</h3><p>1964年, 计算机视觉刚开始起步的时候,人们只能计算图片的边缘检测. 这也展示了计算机视觉的一个分支. 这个分支影响了计算机视觉领域很久,直到现在这种依靠纯算法的分支还是生产环境/科研中不可或缺的. 比如自动驾驶和机器人SLAM都是大量依靠传统模型计算来获取环境信息的.</p>
-<h3 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h3><h4 id="ImageNet-2006"><a href="#ImageNet-2006" class="headerlink" title="ImageNet(2006)"></a>ImageNet(2006)</h4><p>斯坦福大学的李飞飞教授在2006年启动了ImageNet项目. 这是人类当时最大的可以用来训练模型的数据库.ImageNet包含了20,000个类,共计约1500万张图片.</p>
-<h4 id="2010-初有成效"><a href="#2010-初有成效" class="headerlink" title="~2010: 初有成效"></a>~2010: 初有成效</h4><p>特征还是人工提取的. 比如ImageNet结构. 当时已经有很好的识别效果了. </p>
-<h4 id="2012-深度学习时代"><a href="#2012-深度学习时代" class="headerlink" title="2012~:深度学习时代"></a>2012~:深度学习时代</h4><p>AlexNet 突破了传统视觉系统的性能问题,使损失函数的损失大大降低,甚至很多时候的表现高于人类自身. Fast R-CNN使目标检测进入深度学习时代.</p>
-<h3 id="开源是AI领域发展的引擎"><a href="#开源是AI领域发展的引擎" class="headerlink" title="开源是AI领域发展的引擎"></a>开源是AI领域发展的引擎</h3><p>自从2007年Theano开源深度学习框架一来,越来越多的框架被分享出来.比如现在我们熟知的 <code>TensorFlow</code>和<code>Pytorch</code>.</p>
-<p>其中值得一提的是 <a href="[OpenMMLab](https://openmmlab.com/">OpenMMLab</a>).  它是在Pytorch框架基础上做出的开源的AI工具库,近几年在各大AI比赛中屠榜. 其开源项目star数超过了60,000, 开发人员全球近10,000人. 其模型架构支持超过1,200篇论文的发表.有兴趣的可以去研究一下.</p>
-<h2 id="计算机机视觉常用的公开的数据集"><a href="#计算机机视觉常用的公开的数据集" class="headerlink" title="计算机机视觉常用的公开的数据集"></a>计算机机视觉常用的公开的数据集</h2><p>下边是一些常用的综合的数据集的汇总, 如果有其他需求,也可以参考[计算机视觉常用数据集总结：包括MS COCO、ImageNet、VOC、人脸识别、行人检测等 - 知乎 (zhihu.com)](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/129736067#:~:text=本篇博文主要对目前公开的计算机视觉常用数据集进行总结。">https://zhuanlan.zhihu.com/p/129736067#:~:text=本篇博文主要对目前公开的计算机视觉常用数据集进行总结。</a> </p>
-<h3 id="PASCAL-VOC"><a href="#PASCAL-VOC" class="headerlink" title="PASCAL VOC"></a>PASCAL VOC</h3><p><a target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>是一个图像集，由Mark Everingham (University ofLeeds)、Luc van Gool (ETHZ, Zurich)等人创立，有1.7W+张图片，分为20类。PASCALVOC竞赛也是计算机视觉竞赛的鼻祖，从2005年到2012年一共举办了8届，包含了物体分类（Classification）、目标检测（Detection）、图像分割（Segmentation）、Person Layout等任务，后来逐渐被ILSVRC竞赛替代.</p>
-<h3 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h3><p><a target="_blank" rel="noopener" href="https://image-net.org/">ImageNet</a>是一个图像集，由斯坦福大学李飞飞创立，有1400W+张样例图片，分为27大类和2W+小类，只能用于非商业研究和教学使用。与ImageNet图像集相应的是著名的ILSVRC竞赛，各种新机器学习算法脱颖而出（AlexNet、ZFNet、GoogleNet、ResNet、…），图像识别率得以显著提高.</p>
-<h3 id="COCO"><a href="#COCO" class="headerlink" title="COCO"></a>COCO</h3><p><a target="_blank" rel="noopener" href="https://cocodataset.org/">MS COCO</a>的全称是Microsoft Common Objects in Context，起源于微软于2014年出资标注的Microsoft COCO数据集，与ImageNet竞赛一样，被视为是计算机视觉领域最受关注和最权威的比赛之一。</p>
+<h2 id="计算机视觉的发展">计算机视觉的发展</h2>
+<h3 id="传统机器学习和模式识别">传统机器学习和模式识别</h3>
+<p>1964年, 计算机视觉刚开始起步的时候,人们只能计算图片的边缘检测. 这也展示了计算机视觉的一个分支. 这个分支影响了计算机视觉领域很久,直到现在这种依靠纯算法的分支还是生产环境/科研中不可或缺的. 比如自动驾驶和机器人SLAM都是大量依靠传统模型计算来获取环境信息的.</p>
+<h3 id="AI">AI</h3>
+<h4 id="ImageNet-2006">ImageNet(2006)</h4>
+<p>斯坦福大学的李飞飞教授在2006年启动了ImageNet项目. 这是人类当时最大的可以用来训练模型的数据库.ImageNet包含了20,000个类,共计约1500万张图片.</p>
+<h4 id="2010-初有成效">~2010: 初有成效</h4>
+<p>特征还是人工提取的. 比如ImageNet结构. 当时已经有很好的识别效果了.</p>
+<h4 id="2012-深度学习时代">2012~:深度学习时代</h4>
+<p>AlexNet 突破了传统视觉系统的性能问题,使损失函数的损失大大降低,甚至很多时候的表现高于人类自身. Fast R-CNN使目标检测进入深度学习时代.</p>
+<h3 id="开源是AI领域发展的引擎">开源是AI领域发展的引擎</h3>
+<p>自从2007年Theano开源深度学习框架一来,越来越多的框架被分享出来.比如现在我们熟知的 <code>TensorFlow</code>和<code>Pytorch</code>.</p>
+<p>其中值得一提的是 <a href="%5BOpenMMLab%5D(https://openmmlab.com/)">OpenMMLab</a>.  它是在Pytorch框架基础上做出的开源的AI工具库,近几年在各大AI比赛中屠榜. 其开源项目star数超过了60,000, 开发人员全球近10,000人. 其模型架构支持超过1,200篇论文的发表.有兴趣的可以去研究一下.</p>
+<h2 id="计算机机视觉常用的公开的数据集">计算机机视觉常用的公开的数据集</h2>
+<p>下边是一些常用的综合的数据集的汇总, 如果有其他需求,也可以参考[计算机视觉常用数据集总结：包括MS COCO、ImageNet、VOC、人脸识别、行人检测等 - 知乎 (<a target="_blank" rel="noopener" href="http://zhihu.com">zhihu.com</a>)](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/129736067#:~:text=%E6%9C%AC%E7%AF%87%E5%8D%9A%E6%96%87%E4%B8%BB%E8%A6%81%E5%AF%B9%E7%9B%AE%E5%89%8D%E5%85%AC%E5%BC%80%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E9%9B%86%E8%BF%9B%E8%A1%8C%E6%80%BB%E7%BB%93%E3%80%82">https://zhuanlan.zhihu.com/p/129736067#:~:text=本篇博文主要对目前公开的计算机视觉常用数据集进行总结。</a></p>
+<h3 id="PASCAL-VOC">PASCAL VOC</h3>
+<p><a target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a>是一个图像集，由Mark Everingham (University ofLeeds)、Luc van Gool (ETHZ, Zurich)等人创立，有1.7W+张图片，分为20类。PASCALVOC竞赛也是计算机视觉竞赛的鼻祖，从2005年到2012年一共举办了8届，包含了物体分类（Classification）、目标检测（Detection）、图像分割（Segmentation）、Person Layout等任务，后来逐渐被ILSVRC竞赛替代.</p>
+<h3 id="ImageNet">ImageNet</h3>
+<p><a target="_blank" rel="noopener" href="https://image-net.org/">ImageNet</a>是一个图像集，由斯坦福大学李飞飞创立，有1400W+张样例图片，分为27大类和2W+小类，只能用于非商业研究和教学使用。与ImageNet图像集相应的是著名的ILSVRC竞赛，各种新机器学习算法脱颖而出（AlexNet、ZFNet、GoogleNet、ResNet、…），图像识别率得以显著提高.</p>
+<h3 id="COCO">COCO</h3>
+<p><a target="_blank" rel="noopener" href="https://cocodataset.org/">MS COCO</a>的全称是Microsoft Common Objects in Context，起源于微软于2014年出资标注的Microsoft COCO数据集，与ImageNet竞赛一样，被视为是计算机视觉领域最受关注和最权威的比赛之一。</p>
 <p>COCO数据集是一个大型的、丰富的物体检测，分割和字幕数据集。这个数据集以scene understanding为目标，主要从复杂的日常场景中截取，图像中的目标通过精确的segmentation进行位置的标定。图像包括91类目标，328,000影像和2,500,000个label。目前为止有语义分割的最大数据集，提供的类别有80 类，有超过33 万张图片，其中20 万张有标注，整个数据集中个体的数目超过150 万个。</p>
 
   
@@ -147,7 +273,8 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

@@ -60,6 +60,8 @@
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --></head>
 
 <body>
@@ -76,7 +78,7 @@
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0"> 虚心若愚</div></a></div>
 
-<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
 </header>
 
 
@@ -107,11 +109,14 @@
 <span id="more"></span>
 <p>OpenCV 是跨平台的，可以在 Windows、Linux、Mac OS、Android、iOS 等操作系统上运行。</p>
 <p>OpenCV 的应用领域非常广泛，包括图像拼接、图像降噪、产品质检、人机交互、人脸识别、动作识别、动作跟踪、无人驾驶等。</p>
-<h2 id="IPPICV-加速"><a href="#IPPICV-加速" class="headerlink" title="IPPICV 加速"></a>IPPICV 加速</h2><p>如果希望得到更多在英特尔架构上的自动优化，可以购买英特尔的集成性能基元（IPP）库，该库包含了许多算法领域的底层优化程序。在库安装完毕的情况下 OpenCV 在运行的时候会自动调用合适的 IPP 库。</p>
+<h2 id="IPPICV-加速">IPPICV 加速</h2>
+<p>如果希望得到更多在英特尔架构上的自动优化，可以购买英特尔的集成性能基元（IPP）库，该库包含了许多算法领域的底层优化程序。在库安装完毕的情况下 OpenCV 在运行的时候会自动调用合适的 IPP 库。</p>
 <p>从 OpenCV 3.0 开始，英特尔许可 OpenCV 研发团队和 OpenCV 社区拥有一个免费的 IPP 库的子库（称 IPPICV），该子库默认集成在 OpenCV 中并在运算时发挥效用。如果你使用的是英特尔的处理器，那么 OpenCV 会自动调用 IPPICV。</p>
-<h2 id="OpenCV的应用"><a href="#OpenCV的应用" class="headerlink" title="OpenCV的应用"></a>OpenCV的应用</h2><p>自从测试版本在 1999 年 1 月发布以来，<a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 已经广泛用于许多应用、产品以及科研工作中。这些应用包括在卫星和网络地图上拼接图像，图像扫描校准，医学图像的降噪，目标分析，安保以及工业检测系统，自动驾驶和安全系统，制造感知系统，相机校正，军事应用，无人空中、地面、水下航行器。</p>
+<h2 id="OpenCV的应用">OpenCV的应用</h2>
+<p>自从测试版本在 1999 年 1 月发布以来，<a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 已经广泛用于许多应用、产品以及科研工作中。这些应用包括在卫星和网络地图上拼接图像，图像扫描校准，医学图像的降噪，目标分析，安保以及工业检测系统，自动驾驶和安全系统，制造感知系统，相机校正，军事应用，无人空中、地面、水下航行器。</p>
 <p>它也被运用于声音和音乐的识别，在这些场景中，视觉识别方法被运用于声音的频谱图像。因为计算机的视觉只是一串串数字, OpenCV就是根据统计学,数学和计算机科学在这串数字上的分析建立起来的.</p>
-<h2 id="OpenCV-的组织关系"><a href="#OpenCV-的组织关系" class="headerlink" title="OpenCV 的组织关系"></a>OpenCV 的组织关系</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 是由很多模块组成的，这些模块可以分成很多层：</p>
+<h2 id="OpenCV-的组织关系">OpenCV 的组织关系</h2>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/opencv/">OpenCV</a> 是由很多模块组成的，这些模块可以分成很多层：</p>
 <ul>
 <li>最底层是基于硬件加速层（HAL）的各种硬件优化。</li>
 <li>再上一层是 opencv_contrib 模块所包含的 OpenCV 由其他开发人员所贡献的代码，其包含大多数高层级的函数功能。这就是OpenCV的核心。</li>
@@ -119,8 +124,8 @@
 <li>处于最上层的是 OpenCV 和操作系统的交互。</li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/opencv-structure.jpeg" alt="opencv structure"></p>
-<h3 id="OpenCV的模块"><a href="#OpenCV的模块" class="headerlink" title="OpenCV的模块"></a>OpenCV的模块</h3><p>下表给出了 OpenCV 包含的具体模块，虽然这些模块会随着时间推移而不断的发展，但模块始终是组成这个库的基本单位，每个函数都是一个模块的一部分。</p>
-<div class="table-container">
+<h3 id="OpenCV的模块">OpenCV的模块</h3>
+<p>下表给出了 OpenCV 包含的具体模块，虽然这些模块会随着时间推移而不断的发展，但模块始终是组成这个库的基本单位，每个函数都是一个模块的一部分。</p>
 <table>
 <thead>
 <tr>
@@ -195,9 +200,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="OpenCV的下载和安装"><a href="#OpenCV的下载和安装" class="headerlink" title="OpenCV的下载和安装"></a>OpenCV的下载和安装</h2><p>OpenCV的下载和安装请参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/1104.html">OpenCV下载和安装（包含所有平台）</a></p>
-<h2 id="OpenCV的使用"><a href="#OpenCV的使用" class="headerlink" title="OpenCV的使用"></a>OpenCV的使用</h2><ul>
+<h2 id="OpenCV的下载和安装">OpenCV的下载和安装</h2>
+<p>OpenCV的下载和安装请参考<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/1104.html">OpenCV下载和安装（包含所有平台）</a></p>
+<h2 id="OpenCV的使用">OpenCV的使用</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/opencv-learning/blob/main/01-find_contours.py">Find Contour</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn/opencv-learning/blob/main/02-facial_detect.py">Face Detection</a></li>
 </ul>
@@ -232,7 +238,8 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

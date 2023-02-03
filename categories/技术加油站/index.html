@@ -54,6 +54,8 @@
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --></head>
 
 <body>
@@ -68,7 +70,7 @@
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0"> 虚心若愚</div></a></div>
 
-<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
 </header>
 
 
@@ -104,7 +106,7 @@
 </a><a class="post-card post " href="/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/">
 <article class="md-text"><h2 class="post-title">优化物体检测结果时常用的集成方法</h2><div class="excerpt"><p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-06-09T16:00:00.000Z">2022-06-10</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/">
-<article class="md-text"><h2 class="post-title">高级数据结构 SSTable</h2><div class="excerpt"><p>Sorted String Table(SSTable)—是存储，处理和交换数据集的最流行的输出之一。正如名字本身所包含的意思一样，SSTable是一个简单的抽象，用来高效地存储大量的键-值对数据，同时做了优化来实现顺序读/写操作的高吞吐量。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-05-17T16:00:00.000Z">2022-05-18</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">高级数据结构 SSTable</h2><div class="excerpt"><p>Sorted String Table(SSTable)–是存储，处理和交换数据集的最流行的输出之一。正如名字本身所包含的意思一样，SSTable是一个简单的抽象，用来高效地存储大量的键-值对数据，同时做了优化来实现顺序读/写操作的高吞吐量。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-05-17T16:00:00.000Z">2022-05-18</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/04/24/2022-04-24-img-segmentation/">
 <article class="md-text"><h2 class="post-title">图像分割与图像检测</h2><div class="excerpt"><p>计算机视觉可以分为两大方向：基于学习的方法和基于几何的方法。其中基于学习的方法最火的就是深度学习，而基于几何方法最火的就是视觉SLAM(Simultaneous Localization and Mapping)</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-04-23T16:00:00.000Z">2022-04-24</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/04/05/2022-04-04-bash_eq_talk/">
@@ -116,7 +118,8 @@
 </a><a class="post-card post " href="/2022/03/24/2022-05-30-common-images-format/">
 <article class="md-text"><h2 class="post-title">常见的图片格式概览</h2><div class="excerpt"><p>数据都是以二进制的格式存在计算机中。图片作为一种数据，当然也是以二进制的格式存在计算机中。此篇不讲图片数据格式的底层，只是概述一下各个图片格式的特点和优缺点。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-23T16:00:00.000Z">2022-03-24</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/03/22/2022-03-22-blur-detection/">
-<article class="md-text"><h2 class="post-title">检测模糊图片的几种方法</h2><div class="excerpt"><p>为什么要做模糊检测 ?在机器学习准备数据的时候,有些数据并不尽如人意. 比如在计算机视觉训练时,图片数据集中有一些收集的图片清晰度不够,这会影响到后续的训练和模型的准确度. 准备图片数据的时候一般会根据图片质量选择是否先给图片降噪,然后把较为模糊的图片给去掉. 除此以外还可以用来做自动图像分级, 在视频流做OCR的时候可以过滤掉一些质量不好的图片来节省算力. 本文主要为讨论了模糊图片的检测的两种方法.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-21T16:00:00.000Z">2022-03-22</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">检测模糊图片的几种方法</h2><div class="excerpt"><p>为什么要做模糊检测 ?
+在机器学习准备数据的时候,有些数据并不尽如人意. 比如在计算机视觉训练时,图片数据集中有一些收集的图片清晰度不够,这会影响到后续的训练和模型的准确度. 准备图片数据的时候一般会根据图片质量选择是否先给图片降噪,然后把较为模糊的图片给去掉. 除此以外还可以用来做自动图像分级, 在视频流做OCR的时候可以过滤掉一些质量不好的图片来节省算力. 本文主要为讨论了模糊图片的检测的两种方法.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-21T16:00:00.000Z">2022-03-22</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a></div>
   
 
@@ -125,7 +128,8 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

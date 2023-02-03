@@ -57,6 +57,8 @@
   
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --></head>
 
 <body>
@@ -73,7 +75,7 @@
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0"> 虚心若愚</div></a></div>
 
-<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便笺</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/about/">关于</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/friends/">友链</a></nav>
 </header>
 
 
@@ -102,7 +104,7 @@
 <h1 class="article-title"><span>Bash中的比较语法详解</span></h1>
 <p>如果你希望通过脚本运算获得的结果是你想要的，那么你需要应用到算术运算符参与算术运算以获得你所需的结果. 在Bash脚本中,一般比较语法都会放在方括号中.</p>
 <span id="more"></span>
-<h2 id="单括号与双括号的对比"><a href="#单括号与双括号的对比" class="headerlink" title="单括号与双括号的对比"></a>单括号与双括号的对比</h2><div class="table-container">
+<h2 id="单括号与双括号的对比">单括号与双括号的对比</h2>
 <table>
 <thead>
 <tr>
@@ -143,9 +145,7 @@
 <td></td>
 </tr>
 <tr>
-<td>括号中可以使用<code>&amp;&amp;</code>或者`\</td>
-<td>\</td>
-<td>`进行逻辑运算</td>
+<td>括号中可以使用<code>&amp;&amp;</code>或者<code>||</code>进行逻辑运算</td>
 <td></td>
 <td>√</td>
 </tr>
@@ -156,10 +156,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p>此外, <strong>[ ] 是bash 内置命令</strong> 而<strong>[[ ]] 是bash  关键词, 双方括号表达式会返回一个退出码</strong>.</p>
-<h2 id="与-eq的对比以及延伸"><a href="#与-eq的对比以及延伸" class="headerlink" title="==与-eq的对比以及延伸"></a>==与-eq的对比以及延伸</h2><p>一般来说, 使用 <code>=</code>或者<code>==</code>来做字符串的对比; 使用<code>-eq</code>来做数值的对比.</p>
-<h3 id="使用-来对比字符串"><a href="#使用-来对比字符串" class="headerlink" title="使用==来对比字符串"></a>使用==来对比字符串</h3><div class="table-container">
+<p>此外, <strong>[ ] 是bash 内置命令</strong> 而**[[ ]] 是bash  关键词, 双方括号表达式会返回一个退出码**.</p>
+<h2 id="与-eq的对比以及延伸">==与-eq的对比以及延伸</h2>
+<p>一般来说, 使用 <code>=</code>或者<code>==</code>来做字符串的对比; 使用<code>-eq</code>来做数值的对比.</p>
+<h3 id="使用-来对比字符串">使用==来对比字符串</h3>
 <table>
 <thead>
 <tr>
@@ -202,8 +202,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="使用-eq-等命令来对比数值"><a href="#使用-eq-等命令来对比数值" class="headerlink" title="使用 -eq 等命令来对比数值"></a>使用 -eq 等命令来对比数值</h3><div class="table-container">
+<h3 id="使用-eq-等命令来对比数值">使用 -eq 等命令来对比数值</h3>
 <table>
 <thead>
 <tr>
@@ -238,8 +237,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="文件状态检查"><a href="#文件状态检查" class="headerlink" title="文件状态检查"></a>文件状态检查</h3><div class="table-container">
+<h3 id="文件状态检查">文件状态检查</h3>
 <table>
 <thead>
 <tr>
@@ -298,14 +296,12 @@
 </tr>
 </tbody>
 </table>
-</div>
 <blockquote>
 <p><strong>块存储</strong>的用户是可以读写块设备的软件系统.</p>
 <p><strong>文件存储</strong>的用户是自然人.</p>
 <p><strong>对象储存</strong>的用户是其他计算机软件.</p>
 </blockquote>
 <p>Linux系统中所有文件/文件夹都是已文件的格式保存的. 但是为了更容易区分.文件和文件/文件夹不同的命令区分开来列出.</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -344,15 +340,19 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="双括号-对比单括号-的优势"><a href="#双括号-对比单括号-的优势" class="headerlink" title="双括号 [[ ]] 对比单括号 [ ] 的优势"></a>双括号 [[ ]] 对比单括号 [ ] 的优势</h2><ol>
-<li><p>[[是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[ ]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p>
+<h2 id="双括号-对比单括号-的优势">双括号 [[ ]] 对比单括号 [ ] 的优势</h2>
+<ol>
+<li>
+<p>[[是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[ ]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p>
 </li>
-<li><p>支持字符串的模式匹配，使用=~操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如[[ hello == hell? ]]，结果为真。[[ ]] 中匹配字符串或通配符，不需要引号。</p>
+<li>
+<p>支持字符串的模式匹配，使用=~操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如[[ hello == hell? ]]，结果为真。[[ ]] 中匹配字符串或通配符，不需要引号。</p>
 </li>
-<li><p>使用[[ … ]]条件判断结构，而不是[… ]，能够防止脚本中的许多逻辑错误。比如，&amp;&amp;、||、&lt;和&gt; 操作符能够正常存在于[[ ]]条件判断结构中，但是如果出现在[ ]结构中的话，会报错。</p>
+<li>
+<p>使用[[ … ]]条件判断结构，而不是[… ]，能够防止脚本中的许多逻辑错误。比如，&amp;&amp;、||、&lt;和&gt; 操作符能够正常存在于[[ ]]条件判断结构中，但是如果出现在[ ]结构中的话，会报错。</p>
 </li>
-<li><p>bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码。</p>
+<li>
+<p>bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码。</p>
 </li>
 </ol>
 <p><strong>使用[[ … ]]条件判断结构, 而不是[ … ], 能够防止脚本中的许多逻辑错误. 比如,&amp;&amp;, ||, &lt;, 和&gt; 操作符能够正常存在于[[]]条件判断结构中, 但是如果出现在[ ]结构中的话, 会报错. 因此推荐直接选用双括号.</strong></p>
@@ -387,7 +387,8 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
