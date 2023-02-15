@@ -84,10 +84,7 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">优化物体检测结果时常用的集成方法</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#non-maximum-suppression-nms-%E9%9D%9E%E6%9C%80%E5%A4%A7%E5%8C%96%E6%8A%91%E5%88%B6"><span class="toc-text">Non-maximum
-Suppression (NMS, 非最大化抑制)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#soft-nms"><span class="toc-text">Soft-NMS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wbf-weighted-boxes-fusion-method"><span class="toc-text">WBF (Weighted Boxes Fusion)
-method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nmw-non-maximum-weighted-method"><span class="toc-text">NMW (Non-maximum Weighted)
-method</span></a></li></ol></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">优化物体检测结果时常用的集成方法</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Non-maximum-Suppression-NMS-%E9%9D%9E%E6%9C%80%E5%A4%A7%E5%8C%96%E6%8A%91%E5%88%B6"><span class="toc-text">Non-maximum Suppression (NMS, 非最大化抑制)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Soft-NMS"><span class="toc-text">Soft-NMS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WBF-Weighted-Boxes-Fusion-method"><span class="toc-text">WBF (Weighted Boxes Fusion) method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NMW-Non-maximum-Weighted-method"><span class="toc-text">NMW (Non-maximum Weighted) method</span></a></li></ol></li></ol></div></div></widget>
 
 
 
@@ -106,41 +103,28 @@ method</span></a></li></ol></li></ol></div></div></widget>
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>优化物体检测结果时常用的集成方法</span></h1>
-<p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence
-score的格子,
-但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble
-method)来把这些预测结果合并成一个.</p>
+<p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.</p>
 <span id="more"></span>
-<h2 id="non-maximum-suppression-nms-非最大化抑制">Non-maximum
-Suppression (NMS, 非最大化抑制)</h2>
-<p>NMS的思路是对所有类别的检测框进行循环过滤.对于某个类别, NMS
-会根据预测结果的confidence
-score来把预测结果排序,然后选择有最大confidence的预测结果.
-在此之后,通过一个IOU(Intersection over Union)
-的threshold,就可以过滤其他的预测结果从而减少预测结果的重复性.</p>
+<h2 id="Non-maximum-Suppression-NMS-非最大化抑制">Non-maximum Suppression (NMS, 非最大化抑制)</h2>
+<p>NMS的思路是对所有类别的检测框进行循环过滤.对于某个类别, NMS 会根据预测结果的confidence score来把预测结果排序,然后选择有最大confidence的预测结果. 在此之后,通过一个IOU(Intersection over Union) 的threshold,就可以过滤其他的预测结果从而减少预测结果的重复性.</p>
 <p>基于这种计算逻辑的NMS有两个缺点。首先，NMS算法需要一个超参即<code>IOU Threshold</code>，这个阈值在不同任务中很难平衡。其次，NMS会将相邻或者重叠的两个物体对应的两个大概率目标框去掉一个，造成漏检。</p>
-<h2 id="soft-nms">Soft-NMS</h2>
-<p>Soft NMS方法总流程和NMS算法流程相同. Soft
-NMS算法会根据IOU成比例的减少confidence score的值.
-对于重叠的框,重叠区(IOU)越大,置信度衰减越严重. 一般的, Soft
-NMS降低置信度权重的计算方法有两个: 1. 线性法 2. 高斯法
+<h2 id="Soft-NMS">Soft-NMS</h2>
+<p>Soft NMS方法总流程和NMS算法流程相同. Soft NMS算法会根据IOU成比例的减少confidence score的值. 对于重叠的框,重叠区(IOU)越大,置信度衰减越严重. 一般的, Soft NMS降低置信度权重的计算方法有两个:<br>
+1. 线性法<br>
+2. 高斯法<br>
 NMS是一种特殊的线性法的Soft-NMS.(如下)</p>
-<p><span class="math display">\[
-s_i = \left.
-\begin{cases}
-    s_i,  iou &lt; T \\
-    0,  iou \ge T\\
-\end{cases}
-\right.
-\]</span></p>
-<p>计算方法最好选用连续性的函数,因为采用不连续的函数会导致box集合中的confidence
-score出现断层.</p>
-<h3 id="wbf-weighted-boxes-fusion-method">WBF (Weighted Boxes Fusion)
-method</h3>
-<p>因为NMS和Soft-NMS会删掉很多的检测结果,所以可以说这些集成方法并没有用到模型预测出来的所有信息.
-而WBF使用所有预测结果的置信度来计算出一个平均的检测结果,所以WBF可以在所有结果都不太准确的时候修正结果.</p>
-<h3 id="nmw-non-maximum-weighted-method">NMW (Non-maximum Weighted)
-method</h3>
+<p>$$<br>
+s_i = \left.<br>
+\begin{cases}<br>
+s_i,  iou &lt; T \<br>
+0,  iou \ge T\<br>
+\end{cases}<br>
+\right.<br>
+$$</p>
+<p>计算方法最好选用连续性的函数,因为采用不连续的函数会导致box集合中的confidence score出现断层.</p>
+<h3 id="WBF-Weighted-Boxes-Fusion-method">WBF (Weighted Boxes Fusion) method</h3>
+<p>因为NMS和Soft-NMS会删掉很多的检测结果,所以可以说这些集成方法并没有用到模型预测出来的所有信息. 而WBF使用所有预测结果的置信度来计算出一个平均的检测结果,所以WBF可以在所有结果都不太准确的时候修正结果.</p>
+<h3 id="NMW-Non-maximum-Weighted-method">NMW (Non-maximum Weighted) method</h3>
 <p>NMW方法与WBF方法使用了相似的思路，只是NMW方法使用了IoU来调整检测结果的权重。</p>
 
 
