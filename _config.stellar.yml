@@ -3,15 +3,19 @@ title: J. Tech.
 # sidebar:
 #   logo:
 #     title: '[<img no-lazy height="32px" src="xxx"/>](/)'
-mathjax:    
-  enable: true
 
+# pandoc:
+#   filters:
+#   extra:
+#   template:
+#   meta:
+#   mathEngine: 'mathjax'
 
 sidebar:
   menu:
     post: '[博客](/)'
     wiki: '[项目](/wiki/)'  
-    notes: '[便笺](/notes/)'
+    # notes: '[便笺](/notes/)'
     about: '[关于](/about/)'
     more: '[更多](/more/)'
     friends: '[友链](/friends/)'
@@ -27,7 +31,7 @@ article:
     '开源库': '#4caf50'
     # '博客主题': '#ffa000'
     # '应用程序': '#e91e63'
-    # '实用脚本': '#009688'
+    '实用脚本': '#009688'
   # 根据 tags 作为关键词为每一篇文章在线搜索封面：
   auto_cover: false
   # 自动从文章内容截取一定字数的文字作为摘要
@@ -67,5 +71,5 @@ footer:
     '更多':
       - '[关于本站](/about/)'
       - '[GitHub](https://github.com/zhenxiang-shawn)'
-      # - '[GitLab](http://42.192.89.158:8099/explore)'
+
   source: '[GitHub](https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/)'

@@ -6,8 +6,8 @@
 title: J. Tech.
 avatar: "https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png"
 favion: 
-  small: source/_imgs/favicon-16x16.png
-  medium: source/_imgs/favicon-32x32.png
+  small: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png
+  medium: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png
 subtitle: '求知若饥 | 虚心若愚'
 description: 'aaa'
 keywords:
@@ -106,6 +106,13 @@ ignore:
 theme: stellar
 # stellar
 
+math:
+  enable: true
+  engine: 'mathjax'
+
+mathjax:
+  enable: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -113,22 +120,3 @@ deploy:
   repo: git@github.com:zhenxiang-shawn/zhenxiang-shawn.github.io.git
   branch: gh-pages
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
-
-# plug-in 
-# mathjax 
-math:
-  engine: 'mathjax' # or 'katex'
-  mathjax:
-    src: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML
-    # config: {
-    #   tex2jax: {
-    #     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-    #     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    #     processEscapes: true
-    #   },
-    #   TeX: {
-    #     equationNumbers: {
-    #       autoNumber: "AMS"
-    #     }
-    #   }
-    # }

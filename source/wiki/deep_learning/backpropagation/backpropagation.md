@@ -2,7 +2,7 @@
 layout: wiki
 wiki: DeepLearning
 order: 2
-title: (反向传播算法)Back Propagation
+title: 反向传播算法 (Back Propagation)
 mathjax: true
 
 references: 
