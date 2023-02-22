@@ -33,8 +33,7 @@ references:
 
 ### 常见的激活函数
 
-{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/activation_function_combine_1.png 常见的激活函数 %}
-
+{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/activation-functions-01.png 常见的激活函数 %}
 
 
 #### Sigmoid
@@ -62,13 +61,17 @@ ReLU是针对sigmoid和tanh的饱和性二提出的新的激活函数。从上�
 #### SoftPlus
 SoftPlus可以作为ReLu的一个不错的替代选择，可以看到与ReLU不同的是，SoftPlus的导数是连续的、非零的、无处不在的，这一特性可以防止出现ReLU中的“神经元死亡”现象。
 
+{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/Softplus.png 常见的激活函数 %}
+
+
 然而，SoftPlus是不对称的，不以0为中心，存在偏移现象；而且，由于其导数常常小于1，也可能会出现梯度消失的问题。
 
 #### SoftMax
-TODO
+Softmax 一般用作输出层, 主要针对分类问题. Softmax 会计算各个种类的概率,而且会normalize 输出使其输出的总和(总概率)为 1. 因此,Softmax 层的节点数必须与输出层的节点数相同。
+{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/SoftmaxLayer.svg 激活函数:SoftMax %}
+
 
 #### Maxout
-Maxout出现在ICML2013上，作者Goodfellow将maxout和dropout结合后，号称在MNIST, CIFAR-10, CIFAR-100, SVHN这4个数据上都取得了start-of-art的识别率。
 
 可以注意到，ReLU 和 Leaky-ReLU 都是它的一个变形。这个激活函数有点大一统的感觉，因为maxout网络能够近似任意连续函数，且当 
  为0时，退化为ReLU。Maxout能够缓解梯度消失，同时又规避了ReLU神经元死亡的缺点，但增加了参数和计算量。
