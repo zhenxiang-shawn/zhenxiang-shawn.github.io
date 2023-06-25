@@ -20,18 +20,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>DeepLearning：反向传播算法 (Back Propagation) - J. Tech.</title>
+  <title>DeepLearning：生成对抗网络基础 - J. Tech.</title>
 
   
-    <meta name="description" content="反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.">
+    <meta name="description" content="生成式对抗网络（GAN, Generative Adversarial Networks ）是一种深度学习模型，是近年来复杂分布上无监督学习最具前景的方法之一。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="反向传播算法 (Back Propagation)">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/backpropagation/backpropagation.html">
+<meta property="og:title" content="生成对抗网络基础">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/deep_learning/generative_adversarial_network/intro.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.">
+<meta property="og:description" content="生成式对抗网络（GAN, Generative Adversarial Networks ）是一种深度学习模型，是近年来复杂分布上无监督学习最具前景的方法之一。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-22T07:02:39.814Z">
-<meta property="article:modified_time" content="2023-02-22T07:02:39.814Z">
+<meta property="article:published_time" content="2023-02-28T08:42:28.171Z">
+<meta property="article:modified_time" content="2023-02-28T08:42:28.171Z">
 <meta property="article:author" content="Zhenxiang Jin">
 <meta name="twitter:card" content="summary">
   
@@ -193,7 +193,7 @@ mjx-container[display="true"] + br {
 
 
 
-<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html#start"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">反向传播算法 (Back Propagation)</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD-forward-propagation"><span class="toc-text">正向传播 (forward propagation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD-back-propagation"><span class="toc-text">反向传播 (back propagation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A1%E7%AE%97matrix"><span class="toc-text">使用代码来计算matrix.</span></a></li></ol></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div><div class="widget-header cap dis-select"><span class="name">生成对抗网络</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/generative_adversarial_network/intro.html"><span class="toc-text">生成对抗网络基础</span></a></div></div></widget>
+<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html#start"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">反向传播算法 (Back Propagation)</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div><div class="widget-header cap dis-select"><span class="name">生成对抗网络</span></div><div class="widget-body fs14"><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/generative_adversarial_network/intro.html"><span class="toc-text">生成对抗网络基础</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">GAN是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">GAN的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90"><span class="toc-text">图像生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-text">数据增强</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN-%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%88%9D%E8%A1%B7"><span class="toc-text">GAN 的设计初衷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">GAN 的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5-%E5%9B%BA%E5%AE%9A%E2%80%9C%E5%88%A4%E5%88%AB%E5%99%A8D%E2%80%9D%EF%BC%8C%E8%AE%AD%E7%BB%83%E2%80%9C%E7%94%9F%E6%88%90%E5%99%A8G%E2%80%9D"><span class="toc-text">第一阶段: 固定“判别器D”，训练“生成器G”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9A%E5%9B%BA%E5%AE%9A%E2%80%9C%E7%94%9F%E6%88%90%E5%99%A8G%E2%80%9D%EF%BC%8C%E8%AE%AD%E7%BB%83%E2%80%9C%E5%88%A4%E5%88%AB%E5%99%A8D%E2%80%9D"><span class="toc-text">第二阶段：固定“生成器G”，训练“判别器D”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%98%B6%E6%AE%B5%E4%B8%80%E5%92%8C%E9%98%B6%E6%AE%B5%E4%BA%8C"><span class="toc-text">循环阶段一和阶段二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">GAN 的优缺点</span></a></li></ol></div></div></widget>
 
 
 
@@ -209,29 +209,70 @@ mjx-container[display="true"] + br {
 
   
   
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">DeepLearning</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-22T07:02:39.814Z">2023-02-22</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" id="home" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">项目</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/deep_learning/index.html">DeepLearning</a></div><div id="post-meta">更新于&nbsp;<time datetime="2023-02-28T08:42:28.171Z">2023-02-28</time></div></div>
 
   <article class='md-text content wiki'>
-  <h1 class="article-title"><span>反向传播算法 (Back Propagation)</span></h1>
-  <p>反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.</p>
+  <h1 class="article-title"><span>生成对抗网络基础</span></h1>
+  <p>生成式对抗网络（GAN, Generative Adversarial Networks ）是一种深度学习模型，是近年来复杂分布上无监督学习最具前景的方法之一。</p>
 <span id="more"></span>
-<h2 id="矩阵运算">矩阵运算</h2>
-<p>在此之前你需要知道矩阵运算. 矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
-<h2 id="正向传播-forward-propagation">正向传播 (forward propagation)</h2>
-<p>设每一层的 node 的值<code>z = wx + b</code>. 应用激活函数以后的值<code>a</code>. 模型的输出<code>y^</code>，真实值<code>y</code>. 正向传播（Forward Propagation）前向传播就是从input，经过一层层的layer，不断计算每一层的<code>z</code>和<code>a</code>，最后得到输出<code>y^</code>的过程，计算出了<code>y^</code>，就可以根据它和真实值<code>y</code>的差别来计算损失（loss）。</p>
-<h2 id="反向传播-back-propagation">反向传播 (back propagation)</h2>
-<p>反向传播（Backward Propagation）反向传播就是根据损失函数<code>L(y^,y)</code>来反方向地计算每一层的<code>z、a、w、b</code>的偏导数（梯度），从而更新参数。<br>
-微积分中的链式法则（为了不与概率中的链式法则相混淆）用于计算复合函数 的导数。反向传播是一种计算链式法则的算法，使用高效的特定运算顺序。 反向传播说白了根据根据J的公式对<code>w</code>和<code>b</code>求偏导，也就是求梯度。因为我们需要用梯度下降法来对参数进行更新，而更新就需要梯度。<br>
-但是，根据求偏导的链式法则我们知道，第l层的参数的梯度，需要通过l+1层的梯度来求得，因此我们求导的过程是“反向”的，这也就是为什么叫“反向传播”。</p>
-<h3 id="计算实例">计算实例</h3>
-<h3 id="使用代码来计算matrix">使用代码来计算matrix.</h3>
+<h2 id="GAN是什么">GAN是什么</h2>
+<p>生成式对抗网络（GAN, Generative Adversarial Networks ）是一种深度学习模型，是近年来复杂分布上无监督学习最具前景的方法之一。模型通过框架中（至少）两个模块：生成模型（Generative Model）和判别模型（Discriminative Model）的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。</p>
+<div class="tag-plugin note" color="orange"><div class="title">生成模型和判别模型</div><div class="body"><p>机器学习的模型可大体分为两类，生成模型（Generative Model）和判别模型（Discriminative Model）。判别模型需要输入变量 ，通过某种模型来预测 。生成模型是给定某种隐含信息，来随机产生观测数据。举个简单的例子： 生成模型：给一系列猫的图片，生成一张新的猫咪（不在数据集里） 判别模型：给定一张图，判断这张图里的动物是猫还是狗 对于判别模型，损失函数是容易定义的，因为输出的目标相对简单。但对于生成模型，损失函数的定义就不是那么容易。我们对于生成结果的期望，往往是一个暧昧不清，难以数学公理化定义的范式。所以不妨把生成模型的回馈部分，交给判别模型处理。这就是Goodfellow他将机器学习中的两大类模型，Generative和Discrimitive给紧密地联合在了一起</p></div></div>
+<h2 id="GAN的应用">GAN的应用</h2>
+<h3 id="图像生成">图像生成</h3>
+<p>GAN最常使用的地方就是图像生成，如超分辨率任务，语义分割等等。</p>
+<h3 id="数据增强">数据增强</h3>
+<p>用GAN生成的图像来做数据增强，如图。主要解决的问题是：</p>
+<ol>
+<li>对于小数据集，数据量不足， 如果能生成一些就好了。</li>
+<li>如果GAN生成了图片，怎么给这些数据label呢？因为他们相比原始数据也不属于预定义的类别。</li>
+</ol>
+<p>在这个<a target="_blank" rel="noopener" href="https://baike.baidu.com/reference/60710521/f1e1J4s-V7kjc1RGgZ75eSa2bipSPsjgNHhzRIWI_Nax4-j8O7SPHuIfLkTvST9aBCIh0eXm6ShzNSPsdA">论文</a>中，作者做了一些尝试。实验想法也特别简单，先用原始数据（即使只有2000张图）训练一个GAN，然后生成图片，加入到训练集中。 总结一下就是：</p>
+<ol>
+<li>GAN 生成数据是可以用在实际的图像问题上的（不仅仅是像MNIST这种“toy dataset”上通过实验）。GAN在两个行人重识别数据集和一个细粒度识别鸟识别数据集上都有提升。</li>
+<li>GAN 数据有三种给pseudo label的方式， 假设我们做五分类：
+<ul>
+<li>把生成的数据都当成新的一类, 六分类，那么生成图像的 label 就可以是 （0, 0, 0, 0, 0, 1） 这样给。</li>
+<li>按照置信度最高的动态去分配，那个概率高就给谁 比如第三类概率高（0, 0, 1, 0, 0）</li>
+<li>既然所有类都不是，那么可以参考inceptionv3，搞label smooth，每一类置信度相同（0.2, 0.2, 0.2, 0.2, 0.2） 注：作者16年12月写的代码，当时GAN效果没有那么好，用这个效果好也是可能的， 因为生成样本都不是很“真”，所以起到了正则作用。</li>
+</ul>
+</li>
+</ol>
+<h2 id="GAN-的设计初衷">GAN 的设计初衷</h2>
+<p>一句话来概括 GAN 的设计动机就是——自动化。深度学习最特别最厉害的地方就是能够自己学习特征提取。GAN 可以自我评估结果然后继续训练,这是一种效率非常高，且成本很低的方式.这也是为什么它是一种无监督学习.</p>
+<h2 id="GAN-的原理">GAN 的原理</h2>
+<p>生成对抗网络（GAN）由2个重要的部分构成：</p>
+<ol>
+<li>生成器(Generator)：通过机器生成数据（大部分情况下是图像），目的是“骗过”判别器</li>
+<li>判别器(Discriminator)：判断这张图像是真实的还是机器生成的，目的是找出生成器做的“假数据”</li>
+</ol>
+<h3 id="第一阶段-固定“判别器D”，训练“生成器G”">第一阶段: 固定“判别器D”，训练“生成器G”</h3>
+<p>我们使用一个还 OK 判别器，让一个“生成器G”不断生成“假数据”，然后给这个“判别器D”去判断。</p>
+<p>一开始，“生成器G”还很弱，所以很容易被揪出来。</p>
+<p>但是随着不断的训练，“生成器G”技能不断提升，最终骗过了“判别器D”。</p>
+<p>到了这个时候，“判别器D”基本属于瞎猜的状态，判断是否为假数据的概率为50%。</p>
+<h3 id="第二阶段：固定“生成器G”，训练“判别器D”">第二阶段：固定“生成器G”，训练“判别器D”</h3>
+<p>当通过了第一阶段，继续训练“生成器G”就没有意义了。这个时候我们固定“生成器G”，然后开始训练“判别器D”。</p>
+<p>“判别器D”通过不断训练，提高了自己的鉴别能力，最终他可以准确的判断出所有的假图片。</p>
+<p>到了这个时候，“生成器G”已经无法骗过“判别器D”。</p>
+<h3 id="循环阶段一和阶段二">循环阶段一和阶段二</h3>
+<p>通过不断的循环，“生成器G”和“判别器D”的能力都越来越强。</p>
+<p>最终我们得到了一个效果非常好的“生成器G”，我们就可以用它来生成我们想要的图片了。<br>
+如果对 GAN 的详细技术原理感兴趣，可以看看下面2篇文章：</p>
+<p><a target="_blank" rel="noopener" href="https://easyai.tech/blog/generative-adversarial-networks-gans-a-beginners-guide/">[easyai]《生成性对抗网络（GAN）初学者指南 – 附代码》</a></p>
+<p><a target="_blank" rel="noopener" href="https://easyai.tech/blog/generative-adversarial-networks-gans-a-beginners-guide/">[easyai]《长文解释生成对抗网络GAN的详细原理（20分钟阅读）》</a></p>
+<h2 id="GAN-的优缺点">GAN 的优缺点</h2>
+<div class="tag-plugin grid" bg="block"><div class="cell" index="0"><p><strong>优点</strong></p><ol><li>能更好建模数据分布(图像更锐利、清晰).</li><li>理论上，GANs 能训练任何一种生成器网络。其他的框架需要生成器网络有一些特定的函数形式，比如输出层是高斯的。</li><li>无需利用马尔科夫链反复采样，无需在学习过程中进行推断，没有复杂的变分下界，避开近似计算棘手的概率的难题。</li></ol></div><div class="cell" index="1"><p><strong>缺点</strong></p><ol><li>难训练，不稳定。生成器和判别器之间需要很好的同步，但是在实际训练中很容易D收敛，G发散。D/G 的训练需要精心的设计。</li><li>模式缺失（Mode Collapse）问题。GANs的学习过程可能出现模式缺失，生成器开始退化，总是生成同样的样本点，无法继续学习。</li></ol></div></div>
+<!-- 
+<div class="tag-plugin note" color="green"><div class="title">优点</div><div class="body"><ol><li>能更好建模数据分布(图像更锐利、清晰). 2. 理论上，GANs 能训练任何一种生成器网络。其他的框架需要生成器网络有一些特定的函数形式，比如输出层是高斯的。 3. 无需利用马尔科夫链反复采样，无需在学习过程中进行推断，没有复杂的变分下界，避开近似计算棘手的概率的难题。</li></ol></div></div>
+<div class="tag-plugin note" color="red"><div class="title">缺点</div><div class="body"><ol><li>难训练，不稳定。生成器和判别器之间需要很好的同步，但是在实际训练中很容易D收敛，G发散。D/G 的训练需要精心的设计。 2. 模式缺失（Mode Collapse）问题。GANs的学习过程可能出现模式缺失，生成器开始退化，总是生成同样的样本点，无法继续学习。</li></ol></div></div> -->
 
   
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank" rel="external nofollow noopener noreferrer">Math is Fun</a></li><li class="post-title"><a href="https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/" target="_blank" rel="external nofollow noopener noreferrer">How to display all rows from dataframe using Pandas</a></li></ul></div></section></div>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://baike.baidu.com/item/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/60710521" target="_blank" rel="external nofollow noopener noreferrer">[百度百科]生成式对抗网络</a></li><li class="post-title"><a href="https://easyai.tech/ai-definition/gan/" target="_blank" rel="external nofollow noopener noreferrer">生成对抗网络 – Generative Adversarial Networks | GAN</a></li></ul></div></section></div>
 
   </article>
   
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/deep_learning/index.html">认识深度学习</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html">Pandas中基本的数据结构和用法</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/deep_learning/cv_intro/index.html">计算机视觉介绍</a></div><div class="item" id="next"></div></section></div>
 
   
 

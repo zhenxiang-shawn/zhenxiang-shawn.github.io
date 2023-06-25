@@ -5,7 +5,7 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
@@ -20,17 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>归档 - J. Tech.</title>
+  <title>Numpy Array 不显示全部维度的 shape - J. Tech.</title>
 
   
-    <meta name="description" content="aaa">
-<meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/archives/2023/index.html">
+    <meta name="description" content="前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy Array 不显示全部维度的 shape">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="aaa">
+<meta property="og:description" content="前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-24T16:00:00.000Z">
 <meta property="article:author" content="Zhenxiang Jin">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Pandas">
+<meta property="article:tag" content="Data Science">
 <meta name="twitter:card" content="summary">
   
   
@@ -62,8 +67,10 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
   
@@ -77,299 +84,68 @@
 <div class="widgets">
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
-<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/"><span class="title">Numpy Array 不显示全部维度的 shape</span></a><a class="item title" href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/"><span class="title">在 M1 Mac上搭建 Pytorch GPU 加速环境</span></a><a class="item title" href="/2023/02/03/2023-02-03-hexo-set-up-math-support/"><span class="title">如果启用 Hexo 博客的数学公式支持</span></a><a class="item title" href="/2022/04/24/2022-04-24-img-segmentation/"><span class="title">图像分割与图像检测</span></a><a class="item title" href="/2022/06/21/2022-06-21-cv-data-augmentation/"><span class="title">计算机视觉中的数据增强</span></a></div></widget>
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Numpy Array 不显示全部维度的 shape</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-text">发现问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">原因和解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li></ol></div></div></widget>
+
+
 
 
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhenxiang-shawn" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:zhenxiang-shawn@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.cubik65536.top/mail-bulk-solid.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0"> 虚心若愚</div></a></div></header>
-
-
 
       
 
-  
-  
 
-<div class="nav-wrap"><nav class="sub post cap"><a href="/">近期发布</a><a href="/categories">分类</a><a href="/tags">标签</a><a class="active" href="/archives">归档</a></nav></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-06-24T16:00:00.000Z">2023-06-25</time></div></div>
 
-  <div class='post-list'>
-  	
-  	
-  		
-  		
-  			
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  			
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  	
-  		<article class='' id='archive'>
-  			<div class='archive-header h4'>2023</div>
-  			
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/">
-    					<time>06-25</time>
-    					<span>
-                
-      						Numpy Array 不显示全部维度的 shape
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/">
-    					<time>02-23</time>
-    					<span>
-                
-      						在 M1 Mac上搭建 Pytorch GPU 加速环境
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2023/02/03/2023-02-03-hexo-set-up-math-support/">
-    					<time>02-03</time>
-    					<span>
-                
-      						如果启用 Hexo 博客的数学公式支持
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  		</article>
-  	
-  		<article class='' id='archive'>
-  			<div class='archive-header h4'>2022</div>
-  			
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/06/21/2022-06-21-cv-data-augmentation/">
-    					<time>06-21</time>
-    					<span>
-                
-      						计算机视觉中的数据增强
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/">
-    					<time>06-10</time>
-    					<span>
-                
-      						优化物体检测结果时常用的集成方法
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/">
-    					<time>05-18</time>
-    					<span>
-                
-      						高级数据结构 SSTable
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/04/24/2022-04-24-img-segmentation/">
-    					<time>04-24</time>
-    					<span>
-                
-      						图像分割与图像检测
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/04/05/2022-04-04-bash_eq_talk/">
-    					<time>04-05</time>
-    					<span>
-                
-      						Bash中的比较语法详解
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/04/04/2022-04-04-stable-marriage/">
-    					<time>04-04</time>
-    					<span>
-                
-      						稳定婚姻算法
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/03/24/2022-03-24-openCV-01/">
-    					<time>03-24</time>
-    					<span>
-                
-      						OpenCV 入门
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/03/24/2022-05-30-common-images-format/">
-    					<time>03-24</time>
-    					<span>
-                
-      						常见的图片格式概览
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/03/23/2022-03-23-optimize-img-load/">
-    					<time>03-23</time>
-    					<span>
-                
-      						如何在Server上优化博客上图片的加载速度
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/03/22/2022-03-22-blur-detection/">
-    					<time>03-22</time>
-    					<span>
-                
-      						检测模糊图片的几种方法
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/03/14/hello-world/">
-    					<time>03-14</time>
-    					<span>
-                
-      						Hello World
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  		</article>
-  	
+<article class='md-text content post'>
+<h1 class="article-title"><span>Numpy Array 不显示全部维度的 shape</span></h1>
+<p>前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.</p>
+<span id="more"></span>
+<h2 id="发现问题">发现问题</h2>
+<p>比如有一个 Dataframe</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># each label_embed_vector contains 100 vectors.</span><br><span class="line">                  img_key  ...                                 label_embed_vector</span><br><span class="line">0   1628112148035278_1_31  ...  0.006821885239,-0.068260461092,-0.010561314411...</span><br><span class="line">1  1647947462308801_2_622  ...  0.028957819566,-0.027704223990,-0.001513824915...</span><br></pre></td></tr></table></figure>
+<p>直接用 <code>df['label_embed_vector']</code>来读取数据的话,返回的是一个小的 dataframe. 这个时候就需要使用 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.values.html">Dataframe.values</a> 来读取数据. 这个方法会返回一个包含数据的 numpy array. 但是这个 ndarry 只是 1 维的.</p>
+<p>在pandas.DataFrame.values的官方文档里,说推荐<code>pandas.DataFrame.to_numpy</code> 来代替 values 方法. 但是使用推荐的方法以后返回的结果还是 1 维的:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用`to_numpy`方法来读取`label_embed_vector`的数据以后发现他返回的是一个 shape 为 (86,)的 ndarray.</span></span><br><span class="line">data = df[<span class="string">&#x27;label_embed_vector&#x27;</span>].to_numpy()</span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="number">86</span>,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取第一个数据</span></span><br><span class="line"><span class="built_in">print</span>(data[<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>([<span class="number">0.006821885239</span>,-<span class="number">0.068260461092</span>,-<span class="number">0.010561314411</span>...])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面的输出很奇怪, 从读取的数据来看的话, data 是一个(86,100)的 ndarray. 但是 data 的 shape 却是(86,).</p>
+<h2 id="原因和解决方案">原因和解决方案</h2>
+<p>通过 print 来检查数据以后发现, 虽然数据结构类似而且读取数据的时候和多维数组一样, 不过输出的数组确实不是多维度的:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># printout 检查数据</span></span><br><span class="line"><span class="built_in">print</span>(df[<span class="string">&#x27;label_embed_vector&#x27;</span>].to_numpy())</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>array([arrar([<span class="number">0.006821885239</span>,-<span class="number">0.068260461092</span>,-<span class="number">0.010561314411</span>...], array([<span class="number">0.028957819566</span>,-<span class="number">0.027704223990</span>,-<span class="number">0.001513824915</span>..], ... , array([-<span class="number">0.000122768164</span>,-<span class="number">0.020344628021</span>,<span class="number">0.018706960604</span>...])]</span><br><span class="line"><span class="comment"># .values 和 to_numpy 返回的是 1个包含了 86 个独立 array 的 1 维array.而不是多维的.</span></span><br></pre></td></tr></table></figure>
+<h3 id="解决方案">解决方案</h3>
+<p><strong>经过搜索发现 Pandas 这样做的原因是不能确定每一个 row 的 array 的长度是一样的, 因此返回的是一维数据.</strong> 这个时候可以用<code>np.vstack</code>来手动把一位数据来转化成多维数据. 比如:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = np.vstack(df[<span class="string">&#x27;label_embed_vector&#x27;</span>].to_numpy())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.values.html" target="_blank" rel="external nofollow noopener noreferrer">pandas.DataFrame.values-Pandas</a></li><li class="post-title"><a href="https://stackoverflow.com/questions/70281985/why-is-np-shape-not-showing-all-dimensions" target="_blank" rel="external nofollow noopener noreferrer">why-is-np-shape-not-showing-all-dimensions</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/">在 M1 Mac上搭建 Pytorch GPU 加速环境</a></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="zhenxiang-shawn/beaudar_comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </section>
   </div>
+
 
 
       
@@ -537,6 +313,34 @@
 
 
 <!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
 
 
 
