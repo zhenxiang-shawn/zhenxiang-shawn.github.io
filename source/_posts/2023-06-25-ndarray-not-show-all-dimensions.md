@@ -1,8 +1,8 @@
 ---
 date: 2023-06-25
 updated: 2023-06-25
-title: '[Debug] Numpy Array 不显示全部维度的 shape'
-categories: ['技术加油站']
+title: "[Debug] Numpy Array 不显示全部维度的 shape"
+categories: [技术加油站]
 tags: [Python, Pandas, Data Science]
 references:
   - title: 'pandas.DataFrame.values-Pandas'
@@ -10,8 +10,8 @@ references:
   - title: 'why-is-np-shape-not-showing-all-dimensions'
     url: https://stackoverflow.com/questions/70281985/why-is-np-shape-not-showing-all-dimensions
 ---
-前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.
 
+前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.
 <!--more-->
 
 ## 发现问题
