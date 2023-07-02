@@ -20,12 +20,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>Numpy Array 不显示全部维度的 shape - J. Tech.</title>
+  <title>[Debug] Numpy Array 不显示全部维度的 shape - J. Tech.</title>
 
   
     <meta name="description" content="前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Numpy Array 不显示全部维度的 shape">
+<meta property="og:title" content="[Debug] Numpy Array 不显示全部维度的 shape">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/index.html">
 <meta property="og:site_name" content="J. Tech.">
 <meta property="og:description" content="前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.">
@@ -85,7 +85,7 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Numpy Array 不显示全部维度的 shape</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-text">发现问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">原因和解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">[Debug] Numpy Array 不显示全部维度的 shape</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="toc-text">发现问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">原因和解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li></ol></div></div></widget>
 
 
 
@@ -103,29 +103,44 @@
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-06-24T16:00:00.000Z">2023-06-25</time></div></div>
 
 <article class='md-text content post'>
-<h1 class="article-title"><span>Numpy Array 不显示全部维度的 shape</span></h1>
-<p>前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.</p>
-<span id="more"></span>
+<h1 class="article-title"><span>[Debug] Numpy Array 不显示全部维度的 shape</span></h1>
+<p>前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的
+Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.
+<span id="more"></span></p>
 <h2 id="发现问题">发现问题</h2>
-<p>比如有一个 Dataframe</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># each label_embed_vector contains 100 vectors.</span><br><span class="line">                  img_key  ...                                 label_embed_vector</span><br><span class="line">0   1628112148035278_1_31  ...  0.006821885239,-0.068260461092,-0.010561314411...</span><br><span class="line">1  1647947462308801_2_622  ...  0.028957819566,-0.027704223990,-0.001513824915...</span><br></pre></td></tr></table></figure>
-<p>直接用 <code>df['label_embed_vector']</code>来读取数据的话,返回的是一个小的 dataframe. 这个时候就需要使用 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.values.html">Dataframe.values</a> 来读取数据. 这个方法会返回一个包含数据的 numpy array. 但是这个 ndarry 只是 1 维的.</p>
-<p>在pandas.DataFrame.values的官方文档里,说推荐<code>pandas.DataFrame.to_numpy</code> 来代替 values 方法. 但是使用推荐的方法以后返回的结果还是 1 维的:</p>
+<p>比如有一个 Dataframe <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># each label_embed_vector contains 100 vectors.</span><br><span class="line">                  img_key  ...                                 label_embed_vector</span><br><span class="line">0   1628112148035278_1_31  ...  0.006821885239,-0.068260461092,-0.010561314411...</span><br><span class="line">1  1647947462308801_2_622  ...  0.028957819566,-0.027704223990,-0.001513824915...</span><br></pre></td></tr></table></figure></p>
+<p>直接用
+<code>df['label_embed_vector']</code>来读取数据的话,返回的是一个小的
+dataframe. 这个时候就需要使用 <a
+target="_blank" rel="noopener" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.values.html">Dataframe.values</a>
+来读取数据. 这个方法会返回一个包含数据的 numpy array. 但是这个 ndarry
+只是 1 维的.</p>
+<p>在pandas.DataFrame.values的官方文档里,说推荐<code>pandas.DataFrame.to_numpy</code>
+来代替 values 方法. 但是使用推荐的方法以后返回的结果还是 1 维的:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用`to_numpy`方法来读取`label_embed_vector`的数据以后发现他返回的是一个 shape 为 (86,)的 ndarray.</span></span><br><span class="line">data = df[<span class="string">&#x27;label_embed_vector&#x27;</span>].to_numpy()</span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>(<span class="number">86</span>,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取第一个数据</span></span><br><span class="line"><span class="built_in">print</span>(data[<span class="number">0</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>([<span class="number">0.006821885239</span>,-<span class="number">0.068260461092</span>,-<span class="number">0.010561314411</span>...])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>上面的输出很奇怪, 从读取的数据来看的话, data 是一个(86,100)的 ndarray. 但是 data 的 shape 却是(86,).</p>
+<p>上面的输出很奇怪, 从读取的数据来看的话, data 是一个(86,100)的
+ndarray. 但是 data 的 shape 却是(86,).</p>
 <h2 id="原因和解决方案">原因和解决方案</h2>
-<p>通过 print 来检查数据以后发现, 虽然数据结构类似而且读取数据的时候和多维数组一样, 不过输出的数组确实不是多维度的:</p>
+<p>通过 print 来检查数据以后发现,
+虽然数据结构类似而且读取数据的时候和多维数组一样,
+不过输出的数组确实不是多维度的:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># printout 检查数据</span></span><br><span class="line"><span class="built_in">print</span>(df[<span class="string">&#x27;label_embed_vector&#x27;</span>].to_numpy())</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>array([arrar([<span class="number">0.006821885239</span>,-<span class="number">0.068260461092</span>,-<span class="number">0.010561314411</span>...], array([<span class="number">0.028957819566</span>,-<span class="number">0.027704223990</span>,-<span class="number">0.001513824915</span>..], ... , array([-<span class="number">0.000122768164</span>,-<span class="number">0.020344628021</span>,<span class="number">0.018706960604</span>...])]</span><br><span class="line"><span class="comment"># .values 和 to_numpy 返回的是 1个包含了 86 个独立 array 的 1 维array.而不是多维的.</span></span><br></pre></td></tr></table></figure>
 <h3 id="解决方案">解决方案</h3>
-<p><strong>经过搜索发现 Pandas 这样做的原因是不能确定每一个 row 的 array 的长度是一样的, 因此返回的是一维数据.</strong> 这个时候可以用<code>np.vstack</code>来手动把一位数据来转化成多维数据. 比如:</p>
+<p><strong>经过搜索发现 Pandas 这样做的原因是不能确定每一个 row 的 array
+的长度是一样的, 因此返回的是一维数据.</strong>
+这个时候可以用<code>np.vstack</code>来手动把一位数据来转化成多维数据.
+比如:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = np.vstack(df[<span class="string">&#x27;label_embed_vector&#x27;</span>].to_numpy())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.values.html" target="_blank" rel="external nofollow noopener noreferrer">pandas.DataFrame.values-Pandas</a></li><li class="post-title"><a href="https://stackoverflow.com/questions/70281985/why-is-np-shape-not-showing-all-dimensions" target="_blank" rel="external nofollow noopener noreferrer">why-is-np-shape-not-showing-all-dimensions</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.values.html" target="_blank" rel="external nofollow noopener noreferrer">pandas.DataFrame.values-Pandas</a></li><li class="post-title"><a href="https://stackoverflow.com/questions/70281985/why-is-np-shape-not-showing-all-dimensions" target="_blank" rel="external nofollow noopener noreferrer">why-is-np-shape-not-showing-all-dimensions</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享
+4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/">在 M1 Mac上搭建 Pytorch GPU 加速环境</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/06/28/2023-07-02-similarity-measurement/">相似度计算: Cosine Similarity</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/">在 M1 Mac上搭建 Pytorch GPU 加速环境</a></div></section></div>
 
 
 
@@ -149,8 +164,12 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

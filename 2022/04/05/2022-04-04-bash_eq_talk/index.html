@@ -83,7 +83,8 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Bash中的比较语法详解</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E6%8B%AC%E5%8F%B7%E4%B8%8E%E5%8F%8C%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-text">单括号与双括号的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E-eq%E7%9A%84%E5%AF%B9%E6%AF%94%E4%BB%A5%E5%8F%8A%E5%BB%B6%E4%BC%B8"><span class="toc-text">&#x3D;&#x3D;与-eq的对比以及延伸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-%E6%9D%A5%E5%AF%B9%E6%AF%94%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">使用&#x3D;&#x3D;来对比字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-eq-%E7%AD%89%E5%91%BD%E4%BB%A4%E6%9D%A5%E5%AF%B9%E6%AF%94%E6%95%B0%E5%80%BC"><span class="toc-text">使用 -eq 等命令来对比数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5"><span class="toc-text">文件状态检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8B%AC%E5%8F%B7-%E5%AF%B9%E6%AF%94%E5%8D%95%E6%8B%AC%E5%8F%B7-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">双括号 [[ ]] 对比单括号 [ ] 的优势</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Bash中的比较语法详解</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E6%8B%AC%E5%8F%B7%E4%B8%8E%E5%8F%8C%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-text">单括号与双括号的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E-eq%E7%9A%84%E5%AF%B9%E6%AF%94%E4%BB%A5%E5%8F%8A%E5%BB%B6%E4%BC%B8"><span class="toc-text">&#x3D;&#x3D;与-eq的对比以及延伸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%9D%A5%E5%AF%B9%E6%AF%94%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">使用&#x3D;&#x3D;来对比字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8--eq-%E7%AD%89%E5%91%BD%E4%BB%A4%E6%9D%A5%E5%AF%B9%E6%AF%94%E6%95%B0%E5%80%BC"><span class="toc-text">使用 -eq 等命令来对比数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5"><span class="toc-text">文件状态检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8B%AC%E5%8F%B7-%E5%AF%B9%E6%AF%94%E5%8D%95%E6%8B%AC%E5%8F%B7-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">双括号 [[ ]] 对比单括号 [ ]
+的优势</span></a></li></ol></div></div></widget>
 
 
 
@@ -102,136 +103,144 @@
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>Bash中的比较语法详解</span></h1>
-<p>如果你希望通过脚本运算获得的结果是你想要的，那么你需要应用到算术运算符参与算术运算以获得你所需的结果. 在Bash脚本中,一般比较语法都会放在方括号中.</p>
+<p>如果你希望通过脚本运算获得的结果是你想要的，那么你需要应用到算术运算符参与算术运算以获得你所需的结果.
+在Bash脚本中,一般比较语法都会放在方括号中.</p>
 <span id="more"></span>
 <h2 id="单括号与双括号的对比">单括号与双括号的对比</h2>
 <table>
+<colgroup>
+<col style="width: 66%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>属性</th>
 <th>单括号 [ ]</th>
 <th>双括号 [[ ]]</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>括号两边都要有空格分隔</td>
 <td>√</td>
 <td>√</td>
 </tr>
-<tr>
+<tr class="even">
 <td>内部操作符与变量之间要有空格</td>
 <td>√</td>
 <td>√</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>字符串比较时需要在<code>&lt; &gt;</code>之前加入<code>\</code>进行转义</td>
 <td>√</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>括号中字符串或者${}变量尽量使用”” 双引号扩住</td>
 <td>√</td>
 <td>√</td>
 </tr>
-<tr>
-<td>括号中如若未使用<code>&quot;&quot;</code>会进行模式和元字符匹配</td>
+<tr class="odd">
+<td>括号中如若未使用<code>""</code>会进行模式和元字符匹配</td>
 <td></td>
 <td>√</td>
 </tr>
-<tr>
+<tr class="even">
 <td>括号中可以使用<code>-a</code>或者<code>-o</code>等进行逻辑运算</td>
 <td>√</td>
 <td></td>
 </tr>
-<tr>
-<td>括号中可以使用<code>&amp;&amp;</code>或者<code>||</code>进行逻辑运算</td>
+<tr class="odd">
+<td>括号中可以使用<code>&amp;&amp;</code>或者<code>\|\|</code>进行逻辑运算</td>
 <td></td>
 <td>√</td>
 </tr>
-<tr>
+<tr class="even">
 <td>括号可以配合<code>!</code>使用</td>
 <td>√</td>
 <td>√</td>
 </tr>
 </tbody>
 </table>
-<p>此外, <strong>[ ] 是bash 内置命令</strong> 而**[[ ]] 是bash  关键词, 双方括号表达式会返回一个退出码**.</p>
+<p>此外, <strong>[ ] 是bash 内置命令</strong> 而<strong>[[ ]] 是bash
+关键词, 双方括号表达式会返回一个退出码</strong>.</p>
 <h2 id="与-eq的对比以及延伸">==与-eq的对比以及延伸</h2>
-<p>一般来说, 使用 <code>=</code>或者<code>==</code>来做字符串的对比; 使用<code>-eq</code>来做数值的对比.</p>
-<h3 id="使用-来对比字符串">使用==来对比字符串</h3>
+<p>一般来说, 使用 <code>=</code>或者<code>==</code>来做字符串的对比;
+使用<code>-eq</code>来做数值的对比.</p>
+<h3 id="使用来对比字符串">使用==来对比字符串</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>str命令</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>[[ str ]]</code></td>
 <td>判断字符串是否不为空</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ -z str ]]</code></td>
 <td>判断字符串是否为空,</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>[[ -n str ]]</code></td>
 <td>判断字符串是否不为空</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ str1 = str2 ]]</code></td>
 <td>判断字符串是否相同</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>[[ str1 == str2 ]]</code></td>
 <td>判断字符串是否相同</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ str1 != str2 ]]</code></td>
 <td>判断字符串是否不相等</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>[[ str1 \\&lt; str2 ]]</code></td>
 <td>判断按字典序排序str1是否在str2之前</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ str1 \\&gt; str2 ]]</code></td>
 <td>判断按字典序排序str1是否在str2之后</td>
 </tr>
 </tbody>
 </table>
-<h3 id="使用-eq-等命令来对比数值">使用 -eq 等命令来对比数值</h3>
+<h3 id="使用--eq-等命令来对比数值">使用 -eq 等命令来对比数值</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>num命令</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>[[ val1 -eq val2 ]]</code></td>
 <td>判断val1是否与val2相等</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ val1 -ne val2 ]]</code></td>
 <td>判断val1是否与val2不相等</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>[[ val1 -lt val2 ]]</code></td>
 <td>判断val1是否小于val2</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ val1 -le val2 ]]</code></td>
 <td>判断val1是否小于等于val2</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>[[ val1 -gt val2 ]]</code></td>
 <td>判断val1是否大于val2</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>[[ val1 -ge val2 ]]</code></td>
 <td>判断val1是否大于等于val2</td>
 </tr>
@@ -240,57 +249,57 @@
 <h3 id="文件状态检查">文件状态检查</h3>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>命令</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>-b filename</code></td>
 <td>检查是否文件存在并且是<em>块文件</em>*</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>-c filename</code></td>
 <td>检查是否文件存在并且是字符文件</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>-d path</code></td>
 <td>检查是否文件存在并且是目录</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>-f filename</code></td>
 <td>检查是否文件存在并且为正规文件</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>-g path</code></td>
 <td>检查是否文件存在并且设置了SGID</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>-h filename</code></td>
 <td>检查是否文件存在并且是符号链接文件</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>-p filename</code></td>
 <td>见怕是否文件存在并且是命名管道</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>-s filename</code></td>
 <td>检查是否文件存在并且文件大小大于0</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>-S filename</code></td>
 <td>检查是否文件存在并且是socket</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>file1 -nt file2</code></td>
 <td>检查是否file1比file2新</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>file1 -ot file2</code></td>
 <td>检查是否file1比file2旧</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>file1 -ef file2</code></td>
 <td>检查是否file1和file2 链接到了相同的文件</td>
 </tr>
@@ -301,64 +310,73 @@
 <p><strong>文件存储</strong>的用户是自然人.</p>
 <p><strong>对象储存</strong>的用户是其他计算机软件.</p>
 </blockquote>
-<p>Linux系统中所有文件/文件夹都是已文件的格式保存的. 但是为了更容易区分.文件和文件/文件夹不同的命令区分开来列出.</p>
+<p>Linux系统中所有文件/文件夹都是已文件的格式保存的.
+但是为了更容易区分.文件和文件/文件夹不同的命令区分开来列出.</p>
 <table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>命令</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>-u path</td>
 <td>检查是否path制定的文件或目录存在并且设置了SUID</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-w path</td>
 <td>检查是否path制定的文件或目录存在并且可写</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-x path</td>
 <td>检查是否path指定的文件或目录存在并且可执行</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-r path</td>
 <td>检查是否文件/目录存在并且可读</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-e filename</td>
 <td>检查是否文件/目录存在</td>
 </tr>
-<tr>
+<tr class="even">
 <td>-O path</td>
 <td>检查是否path存在并且被当前进程的有效用户id 的用户拥有</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>-G path</td>
 <td>检查是否path 存在并且属于当前进程的有效用户id 的用户的用户组</td>
 </tr>
 </tbody>
 </table>
-<h2 id="双括号-对比单括号-的优势">双括号 [[ ]] 对比单括号 [ ] 的优势</h2>
-<ol>
-<li>
-<p>[[是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[ ]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p>
-</li>
-<li>
-<p>支持字符串的模式匹配，使用=~操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如[[ hello == hell? ]]，结果为真。[[ ]] 中匹配字符串或通配符，不需要引号。</p>
-</li>
-<li>
-<p>使用[[ … ]]条件判断结构，而不是[… ]，能够防止脚本中的许多逻辑错误。比如，&amp;&amp;、||、&lt;和&gt; 操作符能够正常存在于[[ ]]条件判断结构中，但是如果出现在[ ]结构中的话，会报错。</p>
-</li>
-<li>
-<p>bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码。</p>
-</li>
+<h2 id="双括号-对比单括号-的优势">双括号 [[ ]] 对比单括号 [ ]
+的优势</h2>
+<ol type="1">
+<li><p>[[是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[
+]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p></li>
+<li><p>支持字符串的模式匹配，使用=~操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如[[
+hello == hell? ]]，结果为真。[[ ]]
+中匹配字符串或通配符，不需要引号。</p></li>
+<li><p>使用[[ ... ]]条件判断结构，而不是[...
+]，能够防止脚本中的许多逻辑错误。比如，&amp;&amp;、||、<和>
+操作符能够正常存在于[[ ]]条件判断结构中，但是如果出现在[
+]结构中的话，会报错。</p></li>
+<li><p>bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码。</p></li>
 </ol>
-<p><strong>使用[[ … ]]条件判断结构, 而不是[ … ], 能够防止脚本中的许多逻辑错误. 比如,&amp;&amp;, ||, &lt;, 和&gt; 操作符能够正常存在于[[]]条件判断结构中, 但是如果出现在[ ]结构中的话, 会报错. 因此推荐直接选用双括号.</strong></p>
+<p><strong>使用[[ ... ]]条件判断结构, 而不是[ ... ],
+能够防止脚本中的许多逻辑错误. 比如,&amp;&amp;, ||, &lt;, 和&gt;
+操作符能够正常存在于[[]]条件判断结构中, 但是如果出现在[ ]结构中的话,
+会报错. 因此推荐直接选用双括号.</strong></p>
 
 
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://blog.csdn.net/hittata/article/details/8049665?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1" target="_blank" rel="external nofollow noopener noreferrer">BASH中的单括号和双括号</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://blog.csdn.net/hittata/article/details/8049665?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1" target="_blank" rel="external nofollow noopener noreferrer">BASH中的单括号和双括号</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享
+4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
@@ -387,8 +405,12 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

@@ -104,22 +104,30 @@
   <span id="more"></span>
 <p>要了解python中基础类型<code>str</code>和<code>byte str</code>的区别,首先要了解计算机编码(Encodeing)和解码(Decoding).</p>
 <blockquote>
-<p>计算机储存数据的单位是byte, 1 byte = 8 bit. 1 bit就是一个二进制码: 0 或 1.<br>
-任何可以储存到计算机中的数据都需要encode: 音乐需要被格式MP3, WAV等方式encode;图片使用PNG,JPEG等格式encode, 文字以ASCII, UTF-8等格式encode.<br>
+<p>计算机储存数据的单位是byte, 1 byte = 8 bit. 1 bit就是一个二进制码: 0
+或 1. 任何可以储存到计算机中的数据都需要encode: 音乐需要被格式MP3,
+WAV等方式encode;图片使用PNG,JPEG等格式encode, 文字以ASCII,
+UTF-8等格式encode.
 Encode可以被理解为在计算机硬件上表示声音,图片,文字等信息的格式.</p>
 </blockquote>
-<p>在Python中, byte string是一串字节序列. 他对人来说是不可读的. 另一方面一个char string(或者str),是一串字符序列.它对人来说是不可读的.一个字符不能直接被计算机储存, 它必须现先被 encode.</p>
+<p>在Python中, byte string是一串字节序列. 他对人来说是不可读的.
+另一方面一个char
+string(或者str),是一串字符序列.它对人来说是不可读的.一个字符不能直接被计算机储存,
+它必须现先被 encode.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="comment"># encode this str by using ASCII</span></span><br><span class="line">&gt;&gt;&gt;<span class="string">&#x27;this is a string&#x27;</span>.encode(<span class="string">&#x27;ASCII&#x27;</span>)</span><br><span class="line"><span class="string">b&#x27;this is a string&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>上边的代码虽然把 byte string 打印了出来,但是这是 python 的一个功能. 本质上 byte string 依旧是人类不能阅读的.因此 python 在 <code>str</code> 前边加了代表 byte string 的<code>b</code>. byte string 也可以被 decode 回来:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="comment"># decode this str by using ASCII</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">b&#x27;I am a string&#x27;</span>.decode(<span class="string">&#x27;ASCII&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;I am a string&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>然后python 就直接返回一个正常的 char string. Encoding 和 Decoding 是相反的操作.</p>
+<p>上边的代码虽然把 byte string 打印了出来,但是这是 python 的一个功能.
+本质上 byte string 依旧是人类不能阅读的.因此 python 在 <code>str</code>
+前边加了代表 byte string 的<code>b</code>. byte string 也可以被 decode
+回来: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="comment"># decode this str by using ASCII</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">b&#x27;I am a string&#x27;</span>.decode(<span class="string">&#x27;ASCII&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;I am a string&#x27;</span></span><br></pre></td></tr></table></figure> 然后python 就直接返回一个正常的 char string.
+Encoding 和 Decoding 是相反的操作.</p>
 <h2 id="为什么要用-byte-string">为什么要用 byte string</h2>
 <h3 id="什么是编码">什么是编码</h3>
 <p>因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制<code>11111111</code>=十进制<code>255</code>），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是<code>65535</code>，4个字节可以表示的最大整数是<code>4294967295</code>。</p>
 <p>由于计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为<code>ASCII</code>编码，比如大写字母A的编码是<code>65</code>，小写字母<code>z</code>的编码是<code>122</code>。</p>
 <p>如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</p>
 <h3 id="使用-byte-string">使用 byte string</h3>
-<p>一般 Python 会默认使用 Unicode 来编码解码. 使用bytes类型，实质上是告诉Python，不需要它帮你自动地完成编码和解码的工作，而是用户自己手动进行，并指定编码格式。而且由于Python的字符串类型是str，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把str变为以字节为单位的bytes。</p>
+<p>一般 Python 会默认使用 Unicode 来编码解码.
+使用bytes类型，实质上是告诉Python，不需要它帮你自动地完成编码和解码的工作，而是用户自己手动进行，并指定编码格式。而且由于Python的字符串类型是str，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把str变为以字节为单位的bytes。</p>
 
   
 
@@ -148,8 +156,12 @@ Encode可以被理解为在计算机硬件上表示声音,图片,文字等信息
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

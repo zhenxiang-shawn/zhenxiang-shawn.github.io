@@ -56,7 +56,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+<!-- hexo injector head_end end --><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
   
@@ -77,7 +189,7 @@
 <div class="widgets">
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" placeholder="站内搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
-<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/"><span class="title">Numpy Array 不显示全部维度的 shape</span></a><a class="item title" href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/"><span class="title">在 M1 Mac上搭建 Pytorch GPU 加速环境</span></a><a class="item title" href="/2023/02/03/2023-02-03-hexo-set-up-math-support/"><span class="title">如果启用 Hexo 博客的数学公式支持</span></a><a class="item title" href="/2022/04/24/2022-04-24-img-segmentation/"><span class="title">图像分割与图像检测</span></a><a class="item title" href="/2022/06/21/2022-06-21-cv-data-augmentation/"><span class="title">计算机视觉中的数据增强</span></a></div></widget>
+<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/06/28/2023-07-02-similarity-measurement/"><span class="title">相似度计算: Cosine Similarity</span></a><a class="item title" href="/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/"><span class="title">[Debug] Numpy Array 不显示全部维度的 shape</span></a><a class="item title" href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/"><span class="title">在 M1 Mac上搭建 Pytorch GPU 加速环境</span></a><a class="item title" href="/2023/02/03/2023-02-03-hexo-set-up-math-support/"><span class="title">如果启用 Hexo 博客的数学公式支持</span></a><a class="item title" href="/2022/04/24/2022-04-24-img-segmentation/"><span class="title">图像分割与图像检测</span></a></div></widget>
 
 
 </div>
@@ -99,26 +211,46 @@
 
 <div class="nav-wrap"><nav class="sub post cap"><a class="active" href="/">近期发布</a><a href="/categories">分类</a><a href="/tags">标签</a><a href="/archives">归档</a></nav></div>
 
-  <div class="post-list post"><a class="post-card post " href="/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/">
-<article class="md-text"><h2 class="post-title">Numpy Array 不显示全部维度的 shape</h2><div class="excerpt"><p>前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的 Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-06-24T16:00:00.000Z">2023-06-25</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+  <div class="post-list post"><a class="post-card post " href="/2023/06/28/2023-07-02-similarity-measurement/">
+<article class="md-text"><h2 class="post-title">相似度计算: Cosine Similarity</h2><div class="excerpt"><p>相似度计算在数据挖掘中指的是:计算在数据集里使用多个维度数据来表示的object 的距离. 一些常用的受欢迎的相似度测量方法有:
+
+Euclidean Distance.
+欧几里得距离(euclidean distance) 在二维和三维空间中的欧氏距离就是两点之间的实际距离。
+Manhattan Distance.
+在 二维空间 内，两个点之间的曼哈顿距离为它们横坐标之差的绝对值与纵坐标之...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-06-27T16:00:00.000Z">2023-06-28</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+</a><a class="post-card post " href="/2023/06/25/2023-06-25-ndarray-not-show-all-dimensions/">
+<article class="md-text"><h2 class="post-title">[Debug] Numpy Array 不显示全部维度的 shape</h2><div class="excerpt"><p>前一段时间发现从一个 DataFrame 中提取出一个Series. 不管被提取的
+Series 的每一个值是不是一个 ndarray,返回值永远是一个一维的 ndarray.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-06-24T16:00:00.000Z">2023-06-25</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2023/02/23/2023-02-23-setup-pytorch-gpu-on-m1-mac/">
-<article class="md-text"><h2 class="post-title">在 M1 Mac上搭建 Pytorch GPU 加速环境</h2><div class="excerpt"><p>M1 Max 的芯片的 GPU 算力已经很不错了, 想着自己不是视频编辑工作者,总不能这么浪费这么好的资源.偶尔用这电脑来跑跑中小型的模型也是不错的选择. TensorFlow 到现在对 M1 的支持还是有点一塌糊涂的感觉. 知名的 YOLO 模型也基本只有 PyTorch 版本. 想想 PyTorch 就是数据科学家必须了解的知识点.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-02-22T16:00:00.000Z">2023-02-23</time></span><span class="cap breadcrumb" style="color:#ff9800">解决方案</span></div></article>
+<article class="md-text"><h2 class="post-title">在 M1 Mac上搭建 Pytorch GPU 加速环境</h2><div class="excerpt"><p>M1 Max 的芯片的 GPU 算力已经很不错了,
+想着自己不是视频编辑工作者,总不能这么浪费这么好的资源.偶尔用这电脑来跑跑中小型的模型也是不错的选择.
+TensorFlow 到现在对 M1 的支持还是有点一塌糊涂的感觉. 知名的 YOLO
+模型也基本只有 PyTorch 版本. 想想 PyTorch
+就是数据科学家必须了解的知识点.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-02-22T16:00:00.000Z">2023-02-23</time></span><span class="cap breadcrumb" style="color:#ff9800">解决方案</span></div></article>
 </a><a class="post-card post " href="/2023/02/03/2023-02-03-hexo-set-up-math-support/">
-<article class="md-text"><h2 class="post-title">如果启用 Hexo 博客的数学公式支持</h2><div class="excerpt"><p>Hexo默认的markdown渲染器是不支持数学公式的输入的. 一般来说都会用hexo的一些插件来实现对数学公式的支持. 这里数学公式的输入一般都是用的LaTeX.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-02-02T16:00:00.000Z">2023-02-03</time></span><span class="cap breadcrumb" style="color:#ff9800">解决方案</span></div></article>
+<article class="md-text"><h2 class="post-title">如果启用 Hexo 博客的数学公式支持</h2><div class="excerpt"><p>Hexo默认的markdown渲染器是不支持数学公式的输入的.
+一般来说都会用hexo的一些插件来实现对数学公式的支持.
+这里数学公式的输入一般都是用的LaTeX.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-02-02T16:00:00.000Z">2023-02-03</time></span><span class="cap breadcrumb" style="color:#ff9800">解决方案</span></div></article>
 </a><a class="post-card post " href="/2022/06/21/2022-06-21-cv-data-augmentation/">
-<article class="md-text"><h2 class="post-title">计算机视觉中的数据增强</h2><div class="excerpt"><p>数据增强是比较机器学习中比较常用的方法. 但是并不是所有的数据增强都可以有效的提升精度. 有些数据增强的方法很可能会增加噪声,使模型表现比数据增强之前还要差.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-06-20T16:00:00.000Z">2022-06-21</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">计算机视觉中的数据增强</h2><div class="excerpt"><p>数据增强是比较机器学习中比较常用的方法.
+但是并不是所有的数据增强都可以有效的提升精度.
+有些数据增强的方法很可能会增加噪声,使模型表现比数据增强之前还要差.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-06-20T16:00:00.000Z">2022-06-21</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/06/10/2022-06-16-nms-vs-softnms-vs-wbf/">
-<article class="md-text"><h2 class="post-title">优化物体检测结果时常用的集成方法</h2><div class="excerpt"><p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence score的格子, 但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble method)来把这些预测结果合并成一个.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-06-09T16:00:00.000Z">2022-06-10</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">优化物体检测结果时常用的集成方法</h2><div class="excerpt"><p>物体检测中一般模型会在一个物体上检测出多个拥有不同confidence
+score的格子,
+但是对于输出结果来说,我们并不需要那么多的预测结果.因此,我们会用一些集成方法(ensemble
+method)来把这些预测结果合并成一个.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-06-09T16:00:00.000Z">2022-06-10</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/05/18/2022-05-18-upper-level-datatype-sstable/">
-<article class="md-text"><h2 class="post-title">高级数据结构 SSTable</h2><div class="excerpt"><p>Sorted String Table(SSTable)–是存储，处理和交换数据集的最流行的输出之一。正如名字本身所包含的意思一样，SSTable是一个简单的抽象，用来高效地存储大量的键-值对数据，同时做了优化来实现顺序读/写操作的高吞吐量。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-05-17T16:00:00.000Z">2022-05-18</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">高级数据结构 SSTable</h2><div class="excerpt"><p>Sorted String
+Table(SSTable)--是存储，处理和交换数据集的最流行的输出之一。正如名字本身所包含的意思一样，SSTable是一个简单的抽象，用来高效地存储大量的键-值对数据，同时做了优化来实现顺序读/写操作的高吞吐量。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-05-17T16:00:00.000Z">2022-05-18</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/04/24/2022-04-24-img-segmentation/">
-<article class="md-text"><h2 class="post-title">图像分割与图像检测</h2><div class="excerpt"><p>计算机视觉可以分为两大方向：基于学习的方法和基于几何的方法。其中基于学习的方法最火的就是深度学习，而基于几何方法最火的就是视觉SLAM(Simultaneous Localization and Mapping)</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-04-23T16:00:00.000Z">2022-04-24</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">图像分割与图像检测</h2><div class="excerpt"><p>计算机视觉可以分为两大方向：基于学习的方法和基于几何的方法。其中基于学习的方法最火的就是深度学习，而基于几何方法最火的就是视觉SLAM(Simultaneous
+Localization and Mapping)</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-04-23T16:00:00.000Z">2022-04-24</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/04/05/2022-04-04-bash_eq_talk/">
-<article class="md-text"><h2 class="post-title">Bash中的比较语法详解</h2><div class="excerpt"><p>如果你希望通过脚本运算获得的结果是你想要的，那么你需要应用到算术运算符参与算术运算以获得你所需的结果. 在Bash脚本中,一般比较语法都会放在方括号中.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-04-04T16:00:00.000Z">2022-04-05</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
+<article class="md-text"><h2 class="post-title">Bash中的比较语法详解</h2><div class="excerpt"><p>如果你希望通过脚本运算获得的结果是你想要的，那么你需要应用到算术运算符参与算术运算以获得你所需的结果.
+在Bash脚本中,一般比较语法都会放在方括号中.</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-04-04T16:00:00.000Z">2022-04-05</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a><a class="post-card post " href="/2022/04/04/2022-04-04-stable-marriage/">
 <article class="md-text"><h2 class="post-title">稳定婚姻算法</h2><div class="excerpt"><p>“稳定婚姻问题”在生活中是一个典型的问题,通俗地可叙述为：当前有N位男生和N位女生最后要组成稳定的婚姻家庭，过程开始之前男生和女生在各自的心目中都按照喜爱程度对N位异性有了各自的排序，男生和女生结婚后，对于每一对男生女生，不会出现比起当前匹配的伴侣互相更喜爱的一对男生女生，即可认为婚姻是稳定的。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-04-03T16:00:00.000Z">2022-04-04</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
-</a><a class="post-card post " href="/2022/03/24/2022-03-24-openCV-01/">
-<article class="md-text"><h2 class="post-title">OpenCV 入门</h2><div class="excerpt"><p>OpenCV 使用 C/C++ 开发，同时也提供了 Python、Java、MATLAB 等其他语言的接口。如果你不了解 C/C++，请阅读《C语言教程》和《C++教程》。</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-03-23T16:00:00.000Z">2022-03-24</time></span><span class="cap breadcrumb" style="color:#4caf50">技术加油站</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>
@@ -129,8 +261,12 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

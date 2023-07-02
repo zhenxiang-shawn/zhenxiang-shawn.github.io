@@ -105,27 +105,55 @@
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>图像分割与图像检测</span></h1>
-<p>计算机视觉可以分为两大方向：基于学习的方法和基于几何的方法。其中基于学习的方法最火的就是深度学习，而基于几何方法最火的就是视觉SLAM(Simultaneous Localization and Mapping)</p>
+<p>计算机视觉可以分为两大方向：基于学习的方法和基于几何的方法。其中基于学习的方法最火的就是深度学习，而基于几何方法最火的就是视觉SLAM(Simultaneous
+Localization and Mapping)</p>
 <span id="more"></span>
 <h2 id="图像分割">图像分割</h2>
-<p><strong>图像分割</strong>：图像分割就是把图像分成若干个特定的、具有独特性质的区域并提出感兴趣目标的技术和过程。 它是由图像处理到图像分析的关键步骤。图形分割是Target Segmentation，是data/image segmentation的一种。任务是把目标对应的部分分割出来。对于一般的光学图像而言，分割像素是一个比较常见的目标，就是要提取哪一些像素是用于表述已知目标的。这种Segmentation可以是一个分类（classificatio）问题，就是把每一个pixel做labeling，提出感兴趣的那一类label的像素。也可以是clustering的问题，即是不知道label，但需要满足一些optimality，比如要cluster之间的correlation最小之类的。（像素级的对前景与背景进行分类，将背景剔除）</p>
+<p><strong>图像分割</strong>：图像分割就是把图像分成若干个特定的、具有独特性质的区域并提出感兴趣目标的技术和过程。
+它是由图像处理到图像分析的关键步骤。图形分割是Target
+Segmentation，是data/image
+segmentation的一种。任务是把目标对应的部分分割出来。对于一般的光学图像而言，分割像素是一个比较常见的目标，就是要提取哪一些像素是用于表述已知目标的。这种Segmentation可以是一个分类（classificatio）问题，就是把每一个pixel做labeling，提出感兴趣的那一类label的像素。也可以是clustering的问题，即是不知道label，但需要满足一些optimality，比如要cluster之间的correlation最小之类的。（像素级的对前景与背景进行分类，将背景剔除）</p>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/img_segmentation_eg.png" alt="图像分割"/></div><div class="image-meta"><span class="image-caption center">图像分割</span></div></div>
 <h2 id="目标检测">目标检测</h2>
-<p><strong>目标检测</strong>：目标检测是Target Detection。最早的detection system应该是搞雷达的人首先提出并且heavily study的，最简单的任务就是从看似随机（random）又充满干扰（interference）和噪音（noise）的信号中，抓取到有信息的特征（information-bearing pattern）。最简单的一个栗子，就是当你拿到一段随机的雷达回波，可以设置一个threshold，当高于这个threshold，就认为是探测到了高速大面积飞行器之类的高回波的目标。当然，这里面的threshold该怎么设计，涉及到False Alarm和Miss Detection之间的平衡。人们往往需要寻找最佳的transform或者domain去对信号进行分析。（定位目标，确定目标位置及大小）</p>
+<p><strong>目标检测</strong>：目标检测是Target
+Detection。最早的detection system应该是搞雷达的人首先提出并且heavily
+study的，最简单的任务就是从看似随机（random）又充满干扰（interference）和噪音（noise）的信号中，抓取到有信息的特征（information-bearing
+pattern）。最简单的一个栗子，就是当你拿到一段随机的雷达回波，可以设置一个threshold，当高于这个threshold，就认为是探测到了高速大面积飞行器之类的高回波的目标。当然，这里面的threshold该怎么设计，涉及到False
+Alarm和Miss
+Detection之间的平衡。人们往往需要寻找最佳的transform或者domain去对信号进行分析。（定位目标，确定目标位置及大小）</p>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/object_detection_eg.png" alt="图像检测" style="width:800px;height:512px;"/></div><div class="image-meta"><span class="image-caption center">图像检测</span></div></div>
-<p>从输入和输出来比较的话,物体检测的输入和图像分割的输入都是一样的. 一般情况下都是<code>x * y * 3</code>的数组(可以理解为RGB各一层)或者是<code>x * y</code>的 binary image. 物体检测的输出一般都是一个bounding box的列表,而图像分割的输出是一个矩阵, 用来表示mask.</p>
+<p>从输入和输出来比较的话,物体检测的输入和图像分割的输入都是一样的.
+一般情况下都是<code>x * y * 3</code>的数组(可以理解为RGB各一层)或者是<code>x * y</code>的
+binary image. 物体检测的输出一般都是一个bounding
+box的列表,而图像分割的输出是一个矩阵, 用来表示mask.</p>
 <h2 id="分割和检测融合">分割和检测融合?</h2>
 <p>目前也有很多算法将分割和检测进行融合：比如:</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.05070">RDSNet: A New Deep Architecture for Reciprocal Object Detection and Instance Segmentation</a></li>
-<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_Joint_3D_Instance_Segmentation_and_Object_Detection_for_Autonomous_Driving_CVPR_2020_paper.pdf">Joint 3D Instance Segmentation and Object Detection for Autonomous Driving</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.05740">Gated-SCNN: Gated Shape CNNs for Semantic Segmentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.05070">RDSNet: A New Deep
+Architecture for Reciprocal Object Detection and Instance
+Segmentation</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_Joint_3D_Instance_Segmentation_and_Object_Detection_for_Autonomous_Driving_CVPR_2020_paper.pdf">Joint
+3D Instance Segmentation and Object Detection for Autonomous
+Driving</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.05740">Gated-SCNN: Gated Shape
+CNNs for Semantic Segmentation</a></li>
 <li>etc.</li>
 </ul>
-<p>通过一个/一种深度学习的结构是很难把这两种不同的任务结合到一起的,以<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.05740">Gated-SCNN: Gated Shape CNNs for Semantic Segmentation</a>为例, 作者认为通过一个深度CNN网络同时处理图像的颜色，形状和纹理信息用于像素级分类可能不是理想的做法，因此该论文提出two-stream CNN结构，将形状信息作为单独处理的分支。两分支包括shape stream和regular stream，二者相互协作且是并行的，通过设计的门控卷积层和局部监督损失有效地移除了噪声并帮助shape stream仅仅处理与边界相关的信息，然后通过ASPP模块保留多尺度上下文信息，融合regular stream的语义区域特征和shape stream的边界特征产生refined的分割输出，尤其refine在边界周围的像素分割。</p>
+<p>通过一个/一种深度学习的结构是很难把这两种不同的任务结合到一起的,以<a
+target="_blank" rel="noopener" href="https://arxiv.org/abs/1907.05740">Gated-SCNN: Gated Shape CNNs for
+Semantic Segmentation</a>为例,
+作者认为通过一个深度CNN网络同时处理图像的颜色，形状和纹理信息用于像素级分类可能不是理想的做法，因此该论文提出two-stream
+CNN结构，将形状信息作为单独处理的分支。两分支包括shape stream和regular
+stream，二者相互协作且是并行的，通过设计的门控卷积层和局部监督损失有效地移除了噪声并帮助shape
+stream仅仅处理与边界相关的信息，然后通过ASPP模块保留多尺度上下文信息，融合regular
+stream的语义区域特征和shape
+stream的边界特征产生refined的分割输出，尤其refine在边界周围的像素分割。</p>
 
 
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.geeksforgeeks.org/stable-marriage-problem/" target="_blank" rel="external nofollow noopener noreferrer">GeeksForGeeks</a></li><li class="post-title"><a href="https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/10986705" target="_blank" rel="external nofollow noopener noreferrer">百度百科</a></li><li class="post-title"><a href="https://www.cvmart.net/community/detail/3702" target="_blank" rel="external nofollow noopener noreferrer">图像分割二十年，盘点影响力最大的 10 篇论文</a></li><li class="post-title"><a href="https://www.zhihu.com/question/434960624" target="_blank" rel="external nofollow noopener noreferrer">图像分割和检测能够统一起来做吗？</a></li><li class="post-title"><a href="https://towardsdatascience.com/what-is-the-difference-between-object-detection-and-image-segmentation-ee746a935cc1" target="_blank" rel="external nofollow noopener noreferrer">What is the difference between Object Detection and Image Segmentation?</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.geeksforgeeks.org/stable-marriage-problem/" target="_blank" rel="external nofollow noopener noreferrer">GeeksForGeeks</a></li><li class="post-title"><a href="https://baike.baidu.com/item/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/10986705" target="_blank" rel="external nofollow noopener noreferrer">百度百科</a></li><li class="post-title"><a href="https://www.cvmart.net/community/detail/3702" target="_blank" rel="external nofollow noopener noreferrer">图像分割二十年，盘点影响力最大的 10 篇论文</a></li><li class="post-title"><a href="https://www.zhihu.com/question/434960624" target="_blank" rel="external nofollow noopener noreferrer">图像分割和检测能够统一起来做吗？</a></li><li class="post-title"><a href="https://towardsdatascience.com/what-is-the-difference-between-object-detection-and-image-segmentation-ee746a935cc1" target="_blank" rel="external nofollow noopener noreferrer">What is the difference between Object Detection and Image Segmentation?</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享
+4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
@@ -154,8 +182,12 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
