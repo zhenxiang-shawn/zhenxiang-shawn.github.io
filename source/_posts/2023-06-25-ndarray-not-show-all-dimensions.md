@@ -1,8 +1,8 @@
 ---
 date: 2023-06-25
 updated: 2023-06-25
-title: 'Numpy Array 不显示全部维度的 shape'
-categories: [技术加油站]
+title: '[Debug] Numpy Array 不显示全部维度的 shape'
+categories: ['技术加油站']
 tags: [Python, Pandas, Data Science]
 references:
   - title: 'pandas.DataFrame.values-Pandas'

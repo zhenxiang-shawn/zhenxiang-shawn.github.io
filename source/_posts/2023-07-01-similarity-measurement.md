@@ -1,6 +1,7 @@
 ---
 date: 2023-06-28
 updated: 2023-07-02
+mathjax: true
 title: '相似度计算: Cosine Similarity'
 categories: [技术加油站]
 tags: [Python, Pandas, Data Science]
@@ -47,7 +48,7 @@ Dis(x, y) = 1 - Cos(x, y) = 1 - 0.49 = 0.51
 
 ### 扩展:计算句子的相似度
 
-ref: [Python | Measure similarity between two sentences using cosine similarity](https://www.geeksforgeeks.org/python-measure-similarity-between-two-sentences-using-cosine-similarity/)
+
 
 #### Sentence Encode
 
@@ -96,11 +97,6 @@ print("similarity: ", cosine)
 ```
 
 
-
-
-
-比如可以直接测量两个句子的相似度:
-https://www.geeksforgeeks.org/python-measure-similarity-between-two-sentences-using-cosine-similarity/
 优点:
 
 1. 余弦相似度是很有用的，因为即使两个相似的数据对象由于大小而相距欧几里得距离很远，它们之间仍然可以具有较小的角度。角度越小，相似度越高。
