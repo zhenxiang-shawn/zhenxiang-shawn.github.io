@@ -2,6 +2,7 @@
 layout: wiki
 wiki: LeetCode
 title: 认识LeetCode
+order: 1
 tags: 
     - LeetCode
 ---
