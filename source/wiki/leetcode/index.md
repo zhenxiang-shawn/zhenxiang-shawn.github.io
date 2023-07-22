@@ -6,6 +6,9 @@ order: 1
 tags: 
     - LeetCode
 ---
+> 本系列不保证是代码是最优解,但是保证一定是可以通过全部测试的解. 本系列旨在提供总结思路,精益求精还要靠自己. 
+
+我的理念: {% emp Done is better than perfect! %}
 
 <!-- more -->
 

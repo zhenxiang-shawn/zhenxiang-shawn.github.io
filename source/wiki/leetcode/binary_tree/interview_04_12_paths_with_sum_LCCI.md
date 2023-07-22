@@ -2,9 +2,12 @@
 layout: wiki
 wiki: LeetCode
 title:  "LeetCode 面试题 04.12. 二叉树的最短求和路径"
-order: 101
+order: 121
 tags: 
     - LeetCode
+references:
+  - title: '面试题 04.12. 求和路径'
+    url: https://leetcode.cn/problems/paths-with-sum-lcci/
 ---
 
 看完题目的第一反应就是用剪枝的思想来穷举. 如果只考虑到所有 Node 都是正数的情况的话,其实可以快很多. 不过考虑到有一些 node 是负数,因此每次都要遍历完整个树. 
