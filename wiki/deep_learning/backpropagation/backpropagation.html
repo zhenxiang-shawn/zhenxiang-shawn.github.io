@@ -193,8 +193,7 @@ mjx-container[display="true"] + br {
 
 
 
-<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html#start"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">反向传播算法 (Back Propagation)</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD-forward-propagation"><span class="toc-text">正向传播 (forward
-propagation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD-back-propagation"><span class="toc-text">反向传播 (back propagation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A1%E7%AE%97matrix."><span class="toc-text">使用代码来计算matrix.</span></a></li></ol></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div><div class="widget-header cap dis-select"><span class="name">生成对抗网络</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/generative_adversarial_network/intro.html"><span class="toc-text">生成对抗网络基础</span></a></div></div></widget>
+<widget class="widget-wrapper toc multi" id="data-toc"><div class="widget-header cap dis-select"><span class="name">基础概念</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/index.html#start"><span class="toc-text">认识深度学习</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/deep_learning/backpropagation/backpropagation.html"><span class="toc-text">反向传播算法 (Back Propagation)</span></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD-forward-propagation"><span class="toc-text">正向传播 (forward propagation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD-back-propagation"><span class="toc-text">反向传播 (back propagation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E6%9D%A5%E8%AE%A1%E7%AE%97matrix"><span class="toc-text">使用代码来计算matrix.</span></a></li></ol></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/pandas/pandas_data_structure_and_usage.html"><span class="toc-text">Pandas中基本的数据结构和用法</span></a></div></div><div class="widget-header cap dis-select"><span class="name">计算机视觉</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/cv_intro/index.html"><span class="toc-text">计算机视觉介绍</span></a></div></div><div class="widget-header cap dis-select"><span class="name">生成对抗网络</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/deep_learning/generative_adversarial_network/intro.html"><span class="toc-text">生成对抗网络基础</span></a></div></div></widget>
 
 
 
@@ -218,21 +217,14 @@ propagation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"
 <span id="more"></span>
 <h2 id="矩阵运算">矩阵运算</h2>
 <p>在此之前你需要知道矩阵运算. 矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
-<h2 id="正向传播-forward-propagation">正向传播 (forward
-propagation)</h2>
-<p>设每一层的 node 的值<code>z = wx + b</code>.
-应用激活函数以后的值<code>a</code>.
-模型的输出<code>y^</code>，真实值<code>y</code>. 正向传播（Forward
-Propagation）前向传播就是从input，经过一层层的layer，不断计算每一层的<code>z</code>和<code>a</code>，最后得到输出<code>y^</code>的过程，计算出了<code>y^</code>，就可以根据它和真实值<code>y</code>的差别来计算损失（loss）。</p>
+<h2 id="正向传播-forward-propagation">正向传播 (forward propagation)</h2>
+<p>设每一层的 node 的值<code>z = wx + b</code>. 应用激活函数以后的值<code>a</code>. 模型的输出<code>y^</code>，真实值<code>y</code>. 正向传播（Forward Propagation）前向传播就是从input，经过一层层的layer，不断计算每一层的<code>z</code>和<code>a</code>，最后得到输出<code>y^</code>的过程，计算出了<code>y^</code>，就可以根据它和真实值<code>y</code>的差别来计算损失（loss）。</p>
 <h2 id="反向传播-back-propagation">反向传播 (back propagation)</h2>
-<p>反向传播（Backward
-Propagation）反向传播就是根据损失函数<code>L(y^,y)</code>来反方向地计算每一层的<code>z、a、w、b</code>的偏导数（梯度），从而更新参数。
-微积分中的链式法则（为了不与概率中的链式法则相混淆）用于计算复合函数
-的导数。反向传播是一种计算链式法则的算法，使用高效的特定运算顺序。
-反向传播说白了根据根据J的公式对<code>w</code>和<code>b</code>求偏导，也就是求梯度。因为我们需要用梯度下降法来对参数进行更新，而更新就需要梯度。
+<p>反向传播（Backward Propagation）反向传播就是根据损失函数<code>L(y^,y)</code>来反方向地计算每一层的<code>z、a、w、b</code>的偏导数（梯度），从而更新参数。<br>
+微积分中的链式法则（为了不与概率中的链式法则相混淆）用于计算复合函数 的导数。反向传播是一种计算链式法则的算法，使用高效的特定运算顺序。 反向传播说白了根据根据J的公式对<code>w</code>和<code>b</code>求偏导，也就是求梯度。因为我们需要用梯度下降法来对参数进行更新，而更新就需要梯度。<br>
 但是，根据求偏导的链式法则我们知道，第l层的参数的梯度，需要通过l+1层的梯度来求得，因此我们求导的过程是“反向”的，这也就是为什么叫“反向传播”。</p>
 <h3 id="计算实例">计算实例</h3>
-<h3 id="使用代码来计算matrix.">使用代码来计算matrix.</h3>
+<h3 id="使用代码来计算matrix">使用代码来计算matrix.</h3>
 
   
 <div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://www.mathsisfun.com/algebra/matrix-multiplying.html" target="_blank" rel="external nofollow noopener noreferrer">Math is Fun</a></li><li class="post-title"><a href="https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/" target="_blank" rel="external nofollow noopener noreferrer">How to display all rows from dataframe using Pandas</a></li></ul></div></section></div>
@@ -261,12 +253,8 @@ Propagation）反向传播就是根据损失函数<code>L(y^,y)</code>来反方�
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
-data-cites="anonymity">@anonymity</span></a> 使用 <a
-target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
-主题创建。 本博客所有文章除特别声明外，均采用 <a
-target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
-4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
