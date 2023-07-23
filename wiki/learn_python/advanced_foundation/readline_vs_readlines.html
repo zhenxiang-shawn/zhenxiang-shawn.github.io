@@ -101,40 +101,49 @@
 
   <article class='md-text content wiki'>
   <h1 class="article-title"><span>Python中常用的文件读取的方法比较</span></h1>
-  <p><strong>read() method</strong>:<br>
-read entire contents and return it as a string.</p>
-<p><strong>readline() method</strong>:<br>
-read line by line, could use it when the file is large.<br>
-a empty string will be returned when it reaches the end of the file.</p>
-<p><strong>readlines() method</strong>:<br>
-read entire contents, and return list of strings. Each element is a line.</p>
+  <p><strong>read() method</strong>: read entire contents and return it as
+a string.</p>
+<p><strong>readline() method</strong>: read line by line, could use it
+when the file is large. a empty string will be returned when it reaches
+the end of the file.</p>
+<p><strong>readlines() method</strong>: read entire contents, and return
+list of strings. Each element is a line.</p>
 <table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 37%" />
+<col style="width: 53%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Method</th>
 <th>Pros</th>
 <th>Cons</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Read()</td>
 <td>简单直接,小文件读取很方便.</td>
-<td>1. 如果文件大的话会消耗大量内存 2. 文件的全部内容都在内存里,可能会造成性能问题.</td>
+<td>1. 如果文件大的话会消耗大量内存 2.
+文件的全部内容都在内存里,可能会造成性能问题.</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Readline()</td>
 <td>可以处理大文件,甚至一些超出内存大小的文件.</td>
 <td>读取小文件的时候效率不如其他方法高.</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Readlines()</td>
 <td>小文件读取很方便, 返回值处理很直观.</td>
-<td>1. 如果文件大的话会消耗大量内存 2. 文件的全部内容都在内存里,可能会造成性能问题.</td>
+<td>1. 如果文件大的话会消耗大量内存 2.
+文件的全部内容都在内存里,可能会造成性能问题.</td>
 </tr>
 </tbody>
 </table>
-<p><strong><code>Readline()</code> 不能识别文件中的 EOF,如果已经读到文件末尾,<code>readline()</code>依然会返回空字符串.因此需要手动去判断 readline 的输出来判断是否已经读完了文件.</strong></p>
+<p><strong><code>Readline()</code> 不能识别文件中的
+EOF,如果已经读到文件末尾,<code>readline()</code>依然会返回空字符串.因此需要手动去判断
+readline 的输出来判断是否已经读完了文件.</strong></p>
 
   
 
@@ -163,8 +172,12 @@ read entire contents, and return list of strings. Each element is a line.</p>
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>

@@ -84,7 +84,7 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">在 M1 Mac上搭建 Pytorch GPU 加速环境</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-PyTorch"><span class="toc-text">安装 PyTorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">在 M1 Mac上搭建 Pytorch GPU 加速环境</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-pytorch"><span class="toc-text">安装 PyTorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol></div></div></widget>
 
 
 
@@ -103,19 +103,26 @@
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>在 M1 Mac上搭建 Pytorch GPU 加速环境</span></h1>
-<p>M1 Max 的芯片的 GPU 算力已经很不错了, 想着自己不是视频编辑工作者,总不能这么浪费这么好的资源.偶尔用这电脑来跑跑中小型的模型也是不错的选择. TensorFlow 到现在对 M1 的支持还是有点一塌糊涂的感觉. 知名的 YOLO 模型也基本只有 PyTorch 版本. 想想 PyTorch 就是数据科学家必须了解的知识点.</p>
+<p>M1 Max 的芯片的 GPU 算力已经很不错了,
+想着自己不是视频编辑工作者,总不能这么浪费这么好的资源.偶尔用这电脑来跑跑中小型的模型也是不错的选择.
+TensorFlow 到现在对 M1 的支持还是有点一塌糊涂的感觉. 知名的 YOLO
+模型也基本只有 PyTorch 版本. 想想 PyTorch
+就是数据科学家必须了解的知识点.</p>
 <span id="more"></span>
-<p>我所用的云服务器基本都在外网,由于众所周知的因素,链接很慢也不是很稳定. 测试学习之类的还是在本地比较好.</p>
-<h2 id="安装-PyTorch">安装 PyTorch</h2>
-<p>下面是用来安装的命令以及注释:<br>
-如果你不确定这是不是你需要的版本, 请移步到<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">PyTorch 官网</a>来查看官网的文档.</p>
+<p>我所用的云服务器基本都在外网,由于众所周知的因素,链接很慢也不是很稳定.
+测试学习之类的还是在本地比较好.</p>
+<h2 id="安装-pytorch">安装 PyTorch</h2>
+<p>下面是用来安装的命令以及注释: 如果你不确定这是不是你需要的版本,
+请移步到<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">PyTorch
+官网</a>来查看官网的文档.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 官网推荐安装 python 3.7或以上版本.</span></span><br><span class="line"><span class="comment"># 由于其他包的关系,这里推荐 3.8 的最新版</span></span><br><span class="line">conda create -n torch-gpu python=3.8</span><br><span class="line">conda activate torch-gpu</span><br><span class="line"><span class="comment"># 安装 PyTorch. MPS acceleration is available on MacOS 12.3+</span></span><br><span class="line">conda install pytorch torchvision torchaudio -c pytorch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装其他工具或依赖</span></span><br><span class="line">conda install -c conda-forge jupyter jupyterlab</span><br><span class="line">conda install  numpy</span><br><span class="line">conda install matplotlib</span><br><span class="line">conda install pandas</span><br></pre></td></tr></table></figure>
 <h2 id="测试">测试</h2>
-<p>如果是这种输出,那么恭喜你,安装完成.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.backends.mps.is_available()</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<p>如果是这种输出,那么恭喜你,安装完成. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.backends.mps.is_available()</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
 
 
-<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://pytorch.org" target="_blank" rel="external nofollow noopener noreferrer">PyTorch</a></li><li class="post-title"><a href="https://towardsdatascience.com/gpu-acceleration-comes-to-pytorch-on-m1-macs-195c399efcc1" target="_blank" rel="external nofollow noopener noreferrer">GPU-Acceleration Comes to PyTorch on M1 Macs</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="references"><div class="header"><span>参考资料</span></div><div class="body"><ul><li class="post-title"><a href="https://pytorch.org" target="_blank" rel="external nofollow noopener noreferrer">PyTorch</a></li><li class="post-title"><a href="https://towardsdatascience.com/gpu-acceleration-comes-to-pytorch-on-m1-macs-195c399efcc1" target="_blank" rel="external nofollow noopener noreferrer">GPU-Acceleration Comes to PyTorch on M1 Macs</a></li></ul></div></section><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享
+4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
@@ -144,8 +151,12 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/LeetCode/">LeetCode</a><a href="/wiki/tags/DeepLearning/">DeepLearning</a><a href="/wiki/tags/Python/">Python</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/more/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p>本站由 <a href="/"><span class="citation"
+data-cites="anonymity">@anonymity</span></a> 使用 <a
+target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a>
+主题创建。 本博客所有文章除特别声明外，均采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
