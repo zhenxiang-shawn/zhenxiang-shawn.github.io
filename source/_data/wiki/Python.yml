@@ -1,0 +1,74 @@
+name: Python 
+title: Python 进阶
+subtitle: 'Python 知识库 | Built by zhenxiang'
+tags: 个人知识库
+icon: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png?raw=true
+cover: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png?raw=true
+description: 目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。
+repo: xaoxuu/hexo-theme-stellar
+search:
+  filter: /wiki/learn_python
+  placeholder: 在 Python进阶 中搜索...
+sidebar: 
+  - toc
+  - related
+comment_title: '评论区仅供交流，有问题请提 [issue](https://github.com/xaoxuu/hexo-theme-stellar/issues) 反馈。'
+# comments:
+  # service: giscus
+  # giscus:
+  #   data-repo: xaoxuu/hexo-theme-stellar
+  #   data-mapping: number
+  #   data-term: 226
+base_dir: /wiki/learn_python
+toc:
+  '基本使用': [0, 99]
+  '高级功能': [100, 199]
+  '源码分析': [200, 299]
+  '使用技巧': [300, 499]
+  # '快速开始':
+  #   - index
+  #   - examples
+  #   - releases
+  # '基本使用':
+  #   - theme-settings
+  #   - pages
+  #   - sidebar
+  #   - tag-plugins
+  #   - tag-plugins/express
+  #   - tag-plugins/data
+  #   - tag-plugins/container
+  #   - comments
+  # '文档系统':
+  #   - wiki-settings
+  # '进阶玩法':
+  #   - widgets
+  #   - advanced-settings
+  #   - notes
+  #   - fcircle
+  # '技术支持':
+  #   - articles
+  #   - todo
+  #   - contributors
+
+
+
+# ===
+
+
+# title: Python 进阶
+# tags: 笔记
+# logo:
+#   src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png?raw=true
+#   small: 96px
+#   large: 128px
+# description: 目前Python在Web应用后端开发、云基础设施建设、DevOps、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。
+# start: 开始阅读
+# cover: true
+# index: true
+# sections:
+#   '基本使用': [0, 99]
+#   '高级功能': [100, 199]
+#   '源码分析': [200, 299]
+#   '使用技巧': [300, 499]
+
+

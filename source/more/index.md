@@ -18,6 +18,6 @@ header: false
 
 <!-- Zhenxiang 目前主要从事于 iOS 开发行业，活跃于开源社区，代表作品有：[ProHUD](/wiki/prohud/)、[ValueX](/wiki/valuex/)、[Stellar](/wiki/stellar/) 等，更多的作品可以去项目主页查看，希望大家喜欢～ -->
 
-{% navbar [文章](/) [项目](/wiki/) [GitHub](https://github.com/zhenxiang-shawn) [友链](/friends/) [留言](#comments) %}
+<!-- {% navbar [文章](/) [项目](/wiki/) [GitHub](https://github.com/zhenxiang-shawn) [友链](/friends/) [留言](#comments) %} -->
 
 {% endabout %}

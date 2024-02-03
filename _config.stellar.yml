@@ -1,24 +1,87 @@
-title: J. Tech.
 
-# sidebar:
-#   logo:
-#     title: '[<img no-lazy height="32px" src="xxx"/>](/)'
+logo: 
+  avatar: "https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png"
+  subtitle: "求知若饥 | 虚心若愚"
 
-# pandoc:
-#   filters:
-#   extra:
-#   template:
-#   meta:
-#   mathEngine: 'mathjax'
+style:
+  
+  sidebar:
+    # background-image: 'linear-gradient(to bottom, var(--sidebar-bg), var(--sidebar-bg))'
+    blur-px: 100px # 模糊半径
+    blur-bg: var(--alpha60) # 模糊颜色
 
-sidebar:
-  menu:
-    post: '[博客](/)'
-    wiki: '[项目](/wiki/)'  
-    # notes: '[便笺](/notes/)'
-    about: '[关于](/about/)'
-    more: '[更多](/more/)'
-    friends: '[友链](/friends/)'
+menubar:
+  columns: 3 # 一行多少个
+  items: # 可按照自己需求增加，符合以下格式即可
+    - id: post # 页面中高亮的 menu_id
+      theme: '#1BCDFC' # 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
+      icon: solar:documents-bold-duotone # 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
+      title: 博客 # 标题
+      url: / # 跳转链接，支持相对路径和绝对路径
+    - id: wiki
+      theme: '#3DC550'
+      icon: solar:notebook-bookmark-bold-duotone
+      title: 项目
+      url: /wiki/
+    - id: social
+      theme: '#F44336'
+      icon: solar:chat-square-like-bold-duotone
+      title: 社交
+      url: /friends/
+    # - id: explore
+    #   theme: '#FA6400'
+    #   icon: solar:planet-bold-duotone
+    #   title: 关于
+    #   url: /explore/      
+
+site_tree:
+  # 主页配置
+  home:
+    sidebar: welcome, recent
+  # 博客列表页配置
+  index_blog:
+    base_dir: blog # 只影响自动生成的页面路径
+    menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
+    sidebar: welcome, recent # for categories/tags/archives
+    # nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
+      # '朋友文章': /friends/rss/
+  # 博客专栏列表页配置
+  # index_topic:
+  #   base_dir: topic # 只影响自动生成的页面路径
+  #   menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 topic 的页面默认使用这里配置的 menu_id
+  # 文档列表页配置
+  index_wiki:
+    base_dir: wiki # 只影响自动生成的页面路径
+    menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
+    sidebar: toc, related, recent # for wiki
+    nav_tabs:
+      'more': https://github.com/zhenxiang-shawn
+  
+# 博客文章内页配置
+post:
+  menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
+  sidebar: toc, related, recent # for pages using 'layout:post'
+# 博客专栏文章内页配置
+topic:
+  menu_id: post
+# 文档内页配置
+wiki:
+  menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
+  sidebar: toc, recent # for wiki
+# 作者信息配置
+author: 
+  base_dir: author # 只影响自动生成的页面路径
+  menu_id: post
+  sidebar: recent
+# 错误页配置
+error_page:
+  menu_id: post
+  '404': '/404.html'
+  sidebar: recent
+# 其它自定义页面配置 layout: page
+page:
+  sidebar: toc, recent
+
 
 article:
   # 分类颜色
@@ -47,6 +110,7 @@ footer:
     github:
       icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/>'
       url: https://github.com/zhenxiang-shawn
+      # TODO(zhenxiang): Add gitee
     email:
       icon: '<img src="https://img.cubik65536.top/mail-bulk-solid.svg"/>'
       url: mailto:zhenxiang-shawn@outlook.com

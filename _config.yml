@@ -5,15 +5,16 @@
 # Site
 title: J. Tech.
 avatar: "https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png"
+# subtitle: "求知若饥 | 虚心若愚"
 favion: 
   small: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png
   medium: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png
-subtitle: '求知若饥 | 虚心若愚'
+
 description: 'aaa'
 keywords:
 author: Zhenxiang Jin
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 email: zhenxiang.shawn@outlook.com
 
 # URL
@@ -108,7 +109,7 @@ theme: stellar
 
 math:
   enable: true
-  engine: 'mathjax'
+  engine: 'mathjax' 
 
 mathjax:
   enable: true
