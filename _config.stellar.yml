@@ -121,13 +121,13 @@ footer:
   sitemap:
     '博客':
       - '[近期](/)'
-      - '[分类](/blog/categories/)'
-      - '[标签](/blog/tags/)'
-      - '[归档](/blog/archives/)'
+      - '[分类](/categories/)'
+      - '[标签](/tags/)'
+      - '[归档](/archives/)'
     '项目':
-      - '[LeetCode](/wiki/tags/LeetCode/)'
-      - '[DeepLearning](/wiki/tags/DeepLearning/)'
-      - '[Python](/wiki/tags/Python/)'
+      # - '[LeetCode](/wiki/leetcode/)'
+      - '[DeepLearning](/wiki/deep_learning/)'
+      - '[Python](/wiki/learn_python/)'
       # - '[应用程序](/wiki/tags/应用程序/)'
     '社交':
       - '[友链](/friends/)'
