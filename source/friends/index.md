@@ -19,6 +19,8 @@ comment_id: 留言板
 
 {% endabout %}
 
+{% sites friends_sites %}
+
 ## 如何自助添加友链？
 
 此功能目前还在完善中...
