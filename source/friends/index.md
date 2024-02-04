@@ -30,7 +30,6 @@ comment_id: 留言板
 - 合法的、非营利性、无商业广告
 - 有实质性原创内容的 `HTTPS` 站点
 
-新建 [GitHub Issue](https://github.com/zhenxiang-shawn/friends/issues/) 按照模板格式填写并提交。
 
 
 {% timeline %}
