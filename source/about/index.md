@@ -1,15 +1,21 @@
 ---
 menu_id: about
 title: 关于
+h1: ""
 comments: false
 breadcrumb: false
 header: false
 ---
 
+{% banner Zhenxiang 个人简介 avatar:https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/jin_logo.png?raw=true  bg:https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/music-player-2951399_640.jpg?raw=true %}
+{% navbar active:/about/ [关于](/about/) [友链](/friends/) %}
+{% endbanner %}
+
+
 {% about %}
-
-<img height="96px" alt="hello" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/hello1.png">
-
+<!-- <script>
+<img height="96px" alt="hello" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/hello1.png?raw=true"> -->
+<!-- </script> -->
 ## 嗨！我是Zhenxiang 👋
 
 **一个SWE和DS。**

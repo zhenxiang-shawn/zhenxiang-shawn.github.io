@@ -4,6 +4,19 @@ logo:
   subtitle: "求知若饥 | 虚心若愚"
 
 style:
+
+  color:
+    # 动态颜色（会根据明暗主题重设明度值，只用关心色相和饱和度即可）
+    # background: 'hsl(212 16% 98%)' # 浅色背景颜色
+    # block: 'hsl(25 100% 50%)' # 块背景颜色
+    code: 'hsl(14 100% 48%)' # 行内代码颜色
+    text: 'hsl(0 0% 20%)' # 文本颜色
+    # 主题色配置（不会根据明暗动态调整，请设置为通用的颜色）
+    theme: 'hsl(21 98% 55%)' # 主题色
+    accent: 'hsl(14 100% 57%)' # 强调色
+    link: 'hsl(207 90% 54%)' # 超链接颜色
+    button: 'hsl(192 98% 55%)' # 按钮颜色
+    hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
   
   sidebar:
     # background-image: 'linear-gradient(to bottom, var(--sidebar-bg), var(--sidebar-bg))'
@@ -34,16 +47,16 @@ menubar:
       icon: solar:notebook-bookmark-bold-duotone
       title: 项目
       url: /wiki/
-    - id: social
-      theme: '#F44336'
-      icon: solar:chat-square-like-bold-duotone
-      title: 社交
-      url: /friends/
-    # - id: explore
-    #   theme: '#FA6400'
-    #   icon: solar:planet-bold-duotone
-    #   title: 关于
-    #   url: /explore/      
+    # - id: social
+    #   theme: '#F44336'
+    #   icon: solar:chat-square-like-bold-duotone
+    #   title: 社交
+    #   url: /friends/
+    - id: about
+      theme: '#FA6400'
+      icon: solar:planet-bold-duotone
+      title: 关于
+      url: /about/      
 
 site_tree:
   # 主页配置
@@ -64,9 +77,19 @@ site_tree:
   index_wiki:
     base_dir: wiki # 只影响自动生成的页面路径
     menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-    sidebar: toc, related, recent # for wiki
+    sidebar: toc, recent # for wiki
     nav_tabs:
-      'more': https://github.com/zhenxiang-shawn
+      'Github': https://github.com/zhenxiang-shawn
+  index_about:
+    base_dir: about
+    menu_id: about
+    sidebar: linklist
+    nav_tabs:
+      'Github': https://github.com/zhenxiang-shawn
+  index_friends:
+    base_dir: friends
+    menu_id: about
+
   
 # 博客文章内页配置
 post:
@@ -79,6 +102,11 @@ topic:
 wiki:
   menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
   sidebar: toc, recent # for wiki
+about:
+  menu_id: about
+  base_dir: about
+  sidebar: toc
+
 # 作者信息配置
 author: 
   base_dir: author # 只影响自动生成的页面路径
@@ -142,9 +170,15 @@ footer:
       # - '[应用程序](/wiki/tags/应用程序/)'
     '社交':
       - '[友链](/friends/)'
-      - '[留言板](/more/#comments)'
+      # - '[留言板](/more/#comments)'
     '更多':
       - '[关于本站](/about/)'
       - '[GitHub](https://github.com/zhenxiang-shawn)'
 
   source: '[GitHub](https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/)'
+
+
+  content: |
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
