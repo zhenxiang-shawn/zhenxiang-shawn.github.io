@@ -46,7 +46,7 @@
   
 
   
-  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png"><meta name="theme-color" content="#f9fafb">
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -67,7 +67,8 @@
 </div>
 <div class="widgets">
 
-<widget class="widget-wrapper toc single" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-Go-Modules-%E5%8A%9F%E8%83%BD"><span class="toc-text">启用 Go Modules 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-GOPROXY-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%8C%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%80%89%E4%B8%80"><span class="toc-text">配置 GOPROXY 环境变量，以下三选一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%83%E7%89%9B-CDN"><span class="toc-text">1. 七牛 CDN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%98%BF%E9%87%8C%E4%BA%91"><span class="toc-text">2. 阿里云</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%98%E6%96%B9"><span class="toc-text">3. 官方</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%98%AF%E5%90%A6%E5%B7%B2%E6%9B%B4%E6%96%B0"><span class="toc-text">确认是否已更新</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-go-modules-%E5%8A%9F%E8%83%BD"><span class="toc-text">启用 Go Modules 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-goproxy-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%80%89%E4%B8%80"><span class="toc-text">配置 GOPROXY
+环境变量，以下三选一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%83%E7%89%9B-cdn"><span class="toc-text">1. 七牛 CDN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91"><span class="toc-text">2. 阿里云</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%98%E6%96%B9"><span class="toc-text">3. 官方</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%98%AF%E5%90%A6%E5%B7%B2%E6%9B%B4%E6%96%B0"><span class="toc-text">确认是否已更新</span></a></li></ol></div></div></widget>
 
 
 
@@ -102,23 +103,23 @@
   </div>
   </div><article class="md-text content"><p>Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度。</p>
 <span id="more"></span>
-<h2 id="启用-Go-Modules-功能">启用 Go Modules 功能</h2>
+<h2 id="启用-go-modules-功能">启用 Go Modules 功能</h2>
 <p><code>go env -w GO111MODULE=on</code></p>
-<h2 id="配置-GOPROXY-环境变量，以下三选一">配置 GOPROXY 环境变量，以下三选一</h2>
-<h4 id="1-七牛-CDN">1. 七牛 CDN</h4>
+<h2 id="配置-goproxy-环境变量以下三选一">配置 GOPROXY
+环境变量，以下三选一</h2>
+<h4 id="七牛-cdn">1. 七牛 CDN</h4>
 <p><code>go env -w  GOPROXY=https://goproxy.cn,direct</code></p>
-<h4 id="2-阿里云">2. 阿里云</h4>
+<h4 id="阿里云">2. 阿里云</h4>
 <p><code>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</code></p>
-<h4 id="3-官方">3. 官方</h4>
+<h4 id="官方">3. 官方</h4>
 <p><code>go env -w  GOPROXY=https://goproxy.io,direct</code></p>
 <h2 id="确认是否已更新">确认是否已更新</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go env | grep GOPROXY</span><br><span class="line">GOPROXY=&quot;https://goproxy.cn&quot;</span><br></pre></td></tr></table></figure>
+
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
-      <div class="body"><p>本文采用 <a
-target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享
-4.0 国际</a> 许可协议，转载请注明出处。</p>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
     </section>
     </div>
@@ -144,8 +145,7 @@ target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><span id="busuanzi_container_site_pv">本站总访问量<span
-id="busuanzi_value_site_pv"></span>次</span>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>
