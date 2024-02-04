@@ -3,6 +3,21 @@ logo:
   avatar: "https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png"
   subtitle: "求知若饥 | 虚心若愚"
 
+inject:
+  head:
+    - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    - <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png">
+    - <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png">
+    # - <link rel="manifest" href="/xxx/site.webmanifest">
+    # - <link rel="shortcut icon" href="/xxx/favicon.ico">
+    - <meta name="theme-color" content="#f9fafb">
+
+  script:
+
+  
+  
+  
+
 style:
 
   color:
