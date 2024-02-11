@@ -16,18 +16,21 @@ Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度�
 
 ## 配置 GOPROXY 环境变量，以下三选一
 
-#### 1. 七牛 CDN
+### 七牛 CDN
+
+号称中国最值得信赖的Go模块代理。
+
 `go env -w  GOPROXY=https://goproxy.cn,direct`
 
-#### 2. 阿里云
+### 阿里云
 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
 
-#### 3. 官方
+### 官方
 `go env -w  GOPROXY=https://goproxy.io,direct`
 
 ## 确认是否已更新
 
 ```
-go env | grep GOPROXY
-GOPROXY="https://goproxy.cn"
+>>> go env | grep GOPROXY
+>>> GOPROXY="https://goproxy.cn" # 检查输出
 ```

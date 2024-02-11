@@ -6,19 +6,17 @@ title: '相似度计算: Cosine Similarity'
 categories: [技术加油站]
 tags: [Python, Pandas, Data Science]
 references:
-  - title: 'Cosine Similarity'
-    url: https://www.geeksforgeeks.org/cosine-similarity/
-  - title: 'Python Measure similarity between two sentences using cosine similarity'
-    url: https://www.geeksforgeeks.org/python-measure-similarity-between-two-sentences-using-cosine-similarity/
+  - '[Cosine Similarity](https://www.geeksforgeeks.org/cosine-similarity/)'
+  - '[Python Measure similarity between two sentences using cosine similarity](https://www.geeksforgeeks.org/python-measure-similarity-between-two-sentences-using-cosine-similarity/)'
 ---
 
 相似度计算在数据挖掘中指的是:计算在数据集里使用多个维度数据来表示的object 的距离. 一些常用的受欢迎的相似度测量方法有:
 
 1. Euclidean Distance.
 欧几里得距离(euclidean distance) 在二维和三维空间中的欧氏距离就是两点之间的实际距离。
-2. Manhattan Distance.
+1. Manhattan Distance.
 在 二维空间 内，两个点之间的曼哈顿距离为它们横坐标之差的绝对值与纵坐标之差的绝对值之和。两个点的曼哈顿距离是会随着坐标系的改变而改变的.
-3. Minkowski Distance.
+1. Minkowski Distance.
 闵科夫斯基距离是规范化向量空间（N维实空间）中两点之间的距离/相似性，是欧氏距离和曼哈顿距离的概括。
 
 相似度一般都是基于某种距离的定义来计算的.

@@ -5,11 +5,8 @@ updated: 2023-02-23
 categories: [解决方案]
 tags: [PyTorch, Metal]
 references:
-  - title: 'PyTorch'
-    url: https://pytorch.org
-  - title: 'GPU-Acceleration Comes to PyTorch on M1 Macs'  
-    url: https://towardsdatascience.com/gpu-acceleration-comes-to-pytorch-on-m1-macs-195c399efcc1
-
+  - '[PyTorch](https://pytorch.org)'
+  - '[GPU-Acceleration Comes to PyTorch on M1 Macs](https://towardsdatascience.com/gpu-acceleration-comes-to-pytorch-on-m1-macs-195c399efcc1)'  
 ---
 M1 Max 的芯片的 GPU 算力已经很不错了, 想着自己不是视频编辑工作者,总不能这么浪费这么好的资源.偶尔用这电脑来跑跑中小型的模型也是不错的选择. TensorFlow 到现在对 M1 的支持还是有点一塌糊涂的感觉. 知名的 YOLO 模型也基本只有 PyTorch 版本. 想想 PyTorch 就是数据科学家必须了解的知识点.
 

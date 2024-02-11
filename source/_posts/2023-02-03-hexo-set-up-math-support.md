@@ -5,12 +5,9 @@ updated: 2023-02-03
 categories: [解决方案]
 tags: [Hexo, LaTeX]
 references:
-  - title: 'LaTeX'
-    url: https://www.latex-project.org/
-  - title: 'hexo插入数学公式'  
-    url: https://blog.csdn.net/sunfove/article/details/111106363
-  - title: 'Github: hexojs/hexo-renderer-pandoc'
-    url: https://github.com/hexojs/hexo-renderer-pandoc
+  - '[LaTeX](https://www.latex-project.org/)'
+  - '[hexo插入数学公式](https://blog.csdn.net/sunfove/article/details/111106363)'  
+  - '[Github: hexojs/hexo-renderer-pandoc](https://github.com/hexojs/hexo-renderer-pandoc)'
 ---
 
 Hexo默认的markdown渲染器是不支持数学公式的输入的. 一般来说都会用hexo的一些插件来实现对数学公式的支持. 这里数学公式的输入一般都是用的`LaTeX`.
