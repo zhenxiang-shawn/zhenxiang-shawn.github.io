@@ -16,25 +16,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>Golang Module 换国内镜像 - J. Tech.</title>
+  <title>Ubuntu破解 /etc/shadow 密码 - J. Tech.</title>
 
   
-    <meta name="description" content="Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度。">
+    <meta name="description" content="有时忘记 Ubuntu 系统中一些用户密码的话,可以在&#x2F;etc&#x2F;passwd 中找到相关信息. 但是密码信息一般是以加密的形式放在&#x2F;etc&#x2F;shadow中. 要拿到明文密码还需要解密一下.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang Module 换国内镜像">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/2024/01/30/2024-01-30-golang-set-goproxy/index.html">
+<meta property="og:title" content="Ubuntu破解 &#x2F;etc&#x2F;shadow 密码">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/2024/02/26/2024-02-26-ubuntu-decipher-etc-shadow/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度。">
+<meta property="og:description" content="有时忘记 Ubuntu 系统中一些用户密码的话,可以在&#x2F;etc&#x2F;passwd 中找到相关信息. 但是密码信息一般是以加密的形式放在&#x2F;etc&#x2F;shadow中. 要拿到明文密码还需要解密一下.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-29T16:00:00.000Z">
+<meta property="article:published_time" content="2024-02-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-25T16:00:00.000Z">
 <meta property="article:author" content="Zhenxiang Jin">
-<meta property="article:tag" content="Golang">
+<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
   
   
   
-  <meta name="keywords" content="Golang">
+  <meta name="keywords" content="Ubuntu">
 
   <!-- feed -->
   
@@ -67,8 +67,8 @@
 </div>
 <div class="widgets">
 
-<widget class="widget-wrapper toc single" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-go-modules-%E5%8A%9F%E8%83%BD"><span class="toc-text">启用 Go Modules 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-goproxy-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%80%89%E4%B8%80"><span class="toc-text">配置 GOPROXY
-环境变量，以下三选一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E7%89%9B-cdn"><span class="toc-text">七牛 CDN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91"><span class="toc-text">阿里云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9"><span class="toc-text">官方</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%98%AF%E5%90%A6%E5%B7%B2%E6%9B%B4%E6%96%B0"><span class="toc-text">确认是否已更新</span></a></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tldr-%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85-john-%E7%84%B6%E5%90%8E%E4%BD%BF%E7%94%A8-john-%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="toc-text">TL;DR
+直接安装 John 然后使用 John 暴力破解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-john"><span class="toc-text">安装 John</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-john-%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="toc-text">使用 John 暴力破解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-passwd-%E4%BF%A1%E6%81%AF"><span class="toc-text">查看 passwd 信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-shadow-%E4%BF%A1%E6%81%AF"><span class="toc-text">查看 shadow 信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86-shadow-%E4%BF%A1%E6%81%AF"><span class="toc-text">解密 shadow 信息</span></a></li></ol></div></div></widget>
 
 
 
@@ -76,7 +76,7 @@
 
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/02/26/2024-02-26-ubuntu-decipher-etc-shadow/"><span class="title">Ubuntu破解 /etc/shadow 密码</span></a><a class="item title" href="/2024/02/11/2024-02-10-web-request-types/"><span class="title">HTTP协议的请求方式汇总</span></a><a class="item title" href="/2024/01/30/2024-01-29-vscode-connect-docker-failed/"><span class="title">VSCode 连接 Docker 镜像失败</span></a><a class="item title active" href="/2024/01/30/2024-01-30-golang-set-goproxy/"><span class="title">Golang Module 换国内镜像</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="item title" href="/2023/06/28/2023-07-02-similarity-measurement/"><span class="title">相似度计算: Cosine Similarity</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title active" href="/2024/02/26/2024-02-26-ubuntu-decipher-etc-shadow/"><span class="title">Ubuntu破解 /etc/shadow 密码</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="item title" href="/2024/02/11/2024-02-10-web-request-types/"><span class="title">HTTP协议的请求方式汇总</span></a><a class="item title" href="/2024/01/30/2024-01-29-vscode-connect-docker-failed/"><span class="title">VSCode 连接 Docker 镜像失败</span></a><a class="item title" href="/2024/01/30/2024-01-30-golang-set-goproxy/"><span class="title">Golang Module 换国内镜像</span></a><a class="item title" href="/2023/06/28/2023-07-02-similarity-measurement/"><span class="title">相似度计算: Cosine Similarity</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/zhenxiang-shawn" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="mailto:zhenxiang-shawn@outlook.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.cubik65536.top/mail-bulk-solid.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -90,34 +90,125 @@
     
 <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%8A%A0%E6%B2%B9%E7%AB%99/">技术加油站</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-01-29T16:00:00.000Z">2024-01-30</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-01-29T16:00:00.000Z">2024-01-30</time></span></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-02-25T16:00:00.000Z">2024-02-26</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-02-25T16:00:00.000Z">2024-02-26</time></span></div></div>
 </div>
 
     
     <div class="bottom">
       <div class="text-area">
-        <h1 class="text title"><span>Golang Module 换国内镜像</span></h1>
+        <h1 class="text title"><span>Ubuntu破解 /etc/shadow 密码</span></h1>
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><p>Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度。</p>
+  </div><article class="md-text content"><p>有时忘记 Ubuntu 系统中一些用户密码的话,可以在<code>/etc/passwd</code>
+中找到相关信息.
+但是密码信息一般是以加密的形式放在<code>/etc/shadow</code>中.
+要拿到明文密码还需要解密一下.</p>
 <span id="more"></span>
-<h2 id="启用-go-modules-功能">启用 Go Modules 功能</h2>
-<p><code>go env -w GO111MODULE=on</code></p>
-<h2 id="配置-goproxy-环境变量以下三选一">配置 GOPROXY
-环境变量，以下三选一</h2>
-<h3 id="七牛-cdn">七牛 CDN</h3>
-<p>号称中国最值得信赖的Go模块代理。</p>
-<p><code>go env -w  GOPROXY=https://goproxy.cn,direct</code></p>
-<h3 id="阿里云">阿里云</h3>
-<p><code>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</code></p>
-<h3 id="官方">官方</h3>
-<p><code>go env -w  GOPROXY=https://goproxy.io,direct</code></p>
-<h2 id="确认是否已更新">确认是否已更新</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; go env | grep GOPROXY</span><br><span class="line">&gt;&gt;&gt; GOPROXY=&quot;https://goproxy.cn&quot; # 检查输出</span><br></pre></td></tr></table></figure>
+<p>Linux 用户系统创建/修改新用户时，将修改以下文件:</p>
+<ol type="1">
+<li><code>/etc/passwd</code>： 用户账户的详细信息在此文件中更新。</li>
+<li><code>/etc/shadow</code>： 用户账户密码在此文件中更新。</li>
+<li><code>/etc/group</code>： 新用户群组的详细信息在此文件中更新。</li>
+<li><code>/etc/gshadow</code>： 新用户群组密码在此文件中更新。</li>
+</ol>
+<h2
+id="tldr-直接安装-john-然后使用-john-暴力破解"><strong>TL;DR</strong>
+直接安装 John 然后使用 John 暴力破解</h2>
+<h3 id="安装-john">安装 John</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install john</span><br></pre></td></tr></table></figure>
+<h3 id="使用-john-暴力破解">使用 John 暴力破解</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo john /etc/shadow</span></span><br><span class="line">Loaded 4 password hashes with 4 different salts (crypt, generic crypt(3) [?/64])</span><br><span class="line">Warning: OpenMP is disabled; a non-OpenMP build may be faster</span><br><span class="line">Press <span class="string">&#x27;q&#x27;</span> or Ctrl-C to abort, almost any other key <span class="keyword">for</span> status</span><br><span class="line">0g 0:00:00:48 20% 1/3 0g/s 43.65p/s 43.65c/s 43.65C/s Shawn99999/..99999nwahs!</span><br><span class="line">yifan123         (yifan)</span><br></pre></td></tr></table></figure>
+<h2 id="查看-passwd-信息">查看 passwd 信息</h2>
+<p>使用命令<code>cat /etc/passwd</code>就可以列出所有的用户信息.</p>
+<p><strong>例子</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比如:</span></span><br><span class="line"><span class="comment"># cat /etc/passwd</span></span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br></pre></td></tr></table></figure>
+<p>7 个字段的详细信息如下:</p>
+<ul>
+<li><strong>用户名</strong> （<code>magesh</code>）：
+已创建用户的用户名，字符长度 1 个到 12 个字符。</li>
+<li><strong>密码</strong>（<code>x</code>）：代表加密密码保存在
+<code>/etc/shadow</code> 文件中。</li>
+<li><strong>用户 ID</strong>（<code>506</code>）：代表用户的 ID
+号，每个用户都要有一个唯一的 ID 。UID 号为 0 的是为 <code>root</code>
+用户保留的，UID 号 1 到 99 是为系统用户保留的，UID 号 100-999
+是为系统账户和群组保留的。</li>
+<li><strong>群组 ID </strong>（<code>507</code>）：代表群组的 ID
+号，每个群组都要有一个唯一的 GID ，保存在 <code>/etc/group</code>
+文件中。</li>
+<li><strong>用户信息</strong>（<code>2g Admin - Magesh M</code>）：代表描述字段，可以用来描述用户的信息（LCTT
+译注：此处原文疑有误）。</li>
+<li><strong>家目录</strong>（<code>/home/mageshm</code>）：代表用户的家目录。</li>
+<li><strong>Shell</strong>（<code>/bin/bash</code>）：代表用户使用的
+shell 类型。</li>
+</ul>
+<h2 id="查看-shadow-信息">查看 shadow 信息</h2>
+<p>使用命令<code>cat /etc/shadow</code>就可以列出所有的用户信息.
+一般其中的信息都是加密的.</p>
+<p><strong>例子</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat /etc/shadow</span></span><br><span class="line">root:$6$Mv12D1VT<span class="variable">$maznMnrEBDMmry7A6YhW6lRD2MhdOuPXTQXs9XoIxy1h05B</span>.oOj3hvlw9.9FDs2q/Mcll/I7TX.U.vAY3c0ld1:19585:0:99999:7:::</span><br><span class="line">daemon:*:19213:0:99999:7:::</span><br><span class="line">bin:*:19213:0:99999:7:::</span><br></pre></td></tr></table></figure>
+<p>文件中每行代表一个用户，同样使用 ":"
+作为分隔符，不同之处在于，每行用户信息被划分为 9
+个字段。每个字段的含义如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><p>用户名。就是一串代表用户身份的字符串。</p></li>
+<li><p>加密密码。这里保存的是真正加密的密码。所有伪用户的密码都是 "!!"
+或 "*"，代表没有密码是不能登录的</p></li>
+<li><p>最后一次修改时间。此字段表示最后一次修改密码的时间</p></li>
+<li><p>最小修改时间间隔。也就是说，该字段规定了从第 3
+字段（最后一次修改密码的日期）起，多长时间之内不能修改密码。如果是
+0，则密码可以随时修改；如果是 10，则代表密码修改后 10
+天之内不能再次修改密码。</p></li>
+<li><p>密码有效期。为了强制要求用户变更密码，这个字段可以指定距离第 3
+字段（最后一次更改密码）多长时间内需要再次变更密码，否则该账户密码进行过期阶段。该字段的默认值为
+99999，也就是 273 年，可认为是永久生效。如果改为 90，则表示密码被修改 90
+天之后必须再次修改，否则该用户即将过期。管理服务器时，通过这个字段强制用户定期修改密码。</p></li>
+<li><p>密码需要变更前的警告天数。与第 5
+字段相比较，当账户密码有效期快到时，系统会发出警告信息给此账户，提醒用户
+"再过 n
+天你的密码就要过期了，请尽快重新设置你的密码！"。该字段的默认值是
+7，也就是说，距离密码有效期的第 7 天开始，每次登录系统都会向该账户发出
+"修改密码" 的警告信息。</p></li>
+<li><p>密码过期后的宽限天数。也称为“口令失效日”，简单理解就是，在密码过期后，用户如果还是没有修改密码，则在此字段规定的宽限天数内，用户还是可以登录系统的；如果过了宽限天数，系统将不再让此账户登陆，也不会提示账户过期，是完全禁用。</p></li>
+<li><p>账号失效时间。同第 3 个字段一样，使用自 1970 年 1 月 1
+日以来的总天数作为账户的失效时间。该字段表示，账号在此字段规定的时间之外，不论你的密码是否过期，都将无法使用！</p></li>
+<li><p>保留。这个字段目前没有使用，等待新功能的加入。</p></li>
+</ul>
+</blockquote>
+<h2 id="解密-shadow-信息">解密 shadow 信息</h2>
+<p>由于shadow文件加密的密码具有固定格式:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="built_in">id</span>$salt<span class="variable">$encrypted</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>id：表示加密算法，1 代表 MD5，5 代表 SHA-256，6 代表 SHA-512。</li>
+<li>salt：表示密码学中的 Salt，由系统随机生成 。</li>
+<li>encrypted：表示密码的 hash。
+冒号后面的数值是一些日期和密码修改间隔天数的信息，可以不用管，以上述示例中
+root 账号为例</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root:$6$Mv12D1VT$maznMnrEBDMmry7A6YhW6lRD2MhdOuPXTQXs9XoIxy1h05B.oOj3hvlw9.9FDs2q/Mcll/I7TX.U.vAY3c0ld1:19585:0:99999:7:::</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>id=6，即使用SHA-512哈希算法</p>
+<p>salt=Mv12D1VT</p>
+<p>encrypted=maznMnrEBDMmry7A6YhW6lRD2MhdOuPXTQXs9XoIxy1h05B.oOj3hvlw9.9FDs2q/Mcll/I7TX.U.vAY3c0ld1</p>
+</blockquote>
+<p>我们可以直接使用 john 去破解 shadow 文件：</p>
 
 <div class="article-footer fs14">
+    <section id="references">
+      <div class="header"><span>参考资料</span></div>
+      <div class="body">
+        <ul>
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/cosine-similarity/">Cosine Similarity</a></p>
+
+        </li>
+        </ul>
+      </div>
+    </section>
+    
     <section id="license">
       <div class="header"><span>许可协议</span></div>
       <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
@@ -125,7 +216,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/02/11/2024-02-10-web-request-types/">HTTP协议的请求方式汇总</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/01/30/2024-01-29-vscode-connect-docker-failed/">VSCode 连接 Docker 镜像失败</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/02/11/2024-02-10-web-request-types/">HTTP协议的请求方式汇总</a></div></section></div>
 
 
 
