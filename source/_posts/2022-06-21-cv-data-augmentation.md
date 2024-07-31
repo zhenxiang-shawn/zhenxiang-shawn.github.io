@@ -4,6 +4,7 @@ updated: 2022-06-21
 title: 计算机视觉中的数据增强
 categories: [技术加油站]
 tags: [Computer Vision, Machine Learning, Deep Learning]
+math: false
 references:
     - title: CVPR2021 深度框架训练，不是所有数据增强都可以提升最终精度
       url: https://www.cvmart.net/community/detail/4551

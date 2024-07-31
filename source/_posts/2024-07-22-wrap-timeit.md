@@ -1,14 +1,18 @@
 ---
-date: 2022-07-22
-updated: 2022-07-22
-title: Python 把 timeit 模块打包成修饰函数
+date: 2024-07-22
+updated: 2024-07-22
+mathjax: false
+title: 'Python 把 timeit 模块打包成修饰函数'
 categories: [解决方案, 技术加油站]
 tags: [Python]
-
-
+references:
+  - '[Cosine Similarity](https://www.geeksforgeeks.org/cosine-similarity/)'
 ---
 
-## 修饰器
+Python 中的修饰器（decorator）是一个函数，它接受一个函数或方法作为其唯一的参数，并返回一个新的函数或方法，其中整合了修饰后的函数或方法，以及附带的一些额外功能。
+简单来说，修饰器可以在不修改被修饰函数原有代码的情况下，为其添加额外的功能。例如用于性能分析、日志记录、权限控制、缓存、参数验证、事务处理、重试机制、异常处理等。
+
+<!--more-->
 
 ### 实现原理
 

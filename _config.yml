@@ -15,7 +15,7 @@ keywords:
 author: Zhenxiang Jin
 language: zh-CN
 timezone: 'Asia/Shanghai'
-email: zhenxiang.shawn@outlook.com
+email: zhenxiang.shawn@zohomail.com
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -111,8 +111,11 @@ math:
   enable: true
   engine: 'mathjax' 
 
+# mathjax support
 mathjax:
-  enable: true
+    enable: true
+    # per_page: true
+    cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=tex-ams-mml_htmlormml 
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
