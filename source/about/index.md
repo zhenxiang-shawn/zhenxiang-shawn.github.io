@@ -94,8 +94,8 @@ header: false
 
 <br/>
 
-<p align="center">
-  <a href="mailto:zhenxiang.shawn@zohomail.com"><img src="https://img.shields.io/badge/📫%20EMAIL-zhenxiang.shawn@zohomail.com-informational?style=for-the-badge" style="display: inline-block" /></a>
+<p >
+  <a href="mailto:zhenxiang.shawn@zohomail.com"><img src="https://img.shields.io/badge/📫%20EMAIL-zhenxiang.shawn@zohomail.com-informational?style=for-the-badge" style="display: inline-block;align=center" /></a>
 </p>
 
 
@@ -108,13 +108,16 @@ header: false
 
 <h4>🏆 GitHub 成就</h4>
 <p>
-    <img align="left" src="https://github-profile-trophy.vercel.app/?username=zhenxiang-shawn&theme=onedark&column=-1&margin-w=15" style="border-radius: 0;"/>
+    <img src="https://github-profile-trophy.vercel.app/?username=zhenxiang-shawn&theme=onedark&column=-1&margin-w=15" style="border-radius: 0;"/>
 </p>
 
 
 <h4>📈 GitHub 活动</h4>
 
-<a href="https://github.com/zhenxiang-shawn"><img src="https://github-readme-activity-graph.vercel.app/graph?username=zhenxiang-shawn&theme=merko" style="border-radius: 0;"></a>
+<p>
+<a href="https://github.com/zhenxiang-shawn" style="margin: 0;"><img src="https://github-readme-activity-graph.vercel.app/graph?username=zhenxiang-shawn&theme=merko" style="border-radius: 0;"></a>
+</p>
+
 <!-- [![activity graph](https://github-readme-activity-graph.vercel.app/graph?username=zhenxiang-shawn&theme=merko)](https://github.com/zhenxiang-shawn) -->
 
 
