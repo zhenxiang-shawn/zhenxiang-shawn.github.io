@@ -16,25 +16,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>LeetCode：LeetCode 230. 二叉搜索树中第K小的元素 - J. Tech.</title>
+  <title>AiAgent：记忆系统设计 - J. Tech.</title>
 
   
-    <meta name="description" content="一个 BST 的前序遍历就是一个有序数组. 因此这道题其实只需要返回前序遍历的第 K 个值. 代码如下: 1234567891011121314151617181920212223# Definition for a binary tree node.# class TreeNode:#     def __init__(self, val&#x3D;0, left&#x3D;None, right&#x3D;None):#">
+    <meta name="description" content="概述记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。 1. 记忆的分层借鉴人类认知架构，Agent 的记忆可分为多层：     记忆类型 生命周期 存储介质 用途     工作记忆 本次会话 上下文窗口 当前任务状态、中间结果">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LeetCode 230. 二叉搜索树中第K小的元素">
-<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/leetcode/binary_tree/leetcode_230_Kth_smallest_element_in_BST.html">
+<meta property="og:title" content="记忆系统设计">
+<meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/ai_agent/memory/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="一个 BST 的前序遍历就是一个有序数组. 因此这道题其实只需要返回前序遍历的第 K 个值. 代码如下: 1234567891011121314151617181920212223# Definition for a binary tree node.# class TreeNode:#     def __init__(self, val&#x3D;0, left&#x3D;None, right&#x3D;None):#">
+<meta property="og:description" content="概述记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。 1. 记忆的分层借鉴人类认知架构，Agent 的记忆可分为多层：     记忆类型 生命周期 存储介质 用途     工作记忆 本次会话 上下文窗口 当前任务状态、中间结果">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-08-08T02:03:20.086Z">
-<meta property="article:modified_time" content="2026-08-08T02:03:20.086Z">
+<meta property="article:published_time" content="2026-08-22T14:48:09.762Z">
+<meta property="article:modified_time" content="2026-08-22T14:48:09.762Z">
 <meta property="article:author" content="Zhenxiang Jin">
-<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="记忆系统">
 <meta name="twitter:card" content="summary">
   
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content=",">
 
   <!-- feed -->
   
@@ -58,17 +59,14 @@
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">J. Tech.</div><div class="sub normal cap">求知若饥</div><div class="sub hover cap" style="opacity:0"> 虚心若愚</div></a></div></header>
 
 <div class="nav-area">
-<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/leetcode/" placeholder="在 /wiki/leetcode/ 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/ai_agent/" placeholder="在 /wiki/ai_agent/ 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
 
 <nav class="menu dis-select"><a class="nav-item" title="博客" href="/" style="color:#1BCDFC"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5.879 2.879C5 3.757 5 5.172 5 8v8c0 2.828 0 4.243.879 5.121C6.757 22 8.172 22 11 22h2c2.828 0 4.243 0 5.121-.879C19 20.243 19 18.828 19 16V8c0-2.828 0-4.243-.879-5.121C17.243 2 15.828 2 13 2h-2c-2.828 0-4.243 0-5.121.879M8.25 17a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5H9a.75.75 0 0 1-.75-.75M9 12.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5zM8.25 9A.75.75 0 0 1 9 8.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 9" clip-rule="evenodd"/><path fill="currentColor" d="M5.235 4.058C5 4.941 5 6.177 5 8v8c0 1.823 0 3.058.235 3.942L5 19.924c-.975-.096-1.631-.313-2.121-.803C2 18.243 2 16.828 2 14v-4c0-2.829 0-4.243.879-5.121c.49-.49 1.146-.707 2.121-.803zm13.53 15.884C19 19.058 19 17.822 19 16V8c0-1.823 0-3.059-.235-3.942l.235.018c.975.096 1.631.313 2.121.803C22 5.757 22 7.17 22 9.999v4c0 2.83 0 4.243-.879 5.122c-.49.49-1.146.707-2.121.803z" opacity=".5"/></svg></a><a class="nav-item active" title="项目" href="/wiki/" style="color:#3DC550"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.25 4.48v3.057c0 .111 0 .27.02.406a.936.936 0 0 0 .445.683a.96.96 0 0 0 .783.072c.13-.04.272-.108.378-.159L17 8.005l1.124.534c.106.05.248.119.378.16a.958.958 0 0 0 .783-.073a.936.936 0 0 0 .444-.683c.021-.136.021-.295.021-.406V3.031c.113-.005.224-.01.332-.013C21.154 2.98 22 3.86 22 4.933v11.21c0 1.112-.906 2.01-2.015 2.08c-.97.06-2.108.179-2.985.41c-1.082.286-1.99 1.068-3.373 1.436c-.626.167-1.324.257-1.627.323V5.174c.32-.079 1.382-.203 1.674-.371c.184-.107.377-.216.576-.323m5.478 8.338a.75.75 0 0 1-.546.91l-4 1a.75.75 0 0 1-.364-1.456l4-1a.75.75 0 0 1 .91.546" clip-rule="evenodd"/><path fill="currentColor" d="M18.25 3.151c-.62.073-1.23.18-1.75.336a8.2 8.2 0 0 0-.75.27v3.182l.75-.356l.008-.005a1.13 1.13 0 0 1 .492-.13c.047 0 .094.004.138.01c.175.029.315.1.354.12l.009.005l.749.356V3.647z"/><path fill="currentColor" d="M12 5.214c-.334-.064-1.057-.161-1.718-.339C8.938 4.515 8.05 3.765 7 3.487c-.887-.234-2.041-.352-3.018-.412C2.886 3.007 2 3.9 2 4.998v11.146c0 1.11.906 2.01 2.015 2.079c.97.06 2.108.179 2.985.41c.486.129 1.216.431 1.873.726c1.005.451 2.052.797 3.127 1.034z" opacity=".5"/><path fill="currentColor" d="M4.273 12.818a.75.75 0 0 1 .91-.545l4 1a.75.75 0 1 1-.365 1.455l-4-1a.75.75 0 0 1-.545-.91m.909-4.545a.75.75 0 1 0-.364 1.455l4 1a.75.75 0 0 0 .364-1.455z"/></svg></a><a class="nav-item" title="关于" href="/about/" style="color:#FA6400"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0" opacity=".5"/><path fill="currentColor" d="M17.712 5.453c1.047-.193 2.006-.259 2.797-.152c.77.103 1.536.393 1.956 1.064c.446.714.312 1.542-.012 2.258c-.33.728-.918 1.499-1.672 2.268c-1.516 1.547-3.836 3.226-6.597 4.697c-2.763 1.472-5.495 2.484-7.694 2.92c-1.095.217-2.098.299-2.923.201c-.8-.095-1.6-.383-2.032-1.075c-.47-.752-.296-1.63.07-2.379c.375-.768 1.032-1.586 1.872-2.403L4 12.416c0 .219.083.71.168 1.146c.045.23.09.444.123.596c-.652.666-1.098 1.263-1.339 1.756c-.277.567-.208.825-.145.925c.072.116.305.305.937.38c.609.073 1.44.018 2.455-.183c2.02-.4 4.613-1.351 7.28-2.772c2.667-1.42 4.85-3.015 6.23-4.423c.694-.707 1.15-1.334 1.377-1.836c.233-.515.167-.75.107-.844c-.07-.112-.289-.294-.883-.374c-.542-.072-1.272-.041-2.163.112L16.87 5.656c.338-.101.658-.17.842-.203"/></svg></a></nav>
 </div>
 <div class="widgets">
 
-
-<widget class="widget-wrapper markdown"><div class="widget-header dis-select"><span class="name">Hello there!</span></div><div class="widget-body fs14"><p>这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。</p>
-</div></widget>
-
+<widget class="widget-wrapper toc single" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%B0%E5%BF%86%E7%9A%84%E5%88%86%E5%B1%82"><span class="toc-text">1. 记忆的分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BF%86%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AA%97%E5%8F%A3"><span class="toc-text">2. 工作记忆与上下文窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%95%BF%E6%9C%9F%E8%AE%B0%E5%BF%86%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">3. 长期记忆的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E7%9A%84%E5%85%B3%E9%94%AE%E5%B1%9E%E6%80%A7%E8%AE%BE%E8%AE%A1"><span class="toc-text">记忆的关键属性设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AE%B0%E5%BF%86%E7%9A%84%E6%8F%90%E5%8F%96%E4%B8%8E%E7%BB%84%E7%BB%87"><span class="toc-text">4. 记忆的提取与组织</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BC%9A%E8%AF%9D%E9%9A%94%E7%A6%BB%E4%B8%8E%E5%A4%9A%E7%A7%9F%E6%88%B7"><span class="toc-text">5. 会话隔离与多租户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%AE%B0%E5%BF%86%E5%A4%B1%E7%9C%9F%E7%9A%84%E7%BC%93%E8%A7%A3"><span class="toc-text">6. 记忆失真的缓解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%BE%E8%AE%A1%E5%B0%8F%E7%BB%93"><span class="toc-text">7. 设计小结</span></a></li></ol></div></div></widget>
 
 
 
@@ -89,21 +87,127 @@
 <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 
   <span class="sep"></span>
-  <a class="cap breadcrumb" href="/wiki/leetcode/binary_tree/leetcode_230_Kth_smallest_element_in_BST.html">LeetCode 230. 二叉搜索树中第K小的元素</a>
+  <a class="cap breadcrumb" href="/wiki/ai_agent/memory/index.html">记忆系统设计</a>
   </div>
-<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-08-08T02:03:20.086Z">2026-08-08</time></span></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2026-08-22T14:48:09.762Z">2026-08-22</time></span></div></div>
 </div>
 
     
     <div class="bottom">
       <div class="text-area">
-        <h1 class="text title"><span>LeetCode 230. 二叉搜索树中第K小的元素</span></h1>
+        <h1 class="text title"><span>记忆系统设计</span></h1>
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><p>一个 BST 的前序遍历就是一个有序数组. 因此这道题其实只需要返回前序遍历的第 K 个值. 代码如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">kthSmallest</span>(<span class="params">self, root: <span class="type">Optional</span>[TreeNode], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        stack = [root]</span><br><span class="line">        curr = root.left</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">if</span> curr:</span><br><span class="line">                stack.append(curr)</span><br><span class="line">                curr = curr.left</span><br><span class="line">            <span class="keyword">elif</span> stack:</span><br><span class="line">                curr = stack.pop()</span><br><span class="line">                k -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> k == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> curr.val</span><br><span class="line">                curr = curr.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></article>
+  </div><article class="md-text content"><span id="more"></span>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。</p>
+<h2 id="1-记忆的分层"><a href="#1-记忆的分层" class="headerlink" title="1. 记忆的分层"></a>1. 记忆的分层</h2><p>借鉴人类认知架构，Agent 的记忆可分为多层：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>记忆类型</th>
+<th>生命周期</th>
+<th>存储介质</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>工作记忆</strong></td>
+<td>本次会话</td>
+<td>上下文窗口</td>
+<td>当前任务状态、中间结果</td>
+</tr>
+<tr>
+<td><strong>短期记忆</strong></td>
+<td>会话内</td>
+<td>上下文 + 摘要</td>
+<td>多轮对话保持连贯</td>
+</tr>
+<tr>
+<td><strong>长期记忆</strong></td>
+<td>跨会话</td>
+<td>向量库/关系库</td>
+<td>用户画像、历史偏好、事实知识</td>
+</tr>
+<tr>
+<td><strong>程序性记忆</strong></td>
+<td>长期</td>
+<td>配置/代码</td>
+<td>技能、工作流、标准操作流程</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-工作记忆与上下文窗口"><a href="#2-工作记忆与上下文窗口" class="headerlink" title="2. 工作记忆与上下文窗口"></a>2. 工作记忆与上下文窗口</h2><p>LLM 的上下文窗口是有限的，且随内容增长成本与延迟上升。工作记忆设计围绕「窗口管理」展开：</p>
+<ul>
+<li><strong>滚动窗口</strong>：保留最近 N 轮完整对话</li>
+<li><strong>摘要压缩</strong>：对早期对话周期性生成摘要，替换原文</li>
+<li><strong>关键信息抽取</strong>：提取结构化字段（用户ID、目标、约束）持久化</li>
+<li><strong>Token 预算分配</strong>：为系统提示、记忆、工具描述、对话预留不同配额</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">预算示例（128k 上下文）:</span><br><span class="line">├── 系统提示 + 工具定义   15k</span><br><span class="line">├── 长期记忆（检索结果）   10k</span><br><span class="line">├── 工作记忆（进行中会话）  60k</span><br><span class="line">└── 输出预算 + 预留        40k</span><br></pre></td></tr></table></figure>
+<h2 id="3-长期记忆的实现"><a href="#3-长期记忆的实现" class="headerlink" title="3. 长期记忆的实现"></a>3. 长期记忆的实现</h2><p>长期记忆通常依赖<strong>向量数据库</strong>存储语义化记忆，并配合内容寻址与时效管理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码：记忆写入</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">write_memory</span>(<span class="params">memory_store, content, metadata</span>):</span><br><span class="line">    embedding = embed(content)          <span class="comment"># 语义向量化</span></span><br><span class="line">    memory_store.upsert(</span><br><span class="line">        <span class="built_in">id</span>=uuid(),</span><br><span class="line">        vector=embedding,</span><br><span class="line">        payload=&#123;</span><br><span class="line">            <span class="string">&quot;content&quot;</span>: content,</span><br><span class="line">            <span class="string">&quot;timestamp&quot;</span>: now(),</span><br><span class="line">            <span class="string">&quot;user_id&quot;</span>: metadata[<span class="string">&quot;user_id&quot;</span>],</span><br><span class="line">            <span class="string">&quot;importance&quot;</span>: score(content),   <span class="comment"># 重要性评分</span></span><br><span class="line">            <span class="string">&quot;type&quot;</span>: metadata[<span class="string">&quot;type&quot;</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        namespace=<span class="string">f&quot;user:<span class="subst">&#123;metadata[<span class="string">&#x27;user_id&#x27;</span>]&#125;</span>&quot;</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<h3 id="记忆的关键属性设计"><a href="#记忆的关键属性设计" class="headerlink" title="记忆的关键属性设计"></a>记忆的关键属性设计</h3><ul>
+<li><strong>相关性检索</strong>：按问题语义检索最相关的历史记忆，而非逐条读取</li>
+<li><strong>重要性衰减</strong>：高频/重要记忆权重更高，久远记忆逐步淡出</li>
+<li><strong>冲突消解</strong>：新信息与旧记忆矛盾时，保留带时间戳的版本</li>
+<li><strong>写入策略</strong>：对话结束后异步提炼要点写入，避免实时高频写入</li>
+</ul>
+<h2 id="4-记忆的提取与组织"><a href="#4-记忆的提取与组织" class="headerlink" title="4. 记忆的提取与组织"></a>4. 记忆的提取与组织</h2><p>不是所有对话都值得记住。需要「记忆蒸馏」流程：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>识别</strong></td>
+<td>判断哪些信息有长期价值（偏好、事实、进展）</td>
+</tr>
+<tr>
+<td><strong>结构化</strong></td>
+<td>提炼为「实体-属性-关系」或因果片段</td>
+</tr>
+<tr>
+<td><strong>压缩</strong></td>
+<td>去除冗余，控制存入体积</td>
+</tr>
+<tr>
+<td><strong>写入</strong></td>
+<td>带 metadata 持久化，供后续检索</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="5-会话隔离与多租户"><a href="#5-会话隔离与多租户" class="headerlink" title="5. 会话隔离与多租户"></a>5. 会话隔离与多租户</h2><p>生产环境中必须控制记忆的可见范围，防止信息越界：</p>
+<ul>
+<li><strong>命名空间隔离</strong>：按 用户/会话/Agent/租户 分层隔离</li>
+<li><strong>权限继承</strong>：记忆的可读范围与对应数据源的权限一致</li>
+<li><strong>生命周期</strong>：设置 TTL，过期自动清理 / 脱敏</li>
+<li><strong>可删除</strong>：遵循数据合规，支持用户删除自己的记忆</li>
+</ul>
+<h2 id="6-记忆失真的缓解"><a href="#6-记忆失真的缓解" class="headerlink" title="6. 记忆失真的缓解"></a>6. 记忆失真的缓解</h2><p>记忆检索引入不确定性的常见问题与对策：</p>
+<ul>
+<li><strong>检索不到</strong>：相关记忆未写入或 embedding 召回不佳 → 补充写入与多路召回</li>
+<li><strong>过度记忆</strong>：把噪音当事实 → 重要性评分 + 置信度门槛</li>
+<li><strong>记忆冲突</strong>：旧记忆与新事实矛盾 → 时间戳版本 + 显式覆盖</li>
+<li><strong>隐私泄漏</strong>：检索出越权信息 → 严格的权限过滤</li>
+</ul>
+<h2 id="7-设计小结"><a href="#7-设计小结" class="headerlink" title="7. 设计小结"></a>7. 设计小结</h2><ol>
+<li><strong>分层存储</strong>：短期用摘要、长期用向量，别把一切塞进上下文</li>
+<li><strong>记忆要「蒸馏」</strong>：只存有长期价值的结构化信息</li>
+<li><strong>强隔离</strong>：按用户/租户命名空间隔离，支持删除与 TTL</li>
+<li><strong>可观测</strong>：记录每次记忆的读/写，便于定位状态漂移</li>
+<li><strong>从简开始</strong>：先用会话级摘要，业务需要再引入向量长期记忆</li>
+</ol>
+</article>
 
 
 

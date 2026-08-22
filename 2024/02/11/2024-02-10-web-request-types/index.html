@@ -98,24 +98,23 @@
   </div>
   </div><article class="md-text content"><p>写后端的时候,前后端的端口制定需要一定的规范,前后端都需要了解 HTTP 协议的请求分类和使用场景.</p>
 <span id="more"></span>
-<h2 id="9种请求方法">9种请求方法</h2>
-<p>HTTP1.0 定义了三种请求方法：</p>
+<h2 id="9种请求方法"><a href="#9种请求方法" class="headerlink" title="9种请求方法"></a>9种请求方法</h2><p>HTTP1.0 定义了三种请求方法： </p>
 <ol>
 <li>GET</li>
-<li>POST</li>
+<li>POST </li>
 <li>HEAD</li>
 </ol>
 <p>HTTP1.1 新增了六种请求方法：</p>
-<ol start="4">
+<ol>
 <li>OPTIONS</li>
 <li>PUT</li>
 <li>PATCH</li>
 <li>DELETE</li>
-<li>TRACE</li>
+<li>TRACE </li>
 <li>CONNECT</li>
 </ol>
 <p>因此截止到 HTTP1.1, 一共有 9 种请求方式.</p>
-<h2 id="使用场景">使用场景</h2>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -187,13 +186,12 @@
 <td>CONNECT</td>
 <td>要求用隧道协议连接代理</td>
 <td></td>
-<td>HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器，CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要***L（安全套接层）和TLS（传输层安全）协议把通信内容加密后经网络隧道传输。</td>
-<td></td>
+<td>HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器，CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要<em>*</em>L（安全套接层）和TLS（传输层安全）协议把通信内容加密后经网络隧道传输。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="建立Websocket">建立Websocket</h2>
-<p>HTTP 协议中的 GET 和 POST 请求都可以作为升级到 WebSocket 连接的起点。在 HTTP 1.1 规范中定义了协议升级机制，允许客户端通过 Upgrade 首部字段发起将连接从 HTTP 更改为另一种协议（如 WebSocket）的请求。</p>
+</div>
+<h2 id="建立Websocket"><a href="#建立Websocket" class="headerlink" title="建立Websocket"></a>建立Websocket</h2><p>HTTP 协议中的 GET 和 POST 请求都可以作为升级到 WebSocket 连接的起点。在 HTTP 1.1 规范中定义了协议升级机制，允许客户端通过 Upgrade 首部字段发起将连接从 HTTP 更改为另一种协议（如 WebSocket）的请求。</p>
 <p>但是用于启动 WebSocket 连接的 HTTP 请求通常是 GET 方法，因为 WebSocket 的目的是建立一个持久的双向通信通道，而 GET 请求更符合这一目的，而且更容易被代理服务器和中间件处理。但理论上 POST 方法也可以用来升级为 WebSocket.</p>
 
 <div class="article-footer fs14">

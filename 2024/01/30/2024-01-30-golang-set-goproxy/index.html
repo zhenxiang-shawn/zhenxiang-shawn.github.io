@@ -98,18 +98,12 @@
   </div>
   </div><article class="md-text content"><p>Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度。</p>
 <span id="more"></span>
-<h2 id="启用-Go-Modules-功能">启用 Go Modules 功能</h2>
-<p><code>go env -w GO111MODULE=on</code></p>
-<h2 id="配置-GOPROXY-环境变量，以下三选一">配置 GOPROXY 环境变量，以下三选一</h2>
-<h3 id="七牛-CDN">七牛 CDN</h3>
-<p>号称中国最值得信赖的Go模块代理。</p>
+<h2 id="启用-Go-Modules-功能"><a href="#启用-Go-Modules-功能" class="headerlink" title="启用 Go Modules 功能"></a>启用 Go Modules 功能</h2><p><code>go env -w GO111MODULE=on</code></p>
+<h2 id="配置-GOPROXY-环境变量，以下三选一"><a href="#配置-GOPROXY-环境变量，以下三选一" class="headerlink" title="配置 GOPROXY 环境变量，以下三选一"></a>配置 GOPROXY 环境变量，以下三选一</h2><h3 id="七牛-CDN"><a href="#七牛-CDN" class="headerlink" title="七牛 CDN"></a>七牛 CDN</h3><p>号称中国最值得信赖的Go模块代理。</p>
 <p><code>go env -w  GOPROXY=https://goproxy.cn,direct</code></p>
-<h3 id="阿里云">阿里云</h3>
-<p><code>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</code></p>
-<h3 id="官方">官方</h3>
-<p><code>go env -w  GOPROXY=https://goproxy.io,direct</code></p>
-<h2 id="确认是否已更新">确认是否已更新</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; go env | grep GOPROXY</span><br><span class="line">&gt;&gt;&gt; GOPROXY=&quot;https://goproxy.cn&quot; # 检查输出</span><br></pre></td></tr></table></figure>
+<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><p><code>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</code></p>
+<h3 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h3><p><code>go env -w  GOPROXY=https://goproxy.io,direct</code></p>
+<h2 id="确认是否已更新"><a href="#确认是否已更新" class="headerlink" title="确认是否已更新"></a>确认是否已更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; go env | grep GOPROXY</span><br><span class="line">&gt;&gt;&gt; GOPROXY=&quot;https://goproxy.cn&quot; # 检查输出</span><br></pre></td></tr></table></figure>
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>

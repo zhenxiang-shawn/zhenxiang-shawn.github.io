@@ -101,21 +101,17 @@
 <blockquote>
 <p>原因是docker使用unix socket进行通讯，但是unix socket属于root用户，但是普通用户需要使用sudo才能开启root权限，但是普通的操作并没有root权限。</p>
 </blockquote>
-<h2 id="Ubuntu">Ubuntu:</h2>
-<ul>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu:"></a>Ubuntu:</h2><ul>
 <li><code>sudo usermod -aG docker $&#123;USER&#125;</code></li>
 </ul>
-<h2 id="Mac">Mac:</h2>
-<ol>
+<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac:"></a>Mac:</h2><ol>
 <li><code>cmd-shift-p</code></li>
 <li>点击 <code>&quot;Preferences: Open Workspace Settings&quot;</code></li>
 <li>搜索 “docker path”</li>
 <li>输入docker client的绝对路径 (通常在 <code>&quot;/usr/local/bin/docker&quot;</code>)</li>
 </ol>
-<h2 id="Windows">Windows:</h2>
-<p>同 Mac</p>
-<h2 id="Windows-WSL">Windows WSL:</h2>
-<p>暂未解决</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows:"></a>Windows:</h2><p>同 Mac</p>
+<h2 id="Windows-WSL"><a href="#Windows-WSL" class="headerlink" title="Windows WSL:"></a>Windows WSL:</h2><p>暂未解决</p>
 
 <div class="article-footer fs14">
     <section id="references">
