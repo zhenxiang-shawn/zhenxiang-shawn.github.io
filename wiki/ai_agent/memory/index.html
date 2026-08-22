@@ -19,12 +19,12 @@
   <title>AiAgent：记忆系统设计 - J. Tech.</title>
 
   
-    <meta name="description" content="概述记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。 1. 记忆的分层借鉴人类认知架构，Agent 的记忆可分为多层：     记忆类型 生命周期 存储介质 用途     工作记忆 本次会话 上下文窗口 当前任务状态、中间结果">
+    <meta name="description" content="概述 记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。 1. 记忆的分层 借鉴人类认知架构，Agent 的记忆可分为多层：    记忆类型 生命周期 存储介质 用途     工作记忆 本次会话 上下文窗口 当前任务状态、中间结果">
 <meta property="og:type" content="website">
 <meta property="og:title" content="记忆系统设计">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/ai_agent/memory/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="概述记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。 1. 记忆的分层借鉴人类认知架构，Agent 的记忆可分为多层：     记忆类型 生命周期 存储介质 用途     工作记忆 本次会话 上下文窗口 当前任务状态、中间结果">
+<meta property="og:description" content="概述 记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。 1. 记忆的分层 借鉴人类认知架构，Agent 的记忆可分为多层：    记忆类型 生命周期 存储介质 用途     工作记忆 本次会话 上下文窗口 当前任务状态、中间结果">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-22T14:48:09.762Z">
 <meta property="article:modified_time" content="2026-08-22T14:48:09.762Z">
@@ -101,9 +101,10 @@
     
   </div>
   </div><article class="md-text content"><span id="more"></span>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。</p>
-<h2 id="1-记忆的分层"><a href="#1-记忆的分层" class="headerlink" title="1. 记忆的分层"></a>1. 记忆的分层</h2><p>借鉴人类认知架构，Agent 的记忆可分为多层：</p>
-<div class="table-container">
+<h2 id="概述">概述</h2>
+<p>记忆是 Agent 区别于「无状态 LLM 调用」的核心能力之一：它让 Agent 在多轮对话、长任务和跨会话中保持上下文一致。记忆系统设计是 Agent 中台的重要模块，决定了 Agent 的智能上限与状态管理质量。</p>
+<h2 id="1-记忆的分层">1. 记忆的分层</h2>
+<p>借鉴人类认知架构，Agent 的记忆可分为多层：</p>
 <table>
 <thead>
 <tr>
@@ -140,8 +141,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="2-工作记忆与上下文窗口"><a href="#2-工作记忆与上下文窗口" class="headerlink" title="2. 工作记忆与上下文窗口"></a>2. 工作记忆与上下文窗口</h2><p>LLM 的上下文窗口是有限的，且随内容增长成本与延迟上升。工作记忆设计围绕「窗口管理」展开：</p>
+<h2 id="2-工作记忆与上下文窗口">2. 工作记忆与上下文窗口</h2>
+<p>LLM 的上下文窗口是有限的，且随内容增长成本与延迟上升。工作记忆设计围绕「窗口管理」展开：</p>
 <ul>
 <li><strong>滚动窗口</strong>：保留最近 N 轮完整对话</li>
 <li><strong>摘要压缩</strong>：对早期对话周期性生成摘要，替换原文</li>
@@ -149,16 +150,18 @@
 <li><strong>Token 预算分配</strong>：为系统提示、记忆、工具描述、对话预留不同配额</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">预算示例（128k 上下文）:</span><br><span class="line">├── 系统提示 + 工具定义   15k</span><br><span class="line">├── 长期记忆（检索结果）   10k</span><br><span class="line">├── 工作记忆（进行中会话）  60k</span><br><span class="line">└── 输出预算 + 预留        40k</span><br></pre></td></tr></table></figure>
-<h2 id="3-长期记忆的实现"><a href="#3-长期记忆的实现" class="headerlink" title="3. 长期记忆的实现"></a>3. 长期记忆的实现</h2><p>长期记忆通常依赖<strong>向量数据库</strong>存储语义化记忆，并配合内容寻址与时效管理：</p>
+<h2 id="3-长期记忆的实现">3. 长期记忆的实现</h2>
+<p>长期记忆通常依赖<strong>向量数据库</strong>存储语义化记忆，并配合内容寻址与时效管理：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码：记忆写入</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">write_memory</span>(<span class="params">memory_store, content, metadata</span>):</span><br><span class="line">    embedding = embed(content)          <span class="comment"># 语义向量化</span></span><br><span class="line">    memory_store.upsert(</span><br><span class="line">        <span class="built_in">id</span>=uuid(),</span><br><span class="line">        vector=embedding,</span><br><span class="line">        payload=&#123;</span><br><span class="line">            <span class="string">&quot;content&quot;</span>: content,</span><br><span class="line">            <span class="string">&quot;timestamp&quot;</span>: now(),</span><br><span class="line">            <span class="string">&quot;user_id&quot;</span>: metadata[<span class="string">&quot;user_id&quot;</span>],</span><br><span class="line">            <span class="string">&quot;importance&quot;</span>: score(content),   <span class="comment"># 重要性评分</span></span><br><span class="line">            <span class="string">&quot;type&quot;</span>: metadata[<span class="string">&quot;type&quot;</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        namespace=<span class="string">f&quot;user:<span class="subst">&#123;metadata[<span class="string">&#x27;user_id&#x27;</span>]&#125;</span>&quot;</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-<h3 id="记忆的关键属性设计"><a href="#记忆的关键属性设计" class="headerlink" title="记忆的关键属性设计"></a>记忆的关键属性设计</h3><ul>
+<h3 id="记忆的关键属性设计">记忆的关键属性设计</h3>
+<ul>
 <li><strong>相关性检索</strong>：按问题语义检索最相关的历史记忆，而非逐条读取</li>
 <li><strong>重要性衰减</strong>：高频/重要记忆权重更高，久远记忆逐步淡出</li>
 <li><strong>冲突消解</strong>：新信息与旧记忆矛盾时，保留带时间戳的版本</li>
 <li><strong>写入策略</strong>：对话结束后异步提炼要点写入，避免实时高频写入</li>
 </ul>
-<h2 id="4-记忆的提取与组织"><a href="#4-记忆的提取与组织" class="headerlink" title="4. 记忆的提取与组织"></a>4. 记忆的提取与组织</h2><p>不是所有对话都值得记住。需要「记忆蒸馏」流程：</p>
-<div class="table-container">
+<h2 id="4-记忆的提取与组织">4. 记忆的提取与组织</h2>
+<p>不是所有对话都值得记住。需要「记忆蒸馏」流程：</p>
 <table>
 <thead>
 <tr>
@@ -185,22 +188,24 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="5-会话隔离与多租户"><a href="#5-会话隔离与多租户" class="headerlink" title="5. 会话隔离与多租户"></a>5. 会话隔离与多租户</h2><p>生产环境中必须控制记忆的可见范围，防止信息越界：</p>
+<h2 id="5-会话隔离与多租户">5. 会话隔离与多租户</h2>
+<p>生产环境中必须控制记忆的可见范围，防止信息越界：</p>
 <ul>
 <li><strong>命名空间隔离</strong>：按 用户/会话/Agent/租户 分层隔离</li>
 <li><strong>权限继承</strong>：记忆的可读范围与对应数据源的权限一致</li>
 <li><strong>生命周期</strong>：设置 TTL，过期自动清理 / 脱敏</li>
 <li><strong>可删除</strong>：遵循数据合规，支持用户删除自己的记忆</li>
 </ul>
-<h2 id="6-记忆失真的缓解"><a href="#6-记忆失真的缓解" class="headerlink" title="6. 记忆失真的缓解"></a>6. 记忆失真的缓解</h2><p>记忆检索引入不确定性的常见问题与对策：</p>
+<h2 id="6-记忆失真的缓解">6. 记忆失真的缓解</h2>
+<p>记忆检索引入不确定性的常见问题与对策：</p>
 <ul>
 <li><strong>检索不到</strong>：相关记忆未写入或 embedding 召回不佳 → 补充写入与多路召回</li>
 <li><strong>过度记忆</strong>：把噪音当事实 → 重要性评分 + 置信度门槛</li>
 <li><strong>记忆冲突</strong>：旧记忆与新事实矛盾 → 时间戳版本 + 显式覆盖</li>
 <li><strong>隐私泄漏</strong>：检索出越权信息 → 严格的权限过滤</li>
 </ul>
-<h2 id="7-设计小结"><a href="#7-设计小结" class="headerlink" title="7. 设计小结"></a>7. 设计小结</h2><ol>
+<h2 id="7-设计小结">7. 设计小结</h2>
+<ol>
 <li><strong>分层存储</strong>：短期用摘要、长期用向量，别把一切塞进上下文</li>
 <li><strong>记忆要「蒸馏」</strong>：只存有长期价值的结构化信息</li>
 <li><strong>强隔离</strong>：按用户/租户命名空间隔离，支持删除与 TTL</li>
@@ -227,7 +232,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

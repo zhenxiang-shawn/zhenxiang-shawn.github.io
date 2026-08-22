@@ -19,12 +19,12 @@
   <title>AiAgent：工具调用设计 - J. Tech.</title>
 
   
-    <meta name="description" content="概述工具（Tool）是 Agent 与外部世界交互的桥梁。没有工具，Agent 只能生成文本；有了工具，Agent 才能查询数据、执行代码、操作业务系统。工具调用设计的质量直接决定了 Agent 中台的能力上限与可靠性。本文系统性地介绍工具定义、协议、调度与错误处理。 1. 工具的本质一个工具封装了三类信息：     维度 说明 设计要点     能力 工具能做什么 单一职责，一个工具只做一件事">
+    <meta name="description" content="概述 工具（Tool）是 Agent 与外部世界交互的桥梁。没有工具，Agent 只能生成文本；有了工具，Agent 才能查询数据、执行代码、操作业务系统。工具调用设计的质量直接决定了 Agent 中台的能力上限与可靠性。本文系统性地介绍工具定义、协议、调度与错误处理。 1. 工具的本质 一个工具封装了三类信息：    维度 说明 设计要点     能力 工具能做什么 单一职责，一个工具只做一件">
 <meta property="og:type" content="website">
 <meta property="og:title" content="工具调用设计">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/ai_agent/tool_calling/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="概述工具（Tool）是 Agent 与外部世界交互的桥梁。没有工具，Agent 只能生成文本；有了工具，Agent 才能查询数据、执行代码、操作业务系统。工具调用设计的质量直接决定了 Agent 中台的能力上限与可靠性。本文系统性地介绍工具定义、协议、调度与错误处理。 1. 工具的本质一个工具封装了三类信息：     维度 说明 设计要点     能力 工具能做什么 单一职责，一个工具只做一件事">
+<meta property="og:description" content="概述 工具（Tool）是 Agent 与外部世界交互的桥梁。没有工具，Agent 只能生成文本；有了工具，Agent 才能查询数据、执行代码、操作业务系统。工具调用设计的质量直接决定了 Agent 中台的能力上限与可靠性。本文系统性地介绍工具定义、协议、调度与错误处理。 1. 工具的本质 一个工具封装了三类信息：    维度 说明 设计要点     能力 工具能做什么 单一职责，一个工具只做一件">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-22T14:50:12.926Z">
 <meta property="article:modified_time" content="2026-08-22T14:50:12.926Z">
@@ -101,9 +101,10 @@
     
   </div>
   </div><article class="md-text content"><span id="more"></span>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>工具（Tool）是 Agent 与外部世界交互的桥梁。没有工具，Agent 只能生成文本；有了工具，Agent 才能查询数据、执行代码、操作业务系统。工具调用设计的质量直接决定了 Agent 中台的能力上限与可靠性。本文系统性地介绍工具定义、协议、调度与错误处理。</p>
-<h2 id="1-工具的本质"><a href="#1-工具的本质" class="headerlink" title="1. 工具的本质"></a>1. 工具的本质</h2><p>一个工具封装了三类信息：</p>
-<div class="table-container">
+<h2 id="概述">概述</h2>
+<p>工具（Tool）是 Agent 与外部世界交互的桥梁。没有工具，Agent 只能生成文本；有了工具，Agent 才能查询数据、执行代码、操作业务系统。工具调用设计的质量直接决定了 Agent 中台的能力上限与可靠性。本文系统性地介绍工具定义、协议、调度与错误处理。</p>
+<h2 id="1-工具的本质">1. 工具的本质</h2>
+<p>一个工具封装了三类信息：</p>
 <table>
 <thead>
 <tr>
@@ -130,26 +131,29 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>设计原则：<strong>工具是给 LLM 看的 API 文档</strong>。描述写得好不好，直接决定 LLM 能否在正确的时候选中它。</p>
-<h2 id="2-工具定义规范"><a href="#2-工具定义规范" class="headerlink" title="2. 工具定义规范"></a>2. 工具定义规范</h2><p>一个生产级的工具定义通常包含：</p>
+<h2 id="2-工具定义规范">2. 工具定义规范</h2>
+<p>一个生产级的工具定义通常包含：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;search_documents&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;在知识库中检索文档。当用户询问内部资料、政策或过去决策时使用。&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;parameters&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;object&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;query&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;检索关键词&quot;</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;limit&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;minimum&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span> <span class="attr">&quot;maximum&quot;</span><span class="punctuation">:</span> <span class="number">20</span><span class="punctuation">,</span> <span class="attr">&quot;default&quot;</span><span class="punctuation">:</span> <span class="number">5</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;required&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;query&quot;</span><span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;timeout_ms&quot;</span><span class="punctuation">:</span> <span class="number">5000</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rate_limit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;10/min&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="良好描述的要素"><a href="#良好描述的要素" class="headerlink" title="良好描述的要素"></a>良好描述的要素</h3><ul>
+<h3 id="良好描述的要素">良好描述的要素</h3>
+<ul>
 <li><strong>做什么</strong>：动词开头，清晰说明功能</li>
 <li><strong>何时用</strong>：推荐「when to use / 别用」的信号词</li>
 <li><strong>参数语义</strong>：每个参数说明其含义与可能的取值范围</li>
 <li><strong>边界</strong>：明确返回值与错误场景</li>
 </ul>
-<h2 id="3-函数调用（Function-Calling）协议"><a href="#3-函数调用（Function-Calling）协议" class="headerlink" title="3. 函数调用（Function Calling）协议"></a>3. 函数调用（Function Calling）协议</h2><p>主流 LLM 平台均原生支持函数调用，其交互遵循「声明 → 触发 → 填充 → 执行」流程：</p>
+<h2 id="3-函数调用（Function-Calling）协议">3. 函数调用（Function Calling）协议</h2>
+<p>主流 LLM 平台均原生支持函数调用，其交互遵循「声明 → 触发 → 填充 → 执行」流程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 系统声明工具列表（Tool Schema）</span><br><span class="line">2. LLM 决定调用哪个工具，输出结构化 JSON（工具名 + 参数）</span><br><span class="line">3. 应用校验参数、执行实际函数</span><br><span class="line">4. 将执行结果回填给 LLM</span><br><span class="line">5. LLM 基于结果继续推理或生成最终答案</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码：工具执行与结果回填</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dispatcher</span>(<span class="params">agent_message</span>):</span><br><span class="line">    <span class="keyword">if</span> agent_message.tool_calls:</span><br><span class="line">        results = []</span><br><span class="line">        <span class="keyword">for</span> call <span class="keyword">in</span> agent_message.tool_calls:</span><br><span class="line">            tool = registry.get(call.name)</span><br><span class="line">            <span class="comment"># 校验参数、执行、捕获异常</span></span><br><span class="line">            result = tool.execute(**call.arguments)</span><br><span class="line">            results.append(&#123;<span class="string">&quot;tool_call_id&quot;</span>: call.<span class="built_in">id</span>, <span class="string">&quot;result&quot;</span>: result&#125;)</span><br><span class="line">        <span class="keyword">return</span> results  <span class="comment"># 回填给 LLM</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-<h3 id="协议要点"><a href="#协议要点" class="headerlink" title="协议要点"></a>协议要点</h3><ul>
+<h3 id="协议要点">协议要点</h3>
+<ul>
 <li><strong>并行调用</strong>：一次多轮可同时返回多个工具调用，减少往返延迟</li>
 <li><strong>参数严格校验</strong>：执行前用 Schema 校验，防止 LLM 输出畸形 JSON</li>
 <li><strong>结果截断</strong>：长期结果需截断/摘要，避免撑爆上下文窗口</li>
 </ul>
-<h2 id="4-工具选择与路由"><a href="#4-工具选择与路由" class="headerlink" title="4. 工具选择与路由"></a>4. 工具选择与路由</h2><p>当工具数量增长，需要设计工具选择策略，避免把几百个工具全部塞进 Prompt：</p>
-<div class="table-container">
+<h2 id="4-工具选择与路由">4. 工具选择与路由</h2>
+<p>当工具数量增长，需要设计工具选择策略，避免把几百个工具全部塞进 Prompt：</p>
 <table>
 <thead>
 <tr>
@@ -181,8 +185,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="5-错误处理与可靠性"><a href="#5-错误处理与可靠性" class="headerlink" title="5. 错误处理与可靠性"></a>5. 错误处理与可靠性</h2><p>工具调用是最容易产生运行时错误的环节，必须覆盖以下场景：</p>
+<h2 id="5-错误处理与可靠性">5. 错误处理与可靠性</h2>
+<p>工具调用是最容易产生运行时错误的环节，必须覆盖以下场景：</p>
 <ul>
 <li><strong>超时</strong>：设置超时上限，超时返回「工具无响应」而非挂起</li>
 <li><strong>限流/配额</strong>：对高频工具内置熔断与降级</li>
@@ -192,7 +196,8 @@
 <li><strong>幂等性</strong>：写操作工具尽量设计成幂等，防止重复执行造成副作用</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码：带熔断的工具执行</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">safe_execute</span>(<span class="params">tool, **kwargs</span>):</span><br><span class="line">    <span class="keyword">if</span> circuit_breaker.is_open(tool.name):</span><br><span class="line">        <span class="keyword">return</span> ToolResult(status=<span class="string">&quot;UNAVAILABLE&quot;</span>, msg=<span class="string">&quot;工具暂不可用，请稍后重试&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        result = asyncio.wait_for(tool.execute(**kwargs), timeout=tool.timeout_ms)</span><br><span class="line">        circuit_breaker.on_success(tool.name)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">except</span> asyncio.TimeoutError:</span><br><span class="line">        circuit_breaker.on_failure(tool.name)</span><br><span class="line">        <span class="keyword">return</span> ToolResult(status=<span class="string">&quot;TIMEOUT&quot;</span>, msg=<span class="string">&quot;工具执行超时&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> ToolResult(status=<span class="string">&quot;ERROR&quot;</span>, detail=<span class="built_in">str</span>(e))</span><br></pre></td></tr></table></figure>
-<h2 id="6-工具网关（Tool-Gateway）"><a href="#6-工具网关（Tool-Gateway）" class="headerlink" title="6. 工具网关（Tool Gateway）"></a>6. 工具网关（Tool Gateway）</h2><p>在 Agent 中台里，工具通常不能直接暴露内部系统，需要一层<strong>工具网关</strong>做统一治理：</p>
+<h2 id="6-工具网关（Tool-Gateway）">6. 工具网关（Tool Gateway）</h2>
+<p>在 Agent 中台里，工具通常不能直接暴露内部系统，需要一层<strong>工具网关</strong>做统一治理：</p>
 <ul>
 <li><strong>身份与鉴权</strong>：统一签发凭证，限制每个 Agent 的权限范围</li>
 <li><strong>审计日志</strong>：记录谁在何时调用了哪个工具、参数与结果摘要</li>
@@ -200,7 +205,8 @@
 <li><strong>配额管理</strong>：按 Agent/租户分配调用额度</li>
 <li><strong>协议适配</strong>：将内部 RPC/HTTP 接口统一包装为 Tool Schema</li>
 </ul>
-<h2 id="7-最佳实践小结"><a href="#7-最佳实践小结" class="headerlink" title="7. 最佳实践小结"></a>7. 最佳实践小结</h2><ol>
+<h2 id="7-最佳实践小结">7. 最佳实践小结</h2>
+<ol>
 <li>从<strong>少量高质量工具</strong>开始，工具过多会稀释 LLM 的选择准确率</li>
 <li>描述里写清「何时用、何时别用」，最能提升命中率</li>
 <li>为写操作提供<strong>确认节点</strong>（Human-in-the-loop）</li>
@@ -227,7 +233,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

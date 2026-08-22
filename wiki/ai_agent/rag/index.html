@@ -19,12 +19,12 @@
   <title>AiAgent：检索增强生成（RAG） - J. Tech.</title>
 
   
-    <meta name="description" content="概述RAG（Retrieval-Augmented Generation，检索增强生成）通过先从知识库检索相关内容，再让 LLM 基于检索结果生成答案，显著降低幻觉并让回答有据可依。它是 Agent 接入私域知识、让答案「可溯源」的核心手段。 1. 为什么需要 RAG直接让 LLM 凭记忆回答存在三类问题：     问题 表现 RAG 的解决     幻觉 编造不存在的事实 提供真实检索片段作为">
+    <meta name="description" content="概述 RAG（Retrieval-Augmented Generation，检索增强生成）通过先从知识库检索相关内容，再让 LLM 基于检索结果生成答案，显著降低幻觉并让回答有据可依。它是 Agent 接入私域知识、让答案「可溯源」的核心手段。 1. 为什么需要 RAG 直接让 LLM 凭记忆回答存在三类问题：    问题 表现 RAG 的解决     幻觉 编造不存在的事实 提供真实检索片段作">
 <meta property="og:type" content="website">
 <meta property="og:title" content="检索增强生成（RAG）">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/ai_agent/rag/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="概述RAG（Retrieval-Augmented Generation，检索增强生成）通过先从知识库检索相关内容，再让 LLM 基于检索结果生成答案，显著降低幻觉并让回答有据可依。它是 Agent 接入私域知识、让答案「可溯源」的核心手段。 1. 为什么需要 RAG直接让 LLM 凭记忆回答存在三类问题：     问题 表现 RAG 的解决     幻觉 编造不存在的事实 提供真实检索片段作为">
+<meta property="og:description" content="概述 RAG（Retrieval-Augmented Generation，检索增强生成）通过先从知识库检索相关内容，再让 LLM 基于检索结果生成答案，显著降低幻觉并让回答有据可依。它是 Agent 接入私域知识、让答案「可溯源」的核心手段。 1. 为什么需要 RAG 直接让 LLM 凭记忆回答存在三类问题：    问题 表现 RAG 的解决     幻觉 编造不存在的事实 提供真实检索片段作">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-22T14:48:29.745Z">
 <meta property="article:modified_time" content="2026-08-22T14:48:29.745Z">
@@ -101,9 +101,10 @@
     
   </div>
   </div><article class="md-text content"><span id="more"></span>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>RAG（Retrieval-Augmented Generation，检索增强生成）通过先从知识库检索相关内容，再让 LLM 基于检索结果生成答案，显著降低幻觉并让回答有据可依。它是 Agent 接入私域知识、让答案「可溯源」的核心手段。</p>
-<h2 id="1-为什么需要-RAG"><a href="#1-为什么需要-RAG" class="headerlink" title="1. 为什么需要 RAG"></a>1. 为什么需要 RAG</h2><p>直接让 LLM 凭记忆回答存在三类问题：</p>
-<div class="table-container">
+<h2 id="概述">概述</h2>
+<p>RAG（Retrieval-Augmented Generation，检索增强生成）通过先从知识库检索相关内容，再让 LLM 基于检索结果生成答案，显著降低幻觉并让回答有据可依。它是 Agent 接入私域知识、让答案「可溯源」的核心手段。</p>
+<h2 id="1-为什么需要-RAG">1. 为什么需要 RAG</h2>
+<p>直接让 LLM 凭记忆回答存在三类问题：</p>
 <table>
 <thead>
 <tr>
@@ -130,19 +131,20 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="2-标准-RAG-流程"><a href="#2-标准-RAG-流程" class="headerlink" title="2. 标准 RAG 流程"></a>2. 标准 RAG 流程</h2><p>一条典型的 RAG 链路包含「离线索引」与「在线检索」两部分：</p>
+<h2 id="2-标准-RAG-流程">2. 标准 RAG 流程</h2>
+<p>一条典型的 RAG 链路包含「离线索引」与「在线检索」两部分：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">【离线】文档 → 切分(chunk) → 嵌入(embedding) → 存入向量库 + 元数据索引</span><br><span class="line">【在线】问题 → 嵌入 → 向量检索(召回 Top-K) → 重排序 → 拼装上下文 → LLM 生成</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码：在线检索</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">retrieve_and_generate</span>(<span class="params">question, index</span>):</span><br><span class="line">    q_emb = embed(question)</span><br><span class="line">    hits = index.search(q_emb, top_k=<span class="number">5</span>)        <span class="comment"># 向量检索召回</span></span><br><span class="line">    hits = rerank(question, hits)              <span class="comment"># 重排序精排</span></span><br><span class="line">    context = format_context(hits)             <span class="comment"># 拼装检索片段</span></span><br><span class="line">    <span class="keyword">return</span> llm.generate(question, context)     <span class="comment"># 基于上下文生成</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-关键环节：切分（Chunking）"><a href="#3-关键环节：切分（Chunking）" class="headerlink" title="3. 关键环节：切分（Chunking）"></a>3. 关键环节：切分（Chunking）</h2><p>切片质量直接决定召回效果。核心权衡是在「语义完整」与「检索粒度」之间取平衡：</p>
+<h2 id="3-关键环节：切分（Chunking）">3. 关键环节：切分（Chunking）</h2>
+<p>切片质量直接决定召回效果。核心权衡是在「语义完整」与「检索粒度」之间取平衡：</p>
 <ul>
 <li><strong>按语义单元切分</strong>：标题/段落/表格边界优先，避免截断语义</li>
 <li><strong>控制切片长度</strong>：按 embedding 模型的窗口与预期收敛设置大小</li>
 <li><strong>父子切片</strong>：小片段检索、父级片段供生成，兼顾召回与上下文</li>
 <li><strong>结构化保留</strong>：表格、代码块单独处理，避免语义污染</li>
 </ul>
-<h2 id="4-检索与重排序"><a href="#4-检索与重排序" class="headerlink" title="4. 检索与重排序"></a>4. 检索与重排序</h2><p>向量检索擅长「语义相关」，但召回结果可能有噪声，需要精排：</p>
-<div class="table-container">
+<h2 id="4-检索与重排序">4. 检索与重排序</h2>
+<p>向量检索擅长「语义相关」，但召回结果可能有噪声，需要精排：</p>
 <table>
 <thead>
 <tr>
@@ -169,16 +171,16 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>经验</strong>：先用召回（向量/BM25）拉宽候选，再用 Rerank 精排压缩到 Top-K，能显著提升最终答案质量。</p>
-<h2 id="5-上下文工程（Prompt-Assembly）"><a href="#5-上下文工程（Prompt-Assembly）" class="headerlink" title="5. 上下文工程（Prompt Assembly）"></a>5. 上下文工程（Prompt Assembly）</h2><p>检索到的片段如何进入上下文，会极大影响输出：</p>
+<h2 id="5-上下文工程（Prompt-Assembly）">5. 上下文工程（Prompt Assembly）</h2>
+<p>检索到的片段如何进入上下文，会极大影响输出：</p>
 <ul>
 <li><strong>注入引用</strong>：为每个片段附带来源与序号（[1][2]），便于溯源</li>
 <li><strong>去重与截断</strong>：合并重复内容，控制注入的 Token 总量</li>
 <li><strong>优先序</strong>：最相关内容紧邻指令位置，降低重要性衰减</li>
 <li><strong>无关过滤</strong>：用相关性阈值过滤低分片段，减少噪音干扰</li>
 </ul>
-<h2 id="6-高级-RAG-变体"><a href="#6-高级-RAG-变体" class="headerlink" title="6. 高级 RAG 变体"></a>6. 高级 RAG 变体</h2><div class="table-container">
+<h2 id="6-高级-RAG-变体">6. 高级 RAG 变体</h2>
 <table>
 <thead>
 <tr>
@@ -215,15 +217,16 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="7-评估与迭代"><a href="#7-评估与迭代" class="headerlink" title="7. 评估与迭代"></a>7. 评估与迭代</h2><p>RAG 的优化是持续过程，需建立离线评估体系：</p>
+<h2 id="7-评估与迭代">7. 评估与迭代</h2>
+<p>RAG 的优化是持续过程，需建立离线评估体系：</p>
 <ul>
 <li><strong>检索评估</strong>：Recall、Precision @K — 评判召回质量</li>
 <li><strong>生成评估</strong>：忠实度（是否忠于检索内容）、相关性、答案有用性</li>
 <li><strong>反例集</strong>：沉淀易错问题，回归验证迭代效果</li>
 <li><strong>线上反馈</strong>：收集用户点赞/踩，定位失败类型（检索 miss / 生成 drift）</li>
 </ul>
-<h2 id="8-设计小结"><a href="#8-设计小结" class="headerlink" title="8. 设计小结"></a>8. 设计小结</h2><ol>
+<h2 id="8-设计小结">8. 设计小结</h2>
+<ol>
 <li><strong>切分是源头</strong>，切片语义完整比追求数量更重要</li>
 <li><strong>召回 + 精排</strong>组合：混合检索拉宽、Rerank 精排</li>
 <li><strong>引用可溯源</strong>：注入来源，让用户和 Agent 都可核查</li>
@@ -251,7 +254,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

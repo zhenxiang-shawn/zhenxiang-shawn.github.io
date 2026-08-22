@@ -98,12 +98,18 @@
   </div>
   </div><article class="md-text content"><p>Golang 很多包在国内下载很慢，换国内镜像可以加快下载速度。</p>
 <span id="more"></span>
-<h2 id="启用-Go-Modules-功能"><a href="#启用-Go-Modules-功能" class="headerlink" title="启用 Go Modules 功能"></a>启用 Go Modules 功能</h2><p><code>go env -w GO111MODULE=on</code></p>
-<h2 id="配置-GOPROXY-环境变量，以下三选一"><a href="#配置-GOPROXY-环境变量，以下三选一" class="headerlink" title="配置 GOPROXY 环境变量，以下三选一"></a>配置 GOPROXY 环境变量，以下三选一</h2><h3 id="七牛-CDN"><a href="#七牛-CDN" class="headerlink" title="七牛 CDN"></a>七牛 CDN</h3><p>号称中国最值得信赖的Go模块代理。</p>
+<h2 id="启用-Go-Modules-功能">启用 Go Modules 功能</h2>
+<p><code>go env -w GO111MODULE=on</code></p>
+<h2 id="配置-GOPROXY-环境变量，以下三选一">配置 GOPROXY 环境变量，以下三选一</h2>
+<h3 id="七牛-CDN">七牛 CDN</h3>
+<p>号称中国最值得信赖的Go模块代理。</p>
 <p><code>go env -w  GOPROXY=https://goproxy.cn,direct</code></p>
-<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><p><code>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</code></p>
-<h3 id="官方"><a href="#官方" class="headerlink" title="官方"></a>官方</h3><p><code>go env -w  GOPROXY=https://goproxy.io,direct</code></p>
-<h2 id="确认是否已更新"><a href="#确认是否已更新" class="headerlink" title="确认是否已更新"></a>确认是否已更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; go env | grep GOPROXY</span><br><span class="line">&gt;&gt;&gt; GOPROXY=&quot;https://goproxy.cn&quot; # 检查输出</span><br></pre></td></tr></table></figure>
+<h3 id="阿里云">阿里云</h3>
+<p><code>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</code></p>
+<h3 id="官方">官方</h3>
+<p><code>go env -w  GOPROXY=https://goproxy.io,direct</code></p>
+<h2 id="确认是否已更新">确认是否已更新</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; go env | grep GOPROXY</span><br><span class="line">&gt;&gt;&gt; GOPROXY=&quot;https://goproxy.cn&quot; # 检查输出</span><br></pre></td></tr></table></figure>
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
@@ -133,7 +139,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

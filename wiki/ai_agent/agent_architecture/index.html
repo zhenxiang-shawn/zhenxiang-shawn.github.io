@@ -19,12 +19,12 @@
   <title>AiAgent：Agent 架构模式 - J. Tech.</title>
 
   
-    <meta name="description" content="概述Agent 架构模式决定了智能体如何感知、推理和行动。选择正确的架构模式是 Agent 中台设计的首要决策。本文介绍几种主流模式及其适用场景。 1. ReAct (Reasoning + Acting)ReAct 是当前最广泛使用的 Agent 基础模式，由 Shunyu Yao 等人于 2022 年提出。其核心思想是让 LLM 交替进行推理和行动，形成思考-行动-观察的循环。 1循环: T">
+    <meta name="description" content="概述 Agent 架构模式决定了智能体如何感知、推理和行动。选择正确的架构模式是 Agent 中台设计的首要决策。本文介绍几种主流模式及其适用场景。 1. ReAct (Reasoning + Acting) ReAct 是当前最广泛使用的 Agent 基础模式，由 Shunyu Yao 等人于 2022 年提出。其核心思想是让 LLM 交替进行推理和行动，形成思考-行动-观察的循环。 1循环:">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Agent 架构模式">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/ai_agent/agent_architecture/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="概述Agent 架构模式决定了智能体如何感知、推理和行动。选择正确的架构模式是 Agent 中台设计的首要决策。本文介绍几种主流模式及其适用场景。 1. ReAct (Reasoning + Acting)ReAct 是当前最广泛使用的 Agent 基础模式，由 Shunyu Yao 等人于 2022 年提出。其核心思想是让 LLM 交替进行推理和行动，形成思考-行动-观察的循环。 1循环: T">
+<meta property="og:description" content="概述 Agent 架构模式决定了智能体如何感知、推理和行动。选择正确的架构模式是 Agent 中台设计的首要决策。本文介绍几种主流模式及其适用场景。 1. ReAct (Reasoning + Acting) ReAct 是当前最广泛使用的 Agent 基础模式，由 Shunyu Yao 等人于 2022 年提出。其核心思想是让 LLM 交替进行推理和行动，形成思考-行动-观察的循环。 1循环:">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-09T13:08:02.999Z">
 <meta property="article:modified_time" content="2026-08-09T13:08:02.999Z">
@@ -101,8 +101,10 @@
     
   </div>
   </div><article class="md-text content"><span id="more"></span>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Agent 架构模式决定了智能体如何感知、推理和行动。选择正确的架构模式是 Agent 中台设计的首要决策。本文介绍几种主流模式及其适用场景。</p>
-<h2 id="1-ReAct-Reasoning-Acting"><a href="#1-ReAct-Reasoning-Acting" class="headerlink" title="1. ReAct (Reasoning + Acting)"></a>1. ReAct (Reasoning + Acting)</h2><p>ReAct 是当前最广泛使用的 Agent 基础模式，由 Shunyu Yao 等人于 2022 年提出。其核心思想是让 LLM 交替进行<strong>推理</strong>和<strong>行动</strong>，形成思考-行动-观察的循环。</p>
+<h2 id="概述">概述</h2>
+<p>Agent 架构模式决定了智能体如何感知、推理和行动。选择正确的架构模式是 Agent 中台设计的首要决策。本文介绍几种主流模式及其适用场景。</p>
+<h2 id="1-ReAct-Reasoning-Acting">1. ReAct (Reasoning + Acting)</h2>
+<p>ReAct 是当前最广泛使用的 Agent 基础模式，由 Shunyu Yao 等人于 2022 年提出。其核心思想是让 LLM 交替进行<strong>推理</strong>和<strong>行动</strong>，形成思考-行动-观察的循环。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">循环: Thought → Action → Observation → Thought → ...</span><br></pre></td></tr></table></figure>
 <p><strong>工作流程：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">用户问题: &quot;纽约天气怎么样？&quot;</span><br><span class="line"></span><br><span class="line">Thought: 用户想知道纽约的天气，我需要查询天气API。</span><br><span class="line">Action: call weather_api(city=&quot;New York&quot;)</span><br><span class="line">Observation: &#123;&quot;temp&quot;: 22, &quot;condition&quot;: &quot;sunny&quot;, &quot;humidity&quot;: 65%&#125;</span><br><span class="line"></span><br><span class="line">Thought: 已获取到纽约天气数据，温度为22°C，晴，湿度65%。</span><br><span class="line">Action: 输出最终答案</span><br></pre></td></tr></table></figure>
@@ -124,7 +126,8 @@
 <li>简单工具调用链</li>
 <li>代码生成与执行</li>
 </ul>
-<h2 id="2-Plan-and-Execute"><a href="#2-Plan-and-Execute" class="headerlink" title="2. Plan-and-Execute"></a>2. Plan-and-Execute</h2><p>先规划后执行，将复杂任务分解为子任务 DAG（有向无环图），再并行或串行执行子任务。</p>
+<h2 id="2-Plan-and-Execute">2. Plan-and-Execute</h2>
+<p>先规划后执行，将复杂任务分解为子任务 DAG（有向无环图），再并行或串行执行子任务。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入 → Planner(规划器) → [子任务1, 子任务2, ...] → Executor(执行器) → 合并结果</span><br></pre></td></tr></table></figure>
 <p><strong>工作流程：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">用户问题: &quot;分析这份财报并生成一份PPT简报&quot;</span><br><span class="line"></span><br><span class="line">Plan:</span><br><span class="line">  1. 读取财报PDF (依赖: 无)</span><br><span class="line">  2. 提取关键财务指标 (依赖: 1)</span><br><span class="line">  3. 分析趋势和异常 (依赖: 2)</span><br><span class="line">  4. 生成PPT草稿 (依赖: 3)</span><br><span class="line">  5. 美化PPT模板 (依赖: 4)</span><br><span class="line"></span><br><span class="line">Execute: 按依赖关系依次执行 1→2→3→4→5</span><br></pre></td></tr></table></figure>
@@ -146,10 +149,10 @@
 <li>工作流自动化</li>
 <li>多步骤业务流程</li>
 </ul>
-<h2 id="3-Multi-Agent-协作"><a href="#3-Multi-Agent-协作" class="headerlink" title="3. Multi-Agent 协作"></a>3. Multi-Agent 协作</h2><p>多个 Agent 各自扮演不同角色，通过协作完成任务。每个 Agent 有独立的角色定义、工具集和记忆。</p>
+<h2 id="3-Multi-Agent-协作">3. Multi-Agent 协作</h2>
+<p>多个 Agent 各自扮演不同角色，通过协作完成任务。每个 Agent 有独立的角色定义、工具集和记忆。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Orchestrator(协调器)</span><br><span class="line">   ├── Researcher(研究员) — 信息检索</span><br><span class="line">   ├── Analyst(分析师) — 数据分析</span><br><span class="line">   ├── Writer(写手) — 内容生成</span><br><span class="line">   └── Reviewer(审核员) — 质量检查</span><br></pre></td></tr></table></figure>
 <p><strong>协作模式对比：</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -180,7 +183,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>设计要点：</strong></p>
 <ul>
 <li><strong>角色定义</strong>：每个 Agent 的 system prompt 要明确职责边界</li>
@@ -194,7 +196,8 @@
 <li>代码审查与质量保证</li>
 <li>模拟仿真（角色扮演、市场模拟）</li>
 </ul>
-<h2 id="4-Reflection-模式"><a href="#4-Reflection-模式" class="headerlink" title="4. Reflection 模式"></a>4. Reflection 模式</h2><p>Agent 在执行过程中不断反思自己的输出，进行自我修正。这是提升 Agent 输出质量的重要模式。</p>
+<h2 id="4-Reflection-模式">4. Reflection 模式</h2>
+<p>Agent 在执行过程中不断反思自己的输出，进行自我修正。这是提升 Agent 输出质量的重要模式。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生成 → 自我评估 → 发现缺陷 → 修正 → 再评估 → 最终输出</span><br></pre></td></tr></table></figure>
 <p><strong>实现方式：</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码示例</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">agent_with_reflection</span>(<span class="params">task</span>):</span><br><span class="line">    output = generate_initial(task)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(max_rounds):</span><br><span class="line">        evaluation = evaluate_output(output, task)</span><br><span class="line">        <span class="keyword">if</span> evaluation.is_satisfactory():</span><br><span class="line">            <span class="keyword">return</span> output</span><br><span class="line">        output = revise_output(output, evaluation.feedback)</span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
@@ -210,9 +213,9 @@
 <li>内容创作（文章、报告的多轮润色）</li>
 <li>数学推理（验证和修正计算步骤）</li>
 </ul>
-<h2 id="5-Tool-Augmented-模式"><a href="#5-Tool-Augmented-模式" class="headerlink" title="5. Tool-Augmented 模式"></a>5. Tool-Augmented 模式</h2><p>Agent 通过工具调用扩展自身能力边界。工具是 Agent 与外部世界交互的桥梁。</p>
+<h2 id="5-Tool-Augmented-模式">5. Tool-Augmented 模式</h2>
+<p>Agent 通过工具调用扩展自身能力边界。工具是 Agent 与外部世界交互的桥梁。</p>
 <p><strong>工具分类：</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -249,7 +252,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具定义规范：</strong></p>
 <p>一个好的工具定义需要包含：</p>
 <ul>
@@ -259,7 +261,8 @@
 <li><strong>返回值</strong>：定义返回格式</li>
 <li><strong>错误处理</strong>：超时、限流、异常时的 fallback</li>
 </ul>
-<h2 id="架构模式选型指南"><a href="#架构模式选型指南" class="headerlink" title="架构模式选型指南"></a>架构模式选型指南</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">任务类型 → 推荐模式</span><br><span class="line">  ├── 简单问答 → ReAct</span><br><span class="line">  ├── 多步流程 → Plan-and-Execute</span><br><span class="line">  ├── 协作创作 → Multi-Agent</span><br><span class="line">  ├── 质量敏感 → ReAct + Reflection</span><br><span class="line">  └── 复杂综合 → Plan-and-Execute + Multi-Agent</span><br></pre></td></tr></table></figure>
+<h2 id="架构模式选型指南">架构模式选型指南</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">任务类型 → 推荐模式</span><br><span class="line">  ├── 简单问答 → ReAct</span><br><span class="line">  ├── 多步流程 → Plan-and-Execute</span><br><span class="line">  ├── 协作创作 → Multi-Agent</span><br><span class="line">  ├── 质量敏感 → ReAct + Reflection</span><br><span class="line">  └── 复杂综合 → Plan-and-Execute + Multi-Agent</span><br></pre></td></tr></table></figure>
 <p><strong>实际生产建议：</strong></p>
 <ol>
 <li>从 <strong>ReAct</strong> 开始，这是最成熟、社区支持最完善的基础模式</li>
@@ -267,7 +270,8 @@
 <li>只有在需要明确角色分工时才使用 <strong>Multi-Agent</strong></li>
 <li>所有模式都应支持 <strong>Human-in-the-Loop</strong>（人工审核节点）</li>
 </ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h2 id="参考">参考</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents - Anthropic</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-1/">Agentic Design Patterns - DeepLearning.AI</a></li>
@@ -293,7 +297,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

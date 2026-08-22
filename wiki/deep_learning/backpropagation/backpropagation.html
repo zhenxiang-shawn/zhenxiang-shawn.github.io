@@ -209,10 +209,17 @@ mjx-container[display="true"] + br {
   </div>
   </div><article class="md-text content"><p>反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.</p>
 <span id="more"></span>
-<h2 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h2><p>在此之前你需要知道矩阵运算. 矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
-<h2 id="正向传播-forward-propagation"><a href="#正向传播-forward-propagation" class="headerlink" title="正向传播 (forward propagation)"></a>正向传播 (forward propagation)</h2><p>设每一层的 node 的值<code>z = wx + b</code>. 应用激活函数以后的值<code>a</code>. 模型的输出<code>y^</code>，真实值<code>y</code>. 正向传播（Forward Propagation）前向传播就是从input，经过一层层的layer，不断计算每一层的<code>z</code>和<code>a</code>，最后得到输出<code>y^</code>的过程，计算出了<code>y^</code>，就可以根据它和真实值<code>y</code>的差别来计算损失（loss）。</p>
-<h2 id="反向传播-back-propagation"><a href="#反向传播-back-propagation" class="headerlink" title="反向传播 (back propagation)"></a>反向传播 (back propagation)</h2><p>反向传播（Backward Propagation）反向传播就是根据损失函数<code>L(y^,y)</code>来反方向地计算每一层的<code>z、a、w、b</code>的偏导数（梯度），从而更新参数。<br>微积分中的链式法则（为了不与概率中的链式法则相混淆）用于计算复合函数 的导数。反向传播是一种计算链式法则的算法，使用高效的特定运算顺序。 反向传播说白了根据根据J的公式对<code>w</code>和<code>b</code>求偏导，也就是求梯度。因为我们需要用梯度下降法来对参数进行更新，而更新就需要梯度。<br>但是，根据求偏导的链式法则我们知道，第l层的参数的梯度，需要通过l+1层的梯度来求得，因此我们求导的过程是“反向”的，这也就是为什么叫“反向传播”。</p>
-<h3 id="计算实例"><a href="#计算实例" class="headerlink" title="计算实例"></a>计算实例</h3><h3 id="使用代码来计算matrix"><a href="#使用代码来计算matrix" class="headerlink" title="使用代码来计算matrix."></a>使用代码来计算matrix.</h3></article>
+<h2 id="矩阵运算">矩阵运算</h2>
+<p>在此之前你需要知道矩阵运算. 矩阵运算可以参考<a target="_blank" rel="noopener" href="https://www.mathsisfun.com/algebra/matrix-multiplying.html">这个网站</a>，讲解的很详细。</p>
+<h2 id="正向传播-forward-propagation">正向传播 (forward propagation)</h2>
+<p>设每一层的 node 的值<code>z = wx + b</code>. 应用激活函数以后的值<code>a</code>. 模型的输出<code>y^</code>，真实值<code>y</code>. 正向传播（Forward Propagation）前向传播就是从input，经过一层层的layer，不断计算每一层的<code>z</code>和<code>a</code>，最后得到输出<code>y^</code>的过程，计算出了<code>y^</code>，就可以根据它和真实值<code>y</code>的差别来计算损失（loss）。</p>
+<h2 id="反向传播-back-propagation">反向传播 (back propagation)</h2>
+<p>反向传播（Backward Propagation）反向传播就是根据损失函数<code>L(y^,y)</code>来反方向地计算每一层的<code>z、a、w、b</code>的偏导数（梯度），从而更新参数。<br>
+微积分中的链式法则（为了不与概率中的链式法则相混淆）用于计算复合函数 的导数。反向传播是一种计算链式法则的算法，使用高效的特定运算顺序。 反向传播说白了根据根据J的公式对<code>w</code>和<code>b</code>求偏导，也就是求梯度。因为我们需要用梯度下降法来对参数进行更新，而更新就需要梯度。<br>
+但是，根据求偏导的链式法则我们知道，第l层的参数的梯度，需要通过l+1层的梯度来求得，因此我们求导的过程是“反向”的，这也就是为什么叫“反向传播”。</p>
+<h3 id="计算实例">计算实例</h3>
+<h3 id="使用代码来计算matrix">使用代码来计算matrix.</h3>
+</article>
 <div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/deep_learning/index.html">认识深度学习</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/deep_learning/cv_intro/index.html">计算机视觉介绍</a></div></section></div>
 
 
@@ -232,7 +239,7 @@ mjx-container[display="true"] + br {
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

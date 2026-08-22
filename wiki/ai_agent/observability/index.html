@@ -19,12 +19,12 @@
   <title>AiAgent：可观测性与评估 - J. Tech.</title>
 
   
-    <meta name="description" content="概述Agent 的决策过程是「黑盒」且多步骤的，比传统应用更难调试。可观测性让每次 Agent 运行的内部决策、工具调用、成本耗费都可见；评估体系则回答「Agent 到底做得好不好」。两者共同构成 Agent 中台的运营底座。 1. 为什么 Agent 需要专门的可观测性    传统应用 Agent 应用     逻辑确定，可复现 非确定性，每次可能不同   单层调用栈 多步推理链条   看请求">
+    <meta name="description" content="概述 Agent 的决策过程是「黑盒」且多步骤的，比传统应用更难调试。可观测性让每次 Agent 运行的内部决策、工具调用、成本耗费都可见；评估体系则回答「Agent 到底做得好不好」。两者共同构成 Agent 中台的运营底座。 1. 为什么 Agent 需要专门的可观测性    传统应用 Agent 应用     逻辑确定，可复现 非确定性，每次可能不同   单层调用栈 多步推理链条   看请">
 <meta property="og:type" content="website">
 <meta property="og:title" content="可观测性与评估">
 <meta property="og:url" content="https://zhenxiang-shawn.github.io/wiki/ai_agent/observability/index.html">
 <meta property="og:site_name" content="J. Tech.">
-<meta property="og:description" content="概述Agent 的决策过程是「黑盒」且多步骤的，比传统应用更难调试。可观测性让每次 Agent 运行的内部决策、工具调用、成本耗费都可见；评估体系则回答「Agent 到底做得好不好」。两者共同构成 Agent 中台的运营底座。 1. 为什么 Agent 需要专门的可观测性    传统应用 Agent 应用     逻辑确定，可复现 非确定性，每次可能不同   单层调用栈 多步推理链条   看请求">
+<meta property="og:description" content="概述 Agent 的决策过程是「黑盒」且多步骤的，比传统应用更难调试。可观测性让每次 Agent 运行的内部决策、工具调用、成本耗费都可见；评估体系则回答「Agent 到底做得好不好」。两者共同构成 Agent 中台的运营底座。 1. 为什么 Agent 需要专门的可观测性    传统应用 Agent 应用     逻辑确定，可复现 非确定性，每次可能不同   单层调用栈 多步推理链条   看请">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-22T14:49:13.709Z">
 <meta property="article:modified_time" content="2026-08-22T14:49:13.709Z">
@@ -101,8 +101,9 @@
     
   </div>
   </div><article class="md-text content"><span id="more"></span>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Agent 的决策过程是「黑盒」且多步骤的，比传统应用更难调试。可观测性让每次 Agent 运行的内部决策、工具调用、成本耗费都可见；评估体系则回答「Agent 到底做得好不好」。两者共同构成 Agent 中台的运营底座。</p>
-<h2 id="1-为什么-Agent-需要专门的可观测性"><a href="#1-为什么-Agent-需要专门的可观测性" class="headerlink" title="1. 为什么 Agent 需要专门的可观测性"></a>1. 为什么 Agent 需要专门的可观测性</h2><div class="table-container">
+<h2 id="概述">概述</h2>
+<p>Agent 的决策过程是「黑盒」且多步骤的，比传统应用更难调试。可观测性让每次 Agent 运行的内部决策、工具调用、成本耗费都可见；评估体系则回答「Agent 到底做得好不好」。两者共同构成 Agent 中台的运营底座。</p>
+<h2 id="1-为什么-Agent-需要专门的可观测性">1. 为什么 Agent 需要专门的可观测性</h2>
 <table>
 <thead>
 <tr>
@@ -129,8 +130,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="2-端到端链路追踪（Tracing）"><a href="#2-端到端链路追踪（Tracing）" class="headerlink" title="2. 端到端链路追踪（Tracing）"></a>2. 端到端链路追踪（Tracing）</h2><p>对一次 Agent 运行，关键要能回放完整执行链：</p>
+<h2 id="2-端到端链路追踪（Tracing）">2. 端到端链路追踪（Tracing）</h2>
+<p>对一次 Agent 运行，关键要能回放完整执行链：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">问题 → 意图理解 → Planner → [工具:检索] → [工具:代码执行] → 反思 → 最终输出</span><br><span class="line">  │        │         │          │              │            │        │</span><br><span class="line">  └────────┴─────────┴──────────┴──────────────┴────────────┴────────┴→ 统一 trace_id</span><br></pre></td></tr></table></figure>
 <p><strong>核心采集字段：</strong></p>
 <ul>
@@ -140,22 +141,24 @@
 <li><strong>Token 用量</strong>：每次调用的输入/输出 token、成本</li>
 <li><strong>元数据</strong>：模型版本、温度、Agent 版本、租户</li>
 </ul>
-<h2 id="3-决策日志与回放"><a href="#3-决策日志与回放" class="headerlink" title="3. 决策日志与回放"></a>3. 决策日志与回放</h2><p>除了指标，Agent 还需要「可解释的决策留痕」：</p>
+<h2 id="3-决策日志与回放">3. 决策日志与回放</h2>
+<p>除了指标，Agent 还需要「可解释的决策留痕」：</p>
 <ul>
 <li>记录每一步<strong>为何选择</strong>该动作（依据的观察与推理）</li>
 <li>支持按 trace_id <strong>重放</strong>一次运行的完整决策</li>
 <li>失败场景自动打标，方便事后分析根因</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">一次失败的回放示例:</span><br><span class="line">Trace: 用户要求&quot;删除昨天创建的订单&quot;</span><br><span class="line">T1: 意图=订单管理，调用 list_orders(user)</span><br><span class="line">T2: 工具返回空列表 → Agent 误判&quot;无订单&quot;</span><br><span class="line">T3: 实际原因是过滤器写错(created_at 时区问题)</span><br><span class="line">[根因]: 工具参数时区未归一化</span><br></pre></td></tr></table></figure>
-<h2 id="4-成本与性能监控"><a href="#4-成本与性能监控" class="headerlink" title="4. 成本与性能监控"></a>4. 成本与性能监控</h2><p>Agent 的 Token 消耗与延迟会随推理步数放大，必须持续监控：</p>
+<h2 id="4-成本与性能监控">4. 成本与性能监控</h2>
+<p>Agent 的 Token 消耗与延迟会随推理步数放大，必须持续监控：</p>
 <ul>
 <li><strong>单次成本</strong>：每次调用/每个会话的 Token 与费用</li>
 <li><strong>步数分布</strong>：成功任务的平均工具步数与延迟</li>
 <li><strong>瓶颈定位</strong>：找出耗时最高的工具或 LLM 调用</li>
 <li><strong>预算告警</strong>：超过阈值触发降级（模型分级、限制推理轮次）</li>
 </ul>
-<h2 id="5-评估体系（Evaluation）"><a href="#5-评估体系（Evaluation）" class="headerlink" title="5. 评估体系（Evaluation）"></a>5. 评估体系（Evaluation）</h2><p>评估是持续提升 Agent 质量的关键。分三层：</p>
-<div class="table-container">
+<h2 id="5-评估体系（Evaluation）">5. 评估体系（Evaluation）</h2>
+<p>评估是持续提升 Agent 质量的关键。分三层：</p>
 <table>
 <thead>
 <tr>
@@ -182,7 +185,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>评估要点：</strong></p>
 <ul>
 <li><strong>构建评测集</strong>：覆盖正常/边界/对抗三类用例，聚焦易错场景</li>
@@ -190,10 +192,12 @@
 <li><strong>回归测试</strong>：每次改动（Prompt/工具/检索）跑回归，防止质量回退</li>
 <li><strong>人工抽检</strong>：定期抽样人工评审，校准自动评估的偏差</li>
 </ul>
-<h2 id="6-迭代闭环"><a href="#6-迭代闭环" class="headerlink" title="6. 迭代闭环"></a>6. 迭代闭环</h2><p>可观测性与评估要形成优化闭环：</p>
+<h2 id="6-迭代闭环">6. 迭代闭环</h2>
+<p>可观测性与评估要形成优化闭环：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">采集(Tracing) → 分析(定位问题) → 评估(量化差距) → 优化(Prompt/工具/检索/记忆)</span><br><span class="line">      ↑                                                     │</span><br><span class="line">      └────────────────── 回归验证 ←────────────────────────┘</span><br></pre></td></tr></table></figure>
 <p><strong>常见优化杠杆：</strong> Prompt 措辞、工具描述、检索切片、记忆策略、模型选择、推理轮次上限。</p>
-<h2 id="7-落地小结"><a href="#7-落地小结" class="headerlink" title="7. 落地小结"></a>7. 落地小结</h2><ol>
+<h2 id="7-落地小结">7. 落地小结</h2>
+<ol>
 <li><strong>全链路溯源</strong>：统一个 trace_id，回放每次运行的决策与调用</li>
 <li><strong>留痕决策</strong>：「为什么选这个工具」比「调了什么」更有价值</li>
 <li><strong>量化成本</strong>：把 Token 与延迟监控当业务指标</li>
@@ -221,7 +225,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>

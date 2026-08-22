@@ -101,17 +101,21 @@
 <blockquote>
 <p>原因是docker使用unix socket进行通讯，但是unix socket属于root用户，但是普通用户需要使用sudo才能开启root权限，但是普通的操作并没有root权限。</p>
 </blockquote>
-<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu:"></a>Ubuntu:</h2><ul>
+<h2 id="Ubuntu">Ubuntu:</h2>
+<ul>
 <li><code>sudo usermod -aG docker $&#123;USER&#125;</code></li>
 </ul>
-<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac:"></a>Mac:</h2><ol>
+<h2 id="Mac">Mac:</h2>
+<ol>
 <li><code>cmd-shift-p</code></li>
 <li>点击 <code>&quot;Preferences: Open Workspace Settings&quot;</code></li>
 <li>搜索 “docker path”</li>
 <li>输入docker client的绝对路径 (通常在 <code>&quot;/usr/local/bin/docker&quot;</code>)</li>
 </ol>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows:"></a>Windows:</h2><p>同 Mac</p>
-<h2 id="Windows-WSL"><a href="#Windows-WSL" class="headerlink" title="Windows WSL:"></a>Windows WSL:</h2><p>暂未解决</p>
+<h2 id="Windows">Windows:</h2>
+<p>同 Mac</p>
+<h2 id="Windows-WSL">Windows WSL:</h2>
+<p>暂未解决</p>
 
 <div class="article-footer fs14">
     <section id="references">
@@ -154,7 +158,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>
