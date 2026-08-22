@@ -180,6 +180,7 @@ footer:
       - '[归档](/archives/)'
     '项目':
       # - '[LeetCode](/wiki/leetcode/)'
+      - '[AiAgent](/wiki/ai_agent/)'
       - '[DeepLearning](/wiki/deep_learning/)'
       - '[Python](/wiki/learn_python/)'
       # - '[应用程序](/wiki/tags/应用程序/)'
