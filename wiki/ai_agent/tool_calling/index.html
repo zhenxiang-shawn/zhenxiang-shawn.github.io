@@ -39,6 +39,8 @@
 
   <!-- feed -->
   
+    <link rel="alternate" href="/atom.xml" title="J. Tech." type="application/atom+xml">
+  
 
   <link rel="stylesheet" href="/css/main.css?v=1.26.6">
 
@@ -47,7 +49,29 @@
   
 
   
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png"><meta name="theme-color" content="#f9fafb">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png"><meta name="theme-color" content="#f9fafb"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "J. Tech.",
+  "url": "https://zhenxiang-shawn.github.io/",
+  "description": "J. Tech. — 求知若饥，虚心若愚。个人技术博客，记录 AI Agent 系统设计、深度学习、Python、算法等学习与工程实践。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zhenxiang Jin",
+  "url": "https://zhenxiang-shawn.github.io/",
+  "email": "zhenxiang.shawn@zohomail.com",
+  "sameAs": [
+    "https://github.com/zhenxiang-shawn"
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -66,7 +90,7 @@
 </div>
 <div class="widgets">
 
-<widget class="widget-wrapper toc multi" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">...</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/index.html#start"><span class="toc-text">AI Agent 系统设计</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/agent_architecture/index.html"><span class="toc-text">Agent 架构模式</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/memory/index.html"><span class="toc-text">记忆系统设计</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/rag/index.html"><span class="toc-text">检索增强生成（RAG）</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/ai_agent/tool_calling/index.html"><span class="toc-text">工具调用设计</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%B7%A5%E5%85%B7%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">1. 工具的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B7%A5%E5%85%B7%E5%AE%9A%E4%B9%89%E8%A7%84%E8%8C%83"><span class="toc-text">2. 工具定义规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%89%AF%E5%A5%BD%E6%8F%8F%E8%BF%B0%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-text">良好描述的要素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%EF%BC%88Function-Calling%EF%BC%89%E5%8D%8F%E8%AE%AE"><span class="toc-text">3. 函数调用（Function Calling）协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E8%A6%81%E7%82%B9"><span class="toc-text">协议要点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%E4%B8%8E%E8%B7%AF%E7%94%B1"><span class="toc-text">4. 工具选择与路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text">5. 错误处理与可靠性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B7%A5%E5%85%B7%E7%BD%91%E5%85%B3%EF%BC%88Tool-Gateway%EF%BC%89"><span class="toc-text">6. 工具网关（Tool Gateway）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%B0%8F%E7%BB%93"><span class="toc-text">7. 最佳实践小结</span></a></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/safety/index.html"><span class="toc-text">安全与防护</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/observability/index.html"><span class="toc-text">可观测性与评估</span></a></div></div></widget>
+<widget class="widget-wrapper toc multi" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">...</span></div><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/index.html#start"><span class="toc-text">AI Agent 系统设计</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/memory/index.html"><span class="toc-text">记忆系统设计</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/agent_architecture/index.html"><span class="toc-text">Agent 架构模式</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/rag/index.html"><span class="toc-text">检索增强生成（RAG）</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/safety/index.html"><span class="toc-text">安全与防护</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/ai_agent/tool_calling/index.html"><span class="toc-text">工具调用设计</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%B7%A5%E5%85%B7%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">1. 工具的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B7%A5%E5%85%B7%E5%AE%9A%E4%B9%89%E8%A7%84%E8%8C%83"><span class="toc-text">2. 工具定义规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%89%AF%E5%A5%BD%E6%8F%8F%E8%BF%B0%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-text">良好描述的要素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%EF%BC%88Function-Calling%EF%BC%89%E5%8D%8F%E8%AE%AE"><span class="toc-text">3. 函数调用（Function Calling）协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E8%A6%81%E7%82%B9"><span class="toc-text">协议要点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%E4%B8%8E%E8%B7%AF%E7%94%B1"><span class="toc-text">4. 工具选择与路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text">5. 错误处理与可靠性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B7%A5%E5%85%B7%E7%BD%91%E5%85%B3%EF%BC%88Tool-Gateway%EF%BC%89"><span class="toc-text">6. 工具网关（Tool Gateway）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E5%B0%8F%E7%BB%93"><span class="toc-text">7. 最佳实践小结</span></a></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/ai_agent/observability/index.html"><span class="toc-text">可观测性与评估</span></a></div></div></widget>
 
 
 
@@ -211,7 +235,7 @@
 <li>建立工具<strong>测试集</strong>，用真实场景回归验证工具描述质量</li>
 </ol>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/ai_agent/rag/index.html">检索增强生成（RAG）</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/ai_agent/safety/index.html">安全与防护</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/ai_agent/safety/index.html">安全与防护</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/ai_agent/observability/index.html">可观测性与评估</a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
@@ -230,7 +254,7 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次&lt;/span&gt;</p>
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">项目</span><a href="/wiki/ai_agent/">AiAgent</a><a href="/wiki/deep_learning/">DeepLearning</a><a href="/wiki/learn_python/">Python</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/friends/">友链</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/zhenxiang-shawn">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </div></footer>
 <div class='float-panel mobile-only blur' style='display:none'>
@@ -428,6 +452,7 @@
 
 
 <!-- inject -->
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cab56a95bb224873816c3555012a343e"}'></script><!-- End Cloudflare Web Analytics -->
 
 </div><script type="text/x-mathjax-config">
     MathJax.Hub.Config({

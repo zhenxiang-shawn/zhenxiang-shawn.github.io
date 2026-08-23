@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /archives/
+Disallow: /tags/
+Disallow: /categories/
+
+Sitemap: https://zhenxiang-shawn.github.io/sitemap.xml
