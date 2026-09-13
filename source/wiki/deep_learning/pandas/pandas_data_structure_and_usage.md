@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: DeepLearning
 order: 9
 title: Pandas中基本的数据结构和用法
 mathjax: true
 
-references: 
-  - title: Pandas - Intro to data structures
-    url: https://pandas.pydata.org/docs/user_guide/dsintro.html
-  - title: How to display all rows from dataframe using Pandas
-    url: https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/
+references:
+  - '[Pandas - Intro to data structures](https://pandas.pydata.org/docs/user_guide/dsintro.html)'
+  - '[How to display all rows from dataframe using Pandas](https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/)'
 ---
 
 Pandas 是使用 Python 在机器学习中不可绕过的必续用到的库. 熟悉和熟练使用这个库可以有效的帮助模型训练和数据清洗.

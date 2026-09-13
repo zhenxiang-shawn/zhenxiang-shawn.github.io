@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: 工具调用设计
 tags:
     - AI Agent
     - 工具调用
 references:
-    - title: 'Tool Use - OpenAI API'
-      url: https://platform.openai.com/docs/guides/function-calling
-    - title: 'Building Effective Agents - Anthropic'
-      url: https://www.anthropic.com/engineering/building-effective-agents
+    - '[Tool Use - OpenAI API](https://platform.openai.com/docs/guides/function-calling)'
+    - '[Building Effective Agents - Anthropic](https://www.anthropic.com/engineering/building-effective-agents)'
 ---
 
 <!-- more -->

@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 104. 二叉树的最大深度"
 order: 102
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 104. 二叉树的最大深度'
-    url: https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-interview-150
+  - '[LeetCode 104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-interview-150)'
 
 ---
 

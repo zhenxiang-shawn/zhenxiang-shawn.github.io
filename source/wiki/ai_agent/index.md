@@ -1,19 +1,14 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: AI Agent 系统设计
 tags:
     - AI Agent
     - 系统架构
 references:
-    - title: 'Building Effective Agents - Anthropic'
-      url: https://www.anthropic.com/engineering/building-effective-agents
-    - title: 'Agentic Design Patterns - DeepLearning.AI'
-      url: https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-1/
-    - title: 'ReAct: Synergizing Reasoning and Acting in Language Models'
-      url: https://arxiv.org/abs/2210.03629
-    - title: 'Language Agent Tree Search'
-      url: https://arxiv.org/abs/2310.04406
+    - '[Building Effective Agents - Anthropic](https://www.anthropic.com/engineering/building-effective-agents)'
+    - '[Agentic Design Patterns - DeepLearning.AI](https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-1/)'
+    - '[ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)'
+    - '[Language Agent Tree Search](https://arxiv.org/abs/2310.04406)'
 ---
 
 <!-- more -->

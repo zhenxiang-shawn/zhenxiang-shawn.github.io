@@ -1,16 +1,12 @@
 ---
-layout: wiki
 wiki: Python
 title: 学习Python
 tags: 
     - Python
 references:
-    -   title: Python 100 Days
-        url: https://github.com/jackfrued/Python-100-Days
-    -   title: 流畅的Python
-        url: https://book.douban.com/subject/27028517/
-    -   title: Python Data Model
-        url: https://docs.python.org/3/reference/datamodel.html
+  - '[Python 100 Days](https://github.com/jackfrued/Python-100-Days)'
+  - '[流畅的Python](https://book.douban.com/subject/27028517/)'
+  - '[Python Data Model](https://docs.python.org/3/reference/datamodel.html)'
 ---
 
 <!-- more -->

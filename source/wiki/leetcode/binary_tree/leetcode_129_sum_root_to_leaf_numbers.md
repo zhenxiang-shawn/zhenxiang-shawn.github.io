@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 129. 求根节点到叶节点数字之和"
 order: 124
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 129. 求根节点到叶节点数字之和'
-    url: https://leetcode.cn/problems/sum-root-to-leaf-numbers/description/?envType=study-plan-v2&envId=top-interview-150
+  - '[LeetCode 129. 求根节点到叶节点数字之和](https://leetcode.cn/problems/sum-root-to-leaf-numbers/description/?envType=study-plan-v2&envId=top-interview-150)'
 
 ---
 该数据结构相当于每一层深度代表一个位. 比如深度为 1 的时候代表最高位最深的时候代表个位. 以此类推.

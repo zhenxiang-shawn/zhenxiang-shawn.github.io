@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: 可观测性与评估
 tags:
     - AI Agent
     - 可观测性
 references:
-    - title: 'DSPy - Programming Language Models'
-      url: https://github.com/stanfordnlp/dspy
-    - title: 'OpenTelemetry'
-      url: https://opentelemetry.io/
+    - '[DSPy - Programming Language Models](https://github.com/stanfordnlp/dspy)'
+    - '[OpenTelemetry](https://opentelemetry.io/)'
 ---
 
 <!-- more -->

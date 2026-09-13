@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: 记忆系统设计
 tags:
     - AI Agent
     - 记忆系统
 references:
-    - title: 'MemGPT - Towards LLMs as Operating Systems'
-      url: https://arxiv.org/abs/2310.08560
-    - title: 'Cognitive Architectures for Language Agents'
-      url: https://arxiv.org/abs/2309.02427
+    - '[MemGPT - Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)'
+    - '[Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427)'
 ---
 
 <!-- more -->

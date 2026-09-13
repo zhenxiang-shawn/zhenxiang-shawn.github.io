@@ -4,11 +4,9 @@ updated: 2022-04-10
 title: 稳定婚姻算法
 categories: [技术加油站]
 tags: [Algorithm]
-references: 
-    - title: GeeksForGeeks
-      url: https://www.geeksforgeeks.org/stable-marriage-problem/
-    - title: 百度知道
-      url: https://baike.baidu.com/item/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E9%97%AE%E9%A2%98/12760040
+references:
+  - '[GeeksForGeeks](https://www.geeksforgeeks.org/stable-marriage-problem/)'
+  - '[百度知道](https://baike.baidu.com/item/%E7%A8%B3%E5%AE%9A%E5%A9%9A%E5%A7%BB%E9%97%AE%E9%A2%98/12760040)'
 ---
 
 “稳定婚姻问题”在生活中是一个典型的问题,通俗地可叙述为：当前有N位男生和N位女生最后要组成稳定的婚姻家庭，过程开始之前男生和女生在各自的心目中都按照喜爱程度对N位异性有了各自的排序，男生和女生结婚后，对于每一对男生女生，不会出现比起当前匹配的伴侣互相更喜爱的一对男生女生，即可认为婚姻是稳定的。

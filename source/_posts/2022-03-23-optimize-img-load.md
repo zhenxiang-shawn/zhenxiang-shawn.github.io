@@ -5,10 +5,8 @@ updated: 2022-03-24
 categories: [解决方案]
 tags: [Optimization, CDN]
 references:
-  - title: '百科:CDN'
-    url: https://baike.baidu.com/item/CDN/420951
-  - title: '快速免费的公用CDN'
-    url: https://www.cnblogs.com/lfri/p/12212878.html
+  - '[百科:CDN](https://baike.baidu.com/item/CDN/420951)'
+  - '[快速免费的公用CDN](https://www.cnblogs.com/lfri/p/12212878.html)'
 ---
 
 在使用博客搭建的时候,一般来说我的图片和博客都是开源放在github上的. 但是如果用相对路径来读取图片的话,图片的加载速度收到github流量速度限制,会变得很慢,而且有一些地区也对GitHub加了一道防火墙,这使GitHub Pages加载速度更慢了.目前有两种方式可以缓解图片加载速度.
@@ -79,10 +77,10 @@ https://cdn.jsdelivr.net/gh/jquery/jquery/
 {% tabs active:2 align:center %}
 
 <!-- tab GitHub Raw -->
-{% image https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true %}
+{% image https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/python_logo.png?raw=true  ratio:512/512 %}
 
 <!-- tab jsDelivr(CDN) -->
-{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png %}
+{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/python_logo.png  ratio:512/512 %}
 
 {% endtabs %}
 

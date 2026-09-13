@@ -1,13 +1,10 @@
 ---
-layout: wiki
 wiki: Python
 order: 19
 title: "Python中的 string 和 byte string的区别"
 reference:
-  - title: what-is-the-difference-between-a-string-and-a-byte-string
-    url: https://stackoverflow.com/questions/6224052/what-is-the-difference-between-a-string-and-a-byte-string
-  - title: "[廖雪峰的网站]字符串和编码"
-    url: https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896
+  - '[what-is-the-difference-between-a-string-and-a-byte-string](https://stackoverflow.com/questions/6224052/what-is-the-difference-between-a-string-and-a-byte-string)'
+  - '[[廖雪峰的网站]字符串和编码](https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896)'
 ---
 
 

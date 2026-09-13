@@ -1,13 +1,10 @@
 ---
-layout: wiki
 wiki: DeepLearning
 title: 认识深度学习
 mathjax: true
-references: 
-  - title: MIT 深度学习 （github）
-    url: https://github.com/janishar/mit-deep-learning-book-pdf
-  - title: 常见的激活函数（activation function）总结
-    url: https://zhuanlan.zhihu.com/p/70810466
+references:
+  - '[MIT 深度学习 （github）](https://github.com/janishar/mit-deep-learning-book-pdf)'
+  - '[常见的激活函数（activation function）总结](https://zhuanlan.zhihu.com/p/70810466)'
   # - title:
   #   url:    
 ---
@@ -39,7 +36,7 @@ references:
 
 ### 常见的激活函数
 
-{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/activation-functions-01.png 常见的激活函数 %}
+{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/activation-functions-01.png 常见的激活函数 ratio:1143/565 %}
 
 
 #### Sigmoid
@@ -67,14 +64,14 @@ ReLU是针对sigmoid和tanh的饱和性二提出的新的激活函数。从上�
 #### SoftPlus
 SoftPlus可以作为ReLu的一个不错的替代选择，可以看到与ReLU不同的是，SoftPlus的导数是连续的、非零的、无处不在的，这一特性可以防止出现ReLU中的“神经元死亡”现象。
 
-{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/Softplus.png 常见的激活函数 %}
+{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/Softplus.png 常见的激活函数 ratio:640/480 %}
 
 
 然而，SoftPlus是不对称的，不以0为中心，存在偏移现象；而且，由于其导数常常小于1，也可能会出现梯度消失的问题。
 
 #### SoftMax
 Softmax 一般用作输出层, 主要针对分类问题. Softmax 会计算各个种类的概率,而且会normalize 输出使其输出的总和(总概率)为 1. 因此,Softmax 层的节点数必须与输出层的节点数相同。
-{% image  https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/SoftmaxLayer.svg 激活函数:SoftMax %}
+{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/SoftmaxLayer.svg 激活函数:SoftMax ratio:338/235.60001 %}
 
 
 #### Maxout
@@ -111,7 +108,7 @@ f(x; w_1, w_2, b_1, b_2) = w_1 \times Max\\{ 0, w_2 * x + b_2 \\} + b_1
 $$
  最后得到一个函数， 函数图像如下：
 
-{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/xor_nn_out.png XOR NN函数  %}
+{% image https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/xor_nn_out.png XOR NN函数 ratio:812/460 %}
 
 神经网络对这XOR函数的每个样本都给出了正确的结果。在这个例子中，我们简单地指定了解决方案，然后说明它得到的误差为零。在实际情况中，可能会有数十亿的模型参数以及数十亿的训练样本，所以不能像我们这里做的那样进行简单地猜解。与之相对的，基于梯度的优化算法可以找到一些参数使得产生的误差非常小。我们这里给出的 XOR 问题的解处在损失函数的全局最小点，所以梯度下降算法可以收敛到这一点。梯度下降算法还可以找到 XOR 问题一些其他的等价解。梯度下降算法的收敛点取决于参数的初始值。在实践中，梯度下降通常不会找到像我们这里给出的那种干净的、容易理解的、整数值的解。
 

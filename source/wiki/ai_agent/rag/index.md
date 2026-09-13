@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: 检索增强生成（RAG）
 tags:
     - AI Agent
     - RAG
 references:
-    - title: 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks'
-      url: https://arxiv.org/abs/2005.11401
-    - title: 'Best Practices for RAG - LlamaIndex'
-      url: https://www.llamaindex.ai/topics/rag
+    - '[Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)'
+    - '[Best Practices for RAG - LlamaIndex](https://www.llamaindex.ai/topics/rag)'
 ---
 
 <!-- more -->

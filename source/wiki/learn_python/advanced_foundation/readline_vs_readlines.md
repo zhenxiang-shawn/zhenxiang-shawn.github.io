@@ -1,14 +1,10 @@
 ---
-layout: wiki
 wiki: Python
 order: 29
 title: "Python中常用的文件读取的方法比较"
 reference:
-
-  - title: what-is-the-difference-between-a-string-and-a-byte-string
-    url: https://stackoverflow.com/questions/6224052/what-is-the-difference-between-a-string-and-a-byte-string
-  - title: "[廖雪峰的网站]字符串和编码"
-    url: https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896
+  - '[what-is-the-difference-between-a-string-and-a-byte-string](https://stackoverflow.com/questions/6224052/what-is-the-difference-between-a-string-and-a-byte-string)'
+  - '[[廖雪峰的网站]字符串和编码](https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896)'
 ---
 
 

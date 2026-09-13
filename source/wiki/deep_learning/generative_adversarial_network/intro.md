@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: DeepLearning
 order: 600
 title: 生成对抗网络基础
 mathjax: true
 
-references: 
-  - title: '[百度百科]生成式对抗网络'
-    url: https://baike.baidu.com/item/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/60710521
-  - title: '生成对抗网络 – Generative Adversarial Networks | GAN'
-    url: https://easyai.tech/ai-definition/gan/
+references:
+  - '[[百度百科]生成式对抗网络](https://baike.baidu.com/item/%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C/60710521)'
+  - '[生成对抗网络 – Generative Adversarial Networks | GAN](https://easyai.tech/ai-definition/gan/)'
 ---
 
 生成式对抗网络（GAN, Generative Adversarial Networks ）是一种深度学习模型，是近年来复杂分布上无监督学习最具前景的方法之一。

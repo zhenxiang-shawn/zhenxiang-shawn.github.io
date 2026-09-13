@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 236. 二叉树的最近公共祖先"
 order: 123
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 236. 二叉树的最近公共祖先'
-    url: https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/
+  - '[LeetCode 236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/)'
 
 ---
 

@@ -6,10 +6,8 @@ categories: [技术加油站]
 tags: [Computer Vision, Machine Learning, Deep Learning]
 math: false
 references:
-    - title: CVPR2021 深度框架训练，不是所有数据增强都可以提升最终精度
-      url: https://www.cvmart.net/community/detail/4551
-    - title: 'KeepAugment: A Simple Information-Preserving Data Augmentation Approach'
-      url: https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_KeepAugment_A_Simple_Information-Preserving_Data_Augmentation_Approach_CVPR_2021_paper.pdf
+  - '[CVPR2021 深度框架训练，不是所有数据增强都可以提升最终精度](https://www.cvmart.net/community/detail/4551)'
+  - '[KeepAugment: A Simple Information-Preserving Data Augmentation Approach](https://openaccess.thecvf.com/content/CVPR2021/papers/Gong_KeepAugment_A_Simple_Information-Preserving_Data_Augmentation_Approach_CVPR_2021_paper.pdf)'
 ---
 
 数据增强是比较机器学习中比较常用的方法. 但是并不是所有的数据增强都可以有效的提升精度. 有些数据增强的方法很可能会增加噪声,使模型表现比数据增强之前还要差.

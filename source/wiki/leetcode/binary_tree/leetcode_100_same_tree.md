@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 100. 相同的树"
 order: 103
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 100. 相同的树'
-    url: https://leetcode.cn/problems/same-tree/?envType=study-plan-v2&envId=top-interview-150
+  - '[LeetCode 100. 相同的树](https://leetcode.cn/problems/same-tree/?envType=study-plan-v2&envId=top-interview-150)'
 ---
 这个只要会遍历二叉树就行了,不管用什么遍历方式,直接在遍历的时候比较两个 node 就行了. 代码如下:
 

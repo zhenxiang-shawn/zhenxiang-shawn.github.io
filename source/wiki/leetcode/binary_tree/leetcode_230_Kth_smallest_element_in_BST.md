@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 230. 二叉搜索树中第K小的元素"
 order: 130
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 230. 二叉搜索树中第K小的元素'
-    url: https://leetcode.cn/problems/kth-smallest-element-in-a-bst/
+  - '[LeetCode 230. 二叉搜索树中第K小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)'
 
 ---
 

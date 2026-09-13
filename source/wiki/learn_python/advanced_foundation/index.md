@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: Python
 order: 9
 title: Python中的数据结构

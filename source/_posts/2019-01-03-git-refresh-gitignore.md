@@ -4,9 +4,8 @@ updated: 2022-04-24
 title: Git `.gitignore` 更新后没有作用
 categories: [解决方案]
 tags: [Git]
-references: 
-    - title: GeeksForGeeks
-      url: https://www.geeksforgeeks.org/stable-marriage-problem/
+references:
+  - '[GeeksForGeeks](https://www.geeksforgeeks.org/stable-marriage-problem/)'
 ---
 
 # Git `.ignore` 编辑后文件没有变化

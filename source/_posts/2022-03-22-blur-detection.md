@@ -5,10 +5,8 @@ title: 检测模糊图片的几种方法
 categories: [技术加油站]
 tags: [Computer Vision, Python, Data Clean]
 references:
-  - title: 'OpenCV fast fourier transform FFT for blur detection in images and video streams'
-    url: https://pyimagesearch.com/2020/06/15/opencv-fast-fourier-transform-fft-for-blur-detection-in-images-and-video-streams/
-  - title: 'Blur detection with OpenCV'
-    url: https://pyimagesearch-com.translate.goog/2015/09/07/blur-detection-with-opencv/?_x_tr_sl=auto&_x_tr_tl=zh-CN&_x_tr_hl=zh-CN
+  - '[OpenCV fast fourier transform FFT for blur detection in images and video streams](https://pyimagesearch.com/2020/06/15/opencv-fast-fourier-transform-fft-for-blur-detection-in-images-and-video-streams/)'
+  - '[Blur detection with OpenCV](https://pyimagesearch-com.translate.goog/2015/09/07/blur-detection-with-opencv/?_x_tr_sl=auto&_x_tr_tl=zh-CN&_x_tr_hl=zh-CN)'
 ---
 
 

@@ -1,14 +1,17 @@
 welcome:
   layout: markdown
-  title: Hello there!
+  title: 欢迎，旅行者
   linklist: # 与 linklist 组件写法相同
   columns: 1 
-  items:
+  items: # 复刻 xaoxuu 的「备用站 / 交流区」
     - icon:
-      title: 
-      url:
+      title: 关于
+      url: /about/
+    - icon:
+      title: 友链
+      url: /friends/
   content: 
-    这是一个世界边缘的佛系小站，建于21世纪初，长期维护并保持低频更新。
+    您已来到世界边缘，喜欢的话欢迎评论区交流吧～ 这是 J. Tech.，一个记录 AI Agent 系统设计、深度学习与工程实践的站点。
   src: # 可以设置外部 md 文件链接
 
 toc:

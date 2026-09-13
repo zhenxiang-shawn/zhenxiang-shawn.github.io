@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 112. 路径总和"
 order: 120
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 112. 路径总和'
-    url: https://leetcode.cn/problems/path-sum/description/?envType=study-plan-v2&envId=top-interview-150
+  - '[LeetCode 112. 路径总和](https://leetcode.cn/problems/path-sum/description/?envType=study-plan-v2&envId=top-interview-150)'
 ---
 思路很简单 dfs 然后检查是否有一条路径返回`找到`了就ok. 代码如下:
 

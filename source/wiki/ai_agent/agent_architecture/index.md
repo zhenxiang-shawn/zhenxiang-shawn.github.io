@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: Agent 架构模式
 tags:

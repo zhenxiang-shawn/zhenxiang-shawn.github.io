@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 117. 填充每个节点的下一个右侧节点指针 II"
 order: 119
 tags: 
     - LeetCode
 references:
-  - title: '117. 填充每个节点的下一个右侧节点指针 II'
-    url: https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/description/?envType=study-plan-v2&envId=top-interview-150
+  - '[117. 填充每个节点的下一个右侧节点指针 II](https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/description/?envType=study-plan-v2&envId=top-interview-150)'
 
 ---
 

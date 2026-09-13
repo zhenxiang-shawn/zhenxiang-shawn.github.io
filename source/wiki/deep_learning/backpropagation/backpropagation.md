@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: DeepLearning
 order: 2
 title: 反向传播算法 (Back Propagation)
 mathjax: true
 
-references: 
-  - title: Math is Fun
-    url: https://www.mathsisfun.com/algebra/matrix-multiplying.html
-  - title: How to display all rows from dataframe using Pandas
-    url: https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/
+references:
+  - '[Math is Fun](https://www.mathsisfun.com/algebra/matrix-multiplying.html)'
+  - '[How to display all rows from dataframe using Pandas](https://www.geeksforgeeks.org/how-to-display-all-rows-from-dataframe-using-pandas/)'
 ---
 
 反向传播是深度学习的根基.反向传播算法可以快速的计算出各个结构层中的梯度,从而优化各个层级中的参数.

@@ -1,15 +1,12 @@
 ---
-layout: wiki
 wiki: AiAgent
 title: 安全与防护
 tags:
     - AI Agent
     - 安全
 references:
-    - title: 'OWASP GenAI Security'
-      url: https://genai.owasp.org/
-    - title: 'Prompt Injection Attacks - TraP'
-      url: https://github.com/element-kimi/Trap
+    - '[OWASP GenAI Security](https://genai.owasp.org/)'
+    - '[Prompt Injection Attacks - TraP](https://github.com/element-kimi/Trap)'
 ---
 
 <!-- more -->

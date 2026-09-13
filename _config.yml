@@ -10,12 +10,33 @@ favion:
   small: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png
   medium: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png
 
-description: 'aaa'
+description: 'J. Tech. — 求知若饥，虚心若愚。个人技术博客，记录 AI Agent 系统设计、深度学习、Python、算法等学习与工程实践。'
 keywords:
+  - AI Agent
+  - 深度学习
+  - Deep Learning
+  - Python
+  - 算法
+  - 编程
+  - 博客
+  - J. Tech.
 author: Zhenxiang Jin
 language: zh-CN
 timezone: 'Asia/Shanghai'
 email: zhenxiang.shawn@zohomail.com
+
+# Feed (RSS/Atom) 订阅，供搜索引擎与 AI 引擎抓取内容
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 30
+  hub:
+  content: true
+
+# Sitemap 站点地图，帮助搜索引擎收录
+sitemap:
+  path: sitemap.xml
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

@@ -1,5 +1,5 @@
 ---
-menu_id: about
+menu_id: social
 title: 友链
 h1: ""
 breadcrumb: false
@@ -8,7 +8,7 @@ comment_title: 快来交换友链吧~
 comment_id: 留言板
 ---
 
-{% banner 朋友们 愿我们共同成长,让自己和世界变得更好. bg:https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/music-player-2951399_640.jpg?raw=true %}
+{% banner 朋友们 愿我们共同成长,让自己和世界变得更好. bg:/imgs/music-player-2951399_640.jpg %}
 {% navbar active:/friends/ [关于](/about/) [友链](/friends/) %}
 {% endbanner %}
 
@@ -50,7 +50,7 @@ comment_id: 留言板
 
 {% codeblock lang:yaml %}
 title: J. Tech
-avatar: https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/blob/main/source/_imgs/jin_logo.png?raw=true
+avatar: /imgs/jin_logo.png
 url: https://zhenxiang-shawn.github.io/
 screenshot: 
 {% endcodeblock %}

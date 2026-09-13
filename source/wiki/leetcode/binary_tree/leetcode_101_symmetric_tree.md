@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 101. 对称二叉树"
 order: 105
 tags: 
     - LeetCode
 references:
-  - title: 'LeetCode 101. 对称二叉树'
-    url: https://leetcode.cn/problems/symmetric-tree/?envType=study-plan-v2&envId=top-interview-150
+  - '[LeetCode 101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree/?envType=study-plan-v2&envId=top-interview-150)'
 ---
 可以把树看成两个树. 根节点不用管. 直接同时遍历根节点的左子树和右子树,然后看左子树的左边等不等于右子树的右边, 以此类推. 其实就是简单的后续遍历,在遍历的时候看看左子树是否等于右子树. 代码如下:
 

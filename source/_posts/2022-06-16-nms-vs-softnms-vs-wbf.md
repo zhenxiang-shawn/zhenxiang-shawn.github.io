@@ -4,11 +4,9 @@ updated: 2022-06-16
 title: 优化物体检测结果时常用的集成方法
 categories: [技术加油站]
 tags: [Computer Vision, Big Data]
-references: 
-  - title: Blomvliet, Marc. (2022). Protect the Great Barrier Reef Identifying starfish in real-time by an object detection model. 10.13140/RG.2.2.12867.27689. 
-    url: https://www.researchgate.net/figure/Schematic-illustration-of-NMS-soft-NMS-vs-WBF-Representing-the-outcomes-for-both_fig2_358638369
-  - title: NMS和Soft NMS
-    url: https://www.jianshu.com/p/e39c9c53b111
+references:
+  - '[Blomvliet, Marc. (2022). Protect the Great Barrier Reef Identifying starfish in real-time by an object detection model. 10.13140/RG.2.2.12867.27689.](https://www.researchgate.net/figure/Schematic-illustration-of-NMS-soft-NMS-vs-WBF-Representing-the-outcomes-for-both_fig2_358638369)'
+  - '[NMS和Soft NMS](https://www.jianshu.com/p/e39c9c53b111)'
 ---
 
 

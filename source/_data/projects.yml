@@ -70,7 +70,7 @@ AiAgent:
   title: AI Agent 系统设计
   tags: 笔记
   logo:
-    src: https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/ai_agent_logo.jpg?raw=true
+    src: /imgs/ai-agent-logo.jpg
     small: 96px
     large: 128px
   description: AI Agent 中台架构设计，涵盖 Agent 架构模式、工具调用、记忆系统、RAG、安全控制等核心模块，从基础模式到生产级工程实践。

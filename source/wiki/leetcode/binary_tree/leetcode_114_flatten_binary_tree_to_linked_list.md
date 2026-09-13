@@ -1,13 +1,11 @@
 ---
-layout: wiki
 wiki: LeetCode
 title:  "LeetCode 114. 二叉树展开为链表"
 order: 122
 tags: 
     - LeetCode
 references:
-  - title: '114. 二叉树展开为链表'
-    url: https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/?envType=study-plan-v2&envId=top-interview-150
+  - '[114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/?envType=study-plan-v2&envId=top-interview-150)'
 
 ---
 

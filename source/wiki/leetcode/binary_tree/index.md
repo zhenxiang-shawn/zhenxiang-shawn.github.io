@@ -1,5 +1,4 @@
 ---
-layout: wiki
 wiki: LeetCode
 title: 二叉树intro
 order: 100

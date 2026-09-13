@@ -1,154 +1,384 @@
-
-logo: 
+logo:
   avatar: "https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/jin_logo.png"
   subtitle: "求知若饥 | 虚心若愚"
 
 inject:
   head:
     - <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    - <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css" rel="stylesheet">
     - <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-32x32.png">
     - <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/zhenxiang-shawn/zhenxiang-shawn.github.io@main/source/_imgs/favicon-16x16.png">
-    # - <link rel="manifest" href="/xxx/site.webmanifest">
-    # - <link rel="shortcut icon" href="/xxx/favicon.ico">
-    - <meta name="theme-color" content="#f9fafb">
+    - <meta name="theme-color" content="#0fb1cc">
+    # -- 视觉升级：暗色模式下链接保持 AA 对比度的极简覆盖（青色-300） -- #
+    - |
+      <style>
+      @media (prefers-color-scheme: dark){
+        :root{
+          --theme-link: #24c6e0;
+        }
+      }
+      .tech-cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .tech-cards a{
+        display: block;
+        width: 360px;
+        max-width: 100%;
+        text-align: center;
+      }
+      .tech-cards img{
+        width: 360px;
+        max-width: 100%;
+        height: auto;
+        display: inline-block;
+        margin: 0 auto;
+      }
+      /* -- MBTI 人格卡片 -- #
+      # 配色均溯源至 xaoxuu 青色主题：条形填充 #0fb1cc（青色），文字 #2b3134（正文色），
+      # 强调 #0b7f9a（深青，浅底对比通过 AA） #
+      # -- */
+      .mbti-card{
+        border: 1px solid rgba(15,177,204,0.28);
+        border-radius: 14px;
+        padding: 1.4rem 1.5rem;
+        background: var(--theme-block);
+        margin: 1rem 0;
+      }
+      .mbti-head{
+        display: flex;
+        align-items: baseline;
+        gap: .75rem;
+        flex-wrap: wrap;
+      }
+      .mbti-type{
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--theme, #0fb1cc);
+        letter-spacing: .5px;
+      }
+      .mbti-name{
+        font-size: 1rem;
+        color: var(--text-p1, #2b3134);
+      }
+      .mbti-dims{
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.2rem;
+      }
+      .mbti-key{
+        font-size: .88rem;
+        color: var(--text-p1, #2b3134);
+        font-weight: 600;
+      }
+      .mbti-sub{
+        font-size: .75rem;
+        color: var(--text-p2, #4a5658);
+        font-weight: 400;
+      }
+      .mbti-val{
+        float: right;
+        font-size: .88rem;
+        color: var(--theme, #0fb1cc);
+        font-weight: 700;
+      }
+      .mbti-bar{
+        height: 8px;
+        background: color-mix(in srgb, var(--theme, #0fb1cc) 18%, transparent);
+        border-radius: 4px;
+        margin-top: 5px;
+        overflow: hidden;
+      }
+      .mbti-bar i{
+        display: block;
+        height: 100%;
+        background: var(--theme, #0fb1cc);
+        border-radius: 4px;
+      }
+      .mbti-link{
+        display: inline-block;
+        margin-top: 1.1rem;
+        font-size: .86rem;
+        color: var(--theme, #0b7f9a);
+        text-decoration: none;
+      }
+      .mbti-link:hover{
+        text-decoration: underline;
+      }
+      /* -- 日夜模式切换按钮（xcute 青色主题风格，复用主题 data-theme / Stellar.theme 机制） -- #
+      # 默认 auto 跟随系统；点击循环 auto -> light -> dark。
+      # 配色溯源：#0fb1cc 青色主题、#ffffff 按钮底面、文字跟随主题正文色 var(--text-p1)。 #
+      # -- */
+      .theme-toggle-btn{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        border: 1px solid var(--theme-ga, rgba(11,127,154,0.22));
+        background: var(--card, #fff);
+        color: var(--text-p1, #2b3134);
+        cursor: pointer;
+        margin-left: auto;
+        transition: all .2s ease;
+        flex-shrink: 0;
+      }
+      .theme-toggle-btn:hover{
+        border-color: #0fb1cc;
+        color: #0fb1cc;
+      }
+      .theme-toggle-btn svg{
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+      .theme-toggle-btn .ttb-auto{ display: none; }
+      .theme-toggle-btn .ttb-light{ display: none; }
+      .theme-toggle-btn .ttb-dark{ display: none; }
+      .theme-toggle-btn[data-state="auto"]  .ttb-auto{ display: block; }
+      .theme-toggle-btn[data-state="light"] .ttb-light{ display: block; }
+      .theme-toggle-btn[data-state="dark"]  .ttb-dark{ display: block; }
+      .theme-toggle-btn[title]:after{
+        content: attr(title);
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(30,30,30,.85);
+        color: #fff;
+        font-size: 11px;
+        padding: 3px 7px;
+        border-radius: 6px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .15s;
+      }
+      .theme-toggle-btn:hover[title]:after{ opacity: 1; }
+      .theme-toggle-btn{ position: relative; }
+      </style>
+    # -- GEO 结构化数据 (JSON-LD / Schema.org)，帮助 AI 搜索引擎与普通搜索引擎理解站点 -- #
+    - |
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "J. Tech.",
+        "url": "https://zhenxiang-shawn.github.io/",
+        "description": "J. Tech. — 求知若饥，虚心若愚。个人技术博客，记录 AI Agent 系统设计、深度学习、Python、算法等学习与工程实践。",
+        "inLanguage": "zh-CN"
+      }
+      </script>
+    - |
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Zhenxiang Jin",
+        "url": "https://zhenxiang-shawn.github.io/",
+        "email": "zhenxiang.shawn@zohomail.com",
+        "sameAs": [
+          "https://github.com/zhenxiang-shawn"
+        ]
+      }
+      </script>
 
   script:
-
-  
-  
-  
+    # -- Cloudflare Web Analytics 访问量统计 -- #
+    - |
+      <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cab56a95bb224873816c3555012a343e"}'></script><!-- End Cloudflare Web Analytics -->
+    # -- 日夜模式切换按钮逻辑：默认 auto 跟随系统，点击循环 auto / light / dark -- #
+    - |
+      <script>
+      (function(){
+        if (window.__themeToggleInited__) return;
+        window.__themeToggleInited__ = true;
+        var ICONS = {
+          auto:  '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+          light: '<svg viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>',
+          dark:  '<svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
+        };
+        var LABELS = { auto: '跟随系统', light: '亮色', dark: '暗色' };
+        function calcState(){
+          var t = localStorage.getItem('Stellar.theme');
+          if (t === 'light' || t === 'dark') return t;
+          return 'auto';
+        }
+        function apply(state, btn){
+          var html = document.documentElement;
+          if (state === 'light' || state === 'dark') {
+            html.setAttribute('data-theme', state);
+          } else {
+            html.removeAttribute('data-theme');
+          }
+          btn && btn.setAttribute('data-state', state);
+          if (btn) {
+            btn.innerHTML = ICONS[state];
+            btn.setAttribute('title', LABELS[state]);
+          }
+          var m = window.__STELLAR_I18N__;
+        }
+        function switchS(btn){
+          var cur = calcState();
+          var next = cur === 'auto' ? 'light' : (cur === 'light' ? 'dark' : 'auto');
+          if (next === 'auto') localStorage.removeItem('Stellar.theme');
+          else localStorage.setItem('Stellar.theme', next);
+          apply(next, btn);
+          if (typeof utils !== 'undefined' && utils.dark) {
+            utils.dark.mode = next === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : next;
+            utils.dark.method.toggle && utils.dark.method.toggle.start && utils.dark.method.toggle.start();
+          }
+        }
+        function buildBtn(){
+          var btn = document.createElement('button');
+          btn.className = 'theme-toggle-btn';
+          btn.type = 'button';
+          btn.innerHTML = ICONS.auto;
+          btn.setAttribute('aria-label', '切换日夜模式');
+          btn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); switchS(btn); });
+          return btn;
+        }
+        function mount(){
+          var header = document.querySelector('.header .logo-wrap') || document.querySelector('.header');
+          if (!header) return;
+          var existing = document.querySelector('.theme-toggle-btn');
+          if (existing) { existing.remove(); }
+          var btn = buildBtn();
+          var state = calcState();
+          btn.setAttribute('data-state', state);
+          btn.querySelector('.ttb-' + state) && (btn.querySelector('.ttb-' + state).style.display = 'none');
+          // 使用 ICONS 直接构建：带三个分支子元素改用 title
+          btn.innerHTML = ICONS[state];
+          btn.setAttribute('title', LABELS[state]);
+          header.appendChild(btn);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', mount);
+        } else {
+          mount();
+        }
+      })();
+      </script>
 
 style:
-
+  # 日/夜模式：auto = 跟随系统
+  prefers_theme: auto
   color:
-    # 动态颜色（会根据明暗主题重设明度值，只用关心色相和饱和度即可）
-    # background: 'hsl(212 16% 98%)' # 浅色背景颜色
-    # block: 'hsl(25 100% 50%)' # 块背景颜色
-    code: 'hsl(14 100% 48%)' # 行内代码颜色
-    text: 'hsl(0 0% 20%)' # 文本颜色
-    # 主题色配置（不会根据明暗动态调整，请设置为通用的颜色）
-    theme: 'hsl(21 98% 55%)' # 主题色
-    accent: 'hsl(14 100% 57%)' # 强调色
-    link: 'hsl(207 90% 54%)' # 超链接颜色
-    button: 'hsl(192 98% 55%)' # 按钮颜色
-    hover: 'hsl(14 100% 57%)' # 按钮高亮颜色
-  
-  sidebar:
-    # background-image: 'linear-gradient(to bottom, var(--sidebar-bg), var(--sidebar-bg))'
-    blur-px: 100px # 模糊半径
-    blur-bg: var(--alpha60) # 模糊颜色
-
+    # ===== 复刻 xaoxuu.com 青色视觉基调（cyan hue=192，取自 xaoxuu 主题默认色）=====
+    theme: '#0fb1cc' # 主题/品牌色（青色）
+    accent: '#0b7f9a' # 强调色（深青）
+    link: '#0b7f9a'   # 超链接
+  # 侧边栏（左侧栏）样式：纯色卡片，保持干净通透的青色视觉
+  leftbar:
+    ui-style: card
+    background-color-light: var(--card)
+    background-color-dark: var(--card)
+    blur-px: 100px
+    blur-bg: var(--bg-a60)
+  border-radius:
+    card-l: 24px # 大卡片、侧边栏、专辑横幅
+    card: 16px   # 文章内卡片
+    card-s: 12px # 文章内小型卡片
+    bar: 12px    # 横条类元素
   font-size:
     root: 16px
-    body: .9375rem # 15px
     code: 85% # 14px
     codeblock: 0.8125rem # 13px
   font-family:
-    logo: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    body: 'system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif'
-    code: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
-    codeblock: 'Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif'
+    body: '"LXGW WenKai Screen", "PingFang SC", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, "Helvetica Neue", "Noto Sans SC", sans-serif'
+    code: 'Menlo, Monaco, Consolas, "SF Mono", "JetBrains Mono", monospace, sans-serif'
+    codeblock: 'Menlo, Monaco, Consolas, "SF Mono", "JetBrains Mono", monospace, sans-serif'
 
 menubar:
   columns: 3 # 一行多少个
   items: # 可按照自己需求增加，符合以下格式即可
     - id: post # 页面中高亮的 menu_id
-      theme: '#1BCDFC' # 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
-      icon: solar:documents-bold-duotone # 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
+      theme: '#0fb1cc' # 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
+      icon: default:documents
       title: 博客 # 标题
       url: / # 跳转链接，支持相对路径和绝对路径
     - id: wiki
-      theme: '#3DC550'
-      icon: solar:notebook-bookmark-bold-duotone
+      theme: '#0b7f9a'
+      icon: default:category
       title: 项目
       url: /wiki/
-    # - id: social
-    #   theme: '#F44336'
-    #   icon: solar:chat-square-like-bold-duotone
-    #   title: 社交
-    #   url: /friends/
+    - id: social
+      theme: '#0c8c9e'
+      icon: github:logo
+      title: 友链
+      url: /friends/
     - id: about
-      theme: '#FA6400'
-      icon: solar:planet-bold-duotone
+      theme: '#0e9db6'
+      icon: default:monitor
       title: 关于
-      url: /about/      
+      url: /about/
 
 site_tree:
   # 主页配置
   home:
-    sidebar: welcome, recent
+    leftbar: welcome, recent
+    rightbar:
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-    sidebar: welcome, recent # for categories/tags/archives
-    # nav_tabs:  # 近期发布 分类 标签 专栏 归档 and ...
-      # '朋友文章': /friends/rss/
-  # 博客专栏列表页配置
-  # index_topic:
-  #   base_dir: topic # 只影响自动生成的页面路径
-  #   menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 topic 的页面默认使用这里配置的 menu_id
+    leftbar: welcome, recent # for categories/tags/archives
+    rightbar:
   # 文档列表页配置
   index_wiki:
-    base_dir: wiki # 只影响自动生成的页面路径
-    menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-    sidebar: toc, recent # for wiki
+    base_dir: wiki
+    menu_id: wiki
+    leftbar: toc, recent # for wiki
+    rightbar:
     nav_tabs:
       'Github': https://github.com/zhenxiang-shawn
-  index_about:
+  # 博客文章内页配置
+  post:
+    menu_id: post
+    leftbar: welcome, recent
+    rightbar: toc, ghrepo
+  # 文档内页配置
+  wiki:
+    menu_id: wiki
+    leftbar: welcome, recent
+    rightbar: ghrepo, toc
+  # 关于页配置
+  about:
     base_dir: about
     menu_id: about
-    sidebar: linklist
-    nav_tabs:
-      'Github': https://github.com/zhenxiang-shawn
-  index_friends:
+    leftbar: linklist
+    rightbar: toc
+  # 友链页配置
+  friends:
     base_dir: friends
-    menu_id: about
-
-  
-# 博客文章内页配置
-post:
-  menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
-  sidebar: toc, related, recent # for pages using 'layout:post'
-# 博客专栏文章内页配置
-topic:
-  menu_id: post
-# 文档内页配置
-wiki:
-  menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
-  sidebar: toc, recent # for wiki
-about:
-  menu_id: about
-  base_dir: about
-  sidebar: toc
-
-# 作者信息配置
-author: 
-  base_dir: author # 只影响自动生成的页面路径
-  menu_id: post
-  sidebar: recent
-# 错误页配置
-error_page:
-  menu_id: post
-  '404': '/404.html'
-  sidebar: recent
-# 其它自定义页面配置 layout: page
-page:
-  sidebar: toc, recent
-
+    menu_id: social
+  # 作者信息配置
+  author:
+    base_dir: author
+    menu_id: post
+    leftbar: recent
+  # 错误页配置
+  error_page:
+    menu_id: post
+    '404': '/404.html'
+    leftbar: recent
+  # 其它自定义页面配置 layout: page
+  page:
+    leftbar: welcome, recent
+    rightbar: toc
 
 article:
-  # 分类颜色
+  # 分类颜色（均为浅色背景可读、满足 AA 的取值，蓝为中性点缀）
   category_color:
-    # '新闻稿': '#DA0F47'
-    '设计开发': '#03a9f4'
-    '动手实践': '#009688'
-    '解决方案': '#ff9800'
-    '技术加油站': '#4caf50'
-    '开源库': '#4caf50'
-    # '博客主题': '#ffa000'
-    # '应用程序': '#e91e63'
-    '实用脚本': '#009688'
+    '设计开发': '#2563eb'
+    '动手实践': '#26a5bf'
+    '解决方案': '#0c8c9e'
+    '技术加油站': '#0f766e'
+    '开源库': '#0f766e'
+    '实用脚本': '#7c3aed'
   # 根据 tags 作为关键词为每一篇文章在线搜索封面：
   auto_cover: false
   # 自动从文章内容截取一定字数的文字作为摘要
@@ -164,7 +394,6 @@ footer:
     github:
       icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/>'
       url: https://github.com/zhenxiang-shawn
-      # TODO(zhenxiang): Add gitee
     email:
       icon: '<img src="https://img.cubik65536.top/mail-bulk-solid.svg"/>'
       url: mailto:zhenxiang-shawn@outlook.com
@@ -173,28 +402,27 @@ footer:
       url: /about/#comments
 
   sitemap:
-    '博客':
-      - '[近期](/)'
-      - '[分类](/categories/)'
-      - '[标签](/tags/)'
-      - '[归档](/archives/)'
-    '项目':
-      # - '[LeetCode](/wiki/leetcode/)'
-      - '[AiAgent](/wiki/ai_agent/)'
-      - '[DeepLearning](/wiki/deep_learning/)'
-      - '[Python](/wiki/learn_python/)'
-      # - '[应用程序](/wiki/tags/应用程序/)'
-    '社交':
-      - '[友链](/friends/)'
-      # - '[留言板](/more/#comments)'
-    '更多':
-      - '[关于本站](/about/)'
-      - '[GitHub](https://github.com/zhenxiang-shawn)'
+    - title: 博客
+      items:
+        - '[近期](/)'
+        - '[分类](/categories/)'
+        - '[标签](/tags/)'
+        - '[归档](/archives/)'
+    - title: 项目
+      items:
+        - '[AiAgent](/wiki/ai_agent/)'
+        - '[DeepLearning](/wiki/deep_learning/)'
+        - '[Python](/wiki/learn_python/)'
+    - title: 社交
+      items:
+        - '[友链](/friends/)'
+    - title: 更多
+      items:
+        - '[关于本站](/about/)'
+        - '[GitHub](https://github.com/zhenxiang-shawn)'
 
   source: '[GitHub](https://github.com/zhenxiang-shawn/zhenxiang-shawn.github.io/)'
-
 
   content: |
     <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
- 
