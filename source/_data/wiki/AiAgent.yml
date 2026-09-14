@@ -1,0 +1,18 @@
+name: AiAgent
+title: AI Agent 系统设计
+tags: 笔记
+description: AI Agent 中台架构设计，涵盖 Agent 架构模式、工具调用、记忆系统、RAG、安全控制等核心模块，从基础模式到生产级工程实践。
+start: 开始阅读
+icon: /imgs/ai-agent-logo.jpg
+cover: /imgs/ai-agent-logo.jpg
+base_dir: /wiki/ai_agent
+search:
+  filter: /wiki/ai_agent
+  placeholder: 在 AI Agent 中搜索...
+toc:
+  'Agent 架构模式': [0, 99]
+  '工具调用设计': [100, 199]
+  '记忆系统设计': [200, 299]
+  '检索增强生成': [300, 399]
+  '安全与防护': [400, 499]
+  '可观测性与评估': [500, 599]

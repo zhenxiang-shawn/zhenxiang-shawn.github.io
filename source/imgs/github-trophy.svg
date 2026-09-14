@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="150" viewBox="0 0 720 150" role="img" aria-label="zhenxiang-shawn GitHub Achievements">
+  <title>zhenxiang-shawn GitHub 成就</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="150" rx="12" fill="url(#bg)" stroke="#30363d" stroke-width="1"/>
+  <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,'PingFang SC','Microsoft YaHei',sans-serif">
+    <!-- 标题 -->
+    <text x="20" y="30" font-size="15" font-weight="600" fill="#ffffff">zhenxiang-shawn · GitHub 成就</text>
+    <!-- 成就项 -->
+    <g>
+      <rect x="20" y="48" width="160" height="84" rx="8" fill="#161b22" stroke="#30363d"/>
+      <text x="100" y="74" font-size="26" font-weight="700" fill="#e3b341" text-anchor="middle">24</text>
+      <text x="100" y="94" font-size="12" fill="#8b949e" text-anchor="middle">公开仓库</text>
+      <text x="100" y="114" font-size="11" fill="#484f58" text-anchor="middle">Public Repos</text>
+    </g>
+    <g>
+      <rect x="192" y="48" width="160" height="84" rx="8" fill="#161b22" stroke="#30363d"/>
+      <text x="272" y="74" font-size="26" font-weight="700" fill="#58a6ff" text-anchor="middle">10</text>
+      <text x="272" y="94" font-size="12" fill="#8b949e" text-anchor="middle">获得 ⭐</text>
+      <text x="272" y="114" font-size="11" fill="#484f58" text-anchor="middle">Total Stars</text>
+    </g>
+    <g>
+      <rect x="364" y="48" width="160" height="84" rx="8" fill="#161b22" stroke="#30363d"/>
+      <text x="444" y="74" font-size="26" font-weight="700" fill="#7ee787" text-anchor="middle">2</text>
+      <text x="444" y="94" font-size="12" fill="#8b949e" text-anchor="middle">关注者</text>
+      <text x="444" y="114" font-size="11" fill="#484f58" text-anchor="middle">Followers</text>
+    </g>
+    <g>
+      <rect x="536" y="48" width="164" height="84" rx="8" fill="#161b22" stroke="#30363d"/>
+      <text x="618" y="74" font-size="26" font-weight="700" fill="#d2a8ff" text-anchor="middle">7</text>
+      <text x="618" y="94" font-size="12" fill="#8b949e" text-anchor="middle">编程语言</text>
+      <text x="618" y="114" font-size="11" fill="#484f58" text-anchor="middle">Languages</text>
+    </g>
+  </g>
+</svg>

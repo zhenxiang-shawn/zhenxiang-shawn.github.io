@@ -26,32 +26,32 @@ header: false
   </div>
   <div class="mbti-dims">
     <div class="mbti-dim">
-      <span class="mbti-key">E 外向 · Extraversion</span>
-      <span class="mbti-val">54.6%</span>
-      <div class="mbti-bar"><i style="width:54.6%"></i></div>
+      <span class="mbti-key">E 外向 · Extraversion <span class="mbti-sub">（内向 43%）</span></span>
+      <span class="mbti-val">57%</span>
+      <div class="mbti-bar"><i style="width:57%"></i></div>
     </div>
     <div class="mbti-dim">
-      <span class="mbti-key">N 直觉 · iNtuition <span class="mbti-sub">（实感 49.4%）</span></span>
-      <span class="mbti-val">50.6%</span>
-      <div class="mbti-bar"><i style="width:50.6%"></i></div>
+      <span class="mbti-key">N 天马行空 · Intuition <span class="mbti-sub">（实感 24%）</span></span>
+      <span class="mbti-val">76%</span>
+      <div class="mbti-bar"><i style="width:76%"></i></div>
     </div>
     <div class="mbti-dim">
-      <span class="mbti-key">T 理性 · Thinking</span>
-      <span class="mbti-val">55.9%</span>
-      <div class="mbti-bar"><i style="width:55.9%"></i></div>
+      <span class="mbti-key">T 理性思考 · Thinking <span class="mbti-sub">（感性 44%）</span></span>
+      <span class="mbti-val">56%</span>
+      <div class="mbti-bar"><i style="width:56%"></i></div>
     </div>
     <div class="mbti-dim">
-      <span class="mbti-key">J 判断 · Judging</span>
-      <span class="mbti-val">70.8%</span>
-      <div class="mbti-bar"><i style="width:70.8%"></i></div>
+      <span class="mbti-key">J 运筹帷幄 · Judging <span class="mbti-sub">（展望 36%）</span></span>
+      <span class="mbti-val">64%</span>
+      <div class="mbti-bar"><i style="width:64%"></i></div>
     </div>
     <div class="mbti-dim">
-      <span class="mbti-key">A 沉稳 · Assertive</span>
-      <span class="mbti-val">—</span>
-      <div class="mbti-bar"></div>
+      <span class="mbti-key">A 自信果断 · Assertive <span class="mbti-sub">（敏感 36%）</span></span>
+      <span class="mbti-val">64%</span>
+      <div class="mbti-bar"><i style="width:64%"></i></div>
     </div>
   </div>
-  <a class="mbti-link" href="https://www.16personalities.com/ch/entj-%E6%8C%87%E6%8C%A5%E5%AE%98%E4%BA%BA%E6%A0%BC" target="_blank" rel="external nofollow noopener noreferrer">查看详细档案 →</a>
+  <a class="mbti-link" href="https://www.16personalities.com/ch/%E7%BB%93%E6%9E%9C/entj-a/m/4zbekjx3n" target="_blank" rel="external nofollow noopener noreferrer">查看详细档案 →</a>
 </div>
 
 ### 🤩 兴趣爱好
